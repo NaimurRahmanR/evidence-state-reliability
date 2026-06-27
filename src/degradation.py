@@ -10,6 +10,13 @@ Pilot degradation types:
 3. contradiction
 4. uncertainty removal
 5. unsupported addition
+
+Pilot 02 adds graded degradation severity levels:
+1. none
+2. low
+3. medium
+4. high
+5. severe
 """
 
 import random
@@ -59,7 +66,8 @@ def apply_fact_loss(
             lost.add(unit.unit_id)
 
     kept_texts = [
-        unit.text for unit in required_units
+        unit.text
+        for unit in required_units
         if unit.unit_id in preserved
     ]
 
@@ -211,3 +219,117 @@ def apply_unsupported_addition(
         unsupported_additions=unsupported_additions,
         uncertainty_removed=state.uncertainty_removed,
     )
+
+
+DEGRADATION_SEVERITY_CONFIGS = {
+    "none": {
+        "loss_probability": 0.00,
+        "mutation_probability": 0.00,
+        "contradiction_probability": 0.00,
+        "remove_uncertainty": False,
+        "add_unsupported_claim": False,
+    },
+    "low": {
+        "loss_probability": 0.10,
+        "mutation_probability": 0.05,
+        "contradiction_probability": 0.00,
+        "remove_uncertainty": False,
+        "add_unsupported_claim": False,
+    },
+    "medium": {
+        "loss_probability": 0.25,
+        "mutation_probability": 0.10,
+        "contradiction_probability": 0.05,
+        "remove_uncertainty": False,
+        "add_unsupported_claim": False,
+    },
+    "high": {
+        "loss_probability": 0.40,
+        "mutation_probability": 0.20,
+        "contradiction_probability": 0.10,
+        "remove_uncertainty": True,
+        "add_unsupported_claim": False,
+    },
+    "severe": {
+        "loss_probability": 0.55,
+        "mutation_probability": 0.30,
+        "contradiction_probability": 0.20,
+        "remove_uncertainty": True,
+        "add_unsupported_claim": True,
+    },
+}
+
+
+def get_degradation_severity_levels() -> list[str]:
+    """
+    Return the supported degradation severity levels for Pilot 02.
+    """
+
+    return list(DEGRADATION_SEVERITY_CONFIGS.keys())
+
+
+def apply_graded_degradation(
+    state: EvidenceState,
+    required_units: list[EvidenceUnit],
+    severity: str,
+    rng: random.Random,
+) -> EvidenceState:
+    """
+    Apply graded evidence degradation for Pilot 02.
+
+    This keeps Pilot 01 degradation functions intact, but gives Pilot 02
+    a clean way to test increasing degradation severity.
+    """
+
+    if severity not in DEGRADATION_SEVERITY_CONFIGS:
+        valid_levels = ", ".join(get_degradation_severity_levels())
+        raise ValueError(
+            f"Unknown degradation severity: {severity}. "
+            f"Valid levels are: {valid_levels}"
+        )
+
+    config = DEGRADATION_SEVERITY_CONFIGS[severity]
+
+    degraded_state = state
+
+    degraded_state = apply_fact_loss(
+        state=degraded_state,
+        required_units=required_units,
+        loss_probability=config["loss_probability"],
+        rng=rng,
+        new_stage_name=f"pilot_02_{severity}_loss",
+    )
+
+    degraded_state = apply_fact_mutation(
+        state=degraded_state,
+        required_units=required_units,
+        mutation_probability=config["mutation_probability"],
+        rng=rng,
+        new_stage_name=f"pilot_02_{severity}_mutation",
+    )
+
+    degraded_state = apply_contradiction(
+        state=degraded_state,
+        required_units=required_units,
+        contradiction_probability=config["contradiction_probability"],
+        rng=rng,
+        new_stage_name=f"pilot_02_{severity}_contradiction",
+    )
+
+    if config["remove_uncertainty"]:
+        degraded_state = apply_uncertainty_removal(
+            state=degraded_state,
+            new_stage_name=f"pilot_02_{severity}_uncertainty_removed",
+        )
+
+    if config["add_unsupported_claim"]:
+        degraded_state = apply_unsupported_addition(
+            state=degraded_state,
+            addition_text=(
+                "The case has additional supporting evidence not shown "
+                "in the record."
+            ),
+            new_stage_name=f"pilot_02_{severity}_unsupported_addition",
+        )
+
+    return degraded_state
