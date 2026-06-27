@@ -26,4 +26,12 @@ if errorlevel 1 (
 )
 
 echo.
+echo Step 4: Creating Pilot 02 plots
+python -m experiments.plot_pilot_02
+if errorlevel 1 (
+    echo Pilot 02 plotting failed.
+    exit /b 1
+)
+
+echo.
 echo Pilot 02 workflow completed successfully.
