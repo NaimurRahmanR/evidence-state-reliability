@@ -1,0 +1,117 @@
+[
+  {
+    "task_id": "T001",
+    "question": "Based on the evidence, is Case Alpha eligible?",
+    "original_evidence": "The case is Case Alpha. Case Alpha submitted all required documents. A case is not eligible if submitted after the deadline.",
+    "required_units": [
+      {
+        "unit_id": "F001",
+        "text": "The case is Case Alpha.",
+        "importance": 1.0
+      },
+      {
+        "unit_id": "F002",
+        "text": "Case Alpha submitted all required documents.",
+        "importance": 1.0
+      },
+      {
+        "unit_id": "F003",
+        "text": "A case is not eligible if submitted after the deadline.",
+        "importance": 1.0
+      }
+    ],
+    "gold_answer": "eligible"
+  },
+  {
+    "task_id": "T002",
+    "question": "Based on the evidence, is Case Beta eligible?",
+    "original_evidence": "The case is Case Beta. Case Beta missed one required document. A case is not eligible if any required document is missing.",
+    "required_units": [
+      {
+        "unit_id": "F001",
+        "text": "The case is Case Beta.",
+        "importance": 1.0
+      },
+      {
+        "unit_id": "F002",
+        "text": "Case Beta missed one required document.",
+        "importance": 1.0
+      },
+      {
+        "unit_id": "F003",
+        "text": "A case is not eligible if any required document is missing.",
+        "importance": 1.0
+      }
+    ],
+    "gold_answer": "not eligible"
+  },
+  {
+    "task_id": "T003",
+    "question": "Based on the evidence, is Case Alpha eligible?",
+    "original_evidence": "The case is Case Alpha. Case Alpha has conflicting identity information. A case is eligible only if all required documents are submitted before the deadline.",
+    "required_units": [
+      {
+        "unit_id": "F001",
+        "text": "The case is Case Alpha.",
+        "importance": 1.0
+      },
+      {
+        "unit_id": "F002",
+        "text": "Case Alpha has conflicting identity information.",
+        "importance": 1.0
+      },
+      {
+        "unit_id": "F003",
+        "text": "A case is eligible only if all required documents are submitted before the deadline.",
+        "importance": 1.0
+      }
+    ],
+    "gold_answer": "not eligible"
+  },
+  {
+    "task_id": "T004",
+    "question": "Based on the evidence, is Case Epsilon eligible?",
+    "original_evidence": "The case is Case Epsilon. Case Epsilon submitted all required documents before the deadline. A case is eligible only if all required documents are submitted before the deadline.",
+    "required_units": [
+      {
+        "unit_id": "F001",
+        "text": "The case is Case Epsilon.",
+        "importance": 1.0
+      },
+      {
+        "unit_id": "F002",
+        "text": "Case Epsilon submitted all required documents before the deadline.",
+        "importance": 1.0
+      },
+      {
+        "unit_id": "F003",
+        "text": "A case is eligible only if all required documents are submitted before the deadline.",
+        "importance": 1.0
+      }
+    ],
+    "gold_answer": "eligible"
+  },
+  {
+    "task_id": "T005",
+    "question": "Based on the evidence, is Case Alpha eligible?",
+    "original_evidence": "The case is Case Alpha. Case Alpha submitted all required documents. A case is not eligible if any required document is missing.",
+    "required_units": [
+      {
+        "unit_id": "F001",
+        "text": "The case is Case Alpha.",
+        "importance": 1.0
+      },
+      {
+        "unit_id": "F002",
+        "text": "Case Alpha submitted all required documents.",
+        "importance": 1.0
+      },
+      {
+        "unit_id": "F003",
+        "text": "A case is not eligible if any required document is missing.",
+        "importance": 1.0
+      }
+    ],
+    "gold_answer": "eligible"
+  }
+]
