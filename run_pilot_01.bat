@@ -10,15 +10,23 @@ if errorlevel 1 (
 )
 
 echo.
-echo Step 2: Analysing pilot results
+echo Step 2: Analysing pilot condition-level results
 python -m experiments.analyse_pilot_01
 if errorlevel 1 (
-    echo Pilot analysis failed.
+    echo Pilot condition-level analysis failed.
     exit /b 1
 )
 
 echo.
-echo Step 3: Creating pilot plots
+echo Step 3: Analysing reliability-failure relationships
+python -m experiments.analyse_reliability_failure_relationship
+if errorlevel 1 (
+    echo Pilot reliability-failure relationship analysis failed.
+    exit /b 1
+)
+
+echo.
+echo Step 4: Creating pilot plots
 python -m experiments.plot_pilot_01
 if errorlevel 1 (
     echo Pilot plotting failed.
