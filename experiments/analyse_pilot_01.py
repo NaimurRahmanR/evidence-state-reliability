@@ -2,6 +2,10 @@
 Analyse the first simulation pilot results.
 
 This script reads the pilot CSV and prints a clear condition-level summary.
+
+Important:
+    Cost per Governable Output is calculated at condition level:
+        total condition cost / number of correct accepted outputs
 """
 
 import pandas as pd
@@ -12,6 +16,11 @@ def main() -> None:
 
     results = pd.read_csv(input_path)
 
+    results["governable_output"] = (
+        (results["accepted_by_pipeline"] == True)
+        & (results["final_failure"] == False)
+    )
+
     metric_columns = [
         "evidence_state_reliability",
         "evidence_state_degradation",
@@ -20,7 +29,6 @@ def main() -> None:
         "audit_false_assurance",
         "escalation_contamination",
         "cost",
-        "cost_per_governable_output",
     ]
 
     summary = (
@@ -28,6 +36,35 @@ def main() -> None:
         .groupby("condition")[metric_columns]
         .mean()
         .reset_index()
+    )
+
+    condition_costs = (
+        results
+        .groupby("condition")
+        .agg(
+            total_cost=("cost", "sum"),
+            governable_outputs=("governable_output", "sum"),
+            total_outputs=("task_id", "count"),
+        )
+        .reset_index()
+    )
+
+    condition_costs["cost_per_governable_output"] = (
+        condition_costs["total_cost"] / condition_costs["governable_outputs"]
+    )
+
+    summary = summary.merge(
+        condition_costs[
+            [
+                "condition",
+                "total_cost",
+                "governable_outputs",
+                "total_outputs",
+                "cost_per_governable_output",
+            ]
+        ],
+        on="condition",
+        how="left",
     )
 
     summary = summary.round(4)
@@ -47,6 +84,7 @@ def main() -> None:
 
     assert len(results) == 750
     assert len(summary) == 5
+    assert "cost_per_governable_output" in summary.columns
 
     print("\nPilot 01 analysis sanity check passed.")
 
