@@ -26,7 +26,15 @@ if errorlevel 1 (
 )
 
 echo.
-echo Step 4: Creating pilot plots
+echo Step 4: Running relationship sensitivity analysis
+python -m experiments.analyse_relationship_sensitivity
+if errorlevel 1 (
+    echo Pilot relationship sensitivity analysis failed.
+    exit /b 1
+)
+
+echo.
+echo Step 5: Creating pilot plots
 python -m experiments.plot_pilot_01
 if errorlevel 1 (
     echo Pilot plotting failed.
