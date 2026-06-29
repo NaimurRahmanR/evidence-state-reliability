@@ -1,4 +1,4 @@
-﻿# Evidence-State Reliability in Multi-Stage LLM Pipelines
+# Evidence-State Reliability in Multi-Stage LLM Pipelines
 
 This repository contains code and documentation for a doctoral-level research project on **Evidence-State Reliability in Multi-Stage LLM Pipelines**.
 
@@ -372,15 +372,14 @@ Main model:
 GLM-5.2
 
 Comparison model:
-Claude Fable 5
-
-Fallback comparison model:
 Claude Opus 4.8
 ```
 
-This setup is planned for future real LLM readiness only.
+This setup is planned for controlled real LLM readiness only.
 
-It has not been run yet.
+The GLM-5.2 connection check has succeeded.
+
+The Pilot 03 real LLM experiment has not been run yet.
 
 The intended role of each model is:
 
@@ -388,14 +387,13 @@ The intended role of each model is:
 GLM-5.2:
 main real LLM model for controlled Pilot 03 testing
 
-Claude Fable 5:
-frontier comparison model, if accessible
-
 Claude Opus 4.8:
-fallback comparison model if Claude Fable 5 is not accessible
+comparison model for a later subset run after GLM-5.2 is stable
 ```
 
-The first real LLM run should not be a full experiment.
+Claude Fable 5 is not used because it is not available.
+
+The first real LLM experiment should not be a full experiment.
 
 The correct sequence is:
 
@@ -405,8 +403,7 @@ The correct sequence is:
 3. Manually inspect the result
 4. GLM-5.2 small controlled run
 5. GLM-5.2 full Pilot 03 run only if the small run is stable
-6. Claude Fable 5 comparison subset only after GLM is stable
-7. Claude Opus 4.8 comparison subset only if Fable 5 is not accessible
+6. Claude Opus 4.8 comparison subset only after GLM-5.2 is stable
 ```
 
 The comparison model should initially run on a subset, not the full Pilot 03 design.
