@@ -49,7 +49,7 @@ from src.pilot_03_tasks import Pilot03Task, generate_pilot_03_tasks, summarise_p
 
 
 OUTPUT_DIR = Path("results/pilot_03_real_llm_analysis")
-REAL_CHAIN_RUN_VERSION = "pilot_03_zai_small_chain_run_v3"
+REAL_CHAIN_RUN_VERSION = "pilot_03_zai_small_chain_run_v4"
 TASK_ID_PATTERN = re.compile(r"^P03-T(?P<number>\d{4})$")
 
 
@@ -255,6 +255,7 @@ def _summarise_real_chain_results(
     *,
     results: list[Pilot03RealChainResult],
     parsed_responses: list[Pilot03ParsedResponse],
+    saved_call_records: list[Pilot03LLMCallRecord] | None = None,
     n_tasks_requested: int,
     selected_task_ids: list[str],
     requested_task_ids: list[str] | None,
@@ -264,7 +265,15 @@ def _summarise_real_chain_results(
     failure_reason: str | None,
 ) -> dict[str, Any]:
     """Create a compact real-chain summary without overclaiming."""
-    call_records = _flatten_call_records(results)
+    completed_call_records = _flatten_call_records(results)
+    saved_records = list(saved_call_records) if saved_call_records is not None else list(completed_call_records)
+    completed_call_ids = {record.call_id for record in completed_call_records}
+    partial_stage_call_records = [
+        record for record in saved_records if record.call_id not in completed_call_ids
+    ]
+
+    # Metrics derived from completed chains only.
+    call_records = completed_call_records
 
     condition_counts = Counter(result.condition for result in results)
     gold_decisions = Counter(result.gold_decision for result in results)
@@ -281,11 +290,25 @@ def _summarise_real_chain_results(
             "invalid": sum(1 for record in stage_records if record.error is not None),
         }
 
+    saved_stage_valid_schema: dict[str, dict[str, int]] = {}
+    for stage in [DECISION_STAGE, AUDIT_STAGE, ESCALATION_STAGE]:
+        stage_records = [record for record in saved_records if record.stage == stage]
+        saved_stage_valid_schema[stage] = {
+            "valid": sum(1 for record in stage_records if record.error is None),
+            "invalid": sum(1 for record in stage_records if record.error is not None),
+        }
+
     total_tokens = 0
     for record in call_records:
         usage = record.metadata.get("usage", {})
         if isinstance(usage, dict) and isinstance(usage.get("total_tokens"), int):
             total_tokens += usage["total_tokens"]
+
+    total_tokens_saved = 0
+    for record in saved_records:
+        usage = record.metadata.get("usage", {})
+        if isinstance(usage, dict) and isinstance(usage.get("total_tokens"), int):
+            total_tokens_saved += usage["total_tokens"]
 
     for result in results:
         decision_value = result.decision_call.parsed_response.get("final_decision")
@@ -310,15 +333,44 @@ def _summarise_real_chain_results(
         "conditions": conditions,
         "n_chain_results_completed": len(results),
         "n_call_records_completed": len(call_records),
+        "n_call_records_saved": len(saved_records),
+        "n_call_records_in_completed_chains": len(completed_call_records),
+        "n_partial_stage_call_records": len(partial_stage_call_records),
+        "partial_stage_call_records": [
+            {
+                "task_id": record.task_id,
+                "condition": record.metadata.get("condition"),
+                "stage": record.stage,
+                "valid_json": record.metadata.get("valid_json"),
+                "valid_schema": record.metadata.get("valid_schema"),
+                "note": "Completed stage call only; not a complete chain result.",
+            }
+            for record in partial_stage_call_records
+        ],
+        "partial_stage_call_records_note": (
+            "Partial stage call records are completed stage calls saved from an interrupted "
+            "or failed run before a full decision-audit-escalation chain was completed. "
+            "They are not counted as completed chain results."
+        ),
         "expected_call_count": len(selected_task_ids) * len(conditions) * 3,
         "condition_counts": dict(condition_counts),
         "gold_decisions": dict(gold_decisions),
         "stage_valid_schema": stage_valid_schema,
+        "saved_stage_valid_schema": saved_stage_valid_schema,
         "decision_correct": dict(decision_correct),
         "escalation_correct": dict(escalation_correct),
         "audit_passed": dict(audit_passed),
         "total_tokens": total_tokens,
+        "total_tokens_saved": total_tokens_saved,
         "parser_summary": summarise_parsed_responses(parsed_responses),
+        "parser_summary_scope": (
+            "All saved parsed stage calls, including partial stage records if a run "
+            "was interrupted before a complete chain was formed."
+        ),
+        "completed_chain_metrics_scope": (
+            "Decision correctness, escalation correctness, audit pass counts, and "
+            "condition counts are computed from completed chains only."
+        ),
         "scope_limitation": (
             "This is a small controlled real LLM run. It should not be generalised "
             "beyond the current Pilot 03 setup, model, prompts, tasks, and evidence conditions."
@@ -345,6 +397,7 @@ def _write_outputs(
     summary = _summarise_real_chain_results(
         results=results,
         parsed_responses=parsed_responses,
+        saved_call_records=records,
         n_tasks_requested=n_tasks_requested,
         selected_task_ids=selected_task_ids,
         requested_task_ids=requested_task_ids,
@@ -672,6 +725,41 @@ def run_small_chain(
         print("observed failed Z.ai real chain attempt under current Pilot 03 conditions")
         return 1
 
+    except KeyboardInterrupt:
+        failure_reason = (
+            "KeyboardInterrupt received. Saved completed chains and any completed stage "
+            "call records available before interruption. Partial stage records are not "
+            "completed chain results."
+        )
+        print()
+        print(failure_reason)
+        print()
+        print("Saving interrupted partial outputs before exit.")
+
+        paths = _write_outputs(
+            records=call_records,
+            results=results,
+            parsed_responses=parsed_responses,
+            tasks=tasks,
+            run_id=run_id,
+            n_tasks_requested=n_tasks,
+            selected_task_ids=selected_task_ids,
+            requested_task_ids=requested_task_ids,
+            generated_task_count=generated_task_count,
+            conditions=conditions,
+            run_status="interrupted_partial",
+            failure_reason=failure_reason,
+        )
+
+        print("Interrupted partial output files:")
+        for name, path in paths.items():
+            print(f"{name}: {path}")
+
+        print()
+        print("Safe wording:")
+        print("observed interrupted partial real GLM run under current Pilot 03 real LLM experimental conditions")
+        return 130
+
     paths = _write_outputs(
         records=call_records,
         results=results,
@@ -690,6 +778,7 @@ def run_small_chain(
     summary = _summarise_real_chain_results(
         results=results,
         parsed_responses=parsed_responses,
+        saved_call_records=call_records,
         n_tasks_requested=n_tasks,
         selected_task_ids=selected_task_ids,
         requested_task_ids=requested_task_ids,
