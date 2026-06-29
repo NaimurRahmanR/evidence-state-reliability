@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from collections import Counter
 from dataclasses import asdict, dataclass
 from typing import Any
@@ -8,7 +9,7 @@ from typing import Any
 from src.pilot_03_llm_client import Pilot03LLMCallRecord
 
 
-PILOT_03_PARSER_VERSION = "pilot_03_parser_v1"
+PILOT_03_PARSER_VERSION = "pilot_03_parser_v2"
 
 DECISION_STAGE = "decision"
 AUDIT_STAGE = "audit"
@@ -33,12 +34,39 @@ class Pilot03ParsedResponse:
     errors: list[str]
 
 
+def _strip_markdown_json_fence(raw_response_text: str) -> str:
+    """Return JSON text, allowing common markdown-fenced JSON responses.
+
+    Real LLMs sometimes return valid JSON wrapped in ```json ... ``` even when
+    instructed to return JSON only. We keep the raw response unchanged in logs,
+    but parse the inner JSON body for validation.
+    """
+    text = raw_response_text.strip()
+
+    fenced_match = re.fullmatch(
+        r"```(?:json|JSON)?\s*(.*?)\s*```",
+        text,
+        flags=re.DOTALL,
+    )
+
+    if fenced_match:
+        return fenced_match.group(1).strip()
+
+    return text
+
+
 def parse_json_response(raw_response_text: str) -> tuple[dict[str, Any], bool, list[str]]:
-    """Parse a raw model response as JSON."""
+    """Parse a raw model response as JSON.
+
+    The parser accepts:
+    - direct JSON objects
+    - markdown-fenced JSON objects returned as ```json ... ```
+    """
     errors: list[str] = []
+    json_text = _strip_markdown_json_fence(raw_response_text)
 
     try:
-        parsed = json.loads(raw_response_text)
+        parsed = json.loads(json_text)
     except json.JSONDecodeError as exc:
         return {}, False, [f"invalid_json: {exc.msg}"]
 
