@@ -126,6 +126,26 @@ gold=reject -> decision=reject -> escalation=reject
 
 However, the audit stage did not pass the decision under the degraded conditions, which suggests the audit component treated the degraded evidence state as insufficient or problematic even when the final answer was correct.
 
+## Reproducible aggregate command
+
+The combined two-task result can be regenerated from saved raw real-response logs using:
+
+~~~powershell
+python -m experiments.pilot_03_aggregate_real_runs `
+  --run-dirs `
+  .\results\pilot_03_real_llm_analysis\pilot_03_zai_small_chain_n2_20260629T195801Z `
+  .\results\pilot_03_real_llm_analysis\pilot_03_zai_small_chain_p03_t0002_20260629T205234Z `
+  --output-json .\results\pilot_03_real_llm_analysis\pilot_03_real_glm_two_task_aggregate.json
+~~~
+
+The generated aggregate JSON is saved locally under:
+
+~~~text
+results\pilot_03_real_llm_analysis\pilot_03_real_glm_two_task_aggregate.json
+~~~
+
+This JSON file is a local result artifact and is not committed because real LLM result folders are intentionally ignored.
+
 ## Safe wording
 
 ```text
