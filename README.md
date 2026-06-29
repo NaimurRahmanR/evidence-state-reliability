@@ -76,6 +76,12 @@ Pilot 02 = graded degradation severity study
 
 Both pilots are reproducible from one-command Windows batch scripts.
 
+To run everything currently implemented:
+
+```bat
+.\run_all_pilots.bat
+```
+
 ---
 
 ## Pilot 01: Pipeline-condition reliability study
@@ -228,55 +234,75 @@ This is currently the strongest result in the repository.
 
 ---
 
+## Reproduce all current pilots
+
+Run all implemented pilot workflows:
+
+```bat
+.\run_all_pilots.bat
+```
+
+This runs:
+
+```text
+Pilot 01 workflow
+-> Pilot 02 workflow
+```
+
+The master workflow regenerates the current simulation outputs, analysis tables, relationship tests, and plots.
+
+---
+
 ## Repository structure
 
 ```text
 evidence-state-reliability/
-│
-├── README.md
-├── requirements.txt
-├── .gitignore
-├── run_pilot_01.bat
-├── run_pilot_02.bat
-│
-├── data/
-│   ├── synthetic/
-│   └── outputs/
-│
-├── experiments/
-│   ├── __init__.py
-│   ├── sanity_check_evidence_state.py
-│   ├── sanity_check_task_generator.py
-│   ├── sanity_check_degradation.py
-│   ├── sanity_check_graded_degradation.py
-│   ├── sanity_check_pipeline_conditions.py
-│   ├── sanity_check_metrics.py
-│   ├── sanity_check_simulated_models.py
-│   ├── run_pilot_01.py
-│   ├── analyse_pilot_01.py
-│   ├── analyse_reliability_failure_relationship.py
-│   ├── analyse_relationship_sensitivity.py
-│   ├── plot_pilot_01.py
-│   ├── run_pilot_02.py
-│   ├── analyse_pilot_02.py
-│   └── plot_pilot_02.py
-│
-├── results/
-│   ├── tables/
-│   └── plots/
-│
-├── notebooks/
-│
-└── src/
-    ├── __init__.py
-    ├── evidence_state.py
-    ├── task_generator.py
-    ├── degradation.py
-    ├── pipeline_conditions.py
-    ├── metrics.py
-    ├── simulated_models.py
-    ├── pilot_runner.py
-    └── pilot_02_runner.py
+|
+|-- README.md
+|-- requirements.txt
+|-- .gitignore
+|-- run_pilot_01.bat
+|-- run_pilot_02.bat
+|-- run_all_pilots.bat
+|
+|-- data/
+|   |-- synthetic/
+|   |-- outputs/
+|
+|-- experiments/
+|   |-- __init__.py
+|   |-- sanity_check_evidence_state.py
+|   |-- sanity_check_task_generator.py
+|   |-- sanity_check_degradation.py
+|   |-- sanity_check_graded_degradation.py
+|   |-- sanity_check_pipeline_conditions.py
+|   |-- sanity_check_metrics.py
+|   |-- sanity_check_simulated_models.py
+|   |-- run_pilot_01.py
+|   |-- analyse_pilot_01.py
+|   |-- analyse_reliability_failure_relationship.py
+|   |-- analyse_relationship_sensitivity.py
+|   |-- plot_pilot_01.py
+|   |-- run_pilot_02.py
+|   |-- analyse_pilot_02.py
+|   |-- plot_pilot_02.py
+|
+|-- results/
+|   |-- tables/
+|   |-- plots/
+|
+|-- notebooks/
+|
+|-- src/
+    |-- __init__.py
+    |-- evidence_state.py
+    |-- task_generator.py
+    |-- degradation.py
+    |-- pipeline_conditions.py
+    |-- metrics.py
+    |-- simulated_models.py
+    |-- pilot_runner.py
+    |-- pilot_02_runner.py
 ```
 
 ---
@@ -349,13 +375,19 @@ pip install -r requirements.txt
 
 ## Reproducibility commands
 
-Run Pilot 01:
+Run everything:
+
+```bat
+.\run_all_pilots.bat
+```
+
+Run Pilot 01 only:
 
 ```bat
 .\run_pilot_01.bat
 ```
 
-Run Pilot 02:
+Run Pilot 02 only:
 
 ```bat
 .\run_pilot_02.bat
