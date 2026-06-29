@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 import time
 from collections import Counter
@@ -48,7 +49,8 @@ from src.pilot_03_tasks import Pilot03Task, generate_pilot_03_tasks, summarise_p
 
 
 OUTPUT_DIR = Path("results/pilot_03_real_llm_analysis")
-REAL_CHAIN_RUN_VERSION = "pilot_03_zai_small_chain_run_v2"
+REAL_CHAIN_RUN_VERSION = "pilot_03_zai_small_chain_run_v3"
+TASK_ID_PATTERN = re.compile(r"^P03-T(?P<number>\d{4})$")
 
 
 @dataclass(frozen=True)
@@ -253,7 +255,10 @@ def _summarise_real_chain_results(
     *,
     results: list[Pilot03RealChainResult],
     parsed_responses: list[Pilot03ParsedResponse],
-    n_tasks: int,
+    n_tasks_requested: int,
+    selected_task_ids: list[str],
+    requested_task_ids: list[str] | None,
+    generated_task_count: int,
     conditions: list[str],
     run_status: str,
     failure_reason: str | None,
@@ -297,11 +302,15 @@ def _summarise_real_chain_results(
         "run_status": run_status,
         "failure_reason": failure_reason,
         "safe_wording": "observed result under current Pilot 03 real LLM experimental conditions",
-        "n_tasks_requested": n_tasks,
+        "n_tasks_requested": n_tasks_requested,
+        "generated_task_count": generated_task_count,
+        "requested_task_ids": requested_task_ids,
+        "selected_task_ids": selected_task_ids,
+        "n_tasks_selected": len(selected_task_ids),
         "conditions": conditions,
         "n_chain_results_completed": len(results),
         "n_call_records_completed": len(call_records),
-        "expected_call_count": n_tasks * len(conditions) * 3,
+        "expected_call_count": len(selected_task_ids) * len(conditions) * 3,
         "condition_counts": dict(condition_counts),
         "gold_decisions": dict(gold_decisions),
         "stage_valid_schema": stage_valid_schema,
@@ -324,7 +333,10 @@ def _write_outputs(
     parsed_responses: list[Pilot03ParsedResponse],
     tasks: list[Pilot03Task],
     run_id: str,
-    n_tasks: int,
+    n_tasks_requested: int,
+    selected_task_ids: list[str],
+    requested_task_ids: list[str] | None,
+    generated_task_count: int,
     conditions: list[str],
     run_status: str,
     failure_reason: str | None,
@@ -333,7 +345,10 @@ def _write_outputs(
     summary = _summarise_real_chain_results(
         results=results,
         parsed_responses=parsed_responses,
-        n_tasks=n_tasks,
+        n_tasks_requested=n_tasks_requested,
+        selected_task_ids=selected_task_ids,
+        requested_task_ids=requested_task_ids,
+        generated_task_count=generated_task_count,
         conditions=conditions,
         run_status=run_status,
         failure_reason=failure_reason,
@@ -363,11 +378,90 @@ def _normalise_conditions(condition_args: list[str]) -> list[str]:
     return condition_args
 
 
+def _task_number_from_task_id(task_id: str) -> int:
+    """Return the integer task number from a canonical Pilot 03 task id."""
+    match = TASK_ID_PATTERN.fullmatch(task_id)
+
+    if not match:
+        raise ValueError(f"Invalid task id: {task_id!r}. Expected format like P03-T0002.")
+
+    task_number = int(match.group("number"))
+    if task_number <= 0:
+        raise ValueError(f"Invalid task id: {task_id!r}. Task number must be positive.")
+
+    return task_number
+
+
+def _normalise_task_ids(task_id_args: list[str] | None) -> list[str] | None:
+    """Validate optional requested Pilot 03 task ids."""
+    if not task_id_args:
+        return None
+
+    normalised: list[str] = []
+    seen: set[str] = set()
+
+    for raw_task_id in task_id_args:
+        task_id = raw_task_id.strip()
+
+        if not task_id:
+            raise ValueError("Empty task id provided.")
+
+        _task_number_from_task_id(task_id)
+
+        if task_id not in seen:
+            normalised.append(task_id)
+            seen.add(task_id)
+
+    return normalised
+
+
+def _select_tasks(
+    *,
+    n_tasks: int,
+    requested_task_ids: list[str] | None,
+) -> tuple[list[Pilot03Task], int]:
+    """Generate and optionally filter tasks by explicit task id."""
+    if requested_task_ids is None:
+        return generate_pilot_03_tasks(n_tasks=n_tasks), n_tasks
+
+    max_requested_task_number = max(_task_number_from_task_id(task_id) for task_id in requested_task_ids)
+    generated_task_count = max(n_tasks, max_requested_task_number)
+    generated_tasks = generate_pilot_03_tasks(n_tasks=generated_task_count)
+    tasks_by_id = {task.task_id: task for task in generated_tasks}
+
+    missing = [task_id for task_id in requested_task_ids if task_id not in tasks_by_id]
+    if missing:
+        raise ValueError(
+            f"Requested task id(s) were not generated: {missing}. "
+            f"Generated task count: {generated_task_count}."
+        )
+
+    selected_tasks = [tasks_by_id[task_id] for task_id in requested_task_ids]
+    return selected_tasks, generated_task_count
+
+
+def _make_run_prefix(
+    *,
+    selected_task_ids: list[str],
+    requested_task_ids: list[str] | None,
+) -> str:
+    """Create a compact run id prefix."""
+    if requested_task_ids is None:
+        return f"pilot_03_zai_small_chain_n{len(selected_task_ids)}"
+
+    if len(selected_task_ids) == 1:
+        safe_task_id = selected_task_ids[0].lower().replace("-", "_")
+        return f"pilot_03_zai_small_chain_{safe_task_id}"
+
+    return f"pilot_03_zai_small_chain_selected{len(selected_task_ids)}"
+
+
 def run_small_chain(
     *,
     env_path: Path,
     confirm_real_llm_call: bool,
     n_tasks: int,
+    requested_task_ids: list[str] | None,
     conditions: list[str],
     timeout_seconds: int,
     max_retries: int,
@@ -410,17 +504,28 @@ def run_small_chain(
         print("No real LLM call was made.")
         return 1
 
-    tasks = generate_pilot_03_tasks(n_tasks=n_tasks)
-    run_id = make_pilot_03_run_id(prefix=f"pilot_03_zai_small_chain_n{n_tasks}")
+    tasks, generated_task_count = _select_tasks(
+        n_tasks=n_tasks,
+        requested_task_ids=requested_task_ids,
+    )
+    selected_task_ids = [task.task_id for task in tasks]
+    run_prefix = _make_run_prefix(
+        selected_task_ids=selected_task_ids,
+        requested_task_ids=requested_task_ids,
+    )
+    run_id = make_pilot_03_run_id(prefix=run_prefix)
 
-    expected_calls = n_tasks * len(conditions) * 3
+    expected_calls = len(tasks) * len(conditions) * 3
 
     print("Running real GLM-5.2 Pilot 03 chain calls.")
     print("API key value will not be printed.")
     print(f"model: {config.model}")
     print(f"endpoint: {ZAI_CHAT_COMPLETIONS_URL}")
     print(f"run_id: {run_id}")
-    print(f"n_tasks: {n_tasks}")
+    print(f"n_tasks_requested: {n_tasks}")
+    print(f"generated_task_count: {generated_task_count}")
+    print(f"requested_task_ids: {requested_task_ids}")
+    print(f"selected_task_ids: {selected_task_ids}")
     print(f"conditions: {conditions}")
     print(f"expected_real_calls: {expected_calls}")
     print(f"timeout_seconds_per_attempt: {timeout_seconds}")
@@ -519,7 +624,10 @@ def run_small_chain(
                     parsed_responses=parsed_responses,
                     tasks=tasks,
                     run_id=run_id,
-                    n_tasks=n_tasks,
+                    n_tasks_requested=n_tasks,
+                    selected_task_ids=selected_task_ids,
+                    requested_task_ids=requested_task_ids,
+                    generated_task_count=generated_task_count,
                     conditions=conditions,
                     run_status="partial_checkpoint",
                     failure_reason=None,
@@ -546,7 +654,10 @@ def run_small_chain(
             parsed_responses=parsed_responses,
             tasks=tasks,
             run_id=run_id,
-            n_tasks=n_tasks,
+            n_tasks_requested=n_tasks,
+            selected_task_ids=selected_task_ids,
+            requested_task_ids=requested_task_ids,
+            generated_task_count=generated_task_count,
             conditions=conditions,
             run_status="failed_partial",
             failure_reason=failure_reason,
@@ -567,7 +678,10 @@ def run_small_chain(
         parsed_responses=parsed_responses,
         tasks=tasks,
         run_id=run_id,
-        n_tasks=n_tasks,
+        n_tasks_requested=n_tasks,
+        selected_task_ids=selected_task_ids,
+        requested_task_ids=requested_task_ids,
+        generated_task_count=generated_task_count,
         conditions=conditions,
         run_status="completed",
         failure_reason=None,
@@ -576,7 +690,10 @@ def run_small_chain(
     summary = _summarise_real_chain_results(
         results=results,
         parsed_responses=parsed_responses,
-        n_tasks=n_tasks,
+        n_tasks_requested=n_tasks,
+        selected_task_ids=selected_task_ids,
+        requested_task_ids=requested_task_ids,
+        generated_task_count=generated_task_count,
         conditions=conditions,
         run_status="completed",
         failure_reason=None,
@@ -615,7 +732,16 @@ def main() -> int:
         "--n-tasks",
         type=int,
         default=1,
-        help="Number of Pilot 03 tasks to run. Default: 1",
+        help=(
+            "Number of Pilot 03 tasks to generate. Default: 1. "
+            "If --task-ids is provided, enough tasks are generated to include those ids."
+        ),
+    )
+    parser.add_argument(
+        "--task-ids",
+        nargs="+",
+        default=None,
+        help="Optional explicit Pilot 03 task ids to run, for example: P03-T0002",
     )
     parser.add_argument(
         "--conditions",
@@ -644,11 +770,13 @@ def main() -> int:
 
     args = parser.parse_args()
     conditions = _normalise_conditions(args.conditions)
+    requested_task_ids = _normalise_task_ids(args.task_ids)
 
     return run_small_chain(
         env_path=Path(args.env_path),
         confirm_real_llm_call=args.confirm_real_llm_call,
         n_tasks=args.n_tasks,
+        requested_task_ids=requested_task_ids,
         conditions=conditions,
         timeout_seconds=args.timeout_seconds,
         max_retries=args.max_retries,
