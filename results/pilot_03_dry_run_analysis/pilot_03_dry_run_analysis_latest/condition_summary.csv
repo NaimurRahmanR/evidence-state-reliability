@@ -1,0 +1,4 @@
+condition,n,evidence_state_reliability_mean,evidence_state_degradation_mean,decision_critical_distortion_mean,decision_failure_mean,final_failure_mean,undetected_failure_mean,audit_false_assurance_mean,escalation_contamination_mean,audit_passed_mean,audit_detected_issue_mean
+missing_one_required_unit,50,0.833333,0.166667,1.0,0.5,0.5,0.0,0.0,0.5,0.0,1.0
+missing_policy_rule,50,0.833333,0.166667,1.0,0.5,0.5,0.0,0.0,0.5,0.0,1.0
+original_evidence,50,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0

@@ -1,0 +1,91 @@
+{
+  "analysis_version": "pilot_03_dry_run_analysis_v1",
+  "condition_counts": {
+    "missing_one_required_unit": 50,
+    "missing_policy_rule": 50,
+    "original_evidence": 50
+  },
+  "condition_summary": {
+    "missing_one_required_unit": {
+      "audit_detected_issue_mean": 1.0,
+      "audit_false_assurance_mean": 0.0,
+      "audit_passed_mean": 0.0,
+      "decision_critical_distortion_mean": 1.0,
+      "decision_failure_mean": 0.5,
+      "escalation_contamination_mean": 0.5,
+      "evidence_state_degradation_mean": 0.166667,
+      "evidence_state_reliability_mean": 0.833333,
+      "final_failure_mean": 0.5,
+      "n": 50,
+      "undetected_failure_mean": 0.0
+    },
+    "missing_policy_rule": {
+      "audit_detected_issue_mean": 1.0,
+      "audit_false_assurance_mean": 0.0,
+      "audit_passed_mean": 0.0,
+      "decision_critical_distortion_mean": 1.0,
+      "decision_failure_mean": 0.5,
+      "escalation_contamination_mean": 0.5,
+      "evidence_state_degradation_mean": 0.166667,
+      "evidence_state_reliability_mean": 0.833333,
+      "final_failure_mean": 0.5,
+      "n": 50,
+      "undetected_failure_mean": 0.0
+    },
+    "original_evidence": {
+      "audit_detected_issue_mean": 0.0,
+      "audit_false_assurance_mean": 0.0,
+      "audit_passed_mean": 1.0,
+      "decision_critical_distortion_mean": 0.0,
+      "decision_failure_mean": 0.0,
+      "escalation_contamination_mean": 0.0,
+      "evidence_state_degradation_mean": 0.0,
+      "evidence_state_reliability_mean": 1.0,
+      "final_failure_mean": 0.0,
+      "n": 50,
+      "undetected_failure_mean": 0.0
+    }
+  },
+  "extra_summary": {
+    "parser_summary": {
+      "error_counts": {},
+      "n_invalid_json": 0,
+      "n_invalid_schema": 0,
+      "n_parsed_responses": 450,
+      "parser_version": "pilot_03_parser_v1",
+      "stage_counts": {
+        "audit": 150,
+        "decision": 150,
+        "escalation": 150
+      },
+      "valid_json_counts": {
+        "True": 450
+      },
+      "valid_schema_counts": {
+        "True": 450
+      }
+    },
+    "task_summary": {
+      "approve_rate": 0.5,
+      "evidence_units_per_task_max": 6,
+      "evidence_units_per_task_min": 6,
+      "gold_decisions": {
+        "approve": 25,
+        "reject": 25
+      },
+      "n_tasks": 50,
+      "required_units_per_task_max": 6,
+      "required_units_per_task_min": 6,
+      "task_types": {
+        "synthetic_administrative_approval": 50
+      }
+    }
+  },
+  "gold_decisions": {
+    "approve": 75,
+    "reject": 75
+  },
+  "n_analysis_records": 150,
+  "output_dir": "results\\pilot_03_dry_run_analysis\\pilot_03_dry_run_analysis_latest",
+  "run_id": "pilot_03_dry_run_analysis_latest"
+}
