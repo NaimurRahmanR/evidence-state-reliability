@@ -6,9 +6,9 @@ The core idea is:
 
 > A downstream LLM can be strong and still fail if the evidence reaching it has already been degraded by an upstream component.
 
-This project is currently **simulation-first**, with a local **Pilot 03 dry-run scaffold** added for real LLM readiness.
+This project is still **simulation-first** for Pilot 01 and Pilot 02, but Pilot 03 now also includes small controlled **real GLM-5.2 chain runs** in addition to the local dry-run scaffold.
 
-It does **not** claim real LLM behaviour yet.
+It does **not** claim general real-world LLM behaviour. The current real LLM results are limited to controlled Pilot 03 GLM-5.2 runs under the current tasks, prompts, parser, and evidence conditions.
 
 The purpose of the current pilots is to test whether the experimental design can measure evidence-state degradation, final failure, undetected failure, audit false assurance, escalation contamination, and cost per governable output.
 
@@ -38,7 +38,7 @@ The working definition is:
 
 ## Key concepts
 
-This repository currently implements simulation and dry-run support for the following concepts:
+This repository currently implements simulation, dry-run, and small controlled real LLM support for the following concepts:
 
 ```text
 Evidence State
@@ -73,7 +73,13 @@ The correct wording for the current Pilot 03 dry-run result is:
 observed local dry-run result under current Pilot 03 experimental conditions
 ```
 
-The project should not be described as proving real LLM behaviour yet.
+The correct wording for the current Pilot 03 real GLM result is:
+
+```text
+observed result under current Pilot 03 real LLM experimental conditions
+```
+
+The project should not be described as proving general real-world LLM pipeline behaviour.
 
 ---
 
@@ -84,15 +90,15 @@ The repository currently contains three implemented pilot workflows.
 ```text
 Pilot 01 = pipeline-condition reliability study
 Pilot 02 = graded degradation severity study
-Pilot 03 = local dry-run scaffold for real LLM readiness
+Pilot 03 = local dry-run scaffold plus controlled real GLM-5.2 chain runs
 ```
 
 Important:
 
 ```text
-Pilot 03 has not run real LLM calls yet.
-Pilot 03 currently uses deterministic local dry-run responses.
-Pilot 03 results must not be described as real LLM behaviour.
+Pilot 03 has now run controlled real GLM-5.2 calls.
+Pilot 03 still keeps deterministic local dry-run support for reproducibility.
+Pilot 03 real results must be described only as small controlled GLM-5.2 observations under the current experimental conditions.
 ```
 
 All implemented pilots are reproducible from one-command Windows batch scripts.
@@ -265,11 +271,11 @@ This is currently the strongest simulation result in the repository.
 
 ---
 
-## Pilot 03: Local dry-run scaffold for real LLM readiness
+## Pilot 03: Dry-run scaffold and controlled real GLM results
 
-Pilot 03 is the first step toward real LLM readiness, but the current implementation is still a local dry-run scaffold.
+Pilot 03 started as a local dry-run scaffold and now includes guarded real GLM-5.2 chain runs.
 
-It does not make real LLM API calls.
+The dry-run workflow remains deterministic and does not make real LLM API calls. Real GLM-5.2 calls are made only through separate guarded scripts with explicit command-line opt-in.
 
 Pilot 03 currently tests three evidence conditions:
 
@@ -363,9 +369,43 @@ It should not be described as real LLM behaviour.
 
 ---
 
-## Planned real LLM setup
 
-The planned real LLM setup is:
+### Pilot 03 real GLM result checkpoint
+
+The current committed Pilot 03 real GLM checkpoint includes:
+
+```text
+1-task smoke test
+1-task x 3-condition real GLM chain result
+2-task x 3-condition real GLM chain result
+18/18 real GLM responses valid under parser v2 for the two-task result
+```
+
+The two-task real GLM report is documented in:
+
+```text
+reports/pilot_03_real_glm_two_task_results.md
+```
+
+The first one-task real GLM report is documented in:
+
+```text
+reports/pilot_03_real_glm_first_chain_results.md
+```
+
+Safe wording:
+
+```text
+observed result under current Pilot 03 real LLM experimental conditions
+```
+
+These results do not establish general GLM-5.2 reliability or general real-world LLM pipeline behaviour.
+
+---
+
+## Pilot 03 real LLM setup and current status
+
+The current guarded real LLM setup is:
 
 ```text
 Main model:
@@ -375,11 +415,11 @@ Comparison model:
 Claude Opus 4.8
 ```
 
-This setup is planned for controlled real LLM readiness only.
+This setup is for controlled real LLM testing only.
 
 The GLM-5.2 connection check has succeeded.
 
-The Pilot 03 real LLM experiment has not been run yet.
+Pilot 03 has completed a one-task smoke test, a one-task three-condition real chain run, and a two-task three-condition real chain result.
 
 The intended role of each model is:
 
@@ -441,13 +481,13 @@ PILOT03_LLM_MODEL
 PILOT03_REAL_LLM_ENABLED
 ```
 
-Expected future real LLM result wording:
+Current real LLM result wording:
 
 ```text
 observed result under current Pilot 03 real LLM experimental conditions
 ```
 
-No real LLM experiment should be treated as complete until real LLM calls have actually been made, parsed, analysed, and checked.
+No real LLM result should be treated as complete unless the real LLM calls have actually been made, parsed, analysed, checked, and documented.
 
 ---
 
@@ -585,8 +625,8 @@ src/pilot_03_dry_run.py
     Generates deterministic local dry-run responses for Pilot 03.
 
 src/pilot_03_llm_client.py
-    Contains the placeholder/client boundary for future real LLM calls.
-    Real LLM calls are not part of the current dry-run result claim.
+    Contains the client boundary used by Pilot 03 real LLM tooling.
+    Real LLM calls are separate from the deterministic dry-run workflow and require explicit opt-in.
 
 src/pilot_03_logging.py
     Supports Pilot 03 response and result logging.
@@ -696,7 +736,7 @@ observed local dry-run result under current Pilot 03 experimental conditions
 
 They should not be described as proof that real LLM pipelines behave this way.
 
-Real LLM experiments are planned only after the dry-run scaffold, parser, logging, guardrails, and one-task smoke test are stable.
+Controlled real LLM experiments are now available after the dry-run scaffold, parser, logging, guardrails, and one-task smoke test were stabilised.
 
 ---
 
@@ -705,19 +745,20 @@ Real LLM experiments are planned only after the dry-run scaffold, parser, loggin
 The next planned stages are:
 
 ```text
-1. Document the completed Pilot 03 dry-run checkpoint.
-2. Add real LLM readiness guardrails.
-3. Add safe config examples.
-4. Add API-key protection.
-5. Add real LLM client implementation behind explicit opt-in.
-6. Add one-task real LLM smoke test only.
-7. Log raw real responses separately.
-8. Parse and validate real responses.
-9. Manually inspect the one-task result.
-10. Only then consider a small controlled real LLM Pilot 03 run.
+1. Document the completed Pilot 03 dry-run checkpoint. Done.
+2. Add real LLM readiness guardrails. Done.
+3. Add safe config examples. Done.
+4. Add API-key protection. Done.
+5. Add real LLM client implementation behind explicit opt-in. Done.
+6. Add one-task real LLM smoke test only. Done.
+7. Log raw real responses separately. Done.
+8. Parse and validate real responses. Done.
+9. Manually inspect the one-task result. Done.
+10. Run and document a small controlled real GLM Pilot 03 result. Done.
+11. Next: scale cautiously to more tasks and add comparison-model checks.
 ```
 
-No real LLM experiment should be treated as complete until real LLM calls have actually been made, parsed, analysed, and checked.
+No real LLM result should be treated as complete unless the real LLM calls have actually been made, parsed, analysed, checked, and documented.
 
 ---
 
