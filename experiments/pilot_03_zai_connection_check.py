@@ -19,12 +19,12 @@ from src.pilot_03_config import (
 ZAI_CHAT_COMPLETIONS_URL = "https://api.z.ai/api/paas/v4/chat/completions"
 
 
-def _get_secret(name: str, env_file_values: dict[str, str]) -> str | None:
-    """Read a secret value without printing it.
+class Pilot03ZAIConnectionCheckError(RuntimeError):
+    """Clean connection-check error that should not expose API keys."""
 
-    Environment variables should be preferred by the shell/runtime.
-    The local .env file is the fallback for development only.
-    """
+
+def _get_secret(name: str, env_file_values: dict[str, str]) -> str | None:
+    """Read a secret value without printing it."""
     import os
 
     value = os.environ.get(name) or env_file_values.get(name)
@@ -50,7 +50,53 @@ def _make_zai_connection_payload(model: str) -> dict[str, Any]:
     }
 
 
-def _post_zai_chat_completion(api_key: str, payload: dict[str, Any], timeout_seconds: int) -> dict[str, Any]:
+def _safe_json_loads(text: str) -> dict[str, Any]:
+    """Parse JSON response text safely."""
+    try:
+        parsed = json.loads(text)
+    except json.JSONDecodeError:
+        return {"raw_non_json_response_prefix": text[:500]}
+
+    return parsed if isinstance(parsed, dict) else {"raw_json_response": parsed}
+
+
+def _summarise_zai_error(status_code: int, error_body: str) -> str:
+    """Create a clean, short, key-safe Z.ai error message."""
+    parsed = _safe_json_loads(error_body)
+    error = parsed.get("error")
+
+    if isinstance(error, dict):
+        code = error.get("code", "unknown")
+        message = error.get("message", "unknown")
+    else:
+        code = "unknown"
+        message = error_body[:500]
+
+    if status_code == 429 and "balance" in str(message).lower():
+        return (
+            "Z.ai connection check failed safely.\n"
+            f"status: {status_code}\n"
+            f"provider_error_code: {code}\n"
+            f"provider_message: {message}\n"
+            "interpretation: The API key reached Z.ai, but the account has insufficient balance "
+            "or no active resource package.\n"
+            "No successful real LLM response was produced."
+        )
+
+    return (
+        "Z.ai connection check failed safely.\n"
+        f"status: {status_code}\n"
+        f"provider_error_code: {code}\n"
+        f"provider_message: {message}\n"
+        "No successful real LLM response was produced."
+    )
+
+
+def _post_zai_chat_completion(
+    api_key: str,
+    payload: dict[str, Any],
+    timeout_seconds: int,
+) -> dict[str, Any]:
     """Call Z.ai chat completions once.
 
     This function must never print the API key.
@@ -74,13 +120,21 @@ def _post_zai_chat_completion(api_key: str, payload: dict[str, Any], timeout_sec
             return json.loads(response_text)
     except HTTPError as exc:
         error_body = exc.read().decode("utf-8", errors="replace")
-        raise RuntimeError(
-            f"Z.ai HTTP error: status={exc.code}, body={error_body[:500]}"
+        raise Pilot03ZAIConnectionCheckError(
+            _summarise_zai_error(exc.code, error_body)
         ) from exc
     except URLError as exc:
-        raise RuntimeError(f"Z.ai connection error: {exc}") from exc
+        raise Pilot03ZAIConnectionCheckError(
+            "Z.ai connection check failed safely.\n"
+            f"connection_error: {exc}\n"
+            "No successful real LLM response was produced."
+        ) from exc
     except json.JSONDecodeError as exc:
-        raise RuntimeError("Z.ai response was not valid JSON.") from exc
+        raise Pilot03ZAIConnectionCheckError(
+            "Z.ai connection check failed safely.\n"
+            "reason: response was not valid JSON.\n"
+            "No successful real LLM response was produced."
+        ) from exc
 
 
 def _extract_response_text(response_json: dict[str, Any]) -> str:
@@ -148,11 +202,18 @@ def run_connection_check(
     print(f"endpoint: {ZAI_CHAT_COMPLETIONS_URL}")
     print()
 
-    response_json = _post_zai_chat_completion(
-        api_key=api_key,
-        payload=payload,
-        timeout_seconds=timeout_seconds,
-    )
+    try:
+        response_json = _post_zai_chat_completion(
+            api_key=api_key,
+            payload=payload,
+            timeout_seconds=timeout_seconds,
+        )
+    except Pilot03ZAIConnectionCheckError as exc:
+        print(str(exc))
+        print()
+        print("Safe wording:")
+        print("observed failed Z.ai connection-check attempt under current Pilot 03 real LLM connection-check conditions")
+        return 1
 
     response_text = _extract_response_text(response_json)
     usage = response_json.get("usage", {})
