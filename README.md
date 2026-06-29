@@ -378,10 +378,17 @@ The current committed Pilot 03 real GLM checkpoint includes:
 1-task smoke test
 1-task x 3-condition real GLM chain result
 2-task x 3-condition real GLM chain result
-18/18 real GLM responses valid under parser v2 for the two-task result
+3-task x 3-condition real GLM chain result
+27/27 real GLM responses valid under parser v2 for the three-task result
 ```
 
-The two-task real GLM report is documented in:
+The latest three-task real GLM report is documented in:
+
+```text
+reports/pilot_03_real_glm_three_task_results.md
+```
+
+The earlier two-task real GLM report is documented in:
 
 ```text
 reports/pilot_03_real_glm_two_task_results.md
