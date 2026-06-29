@@ -1,12 +1,16 @@
-# Evidence-State Reliability in Multi-Stage LLM Pipelines
+﻿# Evidence-State Reliability in Multi-Stage LLM Pipelines
 
-This repository contains simulation code for a doctoral-level research project on **Evidence-State Reliability in Multi-Stage LLM Pipelines**.
+This repository contains code and documentation for a doctoral-level research project on **Evidence-State Reliability in Multi-Stage LLM Pipelines**.
 
 The core idea is:
 
 > A downstream LLM can be strong and still fail if the evidence reaching it has already been degraded by an upstream component.
 
-This project is currently **simulation-first**. It does **not** claim real LLM behaviour yet. The purpose of the current pilots is to test whether the experimental design can measure evidence-state degradation, final failure, undetected failure, audit false assurance, escalation contamination, and cost per governable output.
+This project is currently **simulation-first**, with a local **Pilot 03 dry-run scaffold** added for real LLM readiness.
+
+It does **not** claim real LLM behaviour yet.
+
+The purpose of the current pilots is to test whether the experimental design can measure evidence-state degradation, final failure, undetected failure, audit false assurance, escalation contamination, and cost per governable output.
 
 ---
 
@@ -34,7 +38,7 @@ The working definition is:
 
 ## Key concepts
 
-This repository currently implements simulation support for the following concepts:
+This repository currently implements simulation and dry-run support for the following concepts:
 
 ```text
 Evidence State
@@ -51,14 +55,22 @@ Cost per Governable Output
 
 ## Core research claim being tested
 
-The current simulation pilots test the following idea:
+The current pilots test the following idea:
 
 > If upstream evidence is degraded, then downstream failure can increase even when the downstream decision model is treated as strong.
 
-This is not yet a claim about real deployed LLM systems. The correct wording for current results is:
+This is not yet a claim about real deployed LLM systems.
+
+The correct wording for Pilot 01 and Pilot 02 results is:
 
 ```text
 observed simulation result under current pilot assumptions
+```
+
+The correct wording for the current Pilot 03 dry-run result is:
+
+```text
+observed local dry-run result under current Pilot 03 experimental conditions
 ```
 
 The project should not be described as proving real LLM behaviour yet.
@@ -67,19 +79,36 @@ The project should not be described as proving real LLM behaviour yet.
 
 ## Current project status
 
-The repository currently contains two working simulation pilots.
+The repository currently contains three implemented pilot workflows.
 
 ```text
 Pilot 01 = pipeline-condition reliability study
 Pilot 02 = graded degradation severity study
+Pilot 03 = local dry-run scaffold for real LLM readiness
 ```
 
-Both pilots are reproducible from one-command Windows batch scripts.
+Important:
+
+```text
+Pilot 03 has not run real LLM calls yet.
+Pilot 03 currently uses deterministic local dry-run responses.
+Pilot 03 results must not be described as real LLM behaviour.
+```
+
+All implemented pilots are reproducible from one-command Windows batch scripts.
 
 To run everything currently implemented:
 
 ```bat
 .\run_all_pilots.bat
+```
+
+The master workflow currently runs:
+
+```text
+Pilot 01 workflow
+-> Pilot 02 workflow
+-> Pilot 03 dry-run workflow
 ```
 
 ---
@@ -147,7 +176,9 @@ higher evidence-state degradation was associated with higher final failure
 higher evidence-state degradation was associated with higher audit false assurance
 ```
 
-Pilot 01 also includes a sensitivity analysis. The sensitivity check showed that the relationship is visible at the full-design level and remains directionally visible after removing perfect/control conditions, but it does not hold consistently inside the degraded-evidence-only subset.
+Pilot 01 also includes a sensitivity analysis.
+
+The sensitivity check showed that the relationship is visible at the full-design level and remains directionally visible after removing perfect/control conditions, but it does not hold consistently inside the degraded-evidence-only subset.
 
 That limitation motivates Pilot 02.
 
@@ -230,7 +261,196 @@ increasing degradation severity
 -> higher escalation contamination
 ```
 
-This is currently the strongest result in the repository.
+This is currently the strongest simulation result in the repository.
+
+---
+
+## Pilot 03: Local dry-run scaffold for real LLM readiness
+
+Pilot 03 is the first step toward real LLM readiness, but the current implementation is still a local dry-run scaffold.
+
+It does not make real LLM API calls.
+
+Pilot 03 currently tests three evidence conditions:
+
+```text
+original_evidence
+missing_policy_rule
+missing_one_required_unit
+```
+
+Pilot 03 uses three pipeline stages:
+
+```text
+decision
+audit
+escalation
+```
+
+Pilot 03 task design:
+
+```text
+50 synthetic administrative approval tasks
+25 approve
+25 reject
+6 evidence units per task
+```
+
+Run Pilot 03 dry-run:
+
+```bat
+.\run_pilot_03.bat
+```
+
+Pilot 03 dry-run produces outputs under:
+
+```text
+results/pilot_03_dry_run_analysis/pilot_03_dry_run_analysis_latest/
+```
+
+This includes:
+
+```text
+analysis_records.csv
+condition_summary.csv
+analysis_summary.json
+
+plots/audit_metrics_by_condition.png
+plots/evidence_state_metrics_by_condition.png
+plots/failure_metrics_by_condition.png
+```
+
+### Pilot 03 dry-run parser checkpoint
+
+The current Pilot 03 dry-run parser checkpoint is:
+
+```text
+450 dry-run responses parsed
+0 invalid JSON
+0 invalid schema
+```
+
+This means the current local dry-run response format is parseable and schema-valid under the implemented parser.
+
+It does not mean real LLM responses will behave the same way.
+
+### Pilot 03 dry-run observed pattern
+
+The current observed local dry-run pattern is:
+
+```text
+original evidence:
+evidence-state reliability = 1.0
+final failure = 0.0
+
+missing evidence:
+evidence-state reliability = 0.833333
+final failure = 0.5
+escalation contamination = 0.5
+```
+
+Safe wording:
+
+> Under current Pilot 03 experimental conditions, the local dry-run scaffold produced an observed pattern where missing evidence reduced evidence-state reliability and increased final failure and escalation contamination.
+
+This should only be described as:
+
+```text
+observed local dry-run result under current Pilot 03 experimental conditions
+```
+
+It should not be described as real LLM behaviour.
+
+---
+
+## Planned real LLM setup
+
+The planned real LLM setup is:
+
+```text
+Main model:
+GLM-5.2
+
+Comparison model:
+Claude Fable 5
+
+Fallback comparison model:
+Claude Opus 4.8
+```
+
+This setup is planned for future real LLM readiness only.
+
+It has not been run yet.
+
+The intended role of each model is:
+
+```text
+GLM-5.2:
+main real LLM model for controlled Pilot 03 testing
+
+Claude Fable 5:
+frontier comparison model, if accessible
+
+Claude Opus 4.8:
+fallback comparison model if Claude Fable 5 is not accessible
+```
+
+The first real LLM run should not be a full experiment.
+
+The correct sequence is:
+
+```text
+1. GLM-5.2 one-task smoke test
+2. Parse and validate the raw response
+3. Manually inspect the result
+4. GLM-5.2 small controlled run
+5. GLM-5.2 full Pilot 03 run only if the small run is stable
+6. Claude Fable 5 comparison subset only after GLM is stable
+7. Claude Opus 4.8 comparison subset only if Fable 5 is not accessible
+```
+
+The comparison model should initially run on a subset, not the full Pilot 03 design.
+
+This keeps the project cost-controlled while still allowing a stronger model comparison later.
+
+---
+
+## Future real LLM safety rules
+
+Future real LLM work must follow these rules:
+
+```text
+No API key from any provider should ever be committed.
+Use environment variables only.
+Default mode must remain dry-run.
+Real LLM mode must require explicit command-line opt-in.
+Real smoke test should use only one task and one condition.
+Raw real responses must be saved separately from dry-run responses.
+One smoke test must not be generalised into a broad empirical claim.
+```
+
+Expected future environment variables:
+
+```text
+ZAI_API_KEY
+ANTHROPIC_API_KEY
+```
+
+Expected future model/config variables:
+
+```text
+PILOT03_LLM_PROVIDER
+PILOT03_LLM_MODEL
+PILOT03_REAL_LLM_ENABLED
+```
+
+Expected future real LLM result wording:
+
+```text
+observed result under current Pilot 03 real LLM experimental conditions
+```
+
+No real LLM experiment should be treated as complete until real LLM calls have actually been made, parsed, analysed, and checked.
 
 ---
 
@@ -247,9 +467,10 @@ This runs:
 ```text
 Pilot 01 workflow
 -> Pilot 02 workflow
+-> Pilot 03 dry-run workflow
 ```
 
-The master workflow regenerates the current simulation outputs, analysis tables, relationship tests, and plots.
+The master workflow regenerates the current simulation outputs, dry-run outputs, analysis tables, relationship checks, parser checks, and plots.
 
 ---
 
@@ -263,11 +484,18 @@ evidence-state-reliability/
 |-- .gitignore
 |-- run_pilot_01.bat
 |-- run_pilot_02.bat
+|-- run_pilot_03.bat
 |-- run_all_pilots.bat
 |
 |-- data/
 |   |-- synthetic/
 |   |-- outputs/
+|
+|-- docs/
+|   |-- pilot_03_real_llm_design.md
+|
+|-- reports/
+|   |-- pilot_01_02_results_summary.md
 |
 |-- experiments/
 |   |-- __init__.py
@@ -286,10 +514,14 @@ evidence-state-reliability/
 |   |-- run_pilot_02.py
 |   |-- analyse_pilot_02.py
 |   |-- plot_pilot_02.py
+|   |-- pilot_03_dry_run_runner.py
+|   |-- pilot_03_dry_run_analysis.py
+|   |-- pilot_03_dry_run_plots.py
 |
 |-- results/
 |   |-- tables/
 |   |-- plots/
+|   |-- pilot_03_dry_run_analysis/
 |
 |-- notebooks/
 |
@@ -303,6 +535,12 @@ evidence-state-reliability/
     |-- simulated_models.py
     |-- pilot_runner.py
     |-- pilot_02_runner.py
+    |-- pilot_03_tasks.py
+    |-- pilot_03_prompts.py
+    |-- pilot_03_dry_run.py
+    |-- pilot_03_llm_client.py
+    |-- pilot_03_logging.py
+    |-- pilot_03_parser.py
 ```
 
 ---
@@ -339,6 +577,25 @@ src/pilot_runner.py
 src/pilot_02_runner.py
     Runs Pilot 02 by connecting tasks, graded degradation severity,
     severity-sensitive simulated models, metrics, and CSV output.
+
+src/pilot_03_tasks.py
+    Generates Pilot 03 synthetic administrative approval tasks.
+
+src/pilot_03_prompts.py
+    Builds Pilot 03 decision, audit, and escalation prompts.
+
+src/pilot_03_dry_run.py
+    Generates deterministic local dry-run responses for Pilot 03.
+
+src/pilot_03_llm_client.py
+    Contains the placeholder/client boundary for future real LLM calls.
+    Real LLM calls are not part of the current dry-run result claim.
+
+src/pilot_03_logging.py
+    Supports Pilot 03 response and result logging.
+
+src/pilot_03_parser.py
+    Parses and validates Pilot 03 structured responses.
 ```
 
 ---
@@ -393,6 +650,12 @@ Run Pilot 02 only:
 .\run_pilot_02.bat
 ```
 
+Run Pilot 03 dry-run only:
+
+```bat
+.\run_pilot_03.bat
+```
+
 Run individual Pilot 02 steps:
 
 ```bat
@@ -402,11 +665,25 @@ python -m experiments.analyse_pilot_02
 python -m experiments.plot_pilot_02
 ```
 
+Run individual Pilot 03 dry-run steps:
+
+```bat
+python -m experiments.pilot_03_dry_run_runner
+python -m experiments.pilot_03_dry_run_analysis
+python -m experiments.pilot_03_dry_run_plots
+```
+
 ---
 
 ## Important limitation
 
-This repository currently contains simulation experiments only.
+This repository currently contains:
+
+```text
+Pilot 01 simulation results
+Pilot 02 simulation results
+Pilot 03 local dry-run results
+```
 
 The results should be described as:
 
@@ -414,9 +691,15 @@ The results should be described as:
 observed simulation results under current pilot assumptions
 ```
 
+or, for Pilot 03 dry-run:
+
+```text
+observed local dry-run result under current Pilot 03 experimental conditions
+```
+
 They should not be described as proof that real LLM pipelines behave this way.
 
-Real LLM experiments are planned for a later pilot after the simulation framework is stable.
+Real LLM experiments are planned only after the dry-run scaffold, parser, logging, guardrails, and one-task smoke test are stable.
 
 ---
 
@@ -425,12 +708,19 @@ Real LLM experiments are planned for a later pilot after the simulation framewor
 The next planned stages are:
 
 ```text
-Pilot 03 = first real LLM pipeline experiment
-Pilot 04 = model comparison and benchmark expansion
-Paper writing = after simulation and real LLM results are stable
+1. Document the completed Pilot 03 dry-run checkpoint.
+2. Add real LLM readiness guardrails.
+3. Add safe config examples.
+4. Add API-key protection.
+5. Add real LLM client implementation behind explicit opt-in.
+6. Add one-task real LLM smoke test only.
+7. Log raw real responses separately.
+8. Parse and validate real responses.
+9. Manually inspect the one-task result.
+10. Only then consider a small controlled real LLM Pilot 03 run.
 ```
 
-Pilot 03 will test whether real LLM pipeline components show similar evidence-state reliability patterns when evidence is retrieved, compressed, audited, escalated, and used for final decisions.
+No real LLM experiment should be treated as complete until real LLM calls have actually been made, parsed, analysed, and checked.
 
 ---
 
@@ -443,3 +733,4 @@ The central research direction is:
 > Reliability should be measured not only at the model level, but also at the evidence-state level across the pipeline.
 
 This means a pipeline can fail because the model is weak, but it can also fail because the evidence reaching the model has already become incomplete, distorted, contradicted, or contaminated.
+
