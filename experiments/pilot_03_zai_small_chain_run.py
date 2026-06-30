@@ -123,7 +123,7 @@ def _post_zai_with_timeout_retry(
             )
             return response_json, attempts
 
-        except TimeoutError as exc:
+        except Exception as exc:
             if attempts > max_retries:
                 raise Pilot03ZAIConnectionCheckError(
                     "Z.ai real chain stage failed safely.\n"
@@ -133,7 +133,7 @@ def _post_zai_with_timeout_retry(
                 ) from exc
 
             print(
-                f"WARNING: Z.ai read timeout on attempt {attempts}. "
+                f"WARNING: Z.ai retryable API/network error on attempt {attempts}. "
                 f"Retrying after {retry_sleep_seconds} second(s)."
             )
             time.sleep(retry_sleep_seconds)
