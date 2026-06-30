@@ -252,16 +252,19 @@ def write_report(
     combined_summary = aggregate_data.get("combined_summary", aggregate_data.get("combined_chain_summary", {}))
 
     n = len(chain_rows)
+    task_count = len({row["task_id"] for row in chain_rows})
+    checkpoint_label = f"{task_count}-Task"
+    checkpoint_phrase = f"{task_count}-task"
     decision_correct = sum(bool_value(row["decision_correct"]) for row in chain_rows)
     escalation_correct = sum(bool_value(row["escalation_correct"]) for row in chain_rows)
     valid_chain = sum(bool_value(row["valid_chain"]) for row in chain_rows)
 
     lines: list[str] = [
-        "# Pilot 03 Real GLM 10-Task Results",
+        f"# Pilot 03 Real GLM {checkpoint_label} Results",
         "",
         "## Purpose",
         "",
-        "This report documents the 10-task controlled real GLM-5.2 checkpoint for Pilot 03.",
+        f"This report documents the {checkpoint_phrase} controlled real GLM-5.2 checkpoint for Pilot 03.",
         "Use only conservative Level 1 wording: observed result under current Pilot 03 real LLM experimental conditions.",
         "",
         "## Scope",
