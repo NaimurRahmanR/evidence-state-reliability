@@ -379,11 +379,17 @@ The current committed Pilot 03 real GLM checkpoint includes:
 1-task x 3-condition real GLM chain result
 2-task x 3-condition real GLM chain result
 3-task x 3-condition real GLM chain result
-10-task x 3-condition real GLM chain result
-90/90 real GLM responses valid under parser v2 for the ten-task result
+20-task x 3-condition real GLM chain result
+180/180 real GLM responses valid under parser v2 for the twenty-task result
 ```
 
-The latest ten-task real GLM report is documented in:
+The latest twenty-task real GLM report is documented in:
+
+```text
+reports/pilot_03_real_glm_t0020_results.md
+```
+
+The earlier ten-task real GLM report is documented in:
 
 ```text
 reports/pilot_03_real_glm_t0010_results.md
@@ -439,7 +445,7 @@ This setup is for controlled real LLM testing only.
 
 The GLM-5.2 connection check has succeeded.
 
-Pilot 03 has completed a one-task smoke test plus one-task, two-task, three-task, four-task, and ten-task controlled real GLM chain checkpoints.
+Pilot 03 has completed a one-task smoke test plus one-task, two-task, three-task, four-task, ten-task, and twenty-task controlled real GLM chain checkpoints.
 
 The intended role of each model is:
 
@@ -776,8 +782,9 @@ The next planned stages are:
 9. Manually inspect the one-task result. Done.
 10. Run and document a small controlled real GLM Pilot 03 result. Done.
 11. Run and document a four-task controlled real GLM Pilot 03 checkpoint. Done.
-12. Ten-task checkpoint done: 30 complete chains, 90 real GLM calls, 90/90 valid JSON/schema.
-13. Next: scale cautiously toward 20 tasks and/or prepare comparison-model support.
+12. Ten-task checkpoint done.
+13. Twenty-task checkpoint done: 60 complete chains, 180 real GLM calls, 180/180 valid JSON/schema.
+14. Next: prepare paper figures and/or comparison-model support.
 ```
 
 No real LLM result should be treated as complete unless the real LLM calls have actually been made, parsed, analysed, checked, and documented.
