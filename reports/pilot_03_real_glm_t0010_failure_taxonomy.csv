@@ -1,0 +1,8 @@
+failure_or_pattern,n,rate,conditions,gold_decisions,task_ids
+decision_error,10,0.333333,"missing_one_required_unit:5, missing_policy_rule:5",approve:10,"P03-T0001, P03-T0001, P03-T0003, P03-T0003, P03-T0005, P03-T0005, P03-T0007, P03-T0007, P03-T0009, P03-T0009"
+escalation_recovery_after_decision_error,5,0.166667,missing_policy_rule:5,approve:5,"P03-T0001, P03-T0003, P03-T0005, P03-T0007, P03-T0009"
+unrecovered_final_error,5,0.166667,missing_one_required_unit:5,approve:5,"P03-T0001, P03-T0003, P03-T0005, P03-T0007, P03-T0009"
+audit_pass_on_incorrect_decision,5,0.166667,"missing_one_required_unit:4, missing_policy_rule:1",approve:5,"P03-T0003, P03-T0005, P03-T0005, P03-T0007, P03-T0009"
+audit_block_on_incorrect_decision,5,0.166667,"missing_one_required_unit:1, missing_policy_rule:4",approve:5,"P03-T0001, P03-T0001, P03-T0003, P03-T0007, P03-T0009"
+escalation_override,5,0.166667,missing_policy_rule:5,approve:5,"P03-T0001, P03-T0003, P03-T0005, P03-T0007, P03-T0009"
+correct_complete_chain,10,0.333333,original_evidence:10,"approve:5, reject:5","P03-T0001, P03-T0002, P03-T0003, P03-T0004, P03-T0005, P03-T0006, P03-T0007, P03-T0008, P03-T0009, P03-T0010"

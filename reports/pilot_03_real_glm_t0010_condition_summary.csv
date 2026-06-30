@@ -1,0 +1,4 @@
+condition,n,gold_decisions,decision_correct,decision_correct_rate,escalation_correct,escalation_correct_rate,audit_passed,valid_chain,valid_chain_rate
+original_evidence,10,"approve:5, reject:5",10,1.0,10,1.0,True:10,10,1.0
+missing_policy_rule,10,"approve:5, reject:5",5,0.5,10,1.0,"False:9, True:1",10,1.0
+missing_one_required_unit,10,"approve:5, reject:5",5,0.5,5,0.5,"False:6, True:4",10,1.0
