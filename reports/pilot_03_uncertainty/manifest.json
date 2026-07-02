@@ -1,0 +1,26 @@
+{
+  "confidence_level": 0.95,
+  "created_at_utc": "2026-07-02T02:27:21+00:00",
+  "difference_interval_method": "wilson_interval_difference_descriptive_95",
+  "interval_method": "wilson_score_95",
+  "outputs": {
+    "condition_difference_uncertainty_csv": "reports\\pilot_03_uncertainty\\condition_difference_uncertainty.csv",
+    "glm_condition_uncertainty_csv": "reports\\pilot_03_uncertainty\\glm20_condition_uncertainty.csv",
+    "manifest_json": "reports\\pilot_03_uncertainty\\manifest.json",
+    "provider_difference_uncertainty_csv": "reports\\pilot_03_uncertainty\\shared5_provider_difference_uncertainty.csv",
+    "report_md": "reports\\pilot_03_uncertainty\\uncertainty_tables_report.md",
+    "shared_provider_condition_uncertainty_csv": "reports\\pilot_03_uncertainty\\shared5_provider_condition_uncertainty.csv"
+  },
+  "real_api_calls": 0,
+  "row_counts": {
+    "condition_difference_uncertainty": 22,
+    "glm_condition_uncertainty": 9,
+    "provider_difference_uncertainty": 12,
+    "shared_provider_condition_uncertainty": 24
+  },
+  "safe_note": "Descriptive uncertainty intervals only. These tables are computed from committed Pilot 03 summary CSV files and should not be read as general model-performance claims, deployment evidence, or provider rankings.",
+  "source_files": {
+    "glm_condition_csv": "reports\\pilot_03_real_glm_t0020_condition_summary.csv",
+    "shared_comparison_csv": "reports\\pilot_03_glm_vs_claude_comparison\\shared_5_task_condition_comparison.csv"
+  }
+}
