@@ -18,7 +18,7 @@ Do not use:
 - general Claude reliability
 - real-world deployment proof
 - universally valid
-- Q1-ready evidence already complete
+- complete evidence already available
 - no one has ever done this
 
 ## Evidence levels in the project
@@ -100,7 +100,7 @@ The current results do not support:
 - a claim that either provider is generally reliable or unreliable
 - a claim that the observed pattern will hold in all domains
 - a claim that the benchmark already represents real deployment conditions
-- a claim that Q1 publication readiness is complete
+- a claim that publication readiness is complete
 
 ## Paper-use guidance
 

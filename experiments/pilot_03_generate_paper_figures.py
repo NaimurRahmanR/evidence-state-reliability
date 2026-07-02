@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 from datetime import UTC, datetime
@@ -197,7 +198,20 @@ def _write_notes(output_dir: Path, generated_files: list[str]) -> None:
 
 
 def main() -> int:
-    output_dir = Path("reports/pilot_03_figures")
+    parser = argparse.ArgumentParser(
+        description=(
+            "Generate Pilot 03 figures from committed summary CSV files. "
+            "This command makes no real API calls."
+        )
+    )
+    parser.add_argument(
+        "--output-dir",
+        default="reports/pilot_03_figures",
+        help="Directory where figure outputs will be written.",
+    )
+    args = parser.parse_args()
+
+    output_dir = Path(args.output_dir)
 
     glm_condition_csv = Path("reports/pilot_03_real_glm_t0020_condition_summary.csv")
     shared_comparison_csv = Path(
@@ -262,7 +276,7 @@ def main() -> int:
     )
     _write_notes(output_dir=output_dir, generated_files=generated_files)
 
-    print("Pilot 03 paper-ready figures generated.")
+    print("Pilot 03 analysis figures generated.")
     print(f"output_dir: {output_dir}")
     print(f"generated_files: {len(generated_files)}")
     for file_path in generated_files:

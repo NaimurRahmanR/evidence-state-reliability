@@ -241,7 +241,7 @@ Do not write:
 - Claude is reliable or unreliable.
 - This is a complete benchmark.
 - This is deployment evidence.
-- This is already Q1-ready.
+- This is already sufficient for broad claims.
 - No one has ever studied this.
 
 ## Current paper-readiness status

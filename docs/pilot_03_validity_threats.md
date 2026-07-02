@@ -22,7 +22,7 @@ Unsafe phrases:
 - general reliability
 - real-world deployment proof
 - universally valid
-- Q1-ready evidence already complete
+- complete evidence already available
 - no one has ever done this
 
 ## 1. Small task count

@@ -97,7 +97,7 @@ The current evidence does not support:
 - general provider ranking
 - real-world deployment proof
 - universal LLM pipeline reliability claims
-- Q1-ready evidence already complete
+- complete evidence already available
 - claims that no one has ever studied related issues
 
 ## Committed reports and documents

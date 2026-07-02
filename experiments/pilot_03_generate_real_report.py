@@ -352,7 +352,7 @@ def write_report(
             "",
             "> observed result under current Pilot 03 real LLM experimental conditions",
             "",
-            "Do not claim general GLM reliability, real-world deployment validity, or final Q1-level evidence from this checkpoint alone.",
+            "Do not claim general GLM reliability, real-world deployment validity, or complete evidence from this checkpoint alone.",
             "",
             "## Raw Combined Summary",
             "",
