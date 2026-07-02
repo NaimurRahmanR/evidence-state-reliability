@@ -1,10 +1,13 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 import time
 from collections import Counter
+from urllib.error import HTTPError, URLError
+from urllib.request import Request, urlopen
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
@@ -49,8 +52,11 @@ from src.pilot_03_tasks import Pilot03Task, generate_pilot_03_tasks, summarise_p
 
 
 OUTPUT_DIR = Path("results/pilot_03_real_llm_analysis")
-REAL_CHAIN_RUN_VERSION = "pilot_03_zai_small_chain_run_v4"
+REAL_CHAIN_RUN_VERSION = "pilot_03_real_llm_small_chain_run_v5"
 TASK_ID_PATTERN = re.compile(r"^P03-T(?P<number>\d{4})$")
+ANTHROPIC_MESSAGES_URL = "https://api.anthropic.com/v1/messages"
+ANTHROPIC_VERSION = "2023-06-01"
+SUPPORTED_PROVIDERS = {"zai", "anthropic"}
 
 
 @dataclass(frozen=True)
@@ -98,6 +104,24 @@ def _make_zai_payload(model: str, prompt_text: str) -> dict[str, Any]:
     }
 
 
+def _make_anthropic_payload(model: str, prompt_text: str) -> dict[str, Any]:
+    """Create one Anthropic Messages API payload.
+
+    Sampling parameters are intentionally omitted for Claude Opus 4.8 compatibility
+    and to keep the comparison controlled by the shared Pilot 03 prompts.
+    """
+    return {
+        "model": model,
+        "max_tokens": 2048,
+        "messages": [
+            {
+                "role": "user",
+                "content": prompt_text,
+            }
+        ],
+    }
+
+
 def _post_zai_with_timeout_retry(
     *,
     api_key: str,
@@ -139,6 +163,217 @@ def _post_zai_with_timeout_retry(
             time.sleep(retry_sleep_seconds)
 
 
+def _safe_json_loads(text: str) -> dict[str, Any]:
+    """Parse a provider JSON response safely."""
+    try:
+        parsed = json.loads(text)
+    except json.JSONDecodeError:
+        return {"raw_non_json_response_prefix": text[:500]}
+
+    return parsed if isinstance(parsed, dict) else {"raw_json_response": parsed}
+
+
+def _summarise_anthropic_error(status_code: int, error_body: str) -> str:
+    """Create a clean, key-safe Anthropic error message."""
+    parsed = _safe_json_loads(error_body)
+    error = parsed.get("error")
+
+    if isinstance(error, dict):
+        error_type = error.get("type", "unknown")
+        message = error.get("message", "unknown")
+    else:
+        error_type = "unknown"
+        message = error_body[:500]
+
+    return (
+        "Anthropic real chain stage failed safely.\n"
+        f"status: {status_code}\n"
+        f"provider_error_type: {error_type}\n"
+        f"provider_message: {message}\n"
+        "No API key value was printed."
+    )
+
+
+def _post_anthropic_messages(
+    *,
+    api_key: str,
+    payload: dict[str, Any],
+    timeout_seconds: int,
+) -> dict[str, Any]:
+    """Call the Anthropic Messages API once.
+
+    This function must never print the API key.
+    """
+    request_body = json.dumps(payload).encode("utf-8")
+
+    request = Request(
+        ANTHROPIC_MESSAGES_URL,
+        data=request_body,
+        method="POST",
+        headers={
+            "x-api-key": api_key,
+            "anthropic-version": ANTHROPIC_VERSION,
+            "content-type": "application/json",
+        },
+    )
+
+    try:
+        with urlopen(request, timeout=timeout_seconds) as response:
+            response_text = response.read().decode("utf-8")
+            return json.loads(response_text)
+    except HTTPError as exc:
+        error_body = exc.read().decode("utf-8", errors="replace")
+        raise Pilot03ZAIConnectionCheckError(
+            _summarise_anthropic_error(exc.code, error_body)
+        ) from exc
+    except URLError as exc:
+        raise Pilot03ZAIConnectionCheckError(
+            "Anthropic real chain stage failed safely.\n"
+            f"connection_error: {exc}\n"
+            "No successful real LLM response was produced."
+        ) from exc
+    except json.JSONDecodeError as exc:
+        raise Pilot03ZAIConnectionCheckError(
+            "Anthropic real chain stage failed safely.\n"
+            "reason: response was not valid JSON.\n"
+            "No successful real LLM response was produced."
+        ) from exc
+
+
+def _post_anthropic_with_timeout_retry(
+    *,
+    api_key: str,
+    payload: dict[str, Any],
+    timeout_seconds: int,
+    max_retries: int,
+    retry_sleep_seconds: int,
+) -> tuple[dict[str, Any], int]:
+    """Post to Anthropic and retry API/network failures conservatively."""
+    attempts = 0
+
+    while True:
+        attempts += 1
+
+        try:
+            response_json = _post_anthropic_messages(
+                api_key=api_key,
+                payload=payload,
+                timeout_seconds=timeout_seconds,
+            )
+            return response_json, attempts
+
+        except Pilot03ZAIConnectionCheckError:
+            raise
+
+        except Exception as exc:
+            if attempts > max_retries:
+                raise Pilot03ZAIConnectionCheckError(
+                    "Anthropic real chain stage failed safely.\n"
+                    f"reason: retry limit reached after {attempts} attempt(s)\n"
+                    f"timeout_seconds_per_attempt: {timeout_seconds}\n"
+                    "Partial completed chains, if any, will be saved."
+                ) from exc
+
+            print(
+                f"WARNING: Anthropic retryable API/network error on attempt {attempts}. "
+                f"Retrying after {retry_sleep_seconds} second(s)."
+            )
+            time.sleep(retry_sleep_seconds)
+
+
+def _extract_anthropic_response_text(response_json: dict[str, Any]) -> str:
+    """Extract assistant text from an Anthropic Messages API response."""
+    content = response_json.get("content")
+    if not isinstance(content, list):
+        return ""
+
+    text_parts: list[str] = []
+    for block in content:
+        if not isinstance(block, dict):
+            continue
+        if block.get("type") == "text" and isinstance(block.get("text"), str):
+            text_parts.append(block["text"])
+
+    return "\n".join(part.strip() for part in text_parts if part.strip()).strip()
+
+
+def _normalise_usage(response_json: dict[str, Any]) -> dict[str, Any]:
+    """Return provider usage and add total_tokens when possible."""
+    usage = response_json.get("usage", {})
+    if not isinstance(usage, dict):
+        return {"raw_usage": usage}
+
+    usage = dict(usage)
+    input_tokens = usage.get("input_tokens")
+    output_tokens = usage.get("output_tokens")
+
+    if isinstance(input_tokens, int) and isinstance(output_tokens, int):
+        usage.setdefault("total_tokens", input_tokens + output_tokens)
+
+    return usage
+
+
+def _make_provider_payload(*, provider: str, model: str, prompt_text: str) -> dict[str, Any]:
+    """Create the correct provider payload for one stage call."""
+    if provider == "zai":
+        return _make_zai_payload(model=model, prompt_text=prompt_text)
+
+    if provider == "anthropic":
+        return _make_anthropic_payload(model=model, prompt_text=prompt_text)
+
+    raise ValueError(f"Unsupported provider: {provider!r}")
+
+
+def _post_provider_with_timeout_retry(
+    *,
+    provider: str,
+    api_key: str,
+    payload: dict[str, Any],
+    timeout_seconds: int,
+    max_retries: int,
+    retry_sleep_seconds: int,
+) -> tuple[dict[str, Any], int]:
+    """Post to the selected provider with guarded retry behaviour."""
+    if provider == "zai":
+        return _post_zai_with_timeout_retry(
+            api_key=api_key,
+            payload=payload,
+            timeout_seconds=timeout_seconds,
+            max_retries=max_retries,
+            retry_sleep_seconds=retry_sleep_seconds,
+        )
+
+    if provider == "anthropic":
+        return _post_anthropic_with_timeout_retry(
+            api_key=api_key,
+            payload=payload,
+            timeout_seconds=timeout_seconds,
+            max_retries=max_retries,
+            retry_sleep_seconds=retry_sleep_seconds,
+        )
+
+    raise ValueError(f"Unsupported provider: {provider!r}")
+
+
+def _extract_provider_response_text(*, provider: str, response_json: dict[str, Any]) -> str:
+    """Extract assistant text from the selected provider response."""
+    if provider == "zai":
+        return _extract_response_text(response_json)
+
+    if provider == "anthropic":
+        return _extract_anthropic_response_text(response_json)
+
+    raise ValueError(f"Unsupported provider: {provider!r}")
+
+
+def _safe_wording_for_provider(provider: str) -> str:
+    """Return conservative wording for the current provider run."""
+    if provider == "anthropic":
+        return "observed comparison subset under current Pilot 03 real LLM experimental conditions"
+
+    return "observed result under current Pilot 03 real LLM experimental conditions"
+
+
 def _make_call_record(
     *,
     task: Pilot03Task,
@@ -154,9 +389,9 @@ def _make_call_record(
     run_id: str,
     attempts: int,
 ) -> Pilot03LLMCallRecord:
-    """Create one standard Pilot 03 call record for a real GLM response."""
+    """Create one standard Pilot 03 call record for a real provider response."""
     return Pilot03LLMCallRecord(
-        call_id=f"P03-GLM-CHAIN-{uuid4().hex[:12]}",
+        call_id=f"P03-{provider.upper()}-CHAIN-{uuid4().hex[:12]}",
         task_id=task.task_id,
         task_type=task.task_type,
         stage=stage,
@@ -175,13 +410,13 @@ def _make_call_record(
             "condition": condition,
             "visible_evidence_unit_ids": visible_evidence_unit_ids,
             "gold_decision": task.gold_decision,
-            "endpoint": ZAI_CHAT_COMPLETIONS_URL,
+            "endpoint": ANTHROPIC_MESSAGES_URL if provider == "anthropic" else ZAI_CHAT_COMPLETIONS_URL,
             "usage": usage,
             "attempts": attempts,
             "valid_json": parsed.valid_json,
             "valid_schema": parsed.valid_schema,
             "parse_errors": parsed.errors,
-            "safe_wording": "observed result under current Pilot 03 real LLM experimental conditions",
+            "safe_wording": _safe_wording_for_provider(provider),
         },
         created_at_utc=_now_utc(),
     )
@@ -202,10 +437,15 @@ def _run_stage_call(
     max_retries: int,
     retry_sleep_seconds: int,
 ) -> tuple[Pilot03LLMCallRecord, Pilot03ParsedResponse]:
-    """Run one real GLM stage call and parse/validate the raw response."""
-    payload = _make_zai_payload(model=model_name, prompt_text=prompt_record.prompt_text)
+    """Run one real provider stage call and parse/validate the raw response."""
+    payload = _make_provider_payload(
+        provider=provider,
+        model=model_name,
+        prompt_text=prompt_record.prompt_text,
+    )
 
-    response_json, attempts = _post_zai_with_timeout_retry(
+    response_json, attempts = _post_provider_with_timeout_retry(
+        provider=provider,
         api_key=api_key,
         payload=payload,
         timeout_seconds=timeout_seconds,
@@ -213,10 +453,11 @@ def _run_stage_call(
         retry_sleep_seconds=retry_sleep_seconds,
     )
 
-    raw_response_text = _extract_response_text(response_json)
-    usage = response_json.get("usage", {})
-    if not isinstance(usage, dict):
-        usage = {"raw_usage": usage}
+    raw_response_text = _extract_provider_response_text(
+        provider=provider,
+        response_json=response_json,
+    )
+    usage = _normalise_usage(response_json)
 
     preview_call_id = f"{run_id}_{task.task_id}_{condition}_{stage}"
     parsed = parse_and_validate_raw_response(
@@ -321,10 +562,10 @@ def _summarise_real_chain_results(
 
     return {
         "run_version": REAL_CHAIN_RUN_VERSION,
-        "scope": "small controlled real GLM chain run",
+        "scope": "small controlled real LLM chain run",
         "run_status": run_status,
         "failure_reason": failure_reason,
-        "safe_wording": "observed result under current Pilot 03 real LLM experimental conditions",
+        "safe_wording": _safe_wording_for_provider(saved_records[0].provider if saved_records else "zai"),
         "n_tasks_requested": n_tasks_requested,
         "generated_task_count": generated_task_count,
         "requested_task_ids": requested_task_ids,
@@ -495,18 +736,20 @@ def _select_tasks(
 
 def _make_run_prefix(
     *,
+    provider: str,
     selected_task_ids: list[str],
     requested_task_ids: list[str] | None,
 ) -> str:
     """Create a compact run id prefix."""
+    safe_provider = provider.lower().replace("-", "_")
     if requested_task_ids is None:
-        return f"pilot_03_zai_small_chain_n{len(selected_task_ids)}"
+        return f"pilot_03_{safe_provider}_small_chain_n{len(selected_task_ids)}"
 
     if len(selected_task_ids) == 1:
         safe_task_id = selected_task_ids[0].lower().replace("-", "_")
-        return f"pilot_03_zai_small_chain_{safe_task_id}"
+        return f"pilot_03_{safe_provider}_small_chain_{safe_task_id}"
 
-    return f"pilot_03_zai_small_chain_selected{len(selected_task_ids)}"
+    return f"pilot_03_{safe_provider}_small_chain_selected{len(selected_task_ids)}"
 
 
 def run_small_chain(
@@ -520,12 +763,12 @@ def run_small_chain(
     max_retries: int,
     retry_sleep_seconds: int,
 ) -> int:
-    """Run a small guarded real GLM Pilot 03 chain."""
+    """Run a small guarded real LLM Pilot 03 chain."""
     config = load_pilot_03_real_llm_config(env_path)
     safe_summary = summarise_config_safely(config)
 
-    print("Pilot 03 Z.ai small real chain run")
-    print("==================================")
+    print("Pilot 03 small real LLM chain run")
+    print("=================================")
     print("Safe config summary:")
     print(safe_summary)
     print()
@@ -544,16 +787,25 @@ def run_small_chain(
         print("No real LLM call was made.")
         return 0
 
-    if config.provider != "zai":
-        print(f"SKIPPED: provider is {config.provider!r}, not 'zai'.")
+    if config.provider not in SUPPORTED_PROVIDERS:
+        print(f"SKIPPED: provider is {config.provider!r}, not one of {sorted(SUPPORTED_PROVIDERS)}.")
         print("No real LLM call was made.")
         return 0
 
     env_file_values = load_env_file(env_path)
-    api_key = _get_secret("ZAI_API_KEY", env_file_values)
+
+    if config.provider == "anthropic":
+        api_key = _get_secret("ANTHROPIC_API_KEY", env_file_values)
+        model_name = config.comparison_model
+        endpoint = ANTHROPIC_MESSAGES_URL
+    else:
+        api_key = _get_secret("ZAI_API_KEY", env_file_values)
+        model_name = config.model
+        endpoint = ZAI_CHAT_COMPLETIONS_URL
 
     if not api_key:
-        print("FAILED: ZAI_API_KEY is not available.")
+        required_secret = "ANTHROPIC_API_KEY" if config.provider == "anthropic" else "ZAI_API_KEY"
+        print(f"FAILED: {required_secret} is not available.")
         print("No real LLM call was made.")
         return 1
 
@@ -563,6 +815,7 @@ def run_small_chain(
     )
     selected_task_ids = [task.task_id for task in tasks]
     run_prefix = _make_run_prefix(
+        provider=config.provider,
         selected_task_ids=selected_task_ids,
         requested_task_ids=requested_task_ids,
     )
@@ -570,10 +823,10 @@ def run_small_chain(
 
     expected_calls = len(tasks) * len(conditions) * 3
 
-    print("Running real GLM-5.2 Pilot 03 chain calls.")
+    print(f"Running real {config.provider} Pilot 03 chain calls.")
     print("API key value will not be printed.")
-    print(f"model: {config.model}")
-    print(f"endpoint: {ZAI_CHAT_COMPLETIONS_URL}")
+    print(f"model: {model_name}")
+    print(f"endpoint: {endpoint}")
     print(f"run_id: {run_id}")
     print(f"n_tasks_requested: {n_tasks}")
     print(f"generated_task_count: {generated_task_count}")
@@ -604,7 +857,7 @@ def run_small_chain(
                     visible_evidence_unit_ids=visible_evidence_unit_ids,
                     stage=DECISION_STAGE,
                     provider=config.provider,
-                    model_name=config.model,
+                    model_name=model_name,
                     prompt_record=decision_prompt,
                     run_id=run_id,
                     timeout_seconds=timeout_seconds,
@@ -626,7 +879,7 @@ def run_small_chain(
                     visible_evidence_unit_ids=visible_evidence_unit_ids,
                     stage=AUDIT_STAGE,
                     provider=config.provider,
-                    model_name=config.model,
+                    model_name=model_name,
                     prompt_record=audit_prompt,
                     run_id=run_id,
                     timeout_seconds=timeout_seconds,
@@ -649,7 +902,7 @@ def run_small_chain(
                     visible_evidence_unit_ids=visible_evidence_unit_ids,
                     stage=ESCALATION_STAGE,
                     provider=config.provider,
-                    model_name=config.model,
+                    model_name=model_name,
                     prompt_record=escalation_prompt,
                     run_id=run_id,
                     timeout_seconds=timeout_seconds,
@@ -722,7 +975,7 @@ def run_small_chain(
 
         print()
         print("Safe wording:")
-        print("observed failed Z.ai real chain attempt under current Pilot 03 conditions")
+        print(f"observed failed {config.provider} real chain attempt under current Pilot 03 conditions")
         return 1
 
     except KeyboardInterrupt:
@@ -757,7 +1010,7 @@ def run_small_chain(
 
         print()
         print("Safe wording:")
-        print("observed interrupted partial real GLM run under current Pilot 03 real LLM experimental conditions")
+        print(f"observed interrupted partial real {config.provider} run under current Pilot 03 real LLM experimental conditions")
         return 130
 
     paths = _write_outputs(
@@ -789,7 +1042,7 @@ def run_small_chain(
     )
 
     print()
-    print("Small real chain run completed.")
+    print("Small real LLM chain run completed.")
     print(summary)
     print()
     print("Output files:")
@@ -797,7 +1050,7 @@ def run_small_chain(
         print(f"{name}: {path}")
     print()
     print("Safe wording:")
-    print("observed result under current Pilot 03 real LLM experimental conditions")
+    print(_safe_wording_for_provider(config.provider))
 
     invalid_count = sum(1 for parsed in parsed_responses if not parsed.valid_schema)
     return 0 if invalid_count == 0 else 1
@@ -805,7 +1058,7 @@ def run_small_chain(
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Guarded Pilot 03 small real Z.ai / GLM-5.2 chain run."
+        description="Guarded Pilot 03 small real LLM chain run with Z.ai or Anthropic support."
     )
     parser.add_argument(
         "--env-path",
@@ -815,7 +1068,7 @@ def main() -> int:
     parser.add_argument(
         "--confirm-real-llm-call",
         action="store_true",
-        help="Required to make real Z.ai API calls.",
+        help="Required to make real provider API calls.",
     )
     parser.add_argument(
         "--n-tasks",
