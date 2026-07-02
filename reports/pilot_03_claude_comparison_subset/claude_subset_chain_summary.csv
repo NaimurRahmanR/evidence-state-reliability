@@ -1,0 +1,16 @@
+task_id,task_type,condition,provider,model_name,gold_decision,decision_final_decision,audit_passed,escalation_final_decision,decision_correct,escalation_correct,stages_present,valid_json_chain,valid_schema_chain
+P03-T0001,synthetic_administrative_approval,missing_one_required_unit,anthropic,claude-opus-4-8,approve,reject,True,reject,False,False,True,True,True
+P03-T0001,synthetic_administrative_approval,missing_policy_rule,anthropic,claude-opus-4-8,approve,reject,False,approve,False,True,True,True,True
+P03-T0001,synthetic_administrative_approval,original_evidence,anthropic,claude-opus-4-8,approve,approve,True,approve,True,True,True,True,True
+P03-T0002,synthetic_administrative_approval,missing_one_required_unit,anthropic,claude-opus-4-8,reject,reject,True,reject,True,True,True,True,True
+P03-T0002,synthetic_administrative_approval,missing_policy_rule,anthropic,claude-opus-4-8,reject,reject,False,reject,True,True,True,True,True
+P03-T0002,synthetic_administrative_approval,original_evidence,anthropic,claude-opus-4-8,reject,reject,True,reject,True,True,True,True,True
+P03-T0003,synthetic_administrative_approval,missing_one_required_unit,anthropic,claude-opus-4-8,approve,reject,True,reject,False,False,True,True,True
+P03-T0003,synthetic_administrative_approval,missing_policy_rule,anthropic,claude-opus-4-8,approve,reject,False,approve,False,True,True,True,True
+P03-T0003,synthetic_administrative_approval,original_evidence,anthropic,claude-opus-4-8,approve,approve,True,approve,True,True,True,True,True
+P03-T0004,synthetic_administrative_approval,missing_one_required_unit,anthropic,claude-opus-4-8,reject,reject,True,reject,True,True,True,True,True
+P03-T0004,synthetic_administrative_approval,missing_policy_rule,anthropic,claude-opus-4-8,reject,reject,False,reject,True,True,True,True,True
+P03-T0004,synthetic_administrative_approval,original_evidence,anthropic,claude-opus-4-8,reject,reject,True,reject,True,True,True,True,True
+P03-T0005,synthetic_administrative_approval,missing_one_required_unit,anthropic,claude-opus-4-8,approve,reject,True,reject,False,False,True,True,True
+P03-T0005,synthetic_administrative_approval,missing_policy_rule,anthropic,claude-opus-4-8,approve,reject,False,approve,False,True,True,True,True
+P03-T0005,synthetic_administrative_approval,original_evidence,anthropic,claude-opus-4-8,approve,approve,True,approve,True,True,True,True,True

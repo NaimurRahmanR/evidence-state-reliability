@@ -1,0 +1,4 @@
+condition,n_chains,decision_correct_count,decision_correct_rate,escalation_correct_count,escalation_correct_rate,audit_passed_true_count,audit_passed_true_rate,valid_schema_chain_count,valid_schema_chain_rate
+missing_one_required_unit,5,2,0.4,2,0.4,5,1.0,5,1.0
+missing_policy_rule,5,2,0.4,5,1.0,0,0.0,5,1.0
+original_evidence,5,5,1.0,5,1.0,5,1.0,5,1.0

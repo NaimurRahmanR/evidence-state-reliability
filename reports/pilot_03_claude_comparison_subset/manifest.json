@@ -1,0 +1,13 @@
+{
+  "created_at_utc": "2026-07-02T01:13:53+00:00",
+  "n_chain_rows": 15,
+  "n_condition_rows": 3,
+  "outputs": [
+    "claude_subset_chain_summary.csv",
+    "claude_subset_condition_summary.csv",
+    "claude_subset_report.md",
+    "manifest.json"
+  ],
+  "safe_wording": "observed comparison subset under current Pilot 03 real LLM experimental conditions",
+  "source_run_dir": "results\\pilot_03_real_llm_analysis\\pilot_03_anthropic_small_chain_selected5_20260702T010932Z"
+}
