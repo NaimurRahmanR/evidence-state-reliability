@@ -837,3 +837,18 @@ The central research direction is:
 
 This means a pipeline can fail because the model is weak, but it can also fail because the evidence reaching the model has already become incomplete, distorted, contradicted, or contaminated.
 
+
+
+## Pilot 03 committed evidence status
+
+Current committed Pilot 03 evidence can be checked with:
+
+```powershell
+python -m experiments.pilot_03_validate_all_committed_outputs
+```
+
+The current committed evidence status is summarized in:
+
+- `docs/pilot_03_committed_evidence_status.md`
+
+This includes the GLM-5.2 committed checkpoint, the Anthropic/Claude 20-task validity-aware checkpoint, the selector audit layer, and the master committed-output validator.
