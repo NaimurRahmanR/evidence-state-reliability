@@ -479,37 +479,39 @@ This setup is for controlled real LLM testing only.
 
 The GLM-5.2 connection check has succeeded.
 
-Pilot 03 has completed a one-task smoke test plus one-task, two-task, three-task, four-task, ten-task, and twenty-task controlled real GLM chain checkpoints.
+Pilot 03 has completed the controlled real GLM-5.2 main evidence track and a small Claude Opus 4.8 comparison subset.
 
-The intended role of each model is:
+The current role of each model is:
 
 ```text
 GLM-5.2:
-main real LLM model for controlled Pilot 03 testing
+main real LLM evidence track for controlled Pilot 03 testing
 
 Claude Opus 4.8:
-comparison model for a later subset run after GLM-5.2 is stable
+small comparison subset under the same Pilot 03 task, condition, parser, and chain structure
 ```
 
 Claude Fable 5 is not used because it is not available.
 
-The first real LLM experiment should not be a full experiment.
-
-The correct sequence is:
+The completed real LLM sequence is:
 
 ```text
-1. GLM-5.2 one-task smoke test
-2. Parse and validate the raw response
-3. Manually inspect the result
-4. GLM-5.2 small controlled run
-5. GLM-5.2 full Pilot 03 run only if the small run is stable
-6. Claude Opus 4.8 comparison subset only after GLM-5.2 is stable
+1. GLM-5.2 connection check
+2. GLM-5.2 one-task smoke test
+3. GLM-5.2 one-task, two-task, three-task, four-task, ten-task, and twenty-task controlled checkpoints
+4. Anthropic comparison-runner support
+5. Guarded Anthropic no-call safety test
+6. Claude Opus 4.8 one-task smoke test
+7. Claude Opus 4.8 five-task comparison subset
+8. Claude subset summary report
+9. GLM-vs-Claude comparison report
+10. Paper-ready figures
+11. Reproducibility, interpretation, validity-threats, and paper-outline documents
 ```
 
-The comparison model should initially run on a subset, not the full Pilot 03 design.
+The Claude comparison model is currently a subset result, not a full Pilot 03 replication.
 
-This keeps the project cost-controlled while still allowing a stronger model comparison later.
-
+This keeps the project cost-controlled while still allowing a cautious provider comparison under shared task conditions.
 ---
 
 ## Future real LLM safety rules
