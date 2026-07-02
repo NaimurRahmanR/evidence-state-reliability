@@ -211,14 +211,14 @@ def write_plan_file(path: Path, commands: list[str], aggregate_command: str | No
     path.parent.mkdir(parents=True, exist_ok=True)
 
     lines: list[str] = [
-        "# Pilot 03 real GLM run plan",
+        "# Pilot 03 real provider run plan",
         "# Generated helper file. Review before running.",
         "# These commands make real API calls only when executed manually.",
         "",
     ]
 
     if commands:
-        lines.append("# Real GLM chain commands")
+        lines.append("# Real provider chain commands")
         lines.extend(commands)
         lines.append("")
     else:
