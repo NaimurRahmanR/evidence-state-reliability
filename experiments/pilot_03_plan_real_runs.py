@@ -15,6 +15,8 @@ STAGES_REQUIRED = {"decision", "audit", "escalation"}
 
 @dataclass(frozen=True)
 class CompletedChain:
+    provider: str
+    model_name: str
     task_id: str
     condition: str
     run_dir: Path
@@ -62,28 +64,51 @@ def _extract_condition(record: dict[str, Any]) -> str | None:
     return None
 
 
+def _extract_provider(record: dict[str, Any]) -> str | None:
+    provider = record.get("provider")
+    if isinstance(provider, str) and provider.strip():
+        return provider.strip().lower()
+    return None
+
+
+def _extract_model_name(record: dict[str, Any]) -> str | None:
+    model_name = record.get("model_name")
+    if isinstance(model_name, str) and model_name.strip():
+        return model_name.strip()
+    return None
+
+
 def _completed_chains_in_run_dir(run_dir: Path) -> list[CompletedChain]:
     raw_path = run_dir / "raw_responses.jsonl"
     records = _read_jsonl(raw_path)
 
-    grouped: dict[tuple[str, str], set[str]] = {}
+    grouped: dict[tuple[str, str, str, str], set[str]] = {}
 
     for record in records:
         task_id = record.get("task_id")
         stage = record.get("stage")
         condition = _extract_condition(record)
+        provider = _extract_provider(record)
+        model_name = _extract_model_name(record) or "unknown"
 
-        if not isinstance(task_id, str) or not isinstance(stage, str) or condition is None:
+        if (
+            not isinstance(task_id, str)
+            or not isinstance(stage, str)
+            or condition is None
+            or provider is None
+        ):
             continue
 
-        grouped.setdefault((task_id, condition), set()).add(stage)
+        grouped.setdefault((provider, model_name, task_id, condition), set()).add(stage)
 
     chains: list[CompletedChain] = []
 
-    for (task_id, condition), stages in grouped.items():
+    for (provider, model_name, task_id, condition), stages in grouped.items():
         if STAGES_REQUIRED.issubset(stages):
             chains.append(
                 CompletedChain(
+                    provider=provider,
+                    model_name=model_name,
                     task_id=task_id,
                     condition=condition,
                     run_dir=run_dir,
@@ -106,10 +131,17 @@ def scan_completed_chains(results_dir: Path) -> list[CompletedChain]:
     return chains
 
 
-def _latest_completed_map(chains: list[CompletedChain]) -> dict[tuple[str, str], CompletedChain]:
+def _latest_completed_map(
+    chains: list[CompletedChain],
+    provider: str = "all",
+) -> dict[tuple[str, str], CompletedChain]:
     latest: dict[tuple[str, str], CompletedChain] = {}
+    provider_filter = provider.strip().lower()
 
     for chain in chains:
+        if provider_filter != "all" and chain.provider != provider_filter:
+            continue
+
         key = (chain.task_id, chain.condition)
 
         if key not in latest:
@@ -125,13 +157,19 @@ def _latest_completed_map(chains: list[CompletedChain]) -> dict[tuple[str, str],
     return latest
 
 
-def _make_run_command(task_id: str, condition: str) -> str:
-    return (
+def _make_run_command(task_id: str, condition: str, provider: str) -> str:
+    provider = provider.strip().lower()
+    command = (
         "python -m experiments.pilot_03_zai_small_chain_run "
         "--confirm-real-llm-call "
         f"--task-ids {task_id} "
         f"--conditions {condition}"
     )
+
+    if provider == "all":
+        return command
+
+    return f'cmd /c "set PILOT03_LLM_PROVIDER={provider}&& {command}"'
 
 
 def _make_aggregate_command(run_dirs: list[Path], output_json: Path) -> str:
@@ -197,10 +235,19 @@ def write_plan_file(path: Path, commands: list[str], aggregate_command: str | No
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Plan guarded Pilot 03 real GLM chain runs without making API calls."
+        description="Plan guarded Pilot 03 real provider chain runs without making API calls."
     )
     parser.add_argument("--task-start", type=int, required=True)
     parser.add_argument("--task-end", type=int, required=True)
+    parser.add_argument(
+        "--provider",
+        default="zai",
+        choices=["zai", "anthropic", "all"],
+        help=(
+            "Provider whose completed chains should count for planning. "
+            "Use 'anthropic' before planning Claude comparison chains."
+        ),
+    )
     parser.add_argument(
         "--conditions",
         nargs="+",
@@ -231,15 +278,17 @@ def main() -> int:
     conditions = list(DEFAULT_CONDITIONS) if "all" in [item.lower() for item in args.conditions] else args.conditions
     task_ids = [_task_id(task_number) for task_number in range(args.task_start, args.task_end + 1)]
 
+    args.provider = args.provider.strip().lower()
+
     completed_chains = scan_completed_chains(Path(args.results_dir))
-    latest_map = _latest_completed_map(completed_chains)
+    latest_map = _latest_completed_map(completed_chains, provider=args.provider)
 
     missing_commands: list[str] = []
 
     for task_id in task_ids:
         for condition in conditions:
             if (task_id, condition) not in latest_map:
-                missing_commands.append(_make_run_command(task_id, condition))
+                missing_commands.append(_make_run_command(task_id, condition, args.provider))
 
     aggregate_command = None
     if args.aggregate_output_json:
@@ -254,9 +303,10 @@ def main() -> int:
             output_json=Path(args.aggregate_output_json),
         )
 
-    print("Pilot 03 real GLM run planner")
-    print("=============================")
+    print("Pilot 03 real provider run planner")
+    print("==================================")
     print(f"results_dir: {Path(args.results_dir)}")
+    print(f"provider_filter: {args.provider}")
     print(f"task_range: {task_ids[0]} -> {task_ids[-1]}")
     print(f"conditions: {conditions}")
     print(f"completed_chain_keys_found: {len(latest_map)}")
