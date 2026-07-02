@@ -370,63 +370,97 @@ It should not be described as real LLM behaviour.
 ---
 
 
-### Pilot 03 real GLM result checkpoint
+### Pilot 03 real LLM result checkpoint
 
-The current committed Pilot 03 real GLM checkpoint includes:
-
-```text
-1-task smoke test
-1-task x 3-condition real GLM chain result
-2-task x 3-condition real GLM chain result
-3-task x 3-condition real GLM chain result
-20-task x 3-condition real GLM chain result
-180/180 real GLM responses valid under parser v2 for the twenty-task result
-```
-
-The latest twenty-task real GLM report is documented in:
+The current committed Pilot 03 real LLM checkpoint includes:
 
 ```text
-reports/pilot_03_real_glm_t0020_results.md
+Pilot 03 real GLM-5.2 main evidence track
+20 tasks
+3 evidence conditions per task
+60 complete decision-audit-escalation chains
+180 real GLM-5.2 calls/responses
+180/180 valid JSON
+180/180 valid schema
+valid_chain_rate = 1.0
+
+Pilot 03 Claude Opus 4.8 comparison subset
+5 tasks
+3 evidence conditions per task
+15 complete decision-audit-escalation chains
+45 real Claude calls/responses
+45/45 valid JSON
+45/45 valid schema
 ```
 
-The earlier ten-task real GLM report is documented in:
+Observed GLM-5.2 condition-level result:
 
 ```text
-reports/pilot_03_real_glm_t0010_results.md
+original_evidence:
+decision_correct_rate = 1.0
+escalation_correct_rate = 1.0
+
+missing_policy_rule:
+decision_correct_rate = 0.5
+escalation_correct_rate = 1.0
+
+missing_one_required_unit:
+decision_correct_rate = 0.5
+escalation_correct_rate = 0.5
 ```
 
-The earlier four-task real GLM report is documented in:
+Observed Claude Opus 4.8 comparison-subset condition-level result:
 
 ```text
-reports/pilot_03_real_glm_four_task_results.md
+original_evidence:
+decision_correct_rate = 1.0
+escalation_correct_rate = 1.0
+
+missing_policy_rule:
+decision_correct_rate = 0.4
+escalation_correct_rate = 1.0
+
+missing_one_required_unit:
+decision_correct_rate = 0.4
+escalation_correct_rate = 0.4
 ```
 
-The earlier three-task real GLM report is documented in:
-
-```text
-reports/pilot_03_real_glm_three_task_results.md
-```
-
-The earlier two-task real GLM report is documented in:
-
-```text
-reports/pilot_03_real_glm_two_task_results.md
-```
-
-The first one-task real GLM report is documented in:
-
-```text
-reports/pilot_03_real_glm_first_chain_results.md
-```
-
-Safe wording:
+Safe GLM wording:
 
 ```text
 observed result under current Pilot 03 real LLM experimental conditions
 ```
 
-These results do not establish general GLM-5.2 reliability or general real-world LLM pipeline behaviour.
+Safe Claude wording:
 
+```text
+observed comparison subset under current Pilot 03 real LLM experimental conditions
+```
+
+These results do not establish general GLM-5.2 reliability, general Claude reliability, general provider ranking, or general real-world LLM pipeline behaviour.
+
+The latest committed Pilot 03 reports and documentation are:
+
+```text
+reports/pilot_03_real_glm_t0020_results.md
+reports/pilot_03_claude_comparison_subset/claude_subset_report.md
+reports/pilot_03_glm_vs_claude_comparison/glm_vs_claude_comparison_report.md
+reports/pilot_03_figures/figure_notes.md
+docs/pilot_03_reproducibility_commands.md
+docs/pilot_03_results_interpretation.md
+docs/pilot_03_validity_threats.md
+docs/pilot_03_paper_outline.md
+```
+
+The earlier GLM reports remain available:
+
+```text
+reports/pilot_03_real_glm_t0010_results.md
+reports/pilot_03_real_glm_four_task_results.md
+reports/pilot_03_real_glm_three_task_results.md
+reports/pilot_03_real_glm_two_task_results.md
+reports/pilot_03_real_glm_first_chain_results.md
+```
 ---
 
 ## Pilot 03 real LLM setup and current status
