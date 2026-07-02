@@ -1,0 +1,15 @@
+{
+  "created_at_utc": "2026-07-02T02:37:15+00:00",
+  "n_blocked_column_hits": 0,
+  "n_checks": 70,
+  "n_failed_checks": 0,
+  "n_risky_wording_hits": 0,
+  "outputs": {
+    "manifest_json": "reports\\pilot_03_validation\\manifest.json",
+    "validation_report_md": "reports\\pilot_03_validation\\committed_output_validation_report.md",
+    "validation_results_csv": "reports\\pilot_03_validation\\validation_results.csv"
+  },
+  "real_api_calls": 0,
+  "safe_note": "Validation report for committed Pilot 03 outputs. This command checks internal consistency only and makes no real API calls.",
+  "status": "PASS"
+}
