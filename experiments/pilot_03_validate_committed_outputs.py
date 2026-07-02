@@ -526,8 +526,21 @@ def validate_committed_outputs(*, output_dir: Path) -> dict[str, Any]:
         "manifest_json": output_dir / "manifest.json",
     }
 
+    existing_manifest_path = outputs["manifest_json"]
+    if existing_manifest_path.exists():
+        try:
+            existing_manifest = _load_json(existing_manifest_path)
+            created_at_utc = str(
+                existing_manifest.get("created_at_utc")
+                or datetime.now(UTC).isoformat(timespec="seconds")
+            )
+        except Exception:
+            created_at_utc = datetime.now(UTC).isoformat(timespec="seconds")
+    else:
+        created_at_utc = datetime.now(UTC).isoformat(timespec="seconds")
+
     manifest = {
-        "created_at_utc": datetime.now(UTC).isoformat(timespec="seconds"),
+        "created_at_utc": created_at_utc,
         "real_api_calls": 0,
         "safe_note": SAFE_NOTE,
         "status": "PASS" if not failed else "FAIL",
