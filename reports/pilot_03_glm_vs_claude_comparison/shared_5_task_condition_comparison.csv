@@ -1,0 +1,7 @@
+scope,provider,model,condition,n_tasks,n_chains,decision_correct_count,decision_correct_rate,escalation_correct_count,escalation_correct_rate,audit_passed_true_count,audit_passed_true_rate,valid_chain_count,valid_chain_rate,safe_wording
+Shared 5-task comparison,zai,glm-5.2,missing_one_required_unit,5,5,2,0.4,2,0.4,2,0.4,5,1.0,observed result under current Pilot 03 real LLM experimental conditions
+Shared 5-task comparison,zai,glm-5.2,missing_policy_rule,5,5,2,0.4,5,1.0,1,0.2,5,1.0,observed result under current Pilot 03 real LLM experimental conditions
+Shared 5-task comparison,zai,glm-5.2,original_evidence,5,5,5,1.0,5,1.0,5,1.0,5,1.0,observed result under current Pilot 03 real LLM experimental conditions
+Shared 5-task comparison,anthropic,claude-opus-4-8,missing_one_required_unit,5,5,2,0.4,2,0.4,5,1.0,5,1.0,observed comparison subset under current Pilot 03 real LLM experimental conditions
+Shared 5-task comparison,anthropic,claude-opus-4-8,missing_policy_rule,5,5,2,0.4,5,1.0,0,0.0,5,1.0,observed comparison subset under current Pilot 03 real LLM experimental conditions
+Shared 5-task comparison,anthropic,claude-opus-4-8,original_evidence,5,5,5,1.0,5,1.0,5,1.0,5,1.0,observed comparison subset under current Pilot 03 real LLM experimental conditions

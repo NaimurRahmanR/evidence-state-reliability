@@ -1,0 +1,24 @@
+{
+  "created_at_utc": "2026-07-02T01:18:27+00:00",
+  "outputs": [
+    "shared_5_task_condition_comparison.csv",
+    "scope_reference_condition_comparison.csv",
+    "glm_vs_claude_comparison_report.md",
+    "manifest.json"
+  ],
+  "safe_claude_wording": "observed comparison subset under current Pilot 03 real LLM experimental conditions",
+  "safe_glm_wording": "observed result under current Pilot 03 real LLM experimental conditions",
+  "shared_task_ids": [
+    "P03-T0001",
+    "P03-T0002",
+    "P03-T0003",
+    "P03-T0004",
+    "P03-T0005"
+  ],
+  "source_files": {
+    "claude_chain_csv": "reports\\pilot_03_claude_comparison_subset\\claude_subset_chain_summary.csv",
+    "claude_condition_csv": "reports\\pilot_03_claude_comparison_subset\\claude_subset_condition_summary.csv",
+    "glm_condition_csv": "reports\\pilot_03_real_glm_t0020_condition_summary.csv",
+    "glm_report": "reports\\pilot_03_real_glm_t0020_results.md"
+  }
+}
