@@ -1,0 +1,23 @@
+{
+  "baseline_run_dirs_from_planner": 46,
+  "candidate_run_dirs_found": 48,
+  "created_at_utc": "2026-07-02T03:13:15+00:00",
+  "duplicate_selected_keys": [],
+  "missing_selected_valid_keys": [],
+  "n_invalid_selected_rows": 0,
+  "n_replacements": 0,
+  "n_unresolved": 0,
+  "outputs": {
+    "candidate_rows_csv": "reports\\pilot_03_anthropic_validity_selector\\candidate_rows.csv",
+    "manifest_json": "reports\\pilot_03_anthropic_validity_selector\\manifest.json",
+    "selected_run_dirs_txt": "reports\\pilot_03_anthropic_validity_selector\\selected_run_dirs.txt",
+    "selection_issues_csv": "reports\\pilot_03_anthropic_validity_selector\\selection_issues.csv",
+    "selector_report_md": "reports\\pilot_03_anthropic_validity_selector\\anthropic_validity_selector_report.md"
+  },
+  "real_api_calls": 0,
+  "required_task_condition_keys": 60,
+  "safe_note": "Validity-aware Anthropic run selector for Pilot 03. This command makes no real API calls. It selects completed local run directories for aggregation and avoids known schema-invalid single-chain runs when a valid replacement exists.",
+  "selected_run_dirs": 46,
+  "selected_unique_task_condition_keys": 60,
+  "status": "PASS"
+}
