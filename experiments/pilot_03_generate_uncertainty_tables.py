@@ -528,8 +528,21 @@ def generate_uncertainty_tables(
     _write_csv(outputs["condition_difference_uncertainty_csv"], condition_difference_rows)
     _write_csv(outputs["provider_difference_uncertainty_csv"], provider_difference_rows)
 
+    existing_manifest_path = outputs["manifest_json"]
+    if existing_manifest_path.exists():
+        try:
+            existing_manifest = json.loads(existing_manifest_path.read_text(encoding="utf-8"))
+            created_at_utc = str(
+                existing_manifest.get("created_at_utc")
+                or datetime.now(UTC).isoformat(timespec="seconds")
+            )
+        except Exception:
+            created_at_utc = datetime.now(UTC).isoformat(timespec="seconds")
+    else:
+        created_at_utc = datetime.now(UTC).isoformat(timespec="seconds")
+
     manifest = {
-        "created_at_utc": datetime.now(UTC).isoformat(timespec="seconds"),
+        "created_at_utc": created_at_utc,
         "confidence_level": CONFIDENCE_LEVEL,
         "interval_method": "wilson_score_95",
         "difference_interval_method": "wilson_interval_difference_descriptive_95",

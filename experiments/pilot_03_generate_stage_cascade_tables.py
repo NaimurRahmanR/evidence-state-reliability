@@ -476,8 +476,21 @@ def generate_stage_cascade_tables(
     _write_csv(outputs["cascade_pattern_summary_csv"], cascade_pattern_rows)
     _write_csv(outputs["stage_transition_summary_csv"], stage_transition_rows)
 
+    existing_manifest_path = outputs["manifest_json"]
+    if existing_manifest_path.exists():
+        try:
+            existing_manifest = json.loads(existing_manifest_path.read_text(encoding="utf-8"))
+            created_at_utc = str(
+                existing_manifest.get("created_at_utc")
+                or datetime.now(UTC).isoformat(timespec="seconds")
+            )
+        except Exception:
+            created_at_utc = datetime.now(UTC).isoformat(timespec="seconds")
+    else:
+        created_at_utc = datetime.now(UTC).isoformat(timespec="seconds")
+
     manifest = {
-        "created_at_utc": datetime.now(UTC).isoformat(timespec="seconds"),
+        "created_at_utc": created_at_utc,
         "real_api_calls": 0,
         "safe_note": SAFE_NOTE,
         "source_files": {
