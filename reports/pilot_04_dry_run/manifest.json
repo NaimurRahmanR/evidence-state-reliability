@@ -1,0 +1,61 @@
+{
+  "artifact": "pilot_04_deterministic_dry_run",
+  "status": "PASS",
+  "created_at_utc": "2026-07-07T13:32:37+00:00",
+  "generator": "experiments.pilot_04_run_dry_run",
+  "dry_run_version": "pilot_04_deterministic_dry_run_v1",
+  "task_count": 24,
+  "conditions": [
+    "complete",
+    "partial",
+    "conflicted"
+  ],
+  "expected_chain_rows": 72,
+  "expected_stage_rows_per_stage": 72,
+  "row_counts": {
+    "decision_outputs": 72,
+    "audit_outputs": 72,
+    "escalation_outputs": 72,
+    "chain_outputs": 72
+  },
+  "summary": {
+    "dry_run_version": "pilot_04_deterministic_dry_run_v1",
+    "n_chains": 72,
+    "n_stage_records": 216,
+    "chains_by_condition": {
+      "complete": 24,
+      "conflicted": 24,
+      "partial": 24
+    },
+    "decision_by_condition": {
+      "complete:approve": 8,
+      "complete:decline": 8,
+      "complete:review": 8,
+      "conflicted:decline": 8,
+      "conflicted:review": 16,
+      "partial:review": 24
+    },
+    "escalation_by_condition": {
+      "complete:no_escalation": 24,
+      "conflicted:mandatory_escalation": 16,
+      "conflicted:no_escalation": 8,
+      "partial:soft_escalation": 24
+    },
+    "all_stage_schemas_valid": true,
+    "prompt_instruction_text_exported": false,
+    "real_api_calls": 0,
+    "raw_response_inspection": false
+  },
+  "output_files": [
+    "reports\\pilot_04_dry_run\\decision_outputs.csv",
+    "reports\\pilot_04_dry_run\\audit_outputs.csv",
+    "reports\\pilot_04_dry_run\\escalation_outputs.csv",
+    "reports\\pilot_04_dry_run\\chain_outputs.csv",
+    "reports\\pilot_04_dry_run\\manifest.json"
+  ],
+  "prompt_instruction_text_exported": false,
+  "raw_prompts_exported": false,
+  "raw_responses_exported": false,
+  "raw_response_inspection": false,
+  "real_api_calls": 0
+}
