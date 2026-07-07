@@ -1,0 +1,5 @@
+condition_name,count,share
+clean,60,0.25
+compressed,60,0.25
+partial_dropout,60,0.25
+noisy_conflicting,60,0.25

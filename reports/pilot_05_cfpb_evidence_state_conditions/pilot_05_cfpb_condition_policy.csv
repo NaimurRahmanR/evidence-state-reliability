@@ -1,0 +1,5 @@
+condition_name,construction,intended_reliability_role,target_label_used_in_evidence
+clean,Uses original sanitized evidence_text from Task 05U.,Baseline evidence state.,False
+compressed,"Keeps product, issue, month, and narrative-availability only.",Tests compression-driven evidence-state degradation.,False
+partial_dropout,Drops selected non-target categorical fields.,Tests missing-evidence / partial-evidence degradation.,False
+noisy_conflicting,Adds simulated non-outcome conflicting categorical signals.,Tests noisy/conflicting evidence-state degradation.,False

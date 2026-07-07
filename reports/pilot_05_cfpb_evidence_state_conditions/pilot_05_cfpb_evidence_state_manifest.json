@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "scope": "Pilot 05 CFPB no-call evidence-state condition construction",
+  "source_packets": "reports\\pilot_05_cfpb_evidence_packets\\pilot_05_cfpb_sanitized_evidence_packets.csv",
+  "source_labels": "reports\\pilot_05_cfpb_evidence_packets\\pilot_05_cfpb_packet_labels.csv",
+  "source_packet_manifest": "reports\\pilot_05_cfpb_evidence_packets\\pilot_05_cfpb_evidence_packet_manifest.json",
+  "selection": {
+    "method": "deterministic_seeded_balanced_sample",
+    "random_seed": 20260707,
+    "n_per_label": 30,
+    "labels": [
+      "No",
+      "Yes"
+    ],
+    "base_packets_selected": 60
+  },
+  "conditions": [
+    "clean",
+    "compressed",
+    "partial_dropout",
+    "noisy_conflicting"
+  ],
+  "outputs": {
+    "balanced_subset_packets_csv": "reports\\pilot_05_cfpb_evidence_state_conditions\\pilot_05_cfpb_balanced_subset_packets.csv",
+    "balanced_subset_labels_csv": "reports\\pilot_05_cfpb_evidence_state_conditions\\pilot_05_cfpb_balanced_subset_labels.csv",
+    "evidence_state_conditions_csv": "reports\\pilot_05_cfpb_evidence_state_conditions\\pilot_05_cfpb_evidence_state_conditions.csv",
+    "evidence_state_labels_csv": "reports\\pilot_05_cfpb_evidence_state_conditions\\pilot_05_cfpb_evidence_state_labels.csv",
+    "condition_distribution_csv": "reports\\pilot_05_cfpb_evidence_state_conditions\\pilot_05_cfpb_condition_distribution.csv",
+    "balanced_subset_label_distribution_csv": "reports\\pilot_05_cfpb_evidence_state_conditions\\pilot_05_cfpb_balanced_subset_label_distribution.csv",
+    "evidence_state_label_distribution_csv": "reports\\pilot_05_cfpb_evidence_state_conditions\\pilot_05_cfpb_evidence_state_label_distribution.csv",
+    "condition_policy_csv": "reports\\pilot_05_cfpb_evidence_state_conditions\\pilot_05_cfpb_condition_policy.csv",
+    "summary_csv": "reports\\pilot_05_cfpb_evidence_state_conditions\\pilot_05_cfpb_evidence_state_summary.csv",
+    "report_md": "reports\\pilot_05_cfpb_evidence_state_conditions\\pilot_05_cfpb_evidence_state_condition_report.md"
+  },
+  "row_counts": {
+    "input_packets": 26823,
+    "input_labels": 26823,
+    "base_packets_selected": 60,
+    "conditions_per_packet": 4,
+    "evidence_state_rows_written": 240,
+    "subset_labels_written": 60,
+    "evidence_state_labels_written": 240
+  },
+  "subset_label_counts": {
+    "No": 30,
+    "Yes": 30
+  },
+  "evidence_state_label_counts": {
+    "No": 120,
+    "Yes": 120
+  },
+  "condition_counts": {
+    "clean": 60,
+    "compressed": 60,
+    "partial_dropout": 60,
+    "noisy_conflicting": 60
+  },
+  "safety": {
+    "real_api_calls": 0,
+    "model_calls": 0,
+    "dataset_downloads": 0,
+    "raw_rows_written": false,
+    "raw_narratives_written": false,
+    "company_names_written": false,
+    "complaint_ids_written": false,
+    "zip_codes_written": false,
+    "target_label_in_evidence_state_text": false,
+    "labels_written_separately": true,
+    "raw_prompt_or_response_written": false
+  },
+  "claim_boundary": "No-call evidence-state condition construction for later approved controlled cascade experiments; not a model result and not a real-world deployment claim."
+}
