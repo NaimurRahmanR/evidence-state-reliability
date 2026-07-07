@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "scope": "Pilot 05 CFPB sanitized evidence-packet construction",
+  "source": "CFPB Consumer Complaint Database browser-export CSV audited in Pilot 05",
+  "source_raw_filename_only": "cfpb_complaints_2026_q1_credit_card_browser_export_raw.csv",
+  "source_audit_manifest": "reports\\pilot_05_cfpb_complaints_dataset_audit\\selected_source_manifest.json",
+  "source_strict_row_quality_manifest": "reports\\pilot_05_cfpb_complaints_dataset_audit\\strict_row_quality_manifest.json",
+  "outputs": {
+    "evidence_packets_csv": "reports\\pilot_05_cfpb_evidence_packets\\pilot_05_cfpb_sanitized_evidence_packets.csv",
+    "labels_csv": "reports\\pilot_05_cfpb_evidence_packets\\pilot_05_cfpb_packet_labels.csv",
+    "label_distribution_csv": "reports\\pilot_05_cfpb_evidence_packets\\pilot_05_cfpb_packet_label_distribution.csv",
+    "product_distribution_csv": "reports\\pilot_05_cfpb_evidence_packets\\pilot_05_cfpb_packet_product_distribution.csv",
+    "narrative_availability_distribution_csv": "reports\\pilot_05_cfpb_evidence_packets\\pilot_05_cfpb_packet_narrative_availability_distribution.csv",
+    "field_policy_csv": "reports\\pilot_05_cfpb_evidence_packets\\pilot_05_cfpb_packet_field_policy.csv",
+    "summary_csv": "reports\\pilot_05_cfpb_evidence_packets\\pilot_05_cfpb_packet_summary.csv",
+    "report_md": "reports\\pilot_05_cfpb_evidence_packets\\pilot_05_cfpb_evidence_packet_report.md"
+  },
+  "row_counts": {
+    "total_csv_records_seen_after_header": 26823,
+    "audited_rows_expected": 26823,
+    "strict_rows_expected": 26823,
+    "packets_written": 26823,
+    "labels_written": 26823,
+    "rejected_rows": 0
+  },
+  "label_counts": {
+    "No": 440,
+    "Yes": 26383
+  },
+  "product_counts": {
+    "Credit card": 25223,
+    "Prepaid card": 1600
+  },
+  "narrative_availability_counts": {
+    "absent": 17031,
+    "present": 9792
+  },
+  "rejection_counts": {},
+  "safety": {
+    "real_api_calls": 0,
+    "model_calls": 0,
+    "dataset_downloads": 0,
+    "raw_rows_written": false,
+    "raw_narratives_written": false,
+    "company_names_written": false,
+    "complaint_ids_written": false,
+    "zip_codes_written": false,
+    "company_response_fields_written": false,
+    "target_label_in_evidence_text": false,
+    "labels_written_separately": true,
+    "raw_prompt_or_response_written": false
+  },
+  "claim_boundary": "No-call sanitized evidence-packet construction for later controlled evidence-state reliability experiments; not a model result and not a real-world deployment claim."
+}

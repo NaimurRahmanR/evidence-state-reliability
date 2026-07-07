@@ -1,0 +1,17 @@
+source_field,decision,output_field,rationale
+Date received,derived_month_only,received_month,Temporal context kept at month granularity; raw timestamp excluded.
+Product,include_category,product_family,Official CFPB category; not raw narrative or identifier.
+Sub-product,include_category,sub_product_bucket,Official CFPB category; not raw narrative or identifier.
+Issue,include_category,issue_category,Official CFPB category; not raw narrative or identifier.
+Sub-issue,include_category,sub_issue_category,Official CFPB category; not raw narrative or identifier.
+Consumer complaint narrative,exclude_raw_text,"narrative_available,narrative_length_bucket",Raw consumer-submitted text is not written; only availability and length bucket are retained.
+Company public response,exclude,,Potentially outcome/process-related; excluded from evidence text.
+Company,exclude,,Company names excluded to avoid provider ranking or company-specific claims.
+State,presence_only,state_presence,State value excluded; only presence flag retained.
+ZIP code,exclude,,Geographic identifier excluded.
+Tags,presence_only,consumer_tag_presence,Sensitive tag values excluded; only presence flag retained.
+Submitted via,include_category,submitted_via,Submission channel is retained as a non-outcome categorical feature.
+Date sent to company,exclude,,Process timing after receipt is excluded from evidence text.
+Company response to consumer,exclude,,Outcome-adjacent company-response field excluded from evidence text.
+Timely response?,label_only,pilot_05_cfpb_packet_labels.csv,Target label is stored separately and is not included in evidence text.
+Complaint ID,exclude,,Raw record identifier excluded; synthetic packet_id generated instead.
