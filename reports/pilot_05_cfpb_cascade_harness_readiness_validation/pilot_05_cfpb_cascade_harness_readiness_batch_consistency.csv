@@ -1,0 +1,13 @@
+batch_id,stage,evidence_condition,plan_rows,batch_request_count,expected_count,status
+pilot05_05ag_decision_clean,decision,clean,60,60,60,PASS
+pilot05_05ag_decision_compressed,decision,compressed,60,60,60,PASS
+pilot05_05ag_decision_partial_dropout,decision,partial_dropout,60,60,60,PASS
+pilot05_05ag_decision_noisy_conflicting,decision,noisy_conflicting,60,60,60,PASS
+pilot05_05ag_audit_clean,audit,clean,60,60,60,PASS
+pilot05_05ag_audit_compressed,audit,compressed,60,60,60,PASS
+pilot05_05ag_audit_partial_dropout,audit,partial_dropout,60,60,60,PASS
+pilot05_05ag_audit_noisy_conflicting,audit,noisy_conflicting,60,60,60,PASS
+pilot05_05ag_escalation_clean,escalation,clean,60,60,60,PASS
+pilot05_05ag_escalation_compressed,escalation,compressed,60,60,60,PASS
+pilot05_05ag_escalation_partial_dropout,escalation,partial_dropout,60,60,60,PASS
+pilot05_05ag_escalation_noisy_conflicting,escalation,noisy_conflicting,60,60,60,PASS

@@ -1,0 +1,11 @@
+guardrail,expected_value,observed_value,source_status,review_status
+model_execution_enabled,False,False,PASS,PASS
+hard_stop_without_future_approval,True,True,PASS,PASS
+api_calls,0,0,PASS,PASS
+model_calls,0,0,PASS,PASS
+dataset_downloads,0,0,PASS,PASS
+raw_prompt_instances_written,False,False,PASS,PASS
+raw_responses_written,False,False,PASS,PASS
+jsonl_written,False,False,PASS,PASS
+raw_cfpb_data_read,False,False,PASS,PASS
+git_stage_commit_push,False,False,PASS,PASS

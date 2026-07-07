@@ -1,0 +1,13 @@
+stage,evidence_condition,plan_rows,expected_plan_rows,status
+decision,clean,60,60,PASS
+decision,compressed,60,60,PASS
+decision,partial_dropout,60,60,PASS
+decision,noisy_conflicting,60,60,PASS
+audit,clean,60,60,PASS
+audit,compressed,60,60,PASS
+audit,partial_dropout,60,60,PASS
+audit,noisy_conflicting,60,60,PASS
+escalation,clean,60,60,PASS
+escalation,compressed,60,60,PASS
+escalation,partial_dropout,60,60,PASS
+escalation,noisy_conflicting,60,60,PASS

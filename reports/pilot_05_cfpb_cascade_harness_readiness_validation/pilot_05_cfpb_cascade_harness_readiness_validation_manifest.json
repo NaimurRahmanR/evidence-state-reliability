@@ -1,0 +1,72 @@
+{
+  "claim_boundary": "Harness readiness validation only. No Pilot 05 model-result evidence created.",
+  "counts": {
+    "batch_rows": 12,
+    "check_rows": 111,
+    "condition_counts": {
+      "clean": 180,
+      "compressed": 180,
+      "noisy_conflicting": 180,
+      "partial_dropout": 180
+    },
+    "failed_checks": 0,
+    "guardrail_rows": 10,
+    "plan_rows": 720,
+    "readiness_rows": 19,
+    "stage_condition_rows": {
+      "audit|clean": 60,
+      "audit|compressed": 60,
+      "audit|noisy_conflicting": 60,
+      "audit|partial_dropout": 60,
+      "decision|clean": 60,
+      "decision|compressed": 60,
+      "decision|noisy_conflicting": 60,
+      "decision|partial_dropout": 60,
+      "escalation|clean": 60,
+      "escalation|compressed": 60,
+      "escalation|noisy_conflicting": 60,
+      "escalation|partial_dropout": 60
+    },
+    "stage_counts": {
+      "audit": 240,
+      "decision": 240,
+      "escalation": 240
+    }
+  },
+  "created_utc": "2026-07-07T21:09:43.638524+00:00",
+  "execution_mode": "no_call_readiness_validation_only",
+  "input_files": {
+    "batches": "reports/pilot_05_cfpb_cascade_execution_harness/pilot_05_cfpb_cascade_execution_batches.csv",
+    "expected_outputs": "reports/pilot_05_cfpb_cascade_execution_harness/pilot_05_cfpb_cascade_expected_sanitized_outputs.csv",
+    "guardrails": "reports/pilot_05_cfpb_cascade_execution_harness/pilot_05_cfpb_cascade_execution_guardrails.csv",
+    "harness_script": "experiments/pilot_05_cfpb_cascade_execution_harness.py",
+    "manifest": "reports/pilot_05_cfpb_cascade_execution_harness/pilot_05_cfpb_cascade_execution_harness_manifest.json",
+    "plan": "reports/pilot_05_cfpb_cascade_execution_harness/pilot_05_cfpb_cascade_execution_plan.csv",
+    "readiness": "reports/pilot_05_cfpb_cascade_execution_harness/pilot_05_cfpb_cascade_execution_readiness_summary.csv"
+  },
+  "output_files": {
+    "batches": "reports/pilot_05_cfpb_cascade_harness_readiness_validation/pilot_05_cfpb_cascade_harness_readiness_batch_consistency.csv",
+    "checks": "reports/pilot_05_cfpb_cascade_harness_readiness_validation/pilot_05_cfpb_cascade_harness_readiness_checks.csv",
+    "guardrails": "reports/pilot_05_cfpb_cascade_harness_readiness_validation/pilot_05_cfpb_cascade_harness_readiness_guardrail_review.csv",
+    "manifest": "reports/pilot_05_cfpb_cascade_harness_readiness_validation/pilot_05_cfpb_cascade_harness_readiness_validation_manifest.json",
+    "matrix": "reports/pilot_05_cfpb_cascade_harness_readiness_validation/pilot_05_cfpb_cascade_harness_readiness_stage_condition_matrix.csv",
+    "report": "reports/pilot_05_cfpb_cascade_harness_readiness_validation/pilot_05_cfpb_cascade_harness_readiness_report.md"
+  },
+  "safety_flags": {
+    "api_calls": 0,
+    "dataset_downloads": 0,
+    "hard_stop_without_future_approval": true,
+    "jsonl_written": false,
+    "model_calls": 0,
+    "model_execution_enabled": false,
+    "raw_cfpb_data_read": false,
+    "raw_cfpb_data_written": false,
+    "raw_prompt_instances_written": false,
+    "raw_responses_written": false,
+    "staged_or_committed_by_script": false
+  },
+  "schema_version": "pilot_05_cfpb_cascade_harness_readiness_validation_v1",
+  "status": "PASS",
+  "task_id": "05AH",
+  "validated_input_checkpoint": "2b57c07 Add Pilot 05 CFPB no-call execution harness"
+}
