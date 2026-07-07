@@ -1,0 +1,422 @@
+# Pilot 03 robustness and sensitivity checks
+
+Generated at UTC: 2026-07-07T11:22:30+00:00
+
+## Scope
+
+Observed result under current Pilot 03 real LLM experimental conditions; robustness and sensitivity checks are descriptive and evidence-bounded.
+
+These checks use committed sanitized Pilot 03 outputs only. They do not make external API calls and do not inspect raw model responses.
+
+## Generated outputs
+
+| output | rows |
+| --- | ---: |
+| leave_one_task_out_sensitivity | 18 |
+| condition_order_sensitivity | 12 |
+| paired_delta_interval_sensitivity | 15 |
+| cascade_threshold_sensitivity | 30 |
+| high_signal_case_profile | 7 |
+
+## Check descriptions
+
+- `leave_one_task_out_sensitivity.csv` checks whether model-condition metrics are strongly affected by removing one task at a time.
+- `condition_order_sensitivity.csv` checks whether descriptive metric direction follows the expected evidence-degradation order.
+- `paired_delta_interval_sensitivity.csv` summarizes observed paired deltas and whether paired intervals cross zero.
+- `cascade_threshold_sensitivity.csv` marks whether cascade metrics meet small descriptive thresholds.
+- `high_signal_case_profile.csv` summarizes high-signal cases by condition and reason.
+
+## Interpretation guardrail
+
+These outputs should be used as internal robustness evidence only. They do not establish broad model behavior beyond the controlled Pilot 03 setup.
+
+## Manifest
+
+```json
+{
+  "created_at_utc": "2026-07-07T11:22:30+00:00",
+  "input_policy": "committed sanitized CSV outputs only",
+  "output_files": [
+    "reports/pilot_03_robustness_sensitivity/leave_one_task_out_sensitivity.csv",
+    "reports/pilot_03_robustness_sensitivity/condition_order_sensitivity.csv",
+    "reports/pilot_03_robustness_sensitivity/paired_delta_interval_sensitivity.csv",
+    "reports/pilot_03_robustness_sensitivity/cascade_threshold_sensitivity.csv",
+    "reports/pilot_03_robustness_sensitivity/high_signal_case_profile.csv"
+  ],
+  "outputs": {
+    "cascade_threshold_sensitivity": "reports/pilot_03_robustness_sensitivity/cascade_threshold_sensitivity.csv",
+    "condition_order_sensitivity": "reports/pilot_03_robustness_sensitivity/condition_order_sensitivity.csv",
+    "high_signal_case_profile": "reports/pilot_03_robustness_sensitivity/high_signal_case_profile.csv",
+    "leave_one_task_out_sensitivity": "reports/pilot_03_robustness_sensitivity/leave_one_task_out_sensitivity.csv",
+    "manifest": "reports/pilot_03_robustness_sensitivity/manifest.json",
+    "paired_delta_interval_sensitivity": "reports/pilot_03_robustness_sensitivity/paired_delta_interval_sensitivity.csv",
+    "robustness_sensitivity_report": "reports/pilot_03_robustness_sensitivity/robustness_sensitivity_report.md"
+  },
+  "raw_response_inspection": false,
+  "real_api_calls": 0,
+  "report_name": "pilot_03_robustness_sensitivity",
+  "row_counts": {
+    "cascade_threshold_sensitivity": 30,
+    "condition_order_sensitivity": 12,
+    "high_signal_case_profile": 7,
+    "leave_one_task_out_sensitivity": 18,
+    "paired_delta_interval_sensitivity": 15
+  },
+  "safe_note": "Observed result under current Pilot 03 real LLM experimental conditions; robustness and sensitivity checks are descriptive and evidence-bounded.",
+  "safe_wording_check": "PASS",
+  "script": "experiments/pilot_03_generate_robustness_sensitivity_checks.py",
+  "source_files": [
+    {
+      "columns": [
+        "task_id",
+        "task_type",
+        "condition",
+        "gold_decision",
+        "glm_model_name",
+        "claude_model_name",
+        "glm_decision_final_decision",
+        "claude_decision_final_decision",
+        "glm_escalation_final_decision",
+        "claude_escalation_final_decision",
+        "glm_decision_correct",
+        "claude_decision_correct",
+        "glm_escalation_correct",
+        "claude_escalation_correct",
+        "glm_audit_passed",
+        "claude_audit_passed",
+        "glm_valid_json_chain",
+        "claude_valid_json_chain",
+        "glm_valid_schema_chain",
+        "claude_valid_schema_chain",
+        "decision_correct_agreement",
+        "escalation_correct_agreement",
+        "audit_passed_agreement",
+        "glm_decision_only_correct",
+        "claude_decision_only_correct",
+        "both_decision_correct",
+        "both_decision_wrong",
+        "glm_escalation_only_correct",
+        "claude_escalation_only_correct",
+        "both_escalation_correct",
+        "both_escalation_wrong",
+        "safe_note"
+      ],
+      "key": "paired_chain_comparison",
+      "path": "reports/pilot_03_glm_vs_claude_t0020_full/paired_chain_comparison.csv",
+      "rows": 60,
+      "sha256": "d961cb8e2867e2f1b5528733b0dd3027e73001d57b0dea67c4198beb5a601c76"
+    },
+    {
+      "columns": [
+        "provider",
+        "model_name",
+        "condition",
+        "n_chains",
+        "decision_correct_count",
+        "decision_correct_rate",
+        "escalation_correct_count",
+        "escalation_correct_rate",
+        "audit_passed_true_count",
+        "audit_passed_true_rate",
+        "valid_json_chain_count",
+        "valid_json_chain_rate",
+        "valid_schema_chain_count",
+        "valid_schema_chain_rate",
+        "safe_note"
+      ],
+      "key": "model_condition_summary",
+      "path": "reports/pilot_03_glm_vs_claude_t0020_full/model_condition_summary.csv",
+      "rows": 6,
+      "sha256": "bb593df0cc0172a12f417bf623083f935224907c0b90593833dcf55a23642670"
+    },
+    {
+      "columns": [
+        "condition",
+        "metric",
+        "glm_5_2_value",
+        "claude_opus_4_8_value",
+        "claude_minus_glm",
+        "absolute_difference",
+        "comparison_scope",
+        "safe_note"
+      ],
+      "key": "condition_delta_summary",
+      "path": "reports/pilot_03_glm_vs_claude_t0020_full/condition_delta_summary.csv",
+      "rows": 15,
+      "sha256": "6cd2823d6c4cf6574571a5acc809a94bc3fbe02017556799621502a9a81b00f3"
+    },
+    {
+      "columns": [
+        "condition",
+        "metric",
+        "n_pairs",
+        "agreement_count",
+        "agreement_rate",
+        "safe_note",
+        "glm_only_correct_count",
+        "glm_only_correct_rate",
+        "claude_only_correct_count",
+        "claude_only_correct_rate",
+        "both_correct_count",
+        "both_correct_rate",
+        "both_wrong_count",
+        "both_wrong_rate"
+      ],
+      "key": "paired_agreement_summary",
+      "path": "reports/pilot_03_glm_vs_claude_t0020_full/paired_agreement_summary.csv",
+      "rows": 9,
+      "sha256": "97760340a3d26593faf705bb7ab7e751b06503fc7b941d98ba39018517e2d33b"
+    },
+    {
+      "columns": [
+        "provider",
+        "model_name",
+        "model_label",
+        "condition",
+        "metric",
+        "successes",
+        "n",
+        "estimate",
+        "ci_method",
+        "ci_lower",
+        "ci_upper",
+        "interpretation",
+        "safe_note"
+      ],
+      "key": "model_metric_uncertainty",
+      "path": "reports/pilot_03_glm_vs_claude_t0020_uncertainty/model_metric_uncertainty.csv",
+      "rows": 30,
+      "sha256": "c099159f83ec7adc54a653211462b00d0083929ac248f3cfbc2bdb47db631582"
+    },
+    {
+      "columns": [
+        "condition",
+        "metric",
+        "n_pairs",
+        "glm_successes",
+        "claude_successes",
+        "glm_rate",
+        "claude_rate",
+        "claude_minus_glm",
+        "paired_bootstrap_ci_method",
+        "paired_bootstrap_ci_lower",
+        "paired_bootstrap_ci_upper",
+        "both_success",
+        "both_failure",
+        "glm_only_success",
+        "claude_only_success",
+        "discordant_pairs",
+        "mcnemar_exact_two_sided_p",
+        "bootstrap_seed",
+        "interpretation",
+        "safe_note"
+      ],
+      "key": "paired_delta_uncertainty",
+      "path": "reports/pilot_03_glm_vs_claude_t0020_uncertainty/paired_delta_uncertainty.csv",
+      "rows": 15,
+      "sha256": "1f32e163567dbbb0ddc0bd30bc276e38dfa81c6094caa4f7c44f592433ec2be3"
+    },
+    {
+      "columns": [
+        "task_id",
+        "task_type",
+        "condition",
+        "gold_decision",
+        "glm_decision_final_decision",
+        "claude_decision_final_decision",
+        "glm_escalation_final_decision",
+        "claude_escalation_final_decision",
+        "glm_decision_correct",
+        "claude_decision_correct",
+        "glm_escalation_correct",
+        "claude_escalation_correct",
+        "glm_audit_passed",
+        "claude_audit_passed",
+        "decision_pair_outcome",
+        "escalation_pair_outcome",
+        "audit_pair_outcome",
+        "glm_escalation_transition",
+        "claude_escalation_transition",
+        "same_escalation_transition",
+        "decision_correct_disagreement",
+        "escalation_correct_disagreement",
+        "audit_passed_disagreement",
+        "both_decision_wrong",
+        "both_escalation_wrong",
+        "either_model_recovered_at_escalation",
+        "either_model_lost_at_escalation",
+        "safe_note"
+      ],
+      "key": "task_condition_paired_outcomes",
+      "path": "reports/pilot_03_glm_vs_claude_t0020_paired_task_analysis/task_condition_paired_outcomes.csv",
+      "rows": 60,
+      "sha256": "07293977dc49872c458b3ceb66d50f6f1412324d7b8d801bc193b59214e0c5ca"
+    },
+    {
+      "columns": [
+        "task_id",
+        "task_type",
+        "n_conditions",
+        "conditions",
+        "gold_decisions",
+        "glm_decision_correct_count",
+        "claude_decision_correct_count",
+        "glm_escalation_correct_count",
+        "claude_escalation_correct_count",
+        "glm_audit_passed_count",
+        "claude_audit_passed_count",
+        "decision_disagreement_count",
+        "escalation_disagreement_count",
+        "audit_disagreement_count",
+        "glm_escalation_recovery_count",
+        "claude_escalation_recovery_count",
+        "both_decision_wrong_count",
+        "both_escalation_wrong_count",
+        "task_pattern",
+        "safe_note"
+      ],
+      "key": "task_level_summary",
+      "path": "reports/pilot_03_glm_vs_claude_t0020_paired_task_analysis/task_level_summary.csv",
+      "rows": 20,
+      "sha256": "19fbf12202e5345082f730b002911205233e1e6f8940abfd5af1ea4d4e18f631"
+    },
+    {
+      "columns": [
+        "condition",
+        "n_pairs",
+        "decision_both_correct_count",
+        "decision_both_correct_rate",
+        "decision_both_wrong_count",
+        "decision_both_wrong_rate",
+        "decision_glm_only_correct_count",
+        "decision_claude_only_correct_count",
+        "escalation_both_correct_count",
+        "escalation_both_correct_rate",
+        "escalation_both_wrong_count",
+        "escalation_both_wrong_rate",
+        "escalation_glm_only_correct_count",
+        "escalation_claude_only_correct_count",
+        "audit_both_passed_count",
+        "audit_both_passed_rate",
+        "audit_both_not_passed_count",
+        "audit_both_not_passed_rate",
+        "audit_glm_only_passed_count",
+        "audit_claude_only_passed_count",
+        "glm_recovered_by_escalation_count",
+        "claude_recovered_by_escalation_count",
+        "glm_not_recovered_count",
+        "claude_not_recovered_count",
+        "glm_lost_at_escalation_count",
+        "claude_lost_at_escalation_count",
+        "safe_note"
+      ],
+      "key": "condition_pair_profile",
+      "path": "reports/pilot_03_glm_vs_claude_t0020_paired_task_analysis/condition_pair_profile.csv",
+      "rows": 3,
+      "sha256": "8c5f1e21cedeebfcb053081946d997f6750b776fd75134a85e5e677011bf5093"
+    },
+    {
+      "columns": [
+        "task_id",
+        "condition",
+        "gold_decision",
+        "reasons",
+        "glm_decision_correct",
+        "claude_decision_correct",
+        "glm_escalation_correct",
+        "claude_escalation_correct",
+        "glm_audit_passed",
+        "claude_audit_passed",
+        "glm_escalation_transition",
+        "claude_escalation_transition",
+        "safe_note"
+      ],
+      "key": "high_signal_cases",
+      "path": "reports/pilot_03_glm_vs_claude_t0020_paired_task_analysis/high_signal_cases.csv",
+      "rows": 24,
+      "sha256": "deb1ba9cfcefc86ec2147f5eb0a1f6cdb4496cbec24ef4e84fb0a4d82bff739e"
+    },
+    {
+      "columns": [
+        "provider",
+        "model_name",
+        "model_label",
+        "condition",
+        "n_chains",
+        "valid_chain_count",
+        "valid_chain_rate",
+        "decision_correct_count",
+        "decision_correct_rate",
+        "decision_failure_count",
+        "decision_failure_rate",
+        "audit_pass_count",
+        "audit_pass_rate",
+        "audit_false_assurance_count",
+        "audit_false_assurance_rate",
+        "audit_detected_decision_failure_count",
+        "audit_detection_rate_on_decision_failure",
+        "undetected_decision_failure_count",
+        "undetected_decision_failure_rate",
+        "escalation_correct_count",
+        "escalation_correct_rate",
+        "escalation_recovered_decision_failure_count",
+        "escalation_recovery_rate_on_decision_failure",
+        "escalation_lost_decision_success_count",
+        "escalation_loss_rate_on_decision_success",
+        "cascade_failure_count",
+        "cascade_failure_rate",
+        "net_escalation_gain_rate",
+        "safe_note"
+      ],
+      "key": "model_condition_cascade_metrics",
+      "path": "reports/pilot_03_reliability_cascade_metrics/model_condition_cascade_metrics.csv",
+      "rows": 6,
+      "sha256": "e45eb4ff41faf8265985ee613c8901ab3842ee9c4436c3f5eff23bc1be1270bc"
+    },
+    {
+      "columns": [
+        "provider",
+        "model_name",
+        "condition",
+        "baseline_condition",
+        "metric",
+        "baseline_value",
+        "condition_value",
+        "condition_minus_baseline",
+        "safe_note"
+      ],
+      "key": "evidence_condition_delta_metrics",
+      "path": "reports/pilot_03_reliability_cascade_metrics/evidence_condition_delta_metrics.csv",
+      "rows": 48,
+      "sha256": "c9d2388a518c679783010d43f7c8cd367ea7575c62299def8ef03b0f282df682"
+    },
+    {
+      "columns": [
+        "condition",
+        "metric",
+        "glm_5_2_value",
+        "claude_opus_4_8_value",
+        "claude_minus_glm",
+        "comparison_scope",
+        "safe_note"
+      ],
+      "key": "cross_model_cascade_comparison",
+      "path": "reports/pilot_03_reliability_cascade_metrics/cross_model_cascade_comparison.csv",
+      "rows": 30,
+      "sha256": "75ab5ed0c7ac9c56dce48e654b99d24ebdf1f3037dc95e6afeffa6b01812df93"
+    },
+    {
+      "columns": [
+        "metric",
+        "definition",
+        "safe_note"
+      ],
+      "key": "metric_definitions",
+      "path": "reports/pilot_03_reliability_cascade_metrics/metric_definitions.csv",
+      "rows": 12,
+      "sha256": "c8cfe632c85b20ec612206364b51590eebaacf406bf0c339e8c2e9f509685537"
+    }
+  ],
+  "status": "PASS"
+}
+```
