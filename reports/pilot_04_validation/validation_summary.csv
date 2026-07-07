@@ -1,0 +1,70 @@
+check_name,status,detail
+path_exists::docs\pilot_04_second_domain_design.md,PASS,required committed output exists
+path_exists::data\pilot_04_tasks.csv,PASS,required committed output exists
+path_exists::reports\pilot_04_tasks\task_inventory.csv,PASS,required committed output exists
+path_exists::reports\pilot_04_tasks\condition_inventory.csv,PASS,required committed output exists
+path_exists::reports\pilot_04_tasks\manifest.json,PASS,required committed output exists
+path_exists::reports\pilot_04_dry_run\decision_outputs.csv,PASS,required committed output exists
+path_exists::reports\pilot_04_dry_run\audit_outputs.csv,PASS,required committed output exists
+path_exists::reports\pilot_04_dry_run\escalation_outputs.csv,PASS,required committed output exists
+path_exists::reports\pilot_04_dry_run\chain_outputs.csv,PASS,required committed output exists
+path_exists::reports\pilot_04_dry_run\manifest.json,PASS,required committed output exists
+required_columns::data\pilot_04_tasks.csv,PASS,missing=[]
+required_columns::reports\pilot_04_tasks\task_inventory.csv,PASS,missing=[]
+required_columns::reports\pilot_04_tasks\condition_inventory.csv,PASS,missing=[]
+required_columns::reports\pilot_04_dry_run\decision_outputs.csv,PASS,missing=[]
+required_columns::reports\pilot_04_dry_run\audit_outputs.csv,PASS,missing=[]
+required_columns::reports\pilot_04_dry_run\escalation_outputs.csv,PASS,missing=[]
+required_columns::reports\pilot_04_dry_run\chain_outputs.csv,PASS,missing=[]
+design_doc_required_phrase::Pilot 03 remains locked,PASS,required scope phrase present
+design_doc_required_phrase::synthetic loan-risk decision-support setting,PASS,required scope phrase present
+design_doc_required_phrase::no-call,PASS,required scope phrase present
+design_doc_required_phrase::real_api_calls: 0,PASS,required scope phrase present
+design_doc_required_phrase::raw_response_inspection: False,PASS,required scope phrase present
+"design_doc_required_phrase::must not modify, reinterpret, or replace Pilot 03",PASS,required scope phrase present
+design_doc_public_wording_safety,PASS,hits=[]
+task_manifest_status,PASS,PASS
+task_manifest_real_api_calls,PASS,0
+task_manifest_raw_response_inspection,PASS,False
+task_manifest_raw_prompts_exported,PASS,False
+task_manifest_raw_responses_exported,PASS,False
+data_task_inventory_row_count,PASS,24
+report_task_inventory_row_count,PASS,24
+condition_inventory_row_count,PASS,72
+task_ids_unique,PASS,n_unique=24
+task_gold_labels_allowed,PASS,"labels={'approve': 8, 'decline': 8, 'review': 8}"
+task_gold_labels_balanced,PASS,"labels={'approve': 8, 'decline': 8, 'review': 8}"
+task_nested_json_fields_parse,PASS,malformed=[]
+condition_names_allowed,PASS,"condition_counts={'complete': 24, 'conflicted': 24, 'partial': 24}"
+condition_counts_per_condition,PASS,"condition_counts={'complete': 24, 'conflicted': 24, 'partial': 24}"
+task_condition_pairs_unique,PASS,duplicates=[]
+partial_condition_removes_required_evidence,PASS,all partial rows hide at least one required unit
+conflicted_condition_exposes_conflict_note,PASS,all conflicted rows expose E8 conflict note
+dry_run_manifest_status,PASS,PASS
+dry_run_manifest_real_api_calls,PASS,0
+dry_run_manifest_raw_response_inspection,PASS,False
+dry_run_manifest_raw_prompts_exported,PASS,False
+dry_run_manifest_raw_responses_exported,PASS,False
+dry_run_manifest_prompt_text_not_exported,PASS,False
+decision_outputs_row_count,PASS,72
+audit_outputs_row_count,PASS,72
+escalation_outputs_row_count,PASS,72
+chain_outputs_row_count,PASS,72
+dry_run_summary_chain_count,PASS,72
+dry_run_summary_stage_record_count,PASS,216
+dry_run_summary_all_stage_schemas_valid,PASS,True
+decision_schema_valid_all_rows,PASS,all decision rows schema_valid=True
+audit_schema_valid_all_rows,PASS,all audit rows schema_valid=True
+escalation_schema_valid_all_rows,PASS,all escalation rows schema_valid=True
+chain_all_stage_schemas_valid_all_rows,PASS,all chain rows all_stage_schemas_valid=True
+chain_prompt_text_not_exported_all_rows,PASS,all chain rows prompt_instruction_text_exported=False
+chain_real_api_calls_zero_all_rows,PASS,all chain rows real_api_calls=0
+decision_labels_allowed,PASS,"decision_labels={'approve': 8, 'decline': 16, 'review': 48}"
+escalation_labels_allowed,PASS,"escalation_labels={'mandatory_escalation': 16, 'no_escalation': 32, 'soft_escalation': 24}"
+decision_condition_counts,PASS,"condition_counts={'complete': 24, 'conflicted': 24, 'partial': 24}"
+numeric_scores_within_unit_interval,PASS,errors=[]
+partial_condition_has_review_triggers,PASS,24
+conflicted_condition_has_review_triggers,PASS,16
+complete_condition_has_no_review_triggers,PASS,0
+dry_run_json_list_fields_parse,PASS,errors=[]
+committed_outputs_no_raw_or_secret_markers,PASS,hits=[]

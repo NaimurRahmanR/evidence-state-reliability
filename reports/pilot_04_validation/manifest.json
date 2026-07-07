@@ -1,0 +1,69 @@
+{
+  "artifact": "pilot_04_committed_output_validation",
+  "status": "PASS",
+  "created_at_utc": "2026-07-07T13:36:39+00:00",
+  "validator": "experiments.pilot_04_validate_committed_outputs",
+  "n_checks": 69,
+  "n_failed_checks": 0,
+  "design_summary": {
+    "required_phrase_count": 6,
+    "risky_phrase_hits": []
+  },
+  "task_summary": {
+    "task_rows": 24,
+    "condition_rows": 72,
+    "task_label_counts": {
+      "approve": 8,
+      "decline": 8,
+      "review": 8
+    },
+    "condition_counts": {
+      "complete": 24,
+      "conflicted": 24,
+      "partial": 24
+    }
+  },
+  "dry_run_summary": {
+    "decision_rows": 72,
+    "audit_rows": 72,
+    "escalation_rows": 72,
+    "chain_rows": 72,
+    "decision_label_counts": {
+      "approve": 8,
+      "decline": 16,
+      "review": 48
+    },
+    "escalation_label_counts": {
+      "mandatory_escalation": 16,
+      "no_escalation": 32,
+      "soft_escalation": 24
+    },
+    "human_review_counts": {
+      "complete": 0,
+      "partial": 24,
+      "conflicted": 16
+    }
+  },
+  "marker_summary": {
+    "scanned_output_files": 9,
+    "marker_hits": []
+  },
+  "validated_files": [
+    "docs\\pilot_04_second_domain_design.md",
+    "data\\pilot_04_tasks.csv",
+    "reports\\pilot_04_tasks\\task_inventory.csv",
+    "reports\\pilot_04_tasks\\condition_inventory.csv",
+    "reports\\pilot_04_tasks\\manifest.json",
+    "reports\\pilot_04_dry_run\\decision_outputs.csv",
+    "reports\\pilot_04_dry_run\\audit_outputs.csv",
+    "reports\\pilot_04_dry_run\\escalation_outputs.csv",
+    "reports\\pilot_04_dry_run\\chain_outputs.csv",
+    "reports\\pilot_04_dry_run\\manifest.json"
+  ],
+  "output_files": [
+    "reports\\pilot_04_validation\\validation_summary.csv",
+    "reports\\pilot_04_validation\\manifest.json"
+  ],
+  "real_api_calls": 0,
+  "raw_response_inspection": false
+}
