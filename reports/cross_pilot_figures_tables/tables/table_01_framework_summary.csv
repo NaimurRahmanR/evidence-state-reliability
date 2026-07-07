@@ -1,0 +1,3 @@
+pilot_id,domain,evidence_package_role,pipeline_type,domain_status,condition_metric_rows,claim_boundary,real_api_calls_in_cross_pilot_generation,raw_response_inspection
+pilot_03,synthetic administrative approval,locked first real-LLM evidence package,real-LLM evidence package with no-call committed-output validation,locked,6,controlled synthetic domain only,0,False
+pilot_04,synthetic loan-risk decision support,second controlled deterministic no-call domain,deterministic no-call synthetic evidence package,new second domain,3,controlled synthetic domain only,0,False

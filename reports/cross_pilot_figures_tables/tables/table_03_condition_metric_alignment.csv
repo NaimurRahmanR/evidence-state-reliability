@@ -1,0 +1,5 @@
+pilot_id,domain,condition,structural_metric_value,reliability_metric_value,audit_metric_value,escalation_metric_value,metric_scope_note,real_api_calls
+pilot_03,synthetic administrative approval,detected_from_committed_metrics,,,0.558333,,Pilot 03 metric names are preserved from its locked output schema.,0
+pilot_04,synthetic loan-risk decision support,complete,1.0,0.9825,1.0,0.0,Pilot 04 metrics are deterministic no-call derived outputs.,0
+pilot_04,synthetic loan-risk decision support,partial,1.0,0.326666,0.333333,1.0,Pilot 04 metrics are deterministic no-call derived outputs.,0
+pilot_04,synthetic loan-risk decision support,conflicted,1.0,0.510833,0.333333,0.666667,Pilot 04 metrics are deterministic no-call derived outputs.,0

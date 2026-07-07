@@ -1,0 +1,4 @@
+condition,n_chains,schema_valid_rate,decision_match_rate,audit_pass_rate,escalation_rate,missing_evidence_acknowledgement_rate,mean_decision_confidence,mean_evidence_alignment_score,real_api_calls
+complete,24,1.0,1.0,1.0,0.0,0.0,0.88,0.93,0
+partial,24,1.0,0.333333,0.333333,1.0,1.0,0.553333,0.64,0
+conflicted,24,1.0,0.666667,0.333333,0.666667,0.0,0.646667,0.71,0

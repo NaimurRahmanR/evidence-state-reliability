@@ -1,0 +1,45 @@
+{
+  "artifact": "cross_pilot_figures_tables",
+  "status": "PASS",
+  "created_at_utc": "2026-07-07T13:51:51+00:00",
+  "generator": "experiments.generate_cross_pilot_figures_tables",
+  "source_manifests": [
+    "reports\\cross_pilot_evidence_state_reliability\\manifest.json",
+    "reports\\cross_pilot_validation\\manifest.json"
+  ],
+  "row_counts": {
+    "table_01_framework_summary": 2,
+    "table_02_validation_status": 4,
+    "table_03_condition_metric_alignment": 4,
+    "table_04_pilot04_reliability_by_condition": 3,
+    "table_05_pilot04_stage_cascade_summary": 3,
+    "table_06_pilot04_uncertainty_summary": 3,
+    "table_07_metric_inventory_compact": 44
+  },
+  "n_tables": 7,
+  "n_figures": 6,
+  "table_files": [
+    "reports\\cross_pilot_figures_tables\\tables\\table_01_framework_summary.csv",
+    "reports\\cross_pilot_figures_tables\\tables\\table_02_validation_status.csv",
+    "reports\\cross_pilot_figures_tables\\tables\\table_03_condition_metric_alignment.csv",
+    "reports\\cross_pilot_figures_tables\\tables\\table_04_pilot04_reliability_by_condition.csv",
+    "reports\\cross_pilot_figures_tables\\tables\\table_05_pilot04_stage_cascade_summary.csv",
+    "reports\\cross_pilot_figures_tables\\tables\\table_06_pilot04_uncertainty_summary.csv",
+    "reports\\cross_pilot_figures_tables\\tables\\table_07_metric_inventory_compact.csv"
+  ],
+  "figure_files": [
+    "reports\\cross_pilot_figures_tables\\figures\\figure_01_validation_steps.png",
+    "reports\\cross_pilot_figures_tables\\figures\\figure_02_validation_checks.png",
+    "reports\\cross_pilot_figures_tables\\figures\\figure_03_pilot04_reliability_index.png",
+    "reports\\cross_pilot_figures_tables\\figures\\figure_04_pilot04_structural_gap.png",
+    "reports\\cross_pilot_figures_tables\\figures\\figure_05_pilot04_escalation_rate.png",
+    "reports\\cross_pilot_figures_tables\\figures\\figure_06_metric_inventory_numeric_counts.png"
+  ],
+  "index_file": "reports\\cross_pilot_figures_tables\\table_figure_index.md",
+  "public_wording_safety_check": "PASS",
+  "public_wording_hits": [],
+  "raw_prompts_exported": false,
+  "raw_responses_exported": false,
+  "raw_response_inspection": false,
+  "real_api_calls": 0
+}

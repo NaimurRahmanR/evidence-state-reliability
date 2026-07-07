@@ -1,0 +1,4 @@
+condition,n_chains,structural_validity_rate,decision_reliability_rate,audit_pass_rate,escalation_rate,mean_evidence_alignment_score,reliability_cascade_index,structural_validity_gap,real_api_calls
+complete,24,1.0,1.0,1.0,0.0,0.93,0.9825,0.0175,0
+partial,24,1.0,0.333333,0.333333,1.0,0.64,0.326666,0.673334,0
+conflicted,24,1.0,0.666667,0.333333,0.666667,0.71,0.510833,0.489167,0
