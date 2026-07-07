@@ -1,0 +1,5 @@
+pilot_id,validation_source,status,n_steps,n_failed_steps,n_checks,n_failed_checks,real_api_calls,raw_response_inspection
+pilot_03,reports\pilot_03_no_call_pipeline\manifest.json,PASS,14,0,,,0,False
+pilot_03,reports\pilot_03_comparison_validation\manifest.json,PASS,,,171,0,0,False
+pilot_04,reports\pilot_04_no_call_pipeline\manifest.json,PASS,13,0,,,0,False
+pilot_04,reports\pilot_04_validation\manifest.json,PASS,,,124,0,0,False

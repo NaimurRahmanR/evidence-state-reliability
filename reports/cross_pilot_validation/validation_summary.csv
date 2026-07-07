@@ -1,0 +1,29 @@
+check_name,status,detail
+path_exists::reports\cross_pilot_evidence_state_reliability\manifest.json,PASS,required cross-pilot output exists
+path_exists::reports\cross_pilot_evidence_state_reliability\cross_pilot_report.md,PASS,required cross-pilot output exists
+path_exists::reports\cross_pilot_evidence_state_reliability\cross_pilot_framework_summary.csv,PASS,required cross-pilot output exists
+path_exists::reports\cross_pilot_evidence_state_reliability\pipeline_validation_summary.csv,PASS,required cross-pilot output exists
+path_exists::reports\cross_pilot_evidence_state_reliability\condition_metric_alignment.csv,PASS,required cross-pilot output exists
+path_exists::reports\cross_pilot_evidence_state_reliability\metric_inventory.csv,PASS,required cross-pilot output exists
+report_manifest_status,PASS,PASS
+report_manifest_real_api_calls,PASS,0
+report_manifest_raw_response_inspection,PASS,False
+report_manifest_raw_prompts_exported,PASS,False
+report_manifest_raw_responses_exported,PASS,False
+report_manifest_public_wording_safety,PASS,PASS
+framework_summary_row_count,PASS,2
+pipeline_validation_summary_row_count,PASS,4
+condition_metric_alignment_min_rows,PASS,4
+metric_inventory_non_empty,PASS,58
+framework_summary_pilot_ids,PASS,"['pilot_03', 'pilot_04']"
+validation_summary_pilot_ids,PASS,"['pilot_03', 'pilot_04']"
+cross_pilot_inputs_all_pass,PASS,failed=[]
+cross_pilot_validation_inputs_zero_api_calls,PASS,nonzero=[]
+cross_pilot_validation_inputs_no_raw_response_inspection,PASS,hits=[]
+report_required_phrase::Pilot 03 remains the locked first real-LLM evidence package.,PASS,required report phrase present
+report_required_phrase::Pilot 04 is a deterministic no-call second-domain implementation.,PASS,required report phrase present
+report_required_phrase::structural validity and evidence-state reliability can be measured as different layers,PASS,required report phrase present
+report_required_phrase::real_api_calls: 0,PASS,required report phrase present
+report_required_phrase::raw_response_inspection: False,PASS,required report phrase present
+report_public_wording_safety_scan,PASS,hits=[]
+cross_pilot_outputs_no_raw_or_secret_markers,PASS,hits=[]
