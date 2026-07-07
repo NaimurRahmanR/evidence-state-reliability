@@ -1,0 +1,41 @@
+{
+  "created_at_utc": "2026-07-07T09:57:49+00:00",
+  "metrics": [
+    "valid_chain_rate",
+    "decision_correct_rate",
+    "decision_failure_rate",
+    "audit_pass_rate",
+    "audit_false_assurance_rate",
+    "audit_detection_rate_on_decision_failure",
+    "undetected_decision_failure_rate",
+    "escalation_correct_rate",
+    "escalation_recovery_rate_on_decision_failure",
+    "escalation_loss_rate_on_decision_success",
+    "cascade_failure_rate",
+    "net_escalation_gain_rate"
+  ],
+  "outputs": {
+    "cross_model_cascade_comparison_csv": "reports\\pilot_03_reliability_cascade_metrics\\cross_model_cascade_comparison.csv",
+    "evidence_condition_delta_metrics_csv": "reports\\pilot_03_reliability_cascade_metrics\\evidence_condition_delta_metrics.csv",
+    "manifest_json": "reports\\pilot_03_reliability_cascade_metrics\\manifest.json",
+    "metric_definitions_csv": "reports\\pilot_03_reliability_cascade_metrics\\metric_definitions.csv",
+    "model_condition_cascade_metrics_csv": "reports\\pilot_03_reliability_cascade_metrics\\model_condition_cascade_metrics.csv",
+    "report_md": "reports\\pilot_03_reliability_cascade_metrics\\reliability_cascade_metrics_report.md"
+  },
+  "raw_response_inspection": false,
+  "real_api_calls": 0,
+  "row_counts": {
+    "cross_model_cascade_comparison": 30,
+    "evidence_condition_delta_metrics": 48,
+    "metric_definitions": 12,
+    "model_condition_cascade_metrics": 6,
+    "paired_chain_rows": 60
+  },
+  "safe_note": "Reliability cascade metrics for the controlled Pilot 03 20-task comparison. Metrics are computed from committed sanitized paired-chain outputs only and should not be interpreted as broad deployment evidence or broad cross-provider conclusions.",
+  "scope": "Pilot 03 reliability cascade metrics for full 20-task GLM-5.2 and Anthropic/Claude comparison",
+  "source_files": {
+    "paired_chain_csv": "reports\\pilot_03_glm_vs_claude_t0020_full\\paired_chain_comparison.csv"
+  },
+  "source_policy": "committed sanitized paired-chain comparison CSV only",
+  "status": "PASS"
+}
