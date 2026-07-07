@@ -1,0 +1,14 @@
+step_name,status,detail
+compile::src\pilot_04_tasks.py,PASS,py_compile passed
+compile::src\pilot_04_prompts.py,PASS,py_compile passed
+compile::src\pilot_04_parser.py,PASS,py_compile passed
+compile::src\pilot_04_dry_run.py,PASS,py_compile passed
+compile::experiments\pilot_04_export_tasks.py,PASS,py_compile passed
+compile::experiments\pilot_04_run_dry_run.py,PASS,py_compile passed
+compile::experiments\pilot_04_generate_analysis_outputs.py,PASS,py_compile passed
+compile::experiments\pilot_04_validate_committed_outputs.py,PASS,py_compile passed
+generate_task_exports,PASS,"status=PASS; real_api_calls=0; raw_response_inspection=False; row_counts={'data_task_inventory': 24, 'report_task_inventory': 24, 'condition_inventory': 72}"
+generate_dry_run_outputs,PASS,"status=PASS; real_api_calls=0; raw_response_inspection=False; row_counts={'decision_outputs': 72, 'audit_outputs': 72, 'escalation_outputs': 72, 'chain_outputs': 72}"
+generate_analysis_outputs,PASS,"status=PASS; real_api_calls=0; raw_response_inspection=False; row_counts={'condition_stage_cascade_summary': 3, 'stage_transition_metrics': 9, 'paired_task_stage_deltas': 48, 'condition_uncertainty_summary': 3, 'task_uncertainty_profiles': 24, 'condition_reliability_cascade_metrics': 3, 'evidence_condition_delta_metrics': 2, 'paired_task_reliability_deltas': 2, 'leave_one_task_out_sensitivity': 72, 'cascade_threshold_sensitivity': 15, 'condition_order_sensitivity': 3, 'high_signal_case_profile': 40}"
+validate_committed_outputs,PASS,status=PASS; real_api_calls=0; raw_response_inspection=False; row_counts=None
+git_diff_check,PASS,git diff --check passed

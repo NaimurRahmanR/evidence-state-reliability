@@ -1,0 +1,444 @@
+{
+  "artifact": "pilot_04_no_call_evidence_pipeline",
+  "status": "PASS",
+  "created_at_utc": "2026-07-07T13:41:44+00:00",
+  "safe_note": "No-call Pilot 04 evidence pipeline runner. This command rebuilds deterministic task exports, dry-run outputs, derived analysis outputs, and committed-output validation without making real API calls.",
+  "n_steps": 13,
+  "n_failed_steps": 0,
+  "n_skipped_steps": 0,
+  "step_summary": [
+    {
+      "step_name": "compile::src\\pilot_04_tasks.py",
+      "status": "PASS",
+      "detail": "py_compile passed"
+    },
+    {
+      "step_name": "compile::src\\pilot_04_prompts.py",
+      "status": "PASS",
+      "detail": "py_compile passed"
+    },
+    {
+      "step_name": "compile::src\\pilot_04_parser.py",
+      "status": "PASS",
+      "detail": "py_compile passed"
+    },
+    {
+      "step_name": "compile::src\\pilot_04_dry_run.py",
+      "status": "PASS",
+      "detail": "py_compile passed"
+    },
+    {
+      "step_name": "compile::experiments\\pilot_04_export_tasks.py",
+      "status": "PASS",
+      "detail": "py_compile passed"
+    },
+    {
+      "step_name": "compile::experiments\\pilot_04_run_dry_run.py",
+      "status": "PASS",
+      "detail": "py_compile passed"
+    },
+    {
+      "step_name": "compile::experiments\\pilot_04_generate_analysis_outputs.py",
+      "status": "PASS",
+      "detail": "py_compile passed"
+    },
+    {
+      "step_name": "compile::experiments\\pilot_04_validate_committed_outputs.py",
+      "status": "PASS",
+      "detail": "py_compile passed"
+    },
+    {
+      "step_name": "generate_task_exports",
+      "status": "PASS",
+      "detail": "status=PASS; real_api_calls=0; raw_response_inspection=False; row_counts={'data_task_inventory': 24, 'report_task_inventory': 24, 'condition_inventory': 72}"
+    },
+    {
+      "step_name": "generate_dry_run_outputs",
+      "status": "PASS",
+      "detail": "status=PASS; real_api_calls=0; raw_response_inspection=False; row_counts={'decision_outputs': 72, 'audit_outputs': 72, 'escalation_outputs': 72, 'chain_outputs': 72}"
+    },
+    {
+      "step_name": "generate_analysis_outputs",
+      "status": "PASS",
+      "detail": "status=PASS; real_api_calls=0; raw_response_inspection=False; row_counts={'condition_stage_cascade_summary': 3, 'stage_transition_metrics': 9, 'paired_task_stage_deltas': 48, 'condition_uncertainty_summary': 3, 'task_uncertainty_profiles': 24, 'condition_reliability_cascade_metrics': 3, 'evidence_condition_delta_metrics': 2, 'paired_task_reliability_deltas': 2, 'leave_one_task_out_sensitivity': 72, 'cascade_threshold_sensitivity': 15, 'condition_order_sensitivity': 3, 'high_signal_case_profile': 40}"
+    },
+    {
+      "step_name": "validate_committed_outputs",
+      "status": "PASS",
+      "detail": "status=PASS; real_api_calls=0; raw_response_inspection=False; row_counts=None"
+    },
+    {
+      "step_name": "git_diff_check",
+      "status": "PASS",
+      "detail": "git diff --check passed"
+    }
+  ],
+  "upstream_manifests": {
+    "task_exports": {
+      "artifact": "pilot_04_task_exports",
+      "task_type": "synthetic_loan_risk_decision_support",
+      "status": "PASS",
+      "created_at_utc": "2026-07-07T13:27:23+00:00",
+      "generator": "experiments.pilot_04_export_tasks",
+      "task_count": 24,
+      "seed": 404,
+      "conditions": [
+        "complete",
+        "partial",
+        "conflicted"
+      ],
+      "expected_condition_rows": 72,
+      "actual_condition_rows": 72,
+      "row_counts": {
+        "data_task_inventory": 24,
+        "report_task_inventory": 24,
+        "condition_inventory": 72
+      },
+      "task_summary": {
+        "task_type": "synthetic_loan_risk_decision_support",
+        "n_tasks": 24,
+        "n_conditions": 3,
+        "condition_names": [
+          "complete",
+          "partial",
+          "conflicted"
+        ],
+        "gold_decision_counts": {
+          "approve": 8,
+          "decline": 8,
+          "review": 8
+        },
+        "condition_counts": {
+          "complete": 24,
+          "conflicted": 24,
+          "partial": 24
+        },
+        "real_api_calls": 0,
+        "raw_response_inspection": false
+      },
+      "validation": {
+        "task_type": "synthetic_loan_risk_decision_support",
+        "n_tasks": 24,
+        "n_conditions": 3,
+        "condition_names": [
+          "complete",
+          "partial",
+          "conflicted"
+        ],
+        "gold_decision_counts": {
+          "approve": 8,
+          "decline": 8,
+          "review": 8
+        },
+        "condition_counts": {
+          "complete": 24,
+          "conflicted": 24,
+          "partial": 24
+        },
+        "real_api_calls": 0,
+        "raw_response_inspection": false,
+        "status": "PASS",
+        "n_errors": 0,
+        "errors": []
+      },
+      "output_files": [
+        "data\\pilot_04_tasks.csv",
+        "reports\\pilot_04_tasks\\task_inventory.csv",
+        "reports\\pilot_04_tasks\\condition_inventory.csv",
+        "reports\\pilot_04_tasks\\manifest.json"
+      ],
+      "raw_prompts_exported": false,
+      "raw_responses_exported": false,
+      "raw_response_inspection": false,
+      "real_api_calls": 0
+    },
+    "dry_run_outputs": {
+      "artifact": "pilot_04_deterministic_dry_run",
+      "status": "PASS",
+      "created_at_utc": "2026-07-07T13:32:37+00:00",
+      "generator": "experiments.pilot_04_run_dry_run",
+      "dry_run_version": "pilot_04_deterministic_dry_run_v1",
+      "task_count": 24,
+      "conditions": [
+        "complete",
+        "partial",
+        "conflicted"
+      ],
+      "expected_chain_rows": 72,
+      "expected_stage_rows_per_stage": 72,
+      "row_counts": {
+        "decision_outputs": 72,
+        "audit_outputs": 72,
+        "escalation_outputs": 72,
+        "chain_outputs": 72
+      },
+      "summary": {
+        "dry_run_version": "pilot_04_deterministic_dry_run_v1",
+        "n_chains": 72,
+        "n_stage_records": 216,
+        "chains_by_condition": {
+          "complete": 24,
+          "conflicted": 24,
+          "partial": 24
+        },
+        "decision_by_condition": {
+          "complete:approve": 8,
+          "complete:decline": 8,
+          "complete:review": 8,
+          "conflicted:decline": 8,
+          "conflicted:review": 16,
+          "partial:review": 24
+        },
+        "escalation_by_condition": {
+          "complete:no_escalation": 24,
+          "conflicted:mandatory_escalation": 16,
+          "conflicted:no_escalation": 8,
+          "partial:soft_escalation": 24
+        },
+        "all_stage_schemas_valid": true,
+        "prompt_instruction_text_exported": false,
+        "real_api_calls": 0,
+        "raw_response_inspection": false
+      },
+      "output_files": [
+        "reports\\pilot_04_dry_run\\decision_outputs.csv",
+        "reports\\pilot_04_dry_run\\audit_outputs.csv",
+        "reports\\pilot_04_dry_run\\escalation_outputs.csv",
+        "reports\\pilot_04_dry_run\\chain_outputs.csv",
+        "reports\\pilot_04_dry_run\\manifest.json"
+      ],
+      "prompt_instruction_text_exported": false,
+      "raw_prompts_exported": false,
+      "raw_responses_exported": false,
+      "raw_response_inspection": false,
+      "real_api_calls": 0
+    },
+    "analysis_outputs": {
+      "artifact": "pilot_04_analysis_outputs",
+      "status": "PASS",
+      "generator": "experiments.pilot_04_generate_analysis_outputs",
+      "created_at_utc": "2026-07-07T13:41:44+00:00",
+      "manifests": {
+        "stage_cascade": {
+          "artifact": "pilot_04_stage_cascade",
+          "status": "PASS",
+          "created_at_utc": "2026-07-07T13:39:07+00:00",
+          "generator": "experiments.pilot_04_generate_analysis_outputs",
+          "row_counts": {
+            "condition_stage_cascade_summary": 3,
+            "stage_transition_metrics": 9,
+            "paired_task_stage_deltas": 48
+          },
+          "output_files": [
+            "reports\\pilot_04_stage_cascade\\condition_stage_cascade_summary.csv",
+            "reports\\pilot_04_stage_cascade\\stage_transition_metrics.csv",
+            "reports\\pilot_04_stage_cascade\\paired_task_stage_deltas.csv",
+            "reports\\pilot_04_stage_cascade\\manifest.json"
+          ],
+          "raw_prompts_exported": false,
+          "raw_responses_exported": false,
+          "raw_response_inspection": false,
+          "real_api_calls": 0
+        },
+        "uncertainty": {
+          "artifact": "pilot_04_uncertainty",
+          "status": "PASS",
+          "created_at_utc": "2026-07-07T13:39:07+00:00",
+          "generator": "experiments.pilot_04_generate_analysis_outputs",
+          "row_counts": {
+            "condition_uncertainty_summary": 3,
+            "task_uncertainty_profiles": 24
+          },
+          "output_files": [
+            "reports\\pilot_04_uncertainty\\condition_uncertainty_summary.csv",
+            "reports\\pilot_04_uncertainty\\task_uncertainty_profiles.csv",
+            "reports\\pilot_04_uncertainty\\manifest.json"
+          ],
+          "raw_prompts_exported": false,
+          "raw_responses_exported": false,
+          "raw_response_inspection": false,
+          "real_api_calls": 0
+        },
+        "reliability_cascade_metrics": {
+          "artifact": "pilot_04_reliability_cascade_metrics",
+          "status": "PASS",
+          "created_at_utc": "2026-07-07T13:39:07+00:00",
+          "generator": "experiments.pilot_04_generate_analysis_outputs",
+          "row_counts": {
+            "condition_reliability_cascade_metrics": 3,
+            "evidence_condition_delta_metrics": 2,
+            "paired_task_reliability_deltas": 2
+          },
+          "output_files": [
+            "reports\\pilot_04_reliability_cascade_metrics\\condition_reliability_cascade_metrics.csv",
+            "reports\\pilot_04_reliability_cascade_metrics\\evidence_condition_delta_metrics.csv",
+            "reports\\pilot_04_reliability_cascade_metrics\\paired_task_reliability_deltas.csv",
+            "reports\\pilot_04_reliability_cascade_metrics\\manifest.json"
+          ],
+          "raw_prompts_exported": false,
+          "raw_responses_exported": false,
+          "raw_response_inspection": false,
+          "real_api_calls": 0
+        },
+        "robustness_sensitivity": {
+          "artifact": "pilot_04_robustness_sensitivity",
+          "status": "PASS",
+          "created_at_utc": "2026-07-07T13:39:07+00:00",
+          "generator": "experiments.pilot_04_generate_analysis_outputs",
+          "row_counts": {
+            "leave_one_task_out_sensitivity": 72,
+            "cascade_threshold_sensitivity": 15,
+            "condition_order_sensitivity": 3,
+            "high_signal_case_profile": 40
+          },
+          "output_files": [
+            "reports\\pilot_04_robustness_sensitivity\\leave_one_task_out_sensitivity.csv",
+            "reports\\pilot_04_robustness_sensitivity\\cascade_threshold_sensitivity.csv",
+            "reports\\pilot_04_robustness_sensitivity\\condition_order_sensitivity.csv",
+            "reports\\pilot_04_robustness_sensitivity\\high_signal_case_profile.csv",
+            "reports\\pilot_04_robustness_sensitivity\\manifest.json"
+          ],
+          "raw_prompts_exported": false,
+          "raw_responses_exported": false,
+          "raw_response_inspection": false,
+          "real_api_calls": 0,
+          "high_signal_case_profile_is_diagnostic": true,
+          "not_model_failure_claim": true
+        }
+      },
+      "row_counts": {
+        "condition_stage_cascade_summary": 3,
+        "stage_transition_metrics": 9,
+        "paired_task_stage_deltas": 48,
+        "condition_uncertainty_summary": 3,
+        "task_uncertainty_profiles": 24,
+        "condition_reliability_cascade_metrics": 3,
+        "evidence_condition_delta_metrics": 2,
+        "paired_task_reliability_deltas": 2,
+        "leave_one_task_out_sensitivity": 72,
+        "cascade_threshold_sensitivity": 15,
+        "condition_order_sensitivity": 3,
+        "high_signal_case_profile": 40
+      },
+      "raw_prompts_exported": false,
+      "raw_responses_exported": false,
+      "raw_response_inspection": false,
+      "real_api_calls": 0
+    },
+    "validation": {
+      "artifact": "pilot_04_committed_output_validation",
+      "status": "PASS",
+      "created_at_utc": "2026-07-07T13:36:39+00:00",
+      "validator": "experiments.pilot_04_validate_committed_outputs",
+      "n_checks": 124,
+      "n_failed_checks": 0,
+      "design_summary": {
+        "required_phrase_count": 6,
+        "risky_phrase_hits": []
+      },
+      "task_summary": {
+        "task_rows": 24,
+        "condition_rows": 72,
+        "task_label_counts": {
+          "approve": 8,
+          "decline": 8,
+          "review": 8
+        },
+        "condition_counts": {
+          "complete": 24,
+          "conflicted": 24,
+          "partial": 24
+        }
+      },
+      "dry_run_summary": {
+        "decision_rows": 72,
+        "audit_rows": 72,
+        "escalation_rows": 72,
+        "chain_rows": 72,
+        "decision_label_counts": {
+          "approve": 8,
+          "decline": 16,
+          "review": 48
+        },
+        "escalation_label_counts": {
+          "mandatory_escalation": 16,
+          "no_escalation": 32,
+          "soft_escalation": 24
+        },
+        "human_review_counts": {
+          "complete": 0,
+          "partial": 24,
+          "conflicted": 16
+        }
+      },
+      "analysis_summary": {
+        "stage_cascade_rows": {
+          "condition_stage_cascade_summary": 3,
+          "stage_transition_metrics": 9,
+          "paired_task_stage_deltas": 48
+        },
+        "uncertainty_rows": {
+          "condition_uncertainty_summary": 3,
+          "task_uncertainty_profiles": 24
+        },
+        "reliability_rows": {
+          "condition_reliability_cascade_metrics": 3,
+          "evidence_condition_delta_metrics": 2,
+          "paired_task_reliability_deltas": 2
+        },
+        "robustness_rows": {
+          "leave_one_task_out_sensitivity": 72,
+          "cascade_threshold_sensitivity": 15,
+          "condition_order_sensitivity": 3,
+          "high_signal_case_profile": 40
+        }
+      },
+      "marker_summary": {
+        "scanned_output_files": 25,
+        "marker_hits": []
+      },
+      "validated_files": [
+        "docs\\pilot_04_second_domain_design.md",
+        "data\\pilot_04_tasks.csv",
+        "reports\\pilot_04_tasks\\task_inventory.csv",
+        "reports\\pilot_04_tasks\\condition_inventory.csv",
+        "reports\\pilot_04_tasks\\manifest.json",
+        "reports\\pilot_04_dry_run\\decision_outputs.csv",
+        "reports\\pilot_04_dry_run\\audit_outputs.csv",
+        "reports\\pilot_04_dry_run\\escalation_outputs.csv",
+        "reports\\pilot_04_dry_run\\chain_outputs.csv",
+        "reports\\pilot_04_dry_run\\manifest.json",
+        "reports\\pilot_04_stage_cascade\\condition_stage_cascade_summary.csv",
+        "reports\\pilot_04_stage_cascade\\stage_transition_metrics.csv",
+        "reports\\pilot_04_stage_cascade\\paired_task_stage_deltas.csv",
+        "reports\\pilot_04_stage_cascade\\manifest.json",
+        "reports\\pilot_04_uncertainty\\condition_uncertainty_summary.csv",
+        "reports\\pilot_04_uncertainty\\task_uncertainty_profiles.csv",
+        "reports\\pilot_04_uncertainty\\manifest.json",
+        "reports\\pilot_04_reliability_cascade_metrics\\condition_reliability_cascade_metrics.csv",
+        "reports\\pilot_04_reliability_cascade_metrics\\evidence_condition_delta_metrics.csv",
+        "reports\\pilot_04_reliability_cascade_metrics\\paired_task_reliability_deltas.csv",
+        "reports\\pilot_04_reliability_cascade_metrics\\manifest.json",
+        "reports\\pilot_04_robustness_sensitivity\\leave_one_task_out_sensitivity.csv",
+        "reports\\pilot_04_robustness_sensitivity\\cascade_threshold_sensitivity.csv",
+        "reports\\pilot_04_robustness_sensitivity\\condition_order_sensitivity.csv",
+        "reports\\pilot_04_robustness_sensitivity\\high_signal_case_profile.csv",
+        "reports\\pilot_04_robustness_sensitivity\\manifest.json"
+      ],
+      "output_files": [
+        "reports\\pilot_04_validation\\validation_summary.csv",
+        "reports\\pilot_04_validation\\manifest.json"
+      ],
+      "real_api_calls": 0,
+      "raw_response_inspection": false
+    }
+  },
+  "output_files": [
+    "reports\\pilot_04_no_call_pipeline\\pipeline_steps.csv",
+    "reports\\pilot_04_no_call_pipeline\\manifest.json"
+  ],
+  "raw_prompts_exported": false,
+  "raw_responses_exported": false,
+  "raw_response_inspection": false,
+  "real_api_calls": 0
+}

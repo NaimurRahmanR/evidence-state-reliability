@@ -9,6 +9,22 @@ path_exists::reports\pilot_04_dry_run\audit_outputs.csv,PASS,required committed 
 path_exists::reports\pilot_04_dry_run\escalation_outputs.csv,PASS,required committed output exists
 path_exists::reports\pilot_04_dry_run\chain_outputs.csv,PASS,required committed output exists
 path_exists::reports\pilot_04_dry_run\manifest.json,PASS,required committed output exists
+path_exists::reports\pilot_04_stage_cascade\condition_stage_cascade_summary.csv,PASS,required committed output exists
+path_exists::reports\pilot_04_stage_cascade\stage_transition_metrics.csv,PASS,required committed output exists
+path_exists::reports\pilot_04_stage_cascade\paired_task_stage_deltas.csv,PASS,required committed output exists
+path_exists::reports\pilot_04_stage_cascade\manifest.json,PASS,required committed output exists
+path_exists::reports\pilot_04_uncertainty\condition_uncertainty_summary.csv,PASS,required committed output exists
+path_exists::reports\pilot_04_uncertainty\task_uncertainty_profiles.csv,PASS,required committed output exists
+path_exists::reports\pilot_04_uncertainty\manifest.json,PASS,required committed output exists
+path_exists::reports\pilot_04_reliability_cascade_metrics\condition_reliability_cascade_metrics.csv,PASS,required committed output exists
+path_exists::reports\pilot_04_reliability_cascade_metrics\evidence_condition_delta_metrics.csv,PASS,required committed output exists
+path_exists::reports\pilot_04_reliability_cascade_metrics\paired_task_reliability_deltas.csv,PASS,required committed output exists
+path_exists::reports\pilot_04_reliability_cascade_metrics\manifest.json,PASS,required committed output exists
+path_exists::reports\pilot_04_robustness_sensitivity\leave_one_task_out_sensitivity.csv,PASS,required committed output exists
+path_exists::reports\pilot_04_robustness_sensitivity\cascade_threshold_sensitivity.csv,PASS,required committed output exists
+path_exists::reports\pilot_04_robustness_sensitivity\condition_order_sensitivity.csv,PASS,required committed output exists
+path_exists::reports\pilot_04_robustness_sensitivity\high_signal_case_profile.csv,PASS,required committed output exists
+path_exists::reports\pilot_04_robustness_sensitivity\manifest.json,PASS,required committed output exists
 required_columns::data\pilot_04_tasks.csv,PASS,missing=[]
 required_columns::reports\pilot_04_tasks\task_inventory.csv,PASS,missing=[]
 required_columns::reports\pilot_04_tasks\condition_inventory.csv,PASS,missing=[]
@@ -16,6 +32,8 @@ required_columns::reports\pilot_04_dry_run\decision_outputs.csv,PASS,missing=[]
 required_columns::reports\pilot_04_dry_run\audit_outputs.csv,PASS,missing=[]
 required_columns::reports\pilot_04_dry_run\escalation_outputs.csv,PASS,missing=[]
 required_columns::reports\pilot_04_dry_run\chain_outputs.csv,PASS,missing=[]
+required_columns::reports\pilot_04_stage_cascade\condition_stage_cascade_summary.csv,PASS,missing=[]
+required_columns::reports\pilot_04_reliability_cascade_metrics\condition_reliability_cascade_metrics.csv,PASS,missing=[]
 design_doc_required_phrase::Pilot 03 remains locked,PASS,required scope phrase present
 design_doc_required_phrase::synthetic loan-risk decision-support setting,PASS,required scope phrase present
 design_doc_required_phrase::no-call,PASS,required scope phrase present
@@ -23,11 +41,11 @@ design_doc_required_phrase::real_api_calls: 0,PASS,required scope phrase present
 design_doc_required_phrase::raw_response_inspection: False,PASS,required scope phrase present
 "design_doc_required_phrase::must not modify, reinterpret, or replace Pilot 03",PASS,required scope phrase present
 design_doc_public_wording_safety,PASS,hits=[]
-task_manifest_status,PASS,PASS
-task_manifest_real_api_calls,PASS,0
-task_manifest_raw_response_inspection,PASS,False
-task_manifest_raw_prompts_exported,PASS,False
-task_manifest_raw_responses_exported,PASS,False
+pilot_04_tasks_manifest_status,PASS,PASS
+pilot_04_tasks_manifest_real_api_calls,PASS,0
+pilot_04_tasks_manifest_raw_response_inspection,PASS,False
+pilot_04_tasks_manifest_raw_prompts_exported,PASS,False
+pilot_04_tasks_manifest_raw_responses_exported,PASS,False
 data_task_inventory_row_count,PASS,24
 report_task_inventory_row_count,PASS,24
 condition_inventory_row_count,PASS,72
@@ -40,11 +58,11 @@ condition_counts_per_condition,PASS,"condition_counts={'complete': 24, 'conflict
 task_condition_pairs_unique,PASS,duplicates=[]
 partial_condition_removes_required_evidence,PASS,all partial rows hide at least one required unit
 conflicted_condition_exposes_conflict_note,PASS,all conflicted rows expose E8 conflict note
-dry_run_manifest_status,PASS,PASS
-dry_run_manifest_real_api_calls,PASS,0
-dry_run_manifest_raw_response_inspection,PASS,False
-dry_run_manifest_raw_prompts_exported,PASS,False
-dry_run_manifest_raw_responses_exported,PASS,False
+pilot_04_dry_run_manifest_status,PASS,PASS
+pilot_04_dry_run_manifest_real_api_calls,PASS,0
+pilot_04_dry_run_manifest_raw_response_inspection,PASS,False
+pilot_04_dry_run_manifest_raw_prompts_exported,PASS,False
+pilot_04_dry_run_manifest_raw_responses_exported,PASS,False
 dry_run_manifest_prompt_text_not_exported,PASS,False
 decision_outputs_row_count,PASS,72
 audit_outputs_row_count,PASS,72
@@ -67,4 +85,41 @@ partial_condition_has_review_triggers,PASS,24
 conflicted_condition_has_review_triggers,PASS,16
 complete_condition_has_no_review_triggers,PASS,0
 dry_run_json_list_fields_parse,PASS,errors=[]
+pilot_04_stage_cascade_manifest_status,PASS,PASS
+pilot_04_stage_cascade_manifest_real_api_calls,PASS,0
+pilot_04_stage_cascade_manifest_raw_response_inspection,PASS,False
+pilot_04_stage_cascade_manifest_raw_prompts_exported,PASS,False
+pilot_04_stage_cascade_manifest_raw_responses_exported,PASS,False
+pilot_04_uncertainty_manifest_status,PASS,PASS
+pilot_04_uncertainty_manifest_real_api_calls,PASS,0
+pilot_04_uncertainty_manifest_raw_response_inspection,PASS,False
+pilot_04_uncertainty_manifest_raw_prompts_exported,PASS,False
+pilot_04_uncertainty_manifest_raw_responses_exported,PASS,False
+pilot_04_reliability_cascade_metrics_manifest_status,PASS,PASS
+pilot_04_reliability_cascade_metrics_manifest_real_api_calls,PASS,0
+pilot_04_reliability_cascade_metrics_manifest_raw_response_inspection,PASS,False
+pilot_04_reliability_cascade_metrics_manifest_raw_prompts_exported,PASS,False
+pilot_04_reliability_cascade_metrics_manifest_raw_responses_exported,PASS,False
+pilot_04_robustness_sensitivity_manifest_status,PASS,PASS
+pilot_04_robustness_sensitivity_manifest_real_api_calls,PASS,0
+pilot_04_robustness_sensitivity_manifest_raw_response_inspection,PASS,False
+pilot_04_robustness_sensitivity_manifest_raw_prompts_exported,PASS,False
+pilot_04_robustness_sensitivity_manifest_raw_responses_exported,PASS,False
+analysis_row_count::stage_condition_rows,PASS,3 == 3
+analysis_row_count::stage_transition_rows,PASS,9 == 9
+analysis_row_count::stage_paired_rows,PASS,48 == 48
+analysis_row_count::uncertainty_condition_rows,PASS,3 == 3
+analysis_row_count::uncertainty_task_rows,PASS,24 == 24
+analysis_row_count::reliability_condition_rows,PASS,3 == 3
+analysis_row_count::reliability_delta_rows,PASS,2 == 2
+analysis_row_count::reliability_paired_rows,PASS,2 == 2
+analysis_row_count::leave_one_task_out_rows,PASS,72 == 72
+analysis_row_count::threshold_rows,PASS,15 == 15
+analysis_row_count::condition_order_rows,PASS,3 == 3
+stage_condition_names,PASS,"['complete', 'conflicted', 'partial']"
+reliability_condition_names,PASS,"['complete', 'conflicted', 'partial']"
+analysis_structural_validity_rate_one,PASS,structural validity remains 1.0 in deterministic no-call outputs
+analysis_real_api_calls_zero_key_rows,PASS,key analysis rows report real_api_calls=0
+partial_reliability_index_not_above_baseline,PASS,-0.655834
+conflicted_reliability_index_not_above_baseline,PASS,-0.471667
 committed_outputs_no_raw_or_secret_markers,PASS,hits=[]
