@@ -1,0 +1,4 @@
+requirement,name,required_for_build_only,required_for_real_execution,read_in_build_only_mode,commit_allowed,notes
+api_key_environment_variable,ZAI_API_KEY,False,True,False,False,Key must stay local and must never be committed.
+exact_approval_phrase,PILOT_05AJ_APPROVAL_PHRASE or --approval-phrase,False,True,False,False,Must exactly match the committed approval phrase before future real execution.
+explicit_execute_mode,--mode execute,False,True,False,True,Default mode is build_only and cannot call the API.

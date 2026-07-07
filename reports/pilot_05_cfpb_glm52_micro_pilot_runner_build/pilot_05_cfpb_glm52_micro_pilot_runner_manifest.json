@@ -1,0 +1,52 @@
+{
+  "api_base_url": "https://api.z.ai/api/paas/v4",
+  "api_key_env": "ZAI_API_KEY",
+  "api_model_name": "glm-5.2",
+  "approval_phrase_required": true,
+  "approval_phrase_sha256": "bab92e3ae2f640d7151f49109b418b2337043d147ec590df32314da52b1831cc",
+  "chat_completions_path": "/chat/completions",
+  "configured_call_count": 36,
+  "created_utc": "2026-07-07T22:03:22.616060+00:00",
+  "failed_preflight_checks": 0,
+  "input_files": {
+    "abstract_call_plan": "reports/pilot_05_cfpb_tiny_llm_approval_gate/pilot_05_cfpb_tiny_llm_recommended_abstract_call_plan.csv",
+    "approval_phrase": "reports/pilot_05_cfpb_glm52_micro_pilot_config/pilot_05_cfpb_glm52_micro_pilot_final_approval_phrase.csv",
+    "config_manifest": "reports/pilot_05_cfpb_glm52_micro_pilot_config/pilot_05_cfpb_glm52_micro_pilot_config_manifest.json",
+    "evidence_rows": "reports/pilot_05_cfpb_evidence_state_conditions/pilot_05_cfpb_evidence_state_conditions.csv",
+    "harness_execution_plan": "reports/pilot_05_cfpb_cascade_execution_harness/pilot_05_cfpb_cascade_execution_plan.csv",
+    "parser_rules": "reports/pilot_05_cfpb_cascade_scaffold/pilot_05_cfpb_cascade_parser_validation_rules.csv",
+    "parser_script": "experiments/pilot_05_cfpb_cascade_response_parser.py",
+    "prompt_templates": "reports/pilot_05_cfpb_cascade_scaffold/pilot_05_cfpb_cascade_prompt_templates.json",
+    "response_schema": "reports/pilot_05_cfpb_cascade_scaffold/pilot_05_cfpb_cascade_response_schema.json",
+    "storage_contract": "reports/pilot_05_cfpb_glm52_micro_pilot_config/pilot_05_cfpb_glm52_micro_pilot_storage_contract.csv"
+  },
+  "max_cost_permission_gbp": 3.49,
+  "model_display_name": "GLM-5.2",
+  "model_provider": "Z.ai",
+  "output_files": [
+    "reports/pilot_05_cfpb_glm52_micro_pilot_runner_build/pilot_05_cfpb_glm52_micro_pilot_runner_manifest.json",
+    "reports/pilot_05_cfpb_glm52_micro_pilot_runner_build/pilot_05_cfpb_glm52_micro_pilot_runner_preflight_checks.csv",
+    "reports/pilot_05_cfpb_glm52_micro_pilot_runner_build/pilot_05_cfpb_glm52_micro_pilot_runner_execution_plan.csv",
+    "reports/pilot_05_cfpb_glm52_micro_pilot_runner_build/pilot_05_cfpb_glm52_micro_pilot_runner_env_gate.csv",
+    "reports/pilot_05_cfpb_glm52_micro_pilot_runner_build/pilot_05_cfpb_glm52_micro_pilot_runner_storage_policy.csv",
+    "reports/pilot_05_cfpb_glm52_micro_pilot_runner_build/pilot_05_cfpb_glm52_micro_pilot_runner_sanitized_output_schema.csv",
+    "reports/pilot_05_cfpb_glm52_micro_pilot_runner_build/pilot_05_cfpb_glm52_micro_pilot_runner_abort_conditions.csv",
+    "reports/pilot_05_cfpb_glm52_micro_pilot_runner_build/pilot_05_cfpb_glm52_micro_pilot_runner_report.md"
+  ],
+  "preflight_check_rows": 26,
+  "runner_mode": "BUILD_ONLY_NO_CALL",
+  "safety_flags": {
+    "api_calls": 0,
+    "api_key_read": false,
+    "jsonl_written": false,
+    "model_calls": 0,
+    "model_execution_enabled": false,
+    "raw_cfpb_data_read": false,
+    "raw_cfpb_data_written": false,
+    "raw_prompt_instances_written": false,
+    "raw_responses_written": false,
+    "staged_or_committed_by_script": false
+  },
+  "status": "PASS",
+  "task_id": "05AJ-B"
+}

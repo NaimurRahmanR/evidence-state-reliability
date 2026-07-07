@@ -1,0 +1,17 @@
+field,type,notes
+runner_call_id,string,Synthetic call identifier; no raw prompt or raw response.
+stage,enum,decision/audit/escalation.
+evidence_condition,enum,clean/compressed/partial_dropout/noisy_conflicting.
+model_provider,string,Z.ai.
+api_model_name,string,glm-5.2.
+request_succeeded,boolean,Whether the HTTP call succeeded.
+parser_status,enum,PASS/FAIL/NOT_RUN.
+schema_valid,boolean,Whether parsed output passed schema validation.
+parsed_decision_label,sanitized_enum_or_blank,Parsed label only; no free-text response.
+parsed_confidence_band,sanitized_enum_or_blank,Parsed confidence band only.
+parsed_audit_label,sanitized_enum_or_blank,Parsed audit label only.
+parsed_escalation_label,sanitized_enum_or_blank,Parsed escalation label only.
+error_category,sanitized_enum_or_blank,Transport/parser/schema/cost/approval category only.
+raw_prompt_written,boolean,Always False.
+raw_response_written,boolean,Always False.
+jsonl_written,boolean,Always False.
