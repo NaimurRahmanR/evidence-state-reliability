@@ -4,7 +4,7 @@ Generated at UTC: 2026-07-02T02:41:21+00:00
 
 ## Scope
 
-No-call Pilot 03 evidence pipeline runner. This command rebuilds committed derived evidence tables and final figures, then validates committed outputs without making real API calls.
+No-call Pilot 03 evidence pipeline runner. This command rebuilds committed derived evidence tables, final figures, and robustness/sensitivity checks, then validates committed outputs without making real API calls.
 
 Pipeline status: **PASS**
 
@@ -18,21 +18,48 @@ Pipeline status: **PASS**
 | compile::experiments\pilot_03_plan_real_runs.py | PASS | py_compile passed |
 | compile::experiments\pilot_03_generate_paper_figures.py | PASS | py_compile passed |
 | compile::experiments\pilot_03_generate_final_figures.py | PASS | py_compile passed |
+| compile::experiments\pilot_03_generate_robustness_sensitivity_checks.py | PASS | py_compile passed |
+| compile::experiments\pilot_03_validate_comparison_outputs.py | PASS | py_compile passed |
 | generate_uncertainty_tables | PASS | real_api_calls=0; row_counts={'glm_condition_uncertainty': 9, 'shared_provider_condition_uncertainty': 24, 'condition_difference_uncertainty': 22, 'provider_difference_uncertainty': 12} |
 | generate_stage_cascade_tables | PASS | real_api_calls=0; raw_prompt_or_response_columns_exported=False; row_counts={'glm20_sanitized_chain_summary': 60, 'shared5_sanitized_chain_summary': 30, 'cascade_pattern_summary': 20, 'stage_transition_summary': 9} |
 | generate_final_figures | PASS | real_api_calls=0; raw_response_inspection=False; safe_wording_check=PASS; n_figures=7; n_output_files=15 |
+| generate_robustness_sensitivity_checks | PASS | status=PASS; real_api_calls=0; raw_response_inspection=False; safe_wording_check=PASS; row_counts={'leave_one_task_out_sensitivity': 18, 'condition_order_sensitivity': 12, 'paired_delta_interval_sensitivity': 15, 'cascade_threshold_sensitivity': 30, 'high_signal_case_profile': 7} |
 | validate_committed_outputs | PASS | status=PASS; n_checks=70; n_failed_checks=0; real_api_calls=0 |
+| validate_comparison_outputs | PASS | status=PASS; n_checks=171; n_failed_checks=0; validated_csv_count=20; validated_manifest_count=6; real_api_calls=0; raw_response_inspection=False |
 
 ## Manifest
 
 ```json
 {
   "component_manifests": {
+    "comparison_validation": {
+      "n_checks": 171,
+      "n_failed_checks": 0,
+      "raw_response_inspection": false,
+      "real_api_calls": 0,
+      "status": "PASS",
+      "validated_csv_count": 20,
+      "validated_manifest_count": 6
+    },
     "final_figures": {
       "n_figures": 7,
       "n_output_files": 15,
       "raw_response_inspection": false,
       "real_api_calls": 0,
+      "safe_wording_check": "PASS",
+      "status": "PASS"
+    },
+    "robustness_sensitivity": {
+      "n_output_files": 6,
+      "raw_response_inspection": false,
+      "real_api_calls": 0,
+      "row_counts": {
+        "cascade_threshold_sensitivity": 30,
+        "condition_order_sensitivity": 12,
+        "high_signal_case_profile": 7,
+        "leave_one_task_out_sensitivity": 18,
+        "paired_delta_interval_sensitivity": 15
+      },
       "safe_wording_check": "PASS",
       "status": "PASS"
     },
@@ -67,14 +94,14 @@ Pipeline status: **PASS**
   "created_at_utc": "2026-07-02T02:41:21+00:00",
   "n_failed_steps": 0,
   "n_skipped_steps": 0,
-  "n_steps": 10,
+  "n_steps": 14,
   "outputs": {
     "manifest_json": "reports\\pilot_03_no_call_pipeline\\manifest.json",
     "pipeline_report_md": "reports\\pilot_03_no_call_pipeline\\no_call_evidence_pipeline_report.md",
     "pipeline_steps_csv": "reports\\pilot_03_no_call_pipeline\\pipeline_steps.csv"
   },
   "real_api_calls": 0,
-  "safe_note": "No-call Pilot 03 evidence pipeline runner. This command rebuilds committed derived evidence tables and final figures, then validates committed outputs without making real API calls.",
+  "safe_note": "No-call Pilot 03 evidence pipeline runner. This command rebuilds committed derived evidence tables, final figures, and robustness/sensitivity checks, then validates committed outputs without making real API calls.",
   "status": "PASS"
 }
 ```

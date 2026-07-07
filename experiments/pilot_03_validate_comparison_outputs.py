@@ -301,6 +301,97 @@ EXPECTED_CSVS = {
             "safe_note",
         ],
     },
+    "robustness_leave_one_task_out_sensitivity": {
+        "path": Path("reports/pilot_03_robustness_sensitivity/leave_one_task_out_sensitivity.csv"),
+        "rows": 18,
+        "columns": [
+            "model_label",
+            "condition",
+            "condition_label",
+            "metric",
+            "baseline_successes",
+            "baseline_n",
+            "baseline_rate",
+            "leave_one_task_min_rate",
+            "leave_one_task_max_rate",
+            "max_abs_rate_shift",
+            "task_id_at_max_abs_shift",
+            "rate_after_leaving_task",
+            "safe_note",
+        ],
+    },
+    "robustness_condition_order_sensitivity": {
+        "path": Path("reports/pilot_03_robustness_sensitivity/condition_order_sensitivity.csv"),
+        "rows": 12,
+        "columns": [
+            "model_label",
+            "metric",
+            "expected_direction_under_degradation",
+            "condition_sequence",
+            "value_sequence",
+            "step_delta_sequence",
+            "direction_check",
+            "max_abs_step_delta",
+            "safe_note",
+        ],
+    },
+    "robustness_paired_delta_interval_sensitivity": {
+        "path": Path("reports/pilot_03_robustness_sensitivity/paired_delta_interval_sensitivity.csv"),
+        "rows": 15,
+        "columns": [
+            "condition",
+            "condition_label",
+            "metric",
+            "n_pairs",
+            "glm_rate",
+            "claude_rate",
+            "claude_minus_glm",
+            "observed_delta_sign",
+            "paired_bootstrap_ci_lower",
+            "paired_bootstrap_ci_upper",
+            "paired_bootstrap_ci_width",
+            "interval_position",
+            "discordant_pairs",
+            "mcnemar_exact_two_sided_p",
+            "safe_note",
+        ],
+    },
+    "robustness_cascade_threshold_sensitivity": {
+        "path": Path("reports/pilot_03_robustness_sensitivity/cascade_threshold_sensitivity.csv"),
+        "rows": 30,
+        "columns": [
+            "model_label",
+            "condition",
+            "condition_label",
+            "metric",
+            "value",
+            "absolute_value_used_for_threshold",
+            "at_least_0pp",
+            "at_least_5pp",
+            "at_least_10pp",
+            "at_least_20pp",
+            "safe_note",
+        ],
+    },
+    "robustness_high_signal_case_profile": {
+        "path": Path("reports/pilot_03_robustness_sensitivity/high_signal_case_profile.csv"),
+        "rows": 7,
+        "columns": [
+            "condition",
+            "condition_label",
+            "reason",
+            "case_count",
+            "unique_task_count",
+            "task_ids",
+            "glm_decision_correct_rate",
+            "claude_decision_correct_rate",
+            "glm_escalation_correct_rate",
+            "claude_escalation_correct_rate",
+            "glm_audit_passed_rate",
+            "claude_audit_passed_rate",
+            "safe_note",
+        ],
+    },
 }
 
 EXPECTED_MANIFESTS = {
@@ -308,6 +399,7 @@ EXPECTED_MANIFESTS = {
     "uncertainty": Path("reports/pilot_03_glm_vs_claude_t0020_uncertainty/manifest.json"),
     "paired_task_analysis": Path("reports/pilot_03_glm_vs_claude_t0020_paired_task_analysis/manifest.json"),
     "cascade_metrics": Path("reports/pilot_03_reliability_cascade_metrics/manifest.json"),
+    "robustness_sensitivity": Path("reports/pilot_03_robustness_sensitivity/manifest.json"),
     "final_figures": Path("reports/pilot_03_final_figures/manifest.json"),
 }
 
@@ -316,6 +408,8 @@ TEXT_OUTPUTS_TO_SCAN = [
     Path("reports/pilot_03_glm_vs_claude_t0020_uncertainty/glm_vs_claude_t0020_uncertainty_report.md"),
     Path("reports/pilot_03_glm_vs_claude_t0020_paired_task_analysis/paired_task_analysis_report.md"),
     Path("reports/pilot_03_reliability_cascade_metrics/reliability_cascade_metrics_report.md"),
+    Path("reports/pilot_03_robustness_sensitivity/robustness_sensitivity_report.md"),
+    Path("reports/pilot_03_robustness_sensitivity/manifest.json"),
     Path("reports/pilot_03_final_figures/figure_notes.md"),
     Path("reports/pilot_03_final_figures/manifest.json"),
 ]
@@ -875,6 +969,67 @@ def _validate_final_figures(
     )
 
 
+def _validate_robustness_sensitivity(
+    checks: list[dict[str, Any]],
+    manifests: dict[str, dict[str, Any]],
+) -> None:
+    manifest = manifests.get("robustness_sensitivity")
+    if not manifest:
+        return
+
+    expected_counts = {
+        "leave_one_task_out_sensitivity": 18,
+        "condition_order_sensitivity": 12,
+        "paired_delta_interval_sensitivity": 15,
+        "cascade_threshold_sensitivity": 30,
+        "high_signal_case_profile": 7,
+    }
+
+    row_counts = manifest.get("row_counts", {})
+
+    _add_check(
+        checks,
+        check_name="robustness_report_name",
+        passed=manifest.get("report_name") == "pilot_03_robustness_sensitivity",
+        detail=f"report_name={manifest.get('report_name')}",
+    )
+    _add_check(
+        checks,
+        check_name="robustness_safe_wording_check_pass",
+        passed=manifest.get("safe_wording_check") == "PASS",
+        detail=f"safe_wording_check={manifest.get('safe_wording_check')}",
+    )
+    _add_check(
+        checks,
+        check_name="robustness_source_file_count",
+        passed=len(manifest.get("source_files", [])) == 14,
+        detail=f"actual={len(manifest.get('source_files', []))}; expected=14",
+    )
+    _add_check(
+        checks,
+        check_name="robustness_output_file_count",
+        passed=len(manifest.get("output_files", [])) >= 6,
+        detail=f"actual={len(manifest.get('output_files', []))}; expected_min=6",
+    )
+
+    for key, expected in expected_counts.items():
+        actual = row_counts.get(key)
+        _add_check(
+            checks,
+            check_name=f"robustness_manifest_row_count::{key}",
+            passed=actual == expected,
+            detail=f"actual={actual}; expected={expected}",
+        )
+
+    output_files = [Path(path) for path in manifest.get("output_files", [])]
+    _add_check(
+        checks,
+        check_name="robustness_all_outputs_exist",
+        passed=all(path.exists() and path.stat().st_size > 0 for path in output_files),
+        detail=f"n_output_files={len(output_files)}",
+    )
+
+
 def _validate_blocked_columns(
     checks: list[dict[str, Any]],
     csvs: dict[str, CsvData],
@@ -1004,6 +1159,7 @@ def validate_comparison_outputs(*, output_dir: Path) -> dict[str, Any]:
     _validate_paired_profile_sums(checks, csvs)
     _validate_uncertainty_counts(checks, csvs)
     _validate_final_figures(checks, manifests)
+    _validate_robustness_sensitivity(checks, manifests)
     blocked_hits = _validate_blocked_columns(checks, csvs)
     risky_hits = _validate_risky_wording(checks)
 

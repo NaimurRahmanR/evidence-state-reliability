@@ -14,10 +14,16 @@ required_csv_exists::cascade_model_condition_cascade_metrics,PASS,path=reports\p
 required_csv_exists::cascade_evidence_condition_delta_metrics,PASS,path=reports\pilot_03_reliability_cascade_metrics\evidence_condition_delta_metrics.csv; exists=True
 required_csv_exists::cascade_cross_model_cascade_comparison,PASS,path=reports\pilot_03_reliability_cascade_metrics\cross_model_cascade_comparison.csv; exists=True
 required_csv_exists::cascade_metric_definitions,PASS,path=reports\pilot_03_reliability_cascade_metrics\metric_definitions.csv; exists=True
+required_csv_exists::robustness_leave_one_task_out_sensitivity,PASS,path=reports\pilot_03_robustness_sensitivity\leave_one_task_out_sensitivity.csv; exists=True
+required_csv_exists::robustness_condition_order_sensitivity,PASS,path=reports\pilot_03_robustness_sensitivity\condition_order_sensitivity.csv; exists=True
+required_csv_exists::robustness_paired_delta_interval_sensitivity,PASS,path=reports\pilot_03_robustness_sensitivity\paired_delta_interval_sensitivity.csv; exists=True
+required_csv_exists::robustness_cascade_threshold_sensitivity,PASS,path=reports\pilot_03_robustness_sensitivity\cascade_threshold_sensitivity.csv; exists=True
+required_csv_exists::robustness_high_signal_case_profile,PASS,path=reports\pilot_03_robustness_sensitivity\high_signal_case_profile.csv; exists=True
 required_manifest_exists::full_comparison,PASS,path=reports\pilot_03_glm_vs_claude_t0020_full\manifest.json; exists=True
 required_manifest_exists::uncertainty,PASS,path=reports\pilot_03_glm_vs_claude_t0020_uncertainty\manifest.json; exists=True
 required_manifest_exists::paired_task_analysis,PASS,path=reports\pilot_03_glm_vs_claude_t0020_paired_task_analysis\manifest.json; exists=True
 required_manifest_exists::cascade_metrics,PASS,path=reports\pilot_03_reliability_cascade_metrics\manifest.json; exists=True
+required_manifest_exists::robustness_sensitivity,PASS,path=reports\pilot_03_robustness_sensitivity\manifest.json; exists=True
 required_manifest_exists::final_figures,PASS,path=reports\pilot_03_final_figures\manifest.json; exists=True
 required_final_figure_notes_exists,PASS,path=reports\pilot_03_final_figures\figure_notes.md; exists=True
 csv_row_count::full_paired_chain_comparison,PASS,actual=60; expected=60; path=reports\pilot_03_glm_vs_claude_t0020_full\paired_chain_comparison.csv
@@ -65,6 +71,21 @@ csv_safe_note_nonempty::cascade_cross_model_cascade_comparison,PASS,rows=30; pat
 csv_row_count::cascade_metric_definitions,PASS,actual=12; expected=12; path=reports\pilot_03_reliability_cascade_metrics\metric_definitions.csv
 csv_required_columns::cascade_metric_definitions,PASS,missing_columns=[]; path=reports\pilot_03_reliability_cascade_metrics\metric_definitions.csv
 csv_safe_note_nonempty::cascade_metric_definitions,PASS,rows=12; path=reports\pilot_03_reliability_cascade_metrics\metric_definitions.csv
+csv_row_count::robustness_leave_one_task_out_sensitivity,PASS,actual=18; expected=18; path=reports\pilot_03_robustness_sensitivity\leave_one_task_out_sensitivity.csv
+csv_required_columns::robustness_leave_one_task_out_sensitivity,PASS,missing_columns=[]; path=reports\pilot_03_robustness_sensitivity\leave_one_task_out_sensitivity.csv
+csv_safe_note_nonempty::robustness_leave_one_task_out_sensitivity,PASS,rows=18; path=reports\pilot_03_robustness_sensitivity\leave_one_task_out_sensitivity.csv
+csv_row_count::robustness_condition_order_sensitivity,PASS,actual=12; expected=12; path=reports\pilot_03_robustness_sensitivity\condition_order_sensitivity.csv
+csv_required_columns::robustness_condition_order_sensitivity,PASS,missing_columns=[]; path=reports\pilot_03_robustness_sensitivity\condition_order_sensitivity.csv
+csv_safe_note_nonempty::robustness_condition_order_sensitivity,PASS,rows=12; path=reports\pilot_03_robustness_sensitivity\condition_order_sensitivity.csv
+csv_row_count::robustness_paired_delta_interval_sensitivity,PASS,actual=15; expected=15; path=reports\pilot_03_robustness_sensitivity\paired_delta_interval_sensitivity.csv
+csv_required_columns::robustness_paired_delta_interval_sensitivity,PASS,missing_columns=[]; path=reports\pilot_03_robustness_sensitivity\paired_delta_interval_sensitivity.csv
+csv_safe_note_nonempty::robustness_paired_delta_interval_sensitivity,PASS,rows=15; path=reports\pilot_03_robustness_sensitivity\paired_delta_interval_sensitivity.csv
+csv_row_count::robustness_cascade_threshold_sensitivity,PASS,actual=30; expected=30; path=reports\pilot_03_robustness_sensitivity\cascade_threshold_sensitivity.csv
+csv_required_columns::robustness_cascade_threshold_sensitivity,PASS,missing_columns=[]; path=reports\pilot_03_robustness_sensitivity\cascade_threshold_sensitivity.csv
+csv_safe_note_nonempty::robustness_cascade_threshold_sensitivity,PASS,rows=30; path=reports\pilot_03_robustness_sensitivity\cascade_threshold_sensitivity.csv
+csv_row_count::robustness_high_signal_case_profile,PASS,actual=7; expected=7; path=reports\pilot_03_robustness_sensitivity\high_signal_case_profile.csv
+csv_required_columns::robustness_high_signal_case_profile,PASS,missing_columns=[]; path=reports\pilot_03_robustness_sensitivity\high_signal_case_profile.csv
+csv_safe_note_nonempty::robustness_high_signal_case_profile,PASS,rows=7; path=reports\pilot_03_robustness_sensitivity\high_signal_case_profile.csv
 manifest_real_api_calls_zero::full_comparison,PASS,path=reports\pilot_03_glm_vs_claude_t0020_full\manifest.json; real_api_calls=0
 manifest_raw_response_inspection_false::full_comparison,PASS,path=reports\pilot_03_glm_vs_claude_t0020_full\manifest.json; raw_response_inspection=False
 manifest_status_pass::full_comparison,PASS,path=reports\pilot_03_glm_vs_claude_t0020_full\manifest.json; status=PASS
@@ -77,6 +98,9 @@ manifest_status_pass::paired_task_analysis,PASS,path=reports\pilot_03_glm_vs_cla
 manifest_real_api_calls_zero::cascade_metrics,PASS,path=reports\pilot_03_reliability_cascade_metrics\manifest.json; real_api_calls=0
 manifest_raw_response_inspection_false::cascade_metrics,PASS,path=reports\pilot_03_reliability_cascade_metrics\manifest.json; raw_response_inspection=False
 manifest_status_pass::cascade_metrics,PASS,path=reports\pilot_03_reliability_cascade_metrics\manifest.json; status=PASS
+manifest_real_api_calls_zero::robustness_sensitivity,PASS,path=reports\pilot_03_robustness_sensitivity\manifest.json; real_api_calls=0
+manifest_raw_response_inspection_false::robustness_sensitivity,PASS,path=reports\pilot_03_robustness_sensitivity\manifest.json; raw_response_inspection=False
+manifest_status_pass::robustness_sensitivity,PASS,path=reports\pilot_03_robustness_sensitivity\manifest.json; status=PASS
 manifest_real_api_calls_zero::final_figures,PASS,path=reports\pilot_03_final_figures\manifest.json; real_api_calls=0
 manifest_raw_response_inspection_false::final_figures,PASS,path=reports\pilot_03_final_figures\manifest.json; raw_response_inspection=False
 full_summary_n_chains_matches_paired::zai::original_evidence,PASS,actual=20; expected=20
@@ -134,5 +158,15 @@ final_figures_output_count,PASS,actual=15; expected=15
 final_figures_paths_repo_relative,PASS,n_paths=15
 final_figures_all_outputs_exist,PASS,n_paths=15
 final_figures_png_pdf_presence,PASS,png=7; pdf=7
+robustness_report_name,PASS,report_name=pilot_03_robustness_sensitivity
+robustness_safe_wording_check_pass,PASS,safe_wording_check=PASS
+robustness_source_file_count,PASS,actual=14; expected=14
+robustness_output_file_count,PASS,actual=6; expected_min=6
+robustness_manifest_row_count::leave_one_task_out_sensitivity,PASS,actual=18; expected=18
+robustness_manifest_row_count::condition_order_sensitivity,PASS,actual=12; expected=12
+robustness_manifest_row_count::paired_delta_interval_sensitivity,PASS,actual=15; expected=15
+robustness_manifest_row_count::cascade_threshold_sensitivity,PASS,actual=30; expected=30
+robustness_manifest_row_count::high_signal_case_profile,PASS,actual=7; expected=7
+robustness_all_outputs_exist,PASS,n_output_files=6
 blocked_raw_prompt_response_like_columns,PASS,n_hits=0
 risky_public_wording_absent,PASS,n_hits=0

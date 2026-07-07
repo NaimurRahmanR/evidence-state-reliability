@@ -5,7 +5,11 @@ compile::experiments\pilot_03_validate_committed_outputs.py,PASS,py_compile pass
 compile::experiments\pilot_03_plan_real_runs.py,PASS,py_compile passed
 compile::experiments\pilot_03_generate_paper_figures.py,PASS,py_compile passed
 compile::experiments\pilot_03_generate_final_figures.py,PASS,py_compile passed
+compile::experiments\pilot_03_generate_robustness_sensitivity_checks.py,PASS,py_compile passed
+compile::experiments\pilot_03_validate_comparison_outputs.py,PASS,py_compile passed
 generate_uncertainty_tables,PASS,"real_api_calls=0; row_counts={'glm_condition_uncertainty': 9, 'shared_provider_condition_uncertainty': 24, 'condition_difference_uncertainty': 22, 'provider_difference_uncertainty': 12}"
 generate_stage_cascade_tables,PASS,"real_api_calls=0; raw_prompt_or_response_columns_exported=False; row_counts={'glm20_sanitized_chain_summary': 60, 'shared5_sanitized_chain_summary': 30, 'cascade_pattern_summary': 20, 'stage_transition_summary': 9}"
 generate_final_figures,PASS,real_api_calls=0; raw_response_inspection=False; safe_wording_check=PASS; n_figures=7; n_output_files=15
+generate_robustness_sensitivity_checks,PASS,"status=PASS; real_api_calls=0; raw_response_inspection=False; safe_wording_check=PASS; row_counts={'leave_one_task_out_sensitivity': 18, 'condition_order_sensitivity': 12, 'paired_delta_interval_sensitivity': 15, 'cascade_threshold_sensitivity': 30, 'high_signal_case_profile': 7}"
 validate_committed_outputs,PASS,status=PASS; n_checks=70; n_failed_checks=0; real_api_calls=0
+validate_comparison_outputs,PASS,status=PASS; n_checks=171; n_failed_checks=0; validated_csv_count=20; validated_manifest_count=6; real_api_calls=0; raw_response_inspection=False
