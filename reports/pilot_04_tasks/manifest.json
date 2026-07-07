@@ -1,0 +1,78 @@
+{
+  "artifact": "pilot_04_task_exports",
+  "task_type": "synthetic_loan_risk_decision_support",
+  "status": "PASS",
+  "created_at_utc": "2026-07-07T13:27:23+00:00",
+  "generator": "experiments.pilot_04_export_tasks",
+  "task_count": 24,
+  "seed": 404,
+  "conditions": [
+    "complete",
+    "partial",
+    "conflicted"
+  ],
+  "expected_condition_rows": 72,
+  "actual_condition_rows": 72,
+  "row_counts": {
+    "data_task_inventory": 24,
+    "report_task_inventory": 24,
+    "condition_inventory": 72
+  },
+  "task_summary": {
+    "task_type": "synthetic_loan_risk_decision_support",
+    "n_tasks": 24,
+    "n_conditions": 3,
+    "condition_names": [
+      "complete",
+      "partial",
+      "conflicted"
+    ],
+    "gold_decision_counts": {
+      "approve": 8,
+      "decline": 8,
+      "review": 8
+    },
+    "condition_counts": {
+      "complete": 24,
+      "conflicted": 24,
+      "partial": 24
+    },
+    "real_api_calls": 0,
+    "raw_response_inspection": false
+  },
+  "validation": {
+    "task_type": "synthetic_loan_risk_decision_support",
+    "n_tasks": 24,
+    "n_conditions": 3,
+    "condition_names": [
+      "complete",
+      "partial",
+      "conflicted"
+    ],
+    "gold_decision_counts": {
+      "approve": 8,
+      "decline": 8,
+      "review": 8
+    },
+    "condition_counts": {
+      "complete": 24,
+      "conflicted": 24,
+      "partial": 24
+    },
+    "real_api_calls": 0,
+    "raw_response_inspection": false,
+    "status": "PASS",
+    "n_errors": 0,
+    "errors": []
+  },
+  "output_files": [
+    "data\\pilot_04_tasks.csv",
+    "reports\\pilot_04_tasks\\task_inventory.csv",
+    "reports\\pilot_04_tasks\\condition_inventory.csv",
+    "reports\\pilot_04_tasks\\manifest.json"
+  ],
+  "raw_prompts_exported": false,
+  "raw_responses_exported": false,
+  "raw_response_inspection": false,
+  "real_api_calls": 0
+}

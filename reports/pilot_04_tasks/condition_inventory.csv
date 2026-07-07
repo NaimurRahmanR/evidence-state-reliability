@@ -1,0 +1,481 @@
+task_id,task_type,condition,gold_decision,visible_evidence_unit_ids,n_visible_evidence_units,n_required_visible,n_required_total,n_risk_units_visible,n_support_units_visible,conflict_note_visible,degraded_evidence_note,expected_reliability_stress,visible_evidence_text
+P04-T0001,synthetic_loan_risk_decision_support,complete,decline,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,3,3,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 2,430, which is above the synthetic affordability threshold of GBP 1,950.
+- E2: Applicant changed employment recently and has only 3 months in the current role.
+- E3: Existing monthly debt burden is 56% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows 2 missed payment event(s) in the last 12 months.
+- E5: Applicant has an emergency cash buffer covering approximately 4 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0001,synthetic_loan_risk_decision_support,partial,decline,"[""E1"", ""E3"", ""E4"", ""E6"", ""E7""]",5,5,7,2,2,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 2,430, which is above the synthetic affordability threshold of GBP 1,950.
+- E3: Existing monthly debt burden is 56% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows 2 missed payment event(s) in the last 12 months.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0001,synthetic_loan_risk_decision_support,conflicted,decline,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,3,3,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 2,430, which is above the synthetic affordability threshold of GBP 1,950.
+- E2: Applicant changed employment recently and has only 3 months in the current role.
+- E3: Existing monthly debt burden is 56% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows 2 missed payment event(s) in the last 12 months.
+- E5: Applicant has an emergency cash buffer covering approximately 4 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0002,synthetic_loan_risk_decision_support,complete,decline,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,4,2,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 1,650, which is below the synthetic affordability threshold of GBP 2,050.
+- E2: Applicant has been in stable employment for 24 months.
+- E3: Existing monthly debt burden is 59% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows no missed payments in the last 18 months.
+- E5: Applicant has limited emergency cash buffer, covering approximately 0 months of essential expenses.
+- E6: A synthetic adverse risk flag is present and requires review before a positive decision.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0002,synthetic_loan_risk_decision_support,partial,decline,"[""E1"", ""E3"", ""E4"", ""E6"", ""E7""]",5,5,7,3,1,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 1,650, which is below the synthetic affordability threshold of GBP 2,050.
+- E3: Existing monthly debt burden is 59% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows no missed payments in the last 18 months.
+- E6: A synthetic adverse risk flag is present and requires review before a positive decision.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0002,synthetic_loan_risk_decision_support,conflicted,decline,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,4,2,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 1,650, which is below the synthetic affordability threshold of GBP 2,050.
+- E2: Applicant has been in stable employment for 24 months.
+- E3: Existing monthly debt burden is 59% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows no missed payments in the last 18 months.
+- E5: Applicant has limited emergency cash buffer, covering approximately 0 months of essential expenses.
+- E6: A synthetic adverse risk flag is present and requires review before a positive decision.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0003,synthetic_loan_risk_decision_support,complete,review,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,1,5,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 2,570, which is above the synthetic affordability threshold of GBP 2,150.
+- E2: Applicant has been in stable employment for 27 months.
+- E3: Existing monthly debt burden is 30% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows 1 missed payment event(s) in the last 12 months.
+- E5: Applicant has an emergency cash buffer covering approximately 6 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0003,synthetic_loan_risk_decision_support,partial,review,"[""E1"", ""E3"", ""E4"", ""E6"", ""E7""]",5,5,7,1,3,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 2,570, which is above the synthetic affordability threshold of GBP 2,150.
+- E3: Existing monthly debt burden is 30% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows 1 missed payment event(s) in the last 12 months.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0003,synthetic_loan_risk_decision_support,conflicted,review,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,1,5,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 2,570, which is above the synthetic affordability threshold of GBP 2,150.
+- E2: Applicant has been in stable employment for 27 months.
+- E3: Existing monthly debt burden is 30% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows 1 missed payment event(s) in the last 12 months.
+- E5: Applicant has an emergency cash buffer covering approximately 6 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0004,synthetic_loan_risk_decision_support,complete,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,0,6,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 2,330, which is above the synthetic affordability threshold of GBP 1,850.
+- E2: Applicant has been in stable employment for 30 months.
+- E3: Existing monthly debt burden is 32% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 24 months.
+- E5: Applicant has an emergency cash buffer covering approximately 3 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0004,synthetic_loan_risk_decision_support,partial,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E7""]",5,5,7,0,4,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 2,330, which is above the synthetic affordability threshold of GBP 1,850.
+- E2: Applicant has been in stable employment for 30 months.
+- E3: Existing monthly debt burden is 32% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 24 months.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0004,synthetic_loan_risk_decision_support,conflicted,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,0,6,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 2,330, which is above the synthetic affordability threshold of GBP 1,850.
+- E2: Applicant has been in stable employment for 30 months.
+- E3: Existing monthly debt burden is 32% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 24 months.
+- E5: Applicant has an emergency cash buffer covering approximately 3 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0005,synthetic_loan_risk_decision_support,complete,decline,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,4,2,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 1,550, which is below the synthetic affordability threshold of GBP 1,950.
+- E2: Applicant changed employment recently and has only 3 months in the current role.
+- E3: Existing monthly debt burden is 68% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows no missed payments in the last 27 months.
+- E5: Applicant has an emergency cash buffer covering approximately 4 months of essential expenses.
+- E6: A synthetic adverse risk flag is present and requires review before a positive decision.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0005,synthetic_loan_risk_decision_support,partial,decline,"[""E1"", ""E3"", ""E4"", ""E6"", ""E7""]",5,5,7,3,1,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 1,550, which is below the synthetic affordability threshold of GBP 1,950.
+- E3: Existing monthly debt burden is 68% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows no missed payments in the last 27 months.
+- E6: A synthetic adverse risk flag is present and requires review before a positive decision.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0005,synthetic_loan_risk_decision_support,conflicted,decline,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,4,2,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 1,550, which is below the synthetic affordability threshold of GBP 1,950.
+- E2: Applicant changed employment recently and has only 3 months in the current role.
+- E3: Existing monthly debt burden is 68% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows no missed payments in the last 27 months.
+- E5: Applicant has an emergency cash buffer covering approximately 4 months of essential expenses.
+- E6: A synthetic adverse risk flag is present and requires review before a positive decision.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0006,synthetic_loan_risk_decision_support,complete,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,0,6,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 2,470, which is above the synthetic affordability threshold of GBP 2,050.
+- E2: Applicant has been in stable employment for 36 months.
+- E3: Existing monthly debt burden is 26% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 30 months.
+- E5: Applicant has an emergency cash buffer covering approximately 5 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0006,synthetic_loan_risk_decision_support,partial,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E7""]",5,5,7,0,4,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 2,470, which is above the synthetic affordability threshold of GBP 2,050.
+- E2: Applicant has been in stable employment for 36 months.
+- E3: Existing monthly debt burden is 26% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 30 months.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0006,synthetic_loan_risk_decision_support,conflicted,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,0,6,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 2,470, which is above the synthetic affordability threshold of GBP 2,050.
+- E2: Applicant has been in stable employment for 36 months.
+- E3: Existing monthly debt burden is 26% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 30 months.
+- E5: Applicant has an emergency cash buffer covering approximately 5 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0007,synthetic_loan_risk_decision_support,complete,review,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,1,5,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 2,630, which is above the synthetic affordability threshold of GBP 2,150.
+- E2: Applicant changed employment recently and has only 5 months in the current role.
+- E3: Existing monthly debt burden is 28% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 33 months.
+- E5: Applicant has an emergency cash buffer covering approximately 6 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0007,synthetic_loan_risk_decision_support,partial,review,"[""E1"", ""E3"", ""E4"", ""E6"", ""E7""]",5,5,7,0,4,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 2,630, which is above the synthetic affordability threshold of GBP 2,150.
+- E3: Existing monthly debt burden is 28% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 33 months.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0007,synthetic_loan_risk_decision_support,conflicted,review,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,1,5,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 2,630, which is above the synthetic affordability threshold of GBP 2,150.
+- E2: Applicant changed employment recently and has only 5 months in the current role.
+- E3: Existing monthly debt burden is 28% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 33 months.
+- E5: Applicant has an emergency cash buffer covering approximately 6 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0008,synthetic_loan_risk_decision_support,complete,review,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,1,5,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 2,390, which is above the synthetic affordability threshold of GBP 1,850.
+- E2: Applicant has been in stable employment for 42 months.
+- E3: Existing monthly debt burden is 30% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 12 months.
+- E5: Applicant has an emergency cash buffer covering approximately 3 months of essential expenses.
+- E6: A synthetic adverse risk flag is present and requires review before a positive decision.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0008,synthetic_loan_risk_decision_support,partial,review,"[""E1"", ""E3"", ""E4"", ""E6"", ""E7""]",5,5,7,1,3,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 2,390, which is above the synthetic affordability threshold of GBP 1,850.
+- E3: Existing monthly debt burden is 30% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 12 months.
+- E6: A synthetic adverse risk flag is present and requires review before a positive decision.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0008,synthetic_loan_risk_decision_support,conflicted,review,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,1,5,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 2,390, which is above the synthetic affordability threshold of GBP 1,850.
+- E2: Applicant has been in stable employment for 42 months.
+- E3: Existing monthly debt burden is 30% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 12 months.
+- E5: Applicant has an emergency cash buffer covering approximately 3 months of essential expenses.
+- E6: A synthetic adverse risk flag is present and requires review before a positive decision.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0009,synthetic_loan_risk_decision_support,complete,review,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,1,5,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 1,690, which is below the synthetic affordability threshold of GBP 1,950.
+- E2: Applicant has been in stable employment for 18 months.
+- E3: Existing monthly debt burden is 32% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 15 months.
+- E5: Applicant has an emergency cash buffer covering approximately 4 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0009,synthetic_loan_risk_decision_support,partial,review,"[""E1"", ""E3"", ""E4"", ""E6"", ""E7""]",5,5,7,1,3,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 1,690, which is below the synthetic affordability threshold of GBP 1,950.
+- E3: Existing monthly debt burden is 32% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 15 months.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0009,synthetic_loan_risk_decision_support,conflicted,review,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,1,5,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 1,690, which is below the synthetic affordability threshold of GBP 1,950.
+- E2: Applicant has been in stable employment for 18 months.
+- E3: Existing monthly debt burden is 32% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 15 months.
+- E5: Applicant has an emergency cash buffer covering approximately 4 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0010,synthetic_loan_risk_decision_support,complete,review,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,2,4,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 1,720, which is below the synthetic affordability threshold of GBP 2,050.
+- E2: Applicant has been in stable employment for 21 months.
+- E3: Existing monthly debt burden is 24% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows 2 missed payment event(s) in the last 12 months.
+- E5: Applicant has an emergency cash buffer covering approximately 5 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0010,synthetic_loan_risk_decision_support,partial,review,"[""E1"", ""E3"", ""E4"", ""E6"", ""E7""]",5,5,7,2,2,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 1,720, which is below the synthetic affordability threshold of GBP 2,050.
+- E3: Existing monthly debt burden is 24% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows 2 missed payment event(s) in the last 12 months.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0010,synthetic_loan_risk_decision_support,conflicted,review,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,2,4,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 1,720, which is below the synthetic affordability threshold of GBP 2,050.
+- E2: Applicant has been in stable employment for 21 months.
+- E3: Existing monthly debt burden is 24% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows 2 missed payment event(s) in the last 12 months.
+- E5: Applicant has an emergency cash buffer covering approximately 5 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0011,synthetic_loan_risk_decision_support,complete,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,0,6,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 2,690, which is above the synthetic affordability threshold of GBP 2,150.
+- E2: Applicant has been in stable employment for 24 months.
+- E3: Existing monthly debt burden is 26% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 21 months.
+- E5: Applicant has an emergency cash buffer covering approximately 6 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0011,synthetic_loan_risk_decision_support,partial,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E7""]",5,5,7,0,4,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 2,690, which is above the synthetic affordability threshold of GBP 2,150.
+- E2: Applicant has been in stable employment for 24 months.
+- E3: Existing monthly debt burden is 26% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 21 months.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0011,synthetic_loan_risk_decision_support,conflicted,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,0,6,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 2,690, which is above the synthetic affordability threshold of GBP 2,150.
+- E2: Applicant has been in stable employment for 24 months.
+- E3: Existing monthly debt burden is 26% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 21 months.
+- E5: Applicant has an emergency cash buffer covering approximately 6 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0012,synthetic_loan_risk_decision_support,complete,review,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,2,4,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 2,270, which is above the synthetic affordability threshold of GBP 1,850.
+- E2: Applicant changed employment recently and has only 2 months in the current role.
+- E3: Existing monthly debt burden is 28% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 24 months.
+- E5: Applicant has limited emergency cash buffer, covering approximately 0 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0012,synthetic_loan_risk_decision_support,partial,review,"[""E1"", ""E3"", ""E4"", ""E6"", ""E7""]",5,5,7,0,4,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 2,270, which is above the synthetic affordability threshold of GBP 1,850.
+- E3: Existing monthly debt burden is 28% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 24 months.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0012,synthetic_loan_risk_decision_support,conflicted,review,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,2,4,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 2,270, which is above the synthetic affordability threshold of GBP 1,850.
+- E2: Applicant changed employment recently and has only 2 months in the current role.
+- E3: Existing monthly debt burden is 28% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 24 months.
+- E5: Applicant has limited emergency cash buffer, covering approximately 0 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0013,synthetic_loan_risk_decision_support,complete,decline,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,3,3,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 1,620, which is below the synthetic affordability threshold of GBP 1,950.
+- E2: Applicant has been in stable employment for 30 months.
+- E3: Existing monthly debt burden is 56% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows 2 missed payment event(s) in the last 12 months.
+- E5: Applicant has an emergency cash buffer covering approximately 4 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0013,synthetic_loan_risk_decision_support,partial,decline,"[""E1"", ""E3"", ""E4"", ""E6"", ""E7""]",5,5,7,3,1,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 1,620, which is below the synthetic affordability threshold of GBP 1,950.
+- E3: Existing monthly debt burden is 56% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows 2 missed payment event(s) in the last 12 months.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0013,synthetic_loan_risk_decision_support,conflicted,decline,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,3,3,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 1,620, which is below the synthetic affordability threshold of GBP 1,950.
+- E2: Applicant has been in stable employment for 30 months.
+- E3: Existing monthly debt burden is 56% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows 2 missed payment event(s) in the last 12 months.
+- E5: Applicant has an emergency cash buffer covering approximately 4 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0014,synthetic_loan_risk_decision_support,complete,decline,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,4,2,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 2,590, which is above the synthetic affordability threshold of GBP 2,050.
+- E2: Applicant changed employment recently and has only 4 months in the current role.
+- E3: Existing monthly debt burden is 59% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows 3 missed payment event(s) in the last 12 months.
+- E5: Applicant has limited emergency cash buffer, covering approximately 0 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0014,synthetic_loan_risk_decision_support,partial,decline,"[""E1"", ""E3"", ""E4"", ""E6"", ""E7""]",5,5,7,2,2,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 2,590, which is above the synthetic affordability threshold of GBP 2,050.
+- E3: Existing monthly debt burden is 59% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows 3 missed payment event(s) in the last 12 months.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0014,synthetic_loan_risk_decision_support,conflicted,decline,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,4,2,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 2,590, which is above the synthetic affordability threshold of GBP 2,050.
+- E2: Applicant changed employment recently and has only 4 months in the current role.
+- E3: Existing monthly debt burden is 59% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows 3 missed payment event(s) in the last 12 months.
+- E5: Applicant has limited emergency cash buffer, covering approximately 0 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0015,synthetic_loan_risk_decision_support,complete,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,0,6,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 2,570, which is above the synthetic affordability threshold of GBP 2,150.
+- E2: Applicant has been in stable employment for 36 months.
+- E3: Existing monthly debt burden is 24% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 33 months.
+- E5: Applicant has an emergency cash buffer covering approximately 6 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0015,synthetic_loan_risk_decision_support,partial,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E7""]",5,5,7,0,4,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 2,570, which is above the synthetic affordability threshold of GBP 2,150.
+- E2: Applicant has been in stable employment for 36 months.
+- E3: Existing monthly debt burden is 24% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 33 months.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0015,synthetic_loan_risk_decision_support,conflicted,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,0,6,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 2,570, which is above the synthetic affordability threshold of GBP 2,150.
+- E2: Applicant has been in stable employment for 36 months.
+- E3: Existing monthly debt burden is 24% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 33 months.
+- E5: Applicant has an emergency cash buffer covering approximately 6 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0016,synthetic_loan_risk_decision_support,complete,decline,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,5,1,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 1,520, which is below the synthetic affordability threshold of GBP 1,850.
+- E2: Applicant changed employment recently and has only 2 months in the current role.
+- E3: Existing monthly debt burden is 26% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows 2 missed payment event(s) in the last 12 months.
+- E5: Applicant has limited emergency cash buffer, covering approximately 0 months of essential expenses.
+- E6: A synthetic adverse risk flag is present and requires review before a positive decision.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0016,synthetic_loan_risk_decision_support,partial,decline,"[""E1"", ""E3"", ""E4"", ""E6"", ""E7""]",5,5,7,3,1,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 1,520, which is below the synthetic affordability threshold of GBP 1,850.
+- E3: Existing monthly debt burden is 26% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows 2 missed payment event(s) in the last 12 months.
+- E6: A synthetic adverse risk flag is present and requires review before a positive decision.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0016,synthetic_loan_risk_decision_support,conflicted,decline,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,5,1,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 1,520, which is below the synthetic affordability threshold of GBP 1,850.
+- E2: Applicant changed employment recently and has only 2 months in the current role.
+- E3: Existing monthly debt burden is 26% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows 2 missed payment event(s) in the last 12 months.
+- E5: Applicant has limited emergency cash buffer, covering approximately 0 months of essential expenses.
+- E6: A synthetic adverse risk flag is present and requires review before a positive decision.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0017,synthetic_loan_risk_decision_support,complete,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,0,6,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 2,490, which is above the synthetic affordability threshold of GBP 1,950.
+- E2: Applicant has been in stable employment for 42 months.
+- E3: Existing monthly debt burden is 28% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 15 months.
+- E5: Applicant has an emergency cash buffer covering approximately 4 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0017,synthetic_loan_risk_decision_support,partial,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E7""]",5,5,7,0,4,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 2,490, which is above the synthetic affordability threshold of GBP 1,950.
+- E2: Applicant has been in stable employment for 42 months.
+- E3: Existing monthly debt burden is 28% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 15 months.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0017,synthetic_loan_risk_decision_support,conflicted,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,0,6,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 2,490, which is above the synthetic affordability threshold of GBP 1,950.
+- E2: Applicant has been in stable employment for 42 months.
+- E3: Existing monthly debt burden is 28% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 15 months.
+- E5: Applicant has an emergency cash buffer covering approximately 4 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0018,synthetic_loan_risk_decision_support,complete,review,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,1,5,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 2,470, which is above the synthetic affordability threshold of GBP 2,050.
+- E2: Applicant has been in stable employment for 18 months.
+- E3: Existing monthly debt burden is 53% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows no missed payments in the last 18 months.
+- E5: Applicant has an emergency cash buffer covering approximately 5 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0018,synthetic_loan_risk_decision_support,partial,review,"[""E1"", ""E3"", ""E4"", ""E6"", ""E7""]",5,5,7,1,3,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 2,470, which is above the synthetic affordability threshold of GBP 2,050.
+- E3: Existing monthly debt burden is 53% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows no missed payments in the last 18 months.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0018,synthetic_loan_risk_decision_support,conflicted,review,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,1,5,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 2,470, which is above the synthetic affordability threshold of GBP 2,050.
+- E2: Applicant has been in stable employment for 18 months.
+- E3: Existing monthly debt burden is 53% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows no missed payments in the last 18 months.
+- E5: Applicant has an emergency cash buffer covering approximately 5 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0019,synthetic_loan_risk_decision_support,complete,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,0,6,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 2,630, which is above the synthetic affordability threshold of GBP 2,150.
+- E2: Applicant has been in stable employment for 21 months.
+- E3: Existing monthly debt burden is 32% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 21 months.
+- E5: Applicant has an emergency cash buffer covering approximately 6 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0019,synthetic_loan_risk_decision_support,partial,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E7""]",5,5,7,0,4,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 2,630, which is above the synthetic affordability threshold of GBP 2,150.
+- E2: Applicant has been in stable employment for 21 months.
+- E3: Existing monthly debt burden is 32% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 21 months.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0019,synthetic_loan_risk_decision_support,conflicted,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,0,6,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 2,630, which is above the synthetic affordability threshold of GBP 2,150.
+- E2: Applicant has been in stable employment for 21 months.
+- E3: Existing monthly debt burden is 32% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 21 months.
+- E5: Applicant has an emergency cash buffer covering approximately 6 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0020,synthetic_loan_risk_decision_support,complete,decline,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,4,2,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 1,450, which is below the synthetic affordability threshold of GBP 1,850.
+- E2: Applicant changed employment recently and has only 2 months in the current role.
+- E3: Existing monthly debt burden is 59% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows 3 missed payment event(s) in the last 12 months.
+- E5: Applicant has an emergency cash buffer covering approximately 3 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0020,synthetic_loan_risk_decision_support,partial,decline,"[""E1"", ""E3"", ""E4"", ""E6"", ""E7""]",5,5,7,3,1,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 1,450, which is below the synthetic affordability threshold of GBP 1,850.
+- E3: Existing monthly debt burden is 59% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows 3 missed payment event(s) in the last 12 months.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0020,synthetic_loan_risk_decision_support,conflicted,decline,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,4,2,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 1,450, which is below the synthetic affordability threshold of GBP 1,850.
+- E2: Applicant changed employment recently and has only 2 months in the current role.
+- E3: Existing monthly debt burden is 59% of verified net income, which is above the synthetic risk threshold.
+- E4: Repayment record shows 3 missed payment event(s) in the last 12 months.
+- E5: Applicant has an emergency cash buffer covering approximately 3 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0021,synthetic_loan_risk_decision_support,complete,decline,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,3,3,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 1,690, which is below the synthetic affordability threshold of GBP 1,950.
+- E2: Applicant changed employment recently and has only 3 months in the current role.
+- E3: Existing monthly debt burden is 26% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows 1 missed payment event(s) in the last 12 months.
+- E5: Applicant has an emergency cash buffer covering approximately 4 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0021,synthetic_loan_risk_decision_support,partial,decline,"[""E1"", ""E3"", ""E4"", ""E6"", ""E7""]",5,5,7,2,2,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 1,690, which is below the synthetic affordability threshold of GBP 1,950.
+- E3: Existing monthly debt burden is 26% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows 1 missed payment event(s) in the last 12 months.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0021,synthetic_loan_risk_decision_support,conflicted,decline,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,3,3,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 1,690, which is below the synthetic affordability threshold of GBP 1,950.
+- E2: Applicant changed employment recently and has only 3 months in the current role.
+- E3: Existing monthly debt burden is 26% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows 1 missed payment event(s) in the last 12 months.
+- E5: Applicant has an emergency cash buffer covering approximately 4 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0022,synthetic_loan_risk_decision_support,complete,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,0,6,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 2,530, which is above the synthetic affordability threshold of GBP 2,050.
+- E2: Applicant has been in stable employment for 30 months.
+- E3: Existing monthly debt burden is 28% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 30 months.
+- E5: Applicant has an emergency cash buffer covering approximately 5 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0022,synthetic_loan_risk_decision_support,partial,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E7""]",5,5,7,0,4,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 2,530, which is above the synthetic affordability threshold of GBP 2,050.
+- E2: Applicant has been in stable employment for 30 months.
+- E3: Existing monthly debt burden is 28% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 30 months.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0022,synthetic_loan_risk_decision_support,conflicted,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,0,6,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 2,530, which is above the synthetic affordability threshold of GBP 2,050.
+- E2: Applicant has been in stable employment for 30 months.
+- E3: Existing monthly debt burden is 28% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 30 months.
+- E5: Applicant has an emergency cash buffer covering approximately 5 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0023,synthetic_loan_risk_decision_support,complete,review,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,1,5,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 2,690, which is above the synthetic affordability threshold of GBP 2,150.
+- E2: Applicant has been in stable employment for 33 months.
+- E3: Existing monthly debt burden is 30% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 33 months.
+- E5: Applicant has limited emergency cash buffer, covering approximately 1 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0023,synthetic_loan_risk_decision_support,partial,review,"[""E1"", ""E3"", ""E4"", ""E6"", ""E7""]",5,5,7,0,4,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 2,690, which is above the synthetic affordability threshold of GBP 2,150.
+- E3: Existing monthly debt burden is 30% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 33 months.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0023,synthetic_loan_risk_decision_support,conflicted,review,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,1,5,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 2,690, which is above the synthetic affordability threshold of GBP 2,150.
+- E2: Applicant has been in stable employment for 33 months.
+- E3: Existing monthly debt burden is 30% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 33 months.
+- E5: Applicant has limited emergency cash buffer, covering approximately 1 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
+P04-T0024,synthetic_loan_risk_decision_support,complete,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7""]",7,7,7,0,6,False,All core synthetic evidence units are visible.,baseline evidence state,"- E1: Verified monthly net income is GBP 2,270, which is above the synthetic affordability threshold of GBP 1,850.
+- E2: Applicant has been in stable employment for 36 months.
+- E3: Existing monthly debt burden is 32% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 12 months.
+- E5: Applicant has an emergency cash buffer covering approximately 3 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0024,synthetic_loan_risk_decision_support,partial,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E7""]",5,5,7,0,4,False,Some relevant evidence units are hidden from the downstream stages.,missing evidence sensitivity,"- E1: Verified monthly net income is GBP 2,270, which is above the synthetic affordability threshold of GBP 1,850.
+- E2: Applicant has been in stable employment for 36 months.
+- E3: Existing monthly debt burden is 32% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 12 months.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive."
+P04-T0024,synthetic_loan_risk_decision_support,conflicted,approve,"[""E1"", ""E2"", ""E3"", ""E4"", ""E5"", ""E6"", ""E7"", ""E8""]",8,7,7,0,6,True,"Core evidence remains visible, with one controlled conflicting note added.",ambiguity and contradiction sensitivity,"- E1: Verified monthly net income is GBP 2,270, which is above the synthetic affordability threshold of GBP 1,850.
+- E2: Applicant has been in stable employment for 36 months.
+- E3: Existing monthly debt burden is 32% of verified net income, which is within the synthetic low-risk band.
+- E4: Repayment record shows no missed payments in the last 12 months.
+- E5: Applicant has an emergency cash buffer covering approximately 3 months of essential expenses.
+- E6: No synthetic adverse risk flag is present in the case file.
+- E7: Synthetic decision rule: approve only when income, employment, debt burden, repayment history, cash buffer, and adverse-flag checks are all supportive. Use review when the evidence is mixed or materially incomplete. Use decline when multiple required risk checks are not supportive.
+- E8: Controlled conflict note: one case note gives a different risk interpretation than the structured evidence."
