@@ -1,0 +1,8 @@
+output_file,field_name,stage_name,allowed_values,notes
+pilot_05_cfpb_cascade_sanitized_decisions.csv,evidence_state_id,decision,,Identifier only; no raw evidence text.
+pilot_05_cfpb_cascade_sanitized_decisions.csv,predicted_process_outcome,decision,Yes|No|insufficient_evidence,Parsed enum only.
+pilot_05_cfpb_cascade_sanitized_decisions.csv,confidence_bin,decision,low|medium|high,Parsed enum only.
+pilot_05_cfpb_cascade_sanitized_audits.csv,audit_outcome,audit,pass|fail|escalate,Parsed enum only.
+pilot_05_cfpb_cascade_sanitized_escalations.csv,escalation_decision,escalation,no_escalation|escalate_for_review|withhold_output,Parsed enum only.
+pilot_05_cfpb_cascade_joined_evaluation.csv,target_timely_response,evaluation_only,Yes|No,Labels may be joined only after sanitized outputs are parsed; labels are never prompt inputs.
+pilot_05_cfpb_cascade_metrics.csv,condition_name,evaluation_only,clean|compressed|partial_dropout|noisy_conflicting,Metrics grouped by evidence-state condition.

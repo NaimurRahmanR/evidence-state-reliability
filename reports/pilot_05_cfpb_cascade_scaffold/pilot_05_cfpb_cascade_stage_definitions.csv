@@ -1,0 +1,4 @@
+stage_name,stage_order,input_type,output_type,purpose
+decision,1,sanitized_evidence_state_text,sanitized_structured_decision_json,Predict process outcome from the evidence state.
+audit,2,sanitized_decision_output_reference,sanitized_structured_audit_json,Audit decision reliability and flag escalation risks.
+escalation,3,sanitized_decision_and_audit_output_references,sanitized_structured_escalation_json,"Decide whether output is usable, uncertain, or should be withheld/escalated."

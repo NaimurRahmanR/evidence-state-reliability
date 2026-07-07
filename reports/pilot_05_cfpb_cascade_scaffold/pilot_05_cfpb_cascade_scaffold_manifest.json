@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "scope": "Pilot 05 CFPB no-call cascade execution scaffold",
+  "schema_version": "pilot_05_cfpb_cascade_v1",
+  "source_condition_file": "reports\\pilot_05_cfpb_evidence_state_conditions\\pilot_05_cfpb_evidence_state_conditions.csv",
+  "source_condition_labels_file": "reports\\pilot_05_cfpb_evidence_state_conditions\\pilot_05_cfpb_evidence_state_labels.csv",
+  "source_condition_manifest": "reports\\pilot_05_cfpb_evidence_state_conditions\\pilot_05_cfpb_evidence_state_manifest.json",
+  "stages": [
+    "decision",
+    "audit",
+    "escalation"
+  ],
+  "conditions": [
+    "clean",
+    "compressed",
+    "partial_dropout",
+    "noisy_conflicting"
+  ],
+  "row_counts": {
+    "input_evidence_state_rows": 240,
+    "input_label_rows_separate": 240,
+    "dry_run_request_rows": 720,
+    "decision_stage_requests": 240,
+    "audit_stage_requests": 240,
+    "escalation_stage_requests": 240,
+    "prompt_templates_written": 3,
+    "parser_rules_written": 17,
+    "expected_output_schema_rows": 7,
+    "expected_output_files_rows": 5
+  },
+  "condition_counts": {
+    "clean": 60,
+    "compressed": 60,
+    "partial_dropout": 60,
+    "noisy_conflicting": 60
+  },
+  "label_counts_separate_file_only": {
+    "No": 120,
+    "Yes": 120
+  },
+  "outputs": {
+    "prompt_templates_json": "reports\\pilot_05_cfpb_cascade_scaffold\\pilot_05_cfpb_cascade_prompt_templates.json",
+    "response_schema_json": "reports\\pilot_05_cfpb_cascade_scaffold\\pilot_05_cfpb_cascade_response_schema.json",
+    "dry_run_request_manifest_csv": "reports\\pilot_05_cfpb_cascade_scaffold\\pilot_05_cfpb_cascade_dry_run_request_manifest.csv",
+    "parser_validation_rules_csv": "reports\\pilot_05_cfpb_cascade_scaffold\\pilot_05_cfpb_cascade_parser_validation_rules.csv",
+    "expected_output_schema_csv": "reports\\pilot_05_cfpb_cascade_scaffold\\pilot_05_cfpb_cascade_expected_output_schema.csv",
+    "expected_output_files_csv": "reports\\pilot_05_cfpb_cascade_scaffold\\pilot_05_cfpb_cascade_expected_output_files.csv",
+    "stage_definitions_csv": "reports\\pilot_05_cfpb_cascade_scaffold\\pilot_05_cfpb_cascade_stage_definitions.csv",
+    "metrics_plan_csv": "reports\\pilot_05_cfpb_cascade_scaffold\\pilot_05_cfpb_cascade_metrics_plan.csv",
+    "dry_run_summary_csv": "reports\\pilot_05_cfpb_cascade_scaffold\\pilot_05_cfpb_cascade_dry_run_summary.csv",
+    "report_md": "reports\\pilot_05_cfpb_cascade_scaffold\\pilot_05_cfpb_cascade_scaffold_report.md"
+  },
+  "safety": {
+    "real_api_calls": 0,
+    "model_calls": 0,
+    "dataset_downloads": 0,
+    "raw_prompt_instances_written": false,
+    "raw_responses_written": false,
+    "raw_cfpb_rows_written": false,
+    "raw_narratives_written": false,
+    "company_names_written": false,
+    "complaint_ids_written": false,
+    "zip_codes_written": false,
+    "target_labels_used_as_prompt_inputs": false,
+    "target_label_in_evidence_state_text": false,
+    "labels_kept_separate": true
+  },
+  "claim_boundary": "No-call cascade execution scaffold only; not a model result, not a deployment result, and not a broad reliability claim."
+}

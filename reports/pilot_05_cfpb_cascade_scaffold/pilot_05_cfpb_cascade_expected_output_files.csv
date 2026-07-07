@@ -1,0 +1,6 @@
+output_file,created_by_future_step,raw_response_allowed,raw_prompt_allowed,label_allowed,purpose
+pilot_05_cfpb_cascade_sanitized_decisions.csv,approved_model_execution,False,False,False,Sanitized parsed decision-stage outputs.
+pilot_05_cfpb_cascade_sanitized_audits.csv,approved_model_execution,False,False,False,Sanitized parsed audit-stage outputs.
+pilot_05_cfpb_cascade_sanitized_escalations.csv,approved_model_execution,False,False,False,Sanitized parsed escalation-stage outputs.
+pilot_05_cfpb_cascade_joined_evaluation.csv,post_parse_evaluation,False,False,True,Evaluation join between sanitized outputs and separate labels.
+pilot_05_cfpb_cascade_metrics.csv,post_parse_evaluation,False,False,True,Reliability-cascade metrics by evidence-state condition.

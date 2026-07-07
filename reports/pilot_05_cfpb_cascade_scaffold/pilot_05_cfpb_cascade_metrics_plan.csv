@@ -1,0 +1,6 @@
+metric_name,required_future_outputs,level,claim_boundary
+decision_accuracy_by_condition,sanitized_decisions + separate labels,decision,Controlled evaluation metric only.
+invalid_json_rate_by_condition,parser validation records,structural,Parser/schema reliability metric only.
+audit_escalation_rate_by_condition,sanitized_audits,audit,Controlled audit-behaviour metric only.
+withhold_or_escalate_rate_by_condition,sanitized_escalations,escalation,Controlled escalation-behaviour metric only.
+reliability_delta_clean_to_degraded,condition-grouped metrics,cascade,Evidence-state degradation comparison within this controlled setup only.

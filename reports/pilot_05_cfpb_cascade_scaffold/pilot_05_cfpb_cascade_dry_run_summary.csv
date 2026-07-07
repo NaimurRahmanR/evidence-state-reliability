@@ -1,0 +1,17 @@
+metric,value
+status,PASS
+input_evidence_state_rows,240
+input_label_rows_separate,240
+dry_run_request_rows,720
+decision_stage_requests,240
+audit_stage_requests,240
+escalation_stage_requests,240
+prompt_templates_written,3
+raw_prompt_instances_written,False
+raw_responses_written,False
+real_api_calls,0
+model_calls,0
+dataset_downloads,0
+raw_cfpb_rows_written,False
+target_labels_used_as_prompt_inputs,False
+target_label_in_evidence_state_text,False

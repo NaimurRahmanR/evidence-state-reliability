@@ -1,0 +1,18 @@
+rule_id,stage_name,field_name,rule_type,allowed_values,required,notes
+PR001,all,raw_response,storage_forbidden,,False,Raw model responses must not be committed or written to reports.
+PR002,all,raw_prompt,storage_forbidden,,False,Raw prompt instances must not be committed or written to reports.
+PR003,all,schema_version,exact_match,pilot_05_cfpb_cascade_v1,True,All parsed responses must use the approved schema version.
+PR004,decision,predicted_process_outcome,enum_or_enum_list,Yes|No|insufficient_evidence,True,Parsed field must use controlled vocabulary only.
+PR005,decision,confidence_bin,enum_or_enum_list,low|medium|high,True,Parsed field must use controlled vocabulary only.
+PR006,decision,evidence_sufficiency,enum_or_enum_list,sufficient|partial|insufficient,True,Parsed field must use controlled vocabulary only.
+PR007,decision,decision_reason_codes,enum_or_enum_list,product_signal|issue_signal|submission_channel_signal|temporal_signal|narrative_availability_signal|field_dropout_uncertainty|conflicting_signal_uncertainty|insufficient_evidence,True,Parsed field must use controlled vocabulary only.
+PR008,audit,audit_outcome,enum_or_enum_list,pass|fail|escalate,True,Parsed field must use controlled vocabulary only.
+PR009,audit,audit_confidence_bin,enum_or_enum_list,low|medium|high,True,Parsed field must use controlled vocabulary only.
+PR010,audit,detected_risk_codes,enum_or_enum_list,none|insufficient_evidence|low_confidence|condition_degradation|conflicting_signal|schema_concern,True,Parsed field must use controlled vocabulary only.
+PR011,audit,recommended_action,enum_or_enum_list,accept_decision|request_escalation|withhold_output,True,Parsed field must use controlled vocabulary only.
+PR012,escalation,escalation_decision,enum_or_enum_list,no_escalation|escalate_for_review|withhold_output,True,Parsed field must use controlled vocabulary only.
+PR013,escalation,final_answer_status,enum_or_enum_list,usable|uncertain|invalid,True,Parsed field must use controlled vocabulary only.
+PR014,escalation,escalation_reason_codes,enum_or_enum_list,none|audit_failed|insufficient_evidence|conflicting_signal|low_confidence|condition_degradation|schema_concern,True,Parsed field must use controlled vocabulary only.
+PR015,all,parse_safety.raw_personal_data_in_response,exact_match,False,True,Safety declaration must remain false for unsafe raw-data or prompt leakage.
+PR016,all,parse_safety.raw_prompt_repeated,exact_match,False,True,Safety declaration must remain false for unsafe raw-data or prompt leakage.
+PR017,all,parse_safety.target_label_claimed_seen,exact_match,False,True,Safety declaration must remain false for unsafe raw-data or prompt leakage.

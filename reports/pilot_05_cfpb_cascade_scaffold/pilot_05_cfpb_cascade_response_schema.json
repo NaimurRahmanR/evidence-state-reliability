@@ -1,0 +1,121 @@
+{
+  "schema_version": "pilot_05_cfpb_cascade_v1",
+  "common_required_fields": [
+    "schema_version",
+    "stage_name",
+    "evidence_state_id",
+    "packet_id",
+    "condition_name",
+    "parse_safety"
+  ],
+  "parse_safety_required": {
+    "raw_personal_data_in_response": false,
+    "raw_prompt_repeated": false,
+    "target_label_claimed_seen": false
+  },
+  "stage_schemas": {
+    "decision": {
+      "required_fields": [
+        "predicted_process_outcome",
+        "confidence_bin",
+        "evidence_sufficiency",
+        "decision_reason_codes"
+      ],
+      "allowed_values": {
+        "predicted_process_outcome": [
+          "Yes",
+          "No",
+          "insufficient_evidence"
+        ],
+        "confidence_bin": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "evidence_sufficiency": [
+          "sufficient",
+          "partial",
+          "insufficient"
+        ],
+        "decision_reason_codes": [
+          "product_signal",
+          "issue_signal",
+          "submission_channel_signal",
+          "temporal_signal",
+          "narrative_availability_signal",
+          "field_dropout_uncertainty",
+          "conflicting_signal_uncertainty",
+          "insufficient_evidence"
+        ]
+      }
+    },
+    "audit": {
+      "required_fields": [
+        "audit_outcome",
+        "audit_confidence_bin",
+        "detected_risk_codes",
+        "recommended_action"
+      ],
+      "allowed_values": {
+        "audit_outcome": [
+          "pass",
+          "fail",
+          "escalate"
+        ],
+        "audit_confidence_bin": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "detected_risk_codes": [
+          "none",
+          "insufficient_evidence",
+          "low_confidence",
+          "condition_degradation",
+          "conflicting_signal",
+          "schema_concern"
+        ],
+        "recommended_action": [
+          "accept_decision",
+          "request_escalation",
+          "withhold_output"
+        ]
+      }
+    },
+    "escalation": {
+      "required_fields": [
+        "escalation_decision",
+        "final_answer_status",
+        "escalation_reason_codes"
+      ],
+      "allowed_values": {
+        "escalation_decision": [
+          "no_escalation",
+          "escalate_for_review",
+          "withhold_output"
+        ],
+        "final_answer_status": [
+          "usable",
+          "uncertain",
+          "invalid"
+        ],
+        "escalation_reason_codes": [
+          "none",
+          "audit_failed",
+          "insufficient_evidence",
+          "conflicting_signal",
+          "low_confidence",
+          "condition_degradation",
+          "schema_concern"
+        ]
+      }
+    }
+  },
+  "forbidden_response_storage": [
+    "raw_response",
+    "raw_prompt",
+    "chain_of_thought",
+    "free_text_rationale",
+    "verbatim_evidence_copy"
+  ]
+}
