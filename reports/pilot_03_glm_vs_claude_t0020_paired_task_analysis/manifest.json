@@ -1,0 +1,36 @@
+{
+  "created_at_utc": "2026-07-07T09:49:31+00:00",
+  "methods": {
+    "pairing": "same task_id and same evidence condition across GLM-5.2 and Anthropic/Claude",
+    "transition_categories": [
+      "decision_correct_preserved",
+      "decision_wrong_recovered_by_escalation",
+      "decision_wrong_not_recovered",
+      "decision_correct_lost_at_escalation"
+    ]
+  },
+  "outputs": {
+    "condition_pair_profile_csv": "reports\\pilot_03_glm_vs_claude_t0020_paired_task_analysis\\condition_pair_profile.csv",
+    "high_signal_cases_csv": "reports\\pilot_03_glm_vs_claude_t0020_paired_task_analysis\\high_signal_cases.csv",
+    "manifest_json": "reports\\pilot_03_glm_vs_claude_t0020_paired_task_analysis\\manifest.json",
+    "report_md": "reports\\pilot_03_glm_vs_claude_t0020_paired_task_analysis\\paired_task_level_analysis_report.md",
+    "task_condition_paired_outcomes_csv": "reports\\pilot_03_glm_vs_claude_t0020_paired_task_analysis\\task_condition_paired_outcomes.csv",
+    "task_level_summary_csv": "reports\\pilot_03_glm_vs_claude_t0020_paired_task_analysis\\task_level_summary.csv"
+  },
+  "raw_response_inspection": false,
+  "real_api_calls": 0,
+  "row_counts": {
+    "condition_pair_profile": 3,
+    "high_signal_cases": 24,
+    "paired_chain_rows": 60,
+    "task_condition_paired_outcomes": 60,
+    "task_level_summary": 20
+  },
+  "safe_note": "Paired task-level analysis for the controlled Pilot 03 20-task GLM-5.2 and Anthropic/Claude comparison. This analysis uses committed sanitized paired-chain outputs only and should not be interpreted as broad deployment evidence or broad cross-provider conclusions.",
+  "scope": "Pilot 03 full 20-task GLM-5.2 vs Anthropic/Claude paired task-level analysis",
+  "source_files": {
+    "paired_chain_csv": "reports\\pilot_03_glm_vs_claude_t0020_full\\paired_chain_comparison.csv"
+  },
+  "source_policy": "committed sanitized paired-chain comparison CSV only",
+  "status": "PASS"
+}
