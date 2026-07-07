@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "scope": "Pilot 05 CFPB no-call cascade parser smoke test",
+  "parser_script": "C:\\Users\\naimu\\evidence-state-reliability\\experiments\\pilot_05_cfpb_cascade_response_parser.py",
+  "scaffold_manifest": "reports\\pilot_05_cfpb_cascade_scaffold\\pilot_05_cfpb_cascade_scaffold_manifest.json",
+  "schema_version": "pilot_05_cfpb_cascade_v1",
+  "row_counts": {
+    "test_cases": 18,
+    "valid_cases_expected_pass": 3,
+    "invalid_cases_expected_fail": 15,
+    "decision_cases": 6,
+    "audit_cases": 6,
+    "escalation_cases": 6,
+    "failed_smoke_tests": 0,
+    "rejection_targets_covered": 10
+  },
+  "safety": {
+    "synthetic_in_memory_response_objects_only": true,
+    "raw_payloads_written": false,
+    "raw_responses_written": false,
+    "raw_prompt_instances_written": false,
+    "raw_cfpb_rows_written": false,
+    "raw_narratives_written": false,
+    "company_names_written": false,
+    "complaint_ids_written": false,
+    "zip_codes_written": false,
+    "real_api_calls": 0,
+    "model_calls": 0,
+    "dataset_downloads": 0
+  },
+  "rejection_targets": [
+    "raw_prompt_key",
+    "raw_response_key",
+    "chain_of_thought_key",
+    "free_text_rationale_key",
+    "free_text_explanation_key",
+    "schema_version_mismatch",
+    "stage_name_mismatch",
+    "identifier_mismatch",
+    "invalid_enum",
+    "parse_safety_violation"
+  ],
+  "claim_boundary": "No-call parser smoke test only; not a model result, not a deployment result, and not a broad reliability claim."
+}

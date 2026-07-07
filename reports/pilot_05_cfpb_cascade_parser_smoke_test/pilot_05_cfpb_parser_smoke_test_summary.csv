@@ -1,0 +1,16 @@
+metric,value
+status,PASS
+synthetic_in_memory_response_objects_only,True
+test_cases,18
+valid_cases_expected_pass,3
+invalid_cases_expected_fail,15
+decision_cases,6
+audit_cases,6
+escalation_cases,6
+failed_smoke_tests,0
+raw_payloads_written,False
+raw_responses_written,False
+raw_prompt_instances_written,False
+real_api_calls,0
+model_calls,0
+dataset_downloads,0

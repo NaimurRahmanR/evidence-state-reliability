@@ -1,0 +1,9 @@
+expected_error_family,count,share
+enum_violation,3,0.16666667
+forbidden_free_text_key,5,0.27777778
+identifier_mismatch,2,0.11111111
+list_enum_violation,1,0.05555556
+none,3,0.16666667
+parse_safety_violation,1,0.05555556
+schema_mismatch,2,0.11111111
+stage_mismatch,1,0.05555556
