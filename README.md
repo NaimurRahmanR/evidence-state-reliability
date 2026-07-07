@@ -437,7 +437,7 @@ Safe Claude wording:
 observed comparison subset under current Pilot 03 real LLM experimental conditions
 ```
 
-These results do not establish general GLM-5.2 reliability, general Claude reliability, general provider ranking, or general real-world LLM pipeline behaviour.
+These results do not establish general GLM-5.2 reliability, Claude reliability beyond the controlled subset, general provider ordering, or general real-world LLM pipeline behaviour.
 
 The latest committed Pilot 03 reports and documentation are:
 
@@ -839,16 +839,61 @@ This means a pipeline can fail because the model is weak, but it can also fail b
 
 
 
-## Pilot 03 committed evidence status
+## Pilot 03 latest committed evidence status
 
-Current committed Pilot 03 evidence can be checked with:
+Current committed Pilot 03 evidence can be reproduced and checked with the no-call validation path.
 
 ```powershell
+python -m experiments.pilot_03_run_no_call_evidence_pipeline
 python -m experiments.pilot_03_validate_all_committed_outputs
+python -m experiments.pilot_03_validate_comparison_outputs
+python -m experiments.pilot_03_generate_robustness_sensitivity_checks
 ```
 
-The current committed evidence status is summarized in:
+Expected current checkpoint:
 
-- `docs/pilot_03_committed_evidence_status.md`
+```text
+no-call pipeline: PASS, 14 steps, 0 failed steps, 0 skipped steps
+master committed-output validation: PASS, 3 validation commands, 0 failed validation commands
+comparison-output validation: PASS, 171 checks, 0 failed checks
+validated CSV outputs: 20
+validated manifests: 6
+robustness/sensitivity generation: PASS
+final figures: 7 figures, 15 output files
+real_api_calls in the no-call path: 0
+raw_response_inspection in comparison validation: False
+```
 
-This includes the GLM-5.2 committed checkpoint, the Anthropic/Claude 20-task validity-aware checkpoint, the selector audit layer, and the master committed-output validator.
+The latest master checkpoint is summarized in:
+
+- `docs/pilot_03_master_status_checkpoint.md`
+
+The committed evidence package now includes:
+
+- full GLM-vs-Claude shared task comparison outputs
+- paired uncertainty outputs
+- paired task-level analysis outputs
+- reliability cascade metrics
+- final figures
+- robustness/sensitivity checks
+- comparison-output validation results
+- no-call pipeline outputs
+
+Key committed output locations:
+
+- `reports/pilot_03_glm_vs_claude_t0020_full/`
+- `reports/pilot_03_glm_vs_claude_t0020_uncertainty/`
+- `reports/pilot_03_glm_vs_claude_t0020_paired_task_analysis/`
+- `reports/pilot_03_reliability_cascade_metrics/`
+- `reports/pilot_03_final_figures/`
+- `reports/pilot_03_robustness_sensitivity/`
+- `reports/pilot_03_comparison_validation/`
+- `reports/pilot_03_no_call_pipeline/`
+
+Safe current wording:
+
+> Under current Pilot 03 real LLM experimental conditions, evidence-state degradation can be measured in a multi-stage decision-audit-escalation chain while structured-output validity remains separately trackable.
+
+Do not state that Pilot 03 establishes broad deployment behavior, population-level model rates, provider ordering, or results outside the controlled task design.
+
+The no-call validation path makes no real API calls and uses committed sanitized derived outputs only.
