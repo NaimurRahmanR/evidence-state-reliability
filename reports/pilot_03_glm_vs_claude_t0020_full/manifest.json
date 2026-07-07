@@ -1,0 +1,47 @@
+{
+  "created_at_utc": "2026-07-07T09:39:47+00:00",
+  "models": [
+    {
+      "model_name": "glm-5.2",
+      "provider": "zai"
+    },
+    {
+      "model_name": "claude-opus-4-8",
+      "provider": "anthropic"
+    }
+  ],
+  "outputs": {
+    "condition_delta_summary_csv": "reports\\pilot_03_glm_vs_claude_t0020_full\\condition_delta_summary.csv",
+    "failure_pattern_comparison_csv": "reports\\pilot_03_glm_vs_claude_t0020_full\\failure_pattern_comparison.csv",
+    "manifest_json": "reports\\pilot_03_glm_vs_claude_t0020_full\\manifest.json",
+    "model_condition_summary_csv": "reports\\pilot_03_glm_vs_claude_t0020_full\\model_condition_summary.csv",
+    "paired_agreement_summary_csv": "reports\\pilot_03_glm_vs_claude_t0020_full\\paired_agreement_summary.csv",
+    "paired_chain_comparison_csv": "reports\\pilot_03_glm_vs_claude_t0020_full\\paired_chain_comparison.csv",
+    "report_md": "reports\\pilot_03_glm_vs_claude_t0020_full\\glm_vs_claude_t0020_full_comparison_report.md"
+  },
+  "raw_response_inspection": false,
+  "real_api_calls": 0,
+  "row_counts": {
+    "claude_chain_rows": 60,
+    "condition_delta_summary": 15,
+    "failure_pattern_comparison": 15,
+    "glm_chain_rows": 60,
+    "model_condition_summary": 6,
+    "paired_agreement_summary": 9,
+    "paired_chain_comparison": 60
+  },
+  "safe_note": "Descriptive full 20-task GLM-5.2 and Anthropic/Claude comparison under the controlled Pilot 03 setup. This report uses committed sanitized chain-level outputs only and should not be interpreted as broad deployment evidence, broad cross-provider conclusions, or general reliability claims.",
+  "scope": "Pilot 03 full 20-task GLM-5.2 vs Anthropic/Claude comparison",
+  "source_files": {
+    "claude_chain_csv": "reports\\pilot_03_anthropic_t0020_valid\\anthropic_t0020_valid_chain_summary.csv",
+    "glm_chain_csv": "reports\\pilot_03_stage_cascade\\glm20_sanitized_chain_summary.csv"
+  },
+  "source_policy": "committed sanitized chain-level CSVs only",
+  "status": "PASS",
+  "validity": {
+    "claude_valid_json_chain_count": 60,
+    "claude_valid_schema_chain_count": 60,
+    "glm_valid_json_chain_count": 60,
+    "glm_valid_schema_chain_count": 60
+  }
+}
