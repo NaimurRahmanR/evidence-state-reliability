@@ -1,0 +1,130 @@
+{
+  "artifact": "final_no_call_validation",
+  "status": "PASS",
+  "created_at_utc": "2026-07-07T14:04:22+00:00",
+  "validator": "experiments.validate_final_no_call_package",
+  "n_steps": 25,
+  "n_failed_steps": 0,
+  "manifest_summaries": {
+    "reports/pilot_03_no_call_pipeline/manifest.json": {
+      "artifact": null,
+      "status": "PASS",
+      "real_api_calls": 0,
+      "raw_response_inspection": false,
+      "n_steps": 14,
+      "n_failed_steps": 0,
+      "n_checks": "",
+      "n_failed_checks": "",
+      "row_counts": {}
+    },
+    "reports/pilot_03_comparison_validation/manifest.json": {
+      "artifact": null,
+      "status": "PASS",
+      "real_api_calls": 0,
+      "raw_response_inspection": false,
+      "n_steps": "",
+      "n_failed_steps": "",
+      "n_checks": 171,
+      "n_failed_checks": 0,
+      "row_counts": {}
+    },
+    "reports/pilot_03_robustness_sensitivity/manifest.json": {
+      "artifact": null,
+      "status": "PASS",
+      "real_api_calls": 0,
+      "raw_response_inspection": false,
+      "n_steps": "",
+      "n_failed_steps": "",
+      "n_checks": "",
+      "n_failed_checks": "",
+      "row_counts": {
+        "cascade_threshold_sensitivity": 30,
+        "condition_order_sensitivity": 12,
+        "high_signal_case_profile": 7,
+        "leave_one_task_out_sensitivity": 18,
+        "paired_delta_interval_sensitivity": 15
+      }
+    },
+    "reports/pilot_04_no_call_pipeline/manifest.json": {
+      "artifact": "pilot_04_no_call_evidence_pipeline",
+      "status": "PASS",
+      "real_api_calls": 0,
+      "raw_response_inspection": false,
+      "n_steps": 13,
+      "n_failed_steps": 0,
+      "n_checks": "",
+      "n_failed_checks": "",
+      "row_counts": {}
+    },
+    "reports/pilot_04_validation/manifest.json": {
+      "artifact": "pilot_04_committed_output_validation",
+      "status": "PASS",
+      "real_api_calls": 0,
+      "raw_response_inspection": false,
+      "n_steps": "",
+      "n_failed_steps": "",
+      "n_checks": 124,
+      "n_failed_checks": 0,
+      "row_counts": {}
+    },
+    "reports/cross_pilot_evidence_state_reliability/manifest.json": {
+      "artifact": "cross_pilot_evidence_state_reliability_report",
+      "status": "PASS",
+      "real_api_calls": 0,
+      "raw_response_inspection": false,
+      "n_steps": "",
+      "n_failed_steps": "",
+      "n_checks": "",
+      "n_failed_checks": "",
+      "row_counts": {
+        "cross_pilot_framework_summary": 2,
+        "pipeline_validation_summary": 4,
+        "condition_metric_alignment": 4,
+        "metric_inventory": 58
+      }
+    },
+    "reports/cross_pilot_validation/manifest.json": {
+      "artifact": "cross_pilot_evidence_state_report_validation",
+      "status": "PASS",
+      "real_api_calls": 0,
+      "raw_response_inspection": false,
+      "n_steps": "",
+      "n_failed_steps": "",
+      "n_checks": 28,
+      "n_failed_checks": 0,
+      "row_counts": {}
+    },
+    "reports/cross_pilot_figures_tables/manifest.json": {
+      "artifact": "cross_pilot_figures_tables",
+      "status": "PASS",
+      "real_api_calls": 0,
+      "raw_response_inspection": false,
+      "n_steps": "",
+      "n_failed_steps": "",
+      "n_checks": "",
+      "n_failed_checks": "",
+      "row_counts": {
+        "table_01_framework_summary": 2,
+        "table_02_validation_status": 4,
+        "table_03_condition_metric_alignment": 4,
+        "table_04_pilot04_reliability_by_condition": 3,
+        "table_05_pilot04_stage_cascade_summary": 3,
+        "table_06_pilot04_uncertainty_summary": 3,
+        "table_07_metric_inventory_compact": 44
+      }
+    }
+  },
+  "figure_summary": {
+    "n_tables": 7,
+    "n_figures": 6
+  },
+  "output_files": [
+    "reports\\final_no_call_validation\\validation_summary.csv",
+    "reports\\final_no_call_validation\\manifest.json",
+    "docs\\cross_pilot_final_status_checkpoint.md"
+  ],
+  "raw_prompts_exported": false,
+  "raw_responses_exported": false,
+  "raw_response_inspection": false,
+  "real_api_calls": 0
+}

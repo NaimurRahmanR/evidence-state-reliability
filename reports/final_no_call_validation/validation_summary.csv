@@ -1,0 +1,52 @@
+step_name,status,detail
+compile::experiments\pilot_03_validate_all_committed_outputs.py,PASS,py_compile passed
+compile::experiments\pilot_03_run_no_call_evidence_pipeline.py,PASS,py_compile passed
+compile::experiments\pilot_04_export_tasks.py,PASS,py_compile passed
+compile::experiments\pilot_04_run_dry_run.py,PASS,py_compile passed
+compile::experiments\pilot_04_generate_analysis_outputs.py,PASS,py_compile passed
+compile::experiments\pilot_04_validate_committed_outputs.py,PASS,py_compile passed
+compile::experiments\pilot_04_run_no_call_evidence_pipeline.py,PASS,py_compile passed
+compile::experiments\generate_cross_pilot_evidence_state_report.py,PASS,py_compile passed
+compile::experiments\validate_cross_pilot_evidence_state_report.py,PASS,py_compile passed
+compile::experiments\generate_cross_pilot_figures_tables.py,PASS,py_compile passed
+pilot_03_master_committed_output_validation,PASS,"returncode=0; stdout_tail=Pilot 03 master committed-output validation
+===========================================
+status: PASS
+n_validation_commands: 3
+n_failed_validation_commands: 0
+real_api_calls: 0
+raw_response_inspection: False
+
+- pilot_03_committed_outputs: PASS
+  Validate existing committed Pilot 03 derived outputs.
+- pilot_03_anthropic_t0020_committed_report: PASS
+  Validate committed Anthropic/Claude T0020 sanitized report outputs.
+- pilot_03_comparison_outputs: PASS
+  Validate committed Pilot 03 comparison, cascade, and final-figure outputs.; stderr_tail="
+pilot_04_no_call_evidence_pipeline,PASS,"returncode=0; stdout_tail=Pilot 04 no-call evidence pipeline completed.
+output_dir: reports\pilot_04_no_call_pipeline
+status: PASS
+n_steps: 13
+n_failed_steps: 0
+n_skipped_steps: 0
+real_api_calls: 0
+raw_response_inspection: False; stderr_tail="
+cross_pilot_report_validation,PASS,"returncode=0; stdout_tail=Cross-pilot evidence-state report validation completed.
+output_dir: reports\cross_pilot_validation
+status: PASS
+n_checks: 28
+n_failed_checks: 0
+real_api_calls: 0
+raw_response_inspection: False; stderr_tail="
+manifest_safety::reports\pilot_03_no_call_pipeline\manifest.json,PASS,status=PASS; real_api_calls=0; raw_response_inspection=False
+manifest_safety::reports\pilot_03_comparison_validation\manifest.json,PASS,status=PASS; real_api_calls=0; raw_response_inspection=False
+manifest_safety::reports\pilot_03_robustness_sensitivity\manifest.json,PASS,status=PASS; real_api_calls=0; raw_response_inspection=False
+manifest_safety::reports\pilot_04_no_call_pipeline\manifest.json,PASS,status=PASS; real_api_calls=0; raw_response_inspection=False
+manifest_safety::reports\pilot_04_validation\manifest.json,PASS,status=PASS; real_api_calls=0; raw_response_inspection=False
+manifest_safety::reports\cross_pilot_evidence_state_reliability\manifest.json,PASS,status=PASS; real_api_calls=0; raw_response_inspection=False
+manifest_safety::reports\cross_pilot_validation\manifest.json,PASS,status=PASS; real_api_calls=0; raw_response_inspection=False
+manifest_safety::reports\cross_pilot_figures_tables\manifest.json,PASS,status=PASS; real_api_calls=0; raw_response_inspection=False
+cross_pilot_figures_tables_files,PASS,tables=7; figures=6; missing_tables=[]; missing_figures=[]; small_figures=[]
+public_wording_safety_scan,PASS,hits=[]
+tracked_content_no_raw_or_secret_markers,PASS,scanned_files=160; skipped_files=103; hits=[]
+tracked_filename_safety_scan,PASS,unsafe=[]
