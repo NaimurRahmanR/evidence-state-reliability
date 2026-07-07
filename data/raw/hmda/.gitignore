@@ -1,0 +1,4 @@
+﻿# Ignore all local raw HMDA files by default.
+*
+!.gitignore
+!README.md
