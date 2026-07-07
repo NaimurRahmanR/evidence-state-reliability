@@ -1,0 +1,10 @@
+field,required_before_execution,current_value,notes
+model_provider,True,TO_BE_APPROVED_BY_USER,"Examples could include OpenAI, Anthropic, GLM/Z.ai, or another provider, but none is selected by this design."
+model_name,True,TO_BE_APPROVED_BY_USER,Exact model/version must be approved before any real call.
+max_future_real_llm_calls,True,36,Recommended tiny pilot is 36 calls; user can approve fewer/more explicitly.
+max_cost_permission,True,TO_BE_APPROVED_BY_USER,Cost must be approved after current provider pricing is checked.
+api_key_source,True,LOCAL_ENV_ONLY_NOT_COMMITTED,No key or .env is created or committed by this task.
+raw_prompt_storage,True,FORBIDDEN,Future runner must not write raw prompt instances.
+raw_response_storage,True,FORBIDDEN,Future runner must not write raw model responses.
+jsonl_storage,True,FORBIDDEN,Future runner must not write JSONL raw dumps.
+approval_phrase,True,NOT_PROVIDED,Future execution requires a clear explicit approval phrase after model/cost/call-count are shown.

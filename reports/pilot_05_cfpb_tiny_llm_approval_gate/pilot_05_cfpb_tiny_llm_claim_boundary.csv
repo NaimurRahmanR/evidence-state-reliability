@@ -1,0 +1,6 @@
+claim_type,wording
+allowed,Pilot 05 has an approval-gated design for a tiny real-LLM cascade pilot.
+allowed,No Pilot 05 model-result evidence exists until explicitly approved execution is performed and parsed.
+allowed,"Future real-LLM outputs, if approved, will be sanitized and parser-validated before metrics."
+forbidden,"Do not claim deployment validity, financial/legal safety, provider superiority, or consumer harm prevalence."
+forbidden,"Do not call the result proven, ground-breaking, or Q1-level based on design infrastructure."

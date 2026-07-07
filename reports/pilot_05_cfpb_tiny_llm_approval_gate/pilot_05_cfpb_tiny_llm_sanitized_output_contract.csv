@@ -1,0 +1,9 @@
+field_group,required,raw_sensitive,notes
+identifier,True,False,Use request/evidence IDs only; no complaint IDs.
+stage,True,False,decision/audit/escalation.
+evidence_condition,True,False,clean/compressed/partial_dropout/noisy_conflicting.
+parsed_structured_output,True,False,Schema-constrained fields only.
+parse_status,True,False,Accepted/rejected with rejection reason.
+raw_prompt,False,True,Forbidden.
+raw_response,False,True,Forbidden.
+chain_of_thought_or_free_text_rationale,False,True,Forbidden.

@@ -1,0 +1,4 @@
+option_id,future_call_count,structure,research_strength,main_use,tradeoff,recommended,future_explicit_approval_required
+A_12_CALL_WIRING_SENTINEL,12,1 base-packet slot x 4 evidence conditions x 3 cascade stages,Low,API/parser/storage wiring check only; not enough for condition-level empirical claims.,"Fastest and cheapest, but too weak for meaningful cascade metrics.",False,True
+B_36_CALL_PAIRED_MICRO_PILOT,36,3 base-packet slots x 4 evidence conditions x 3 cascade stages,Minimum credible tiny pilot,Small paired real-LLM smoke pilot for decision/audit/escalation behaviour across conditions.,"Still not inferentially strong, but more research-useful than a 12-call wiring check.",True,True
+C_72_CALL_SMALL_PILOT,72,6 base-packet slots x 4 evidence conditions x 3 cascade stages,Stronger small pilot,Better preliminary cascade metric stability before scaling.,More cost/time than a tiny pilot; still not a full Pilot 05 run.,False,True

@@ -1,0 +1,74 @@
+{
+  "approval_status": "NOT_APPROVED_DESIGN_ONLY",
+  "claim_boundary": "No Pilot 05 model-result evidence exists yet. This task only designs the explicit approval gate for a future tiny real-LLM pilot.",
+  "counts": {
+    "abort_condition_rows": 10,
+    "abstract_condition_counts": {
+      "clean": 9,
+      "compressed": 9,
+      "noisy_conflicting": 9,
+      "partial_dropout": 9
+    },
+    "abstract_stage_counts": {
+      "audit": 12,
+      "decision": 12,
+      "escalation": 12
+    },
+    "approval_required_field_rows": 9,
+    "existing_harness_batch_rows": 12,
+    "existing_harness_plan_rows": 720,
+    "existing_readiness_check_rows": 111,
+    "pilot_option_rows": 3,
+    "recommended_abstract_call_plan_rows": 36
+  },
+  "created_utc": "2026-07-07T21:19:19.808691+00:00",
+  "execution_mode": "approval_gate_design_only_no_call",
+  "input_files": {
+    "execution_batches": "reports/pilot_05_cfpb_cascade_execution_harness/pilot_05_cfpb_cascade_execution_batches.csv",
+    "execution_guardrails": "reports/pilot_05_cfpb_cascade_execution_harness/pilot_05_cfpb_cascade_execution_guardrails.csv",
+    "execution_harness_manifest": "reports/pilot_05_cfpb_cascade_execution_harness/pilot_05_cfpb_cascade_execution_harness_manifest.json",
+    "execution_harness_script": "experiments/pilot_05_cfpb_cascade_execution_harness.py",
+    "execution_plan": "reports/pilot_05_cfpb_cascade_execution_harness/pilot_05_cfpb_cascade_execution_plan.csv",
+    "readiness_checks": "reports/pilot_05_cfpb_cascade_harness_readiness_validation/pilot_05_cfpb_cascade_harness_readiness_checks.csv",
+    "readiness_manifest": "reports/pilot_05_cfpb_cascade_harness_readiness_validation/pilot_05_cfpb_cascade_harness_readiness_validation_manifest.json",
+    "readiness_validation_script": "experiments/pilot_05_cfpb_cascade_harness_readiness_validation.py"
+  },
+  "model_selection": {
+    "api_key_required_later": true,
+    "api_key_storage_policy": "LOCAL_ENV_ONLY_NOT_COMMITTED",
+    "current_pricing_checked": false,
+    "model_name": "TO_BE_APPROVED_BY_USER",
+    "model_provider": "TO_BE_APPROVED_BY_USER"
+  },
+  "output_files": {
+    "abort_conditions": "reports/pilot_05_cfpb_tiny_llm_approval_gate/pilot_05_cfpb_tiny_llm_abort_conditions.csv",
+    "abstract_call_plan": "reports/pilot_05_cfpb_tiny_llm_approval_gate/pilot_05_cfpb_tiny_llm_recommended_abstract_call_plan.csv",
+    "approval_fields": "reports/pilot_05_cfpb_tiny_llm_approval_gate/pilot_05_cfpb_tiny_llm_approval_required_fields.csv",
+    "claim_boundary": "reports/pilot_05_cfpb_tiny_llm_approval_gate/pilot_05_cfpb_tiny_llm_claim_boundary.csv",
+    "cost_template": "reports/pilot_05_cfpb_tiny_llm_approval_gate/pilot_05_cfpb_tiny_llm_cost_permission_template.csv",
+    "manifest": "reports/pilot_05_cfpb_tiny_llm_approval_gate/pilot_05_cfpb_tiny_llm_approval_gate_manifest.json",
+    "options": "reports/pilot_05_cfpb_tiny_llm_approval_gate/pilot_05_cfpb_tiny_llm_pilot_options.csv",
+    "report": "reports/pilot_05_cfpb_tiny_llm_approval_gate/pilot_05_cfpb_tiny_llm_approval_gate_report.md",
+    "sanitized_contract": "reports/pilot_05_cfpb_tiny_llm_approval_gate/pilot_05_cfpb_tiny_llm_sanitized_output_contract.csv",
+    "storage_policy": "reports/pilot_05_cfpb_tiny_llm_approval_gate/pilot_05_cfpb_tiny_llm_storage_policy.csv"
+  },
+  "recommended_future_call_count": 36,
+  "recommended_option_id": "B_36_CALL_PAIRED_MICRO_PILOT",
+  "safety_flags": {
+    "api_calls": 0,
+    "api_outputs_written": false,
+    "dataset_downloads": 0,
+    "future_explicit_approval_required": true,
+    "jsonl_written": false,
+    "model_calls": 0,
+    "model_execution_enabled": false,
+    "raw_cfpb_data_read": false,
+    "raw_cfpb_data_written": false,
+    "raw_prompt_instances_written": false,
+    "raw_responses_written": false,
+    "staged_or_committed_by_script": false
+  },
+  "schema_version": "pilot_05_cfpb_tiny_llm_approval_gate_v1",
+  "status": "PASS",
+  "task_id": "05AI"
+}

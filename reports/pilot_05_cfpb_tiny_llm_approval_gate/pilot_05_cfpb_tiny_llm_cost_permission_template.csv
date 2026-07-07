@@ -1,0 +1,8 @@
+item,value,notes
+provider_pricing_status,NOT_CHECKED_IN_05AI,Pricing can change; check official current pricing before execution approval.
+model_provider,TO_BE_APPROVED_BY_USER,No provider selected by this design.
+model_name,TO_BE_APPROVED_BY_USER,No model selected by this design.
+recommended_future_calls,36,36-call paired micro-pilot.
+estimated_input_tokens_per_call,TO_BE_MEASURED_BEFORE_EXECUTION,Must be estimated from sanitized prompt template without writing raw prompts.
+estimated_output_tokens_per_call,TO_BE_APPROVED_BY_USER,Use strict parser schema and low max output tokens.
+estimated_total_cost,TO_BE_CALCULATED_AFTER_MODEL_SELECTION,Do not execute until user approves cost ceiling.

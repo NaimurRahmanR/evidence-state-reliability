@@ -1,0 +1,8 @@
+storage_item,allowed,future_policy
+raw_cfpb_data,False,Never commit raw CFPB data.
+raw_prompt_instances,False,Do not write raw prompt instances to repo.
+raw_model_responses,False,Do not write raw model responses to repo.
+jsonl_api_outputs,False,Do not write JSONL raw dumps.
+env_or_secrets,False,"Do not commit .env, keys, or secrets."
+sanitized_parsed_outputs,True,Commit only after parser and safety validators pass.
+aggregate_metrics,True,Commit only after no-raw-data and claim-boundary scans pass.
