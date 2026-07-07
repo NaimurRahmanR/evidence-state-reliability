@@ -1,0 +1,4 @@
+﻿# Ignore all local CFPB complaint raw files by default.
+*
+!.gitignore
+!README.md
