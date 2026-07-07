@@ -1,0 +1,11 @@
+field,configured_value,source,execution_ready
+model_provider,Z.ai,user_approved,False
+model_display_name,GLM-5.2,user_approved,False
+api_model_name,glm-5.2,official_docs_checked,False
+api_base_url,https://api.z.ai/api/paas/v4,official_docs_checked,False
+chat_completions_endpoint,https://api.z.ai/api/paas/v4/chat/completions,official_docs_checked,False
+max_future_real_llm_calls,36,05AI_gate,False
+max_cost_permission_gbp,3.49,user_approved,False
+api_key_source,LOCAL_ENV_ONLY_NOT_COMMITTED,project_policy,False
+api_key_env_var,ZAI_API_KEY,local_runtime_only,False
+approval_status,CONFIGURED_NOT_EXECUTION_APPROVED,05AJ-A,False

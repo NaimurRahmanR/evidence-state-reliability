@@ -1,0 +1,53 @@
+{
+  "abstract_plan_rows": 36,
+  "abstract_plan_stage_counts": {
+    "audit": 12,
+    "decision": 12,
+    "escalation": 12
+  },
+  "api_base_url": "https://api.z.ai/api/paas/v4",
+  "api_key_env_var": "ZAI_API_KEY",
+  "api_key_source": "LOCAL_ENV_ONLY_NOT_COMMITTED",
+  "api_model_name": "glm-5.2",
+  "approval_status": "CONFIGURED_NOT_EXECUTION_APPROVED",
+  "chat_completions_endpoint": "https://api.z.ai/api/paas/v4/chat/completions",
+  "claim_boundary": "This task configures a future GLM-5.2 micro-pilot only. It creates no Pilot 05 model-result evidence.",
+  "created_utc": "2026-07-07T21:43:49.746967+00:00",
+  "future_explicit_execution_approval_required": true,
+  "input_files": {
+    "abstract_call_plan": "reports/pilot_05_cfpb_tiny_llm_approval_gate/pilot_05_cfpb_tiny_llm_recommended_abstract_call_plan.csv",
+    "approval_gate_manifest": "reports/pilot_05_cfpb_tiny_llm_approval_gate/pilot_05_cfpb_tiny_llm_approval_gate_manifest.json",
+    "approval_required_fields": "reports/pilot_05_cfpb_tiny_llm_approval_gate/pilot_05_cfpb_tiny_llm_approval_required_fields.csv",
+    "execution_plan": "reports/pilot_05_cfpb_cascade_execution_harness/pilot_05_cfpb_cascade_execution_plan.csv",
+    "readiness_validation_manifest": "reports/pilot_05_cfpb_cascade_harness_readiness_validation/pilot_05_cfpb_cascade_harness_readiness_validation_manifest.json"
+  },
+  "max_cost_permission_gbp": "3.49",
+  "max_future_real_llm_calls": 36,
+  "model_display_name": "GLM-5.2",
+  "model_provider": "Z.ai",
+  "output_files": [
+    "reports/pilot_05_cfpb_glm52_micro_pilot_config/pilot_05_cfpb_glm52_micro_pilot_config_manifest.json",
+    "reports/pilot_05_cfpb_glm52_micro_pilot_config/pilot_05_cfpb_glm52_micro_pilot_execution_permission_config.csv",
+    "reports/pilot_05_cfpb_glm52_micro_pilot_config/pilot_05_cfpb_glm52_micro_pilot_call_budget.csv",
+    "reports/pilot_05_cfpb_glm52_micro_pilot_config/pilot_05_cfpb_glm52_micro_pilot_env_requirements.csv",
+    "reports/pilot_05_cfpb_glm52_micro_pilot_config/pilot_05_cfpb_glm52_micro_pilot_storage_contract.csv",
+    "reports/pilot_05_cfpb_glm52_micro_pilot_config/pilot_05_cfpb_glm52_micro_pilot_final_approval_phrase.csv",
+    "reports/pilot_05_cfpb_glm52_micro_pilot_config/pilot_05_cfpb_glm52_micro_pilot_pre_execution_checklist.csv",
+    "reports/pilot_05_cfpb_glm52_micro_pilot_config/pilot_05_cfpb_glm52_micro_pilot_config_report.md"
+  ],
+  "required_final_approval_phrase": "I approve running Task 05AJ real GLM-5.2 micro-pilot: max 36 calls, max \u00a33.49, local env key only, sanitized outputs only.",
+  "safety_flags": {
+    "api_calls": 0,
+    "api_outputs_written": false,
+    "jsonl_written": false,
+    "model_calls": 0,
+    "model_execution_enabled": false,
+    "raw_cfpb_data_read": false,
+    "raw_cfpb_data_written": false,
+    "raw_prompt_instances_written": false,
+    "raw_responses_written": false,
+    "staged_or_committed_by_script": false
+  },
+  "status": "PASS",
+  "task_id": "05AJ-A"
+}

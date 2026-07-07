@@ -1,0 +1,10 @@
+check,required_before_execution,status_now
+repo_clean,True,NOT_CHECKED_BY_CONFIG_ONLY
+latest_commit_is_05AJ_A_or_later,True,NOT_COMMITTED_YET
+ZAI_API_KEY_present_in_local_env,True,NOT_CHECKED_TO_AVOID_SECRET_ACCESS
+max_calls_36,True,CONFIGURED
+max_cost_gbp_3_49,True,CONFIGURED
+raw_prompt_storage_forbidden,True,CONFIGURED
+raw_response_storage_forbidden,True,CONFIGURED
+jsonl_storage_forbidden,True,CONFIGURED
+final_approval_phrase_provided,True,NOT_PROVIDED

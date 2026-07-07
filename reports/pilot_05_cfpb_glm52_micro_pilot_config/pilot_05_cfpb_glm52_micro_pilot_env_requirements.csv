@@ -1,0 +1,4 @@
+requirement,value,allowed_to_commit,notes
+api_key_env_var,ZAI_API_KEY,False,Key must exist only in local environment.
+env_file,.env,False,.env must not be created or committed by this task.
+api_base_url,https://api.z.ai/api/paas/v4,True,Endpoint URL is not a secret.

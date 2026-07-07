@@ -1,0 +1,7 @@
+storage_item,policy,commit_allowed
+raw_prompt_instances,FORBIDDEN,False
+raw_model_responses,FORBIDDEN,False
+jsonl_outputs,FORBIDDEN,False
+api_outputs,FORBIDDEN,False
+sanitized_parsed_outputs,ALLOWED_AFTER_VALIDATION,True
+execution_manifest_without_raw_payloads,ALLOWED_AFTER_VALIDATION,True

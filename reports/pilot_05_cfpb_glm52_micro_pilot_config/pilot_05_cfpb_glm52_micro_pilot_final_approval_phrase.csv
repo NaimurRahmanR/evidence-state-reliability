@@ -1,0 +1,2 @@
+required_before_execution,approval_phrase,current_status,notes
+True,"I approve running Task 05AJ real GLM-5.2 micro-pilot: max 36 calls, max £3.49, local env key only, sanitized outputs only.",NOT_PROVIDED_IN_TERMINAL_FOR_EXECUTION,This exact phrase is required before a future real-call runner may execute GLM-5.2 calls.
