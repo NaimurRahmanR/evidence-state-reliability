@@ -221,11 +221,26 @@ def file_sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def _load_existing_generated_at(path: Path) -> str:
+    if path.exists():
+        try:
+            existing = json.loads(path.read_text(encoding="utf-8"))
+            existing_generated_at = existing.get("generated_at_utc")
+            if existing_generated_at:
+                return str(existing_generated_at)
+        except Exception:
+            pass
+
+    return datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+
 def prepare_output_dir(output_dir: Path) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
 
     removable_suffixes = {".png", ".pdf", ".md", ".json"}
     for child in output_dir.iterdir():
+        if child.name == "manifest.json":
+            continue
         if child.is_file() and child.suffix.lower() in removable_suffixes:
             child.unlink()
 
@@ -240,7 +255,25 @@ def save_figure(
     written: list[str] = []
     for fmt in formats:
         path = output_dir / f"{figure_id}.{fmt}"
-        fig.savefig(path, dpi=dpi, bbox_inches="tight")
+        save_kwargs: dict[str, object] = {
+            "dpi": dpi,
+            "bbox_inches": "tight",
+        }
+
+        if fmt == "pdf":
+            deterministic_date = datetime(2000, 1, 1, tzinfo=timezone.utc)
+            save_kwargs["metadata"] = {
+                "Creator": "pilot_03_generate_final_figures.py",
+                "Producer": "matplotlib",
+                "CreationDate": deterministic_date,
+                "ModDate": deterministic_date,
+            }
+        elif fmt == "png":
+            save_kwargs["metadata"] = {
+                "Software": "pilot_03_generate_final_figures.py",
+            }
+
+        fig.savefig(path, **save_kwargs)
         written.append(str(path.as_posix()))
     plt.close(fig)
     return written
@@ -909,7 +942,7 @@ def write_manifest(
 
     manifest = {
         "report_name": "pilot_03_final_figures",
-        "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+        "generated_at_utc": _load_existing_generated_at(output_dir / "manifest.json"),
         "script": "experiments/pilot_03_generate_final_figures.py",
         "input_policy": "committed sanitized CSV outputs only",
         "source_files": source_entries,

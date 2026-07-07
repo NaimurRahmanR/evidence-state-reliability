@@ -4,6 +4,8 @@ import argparse
 import csv
 import json
 import py_compile
+import subprocess
+import sys
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
@@ -30,7 +32,8 @@ DEFAULT_OUTPUT_DIR = Path("reports/pilot_03_no_call_pipeline")
 
 SAFE_NOTE = (
     "No-call Pilot 03 evidence pipeline runner. This command rebuilds committed "
-    "derived evidence tables and validates committed outputs without making real API calls."
+    "derived evidence tables and final figures, then validates committed outputs "
+    "without making real API calls."
 )
 
 SCRIPT_COMPILE_TARGETS = [
@@ -39,6 +42,7 @@ SCRIPT_COMPILE_TARGETS = [
     Path("experiments/pilot_03_validate_committed_outputs.py"),
     Path("experiments/pilot_03_plan_real_runs.py"),
     Path("experiments/pilot_03_generate_paper_figures.py"),
+    Path("experiments/pilot_03_generate_final_figures.py"),
 ]
 
 
@@ -173,6 +177,64 @@ def _run_stage_cascade(rows: list[dict[str, Any]]) -> dict[str, Any]:
     return manifest
 
 
+def _run_final_figures(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    command = [sys.executable, "-m", "experiments.pilot_03_generate_final_figures"]
+    completed = subprocess.run(
+        command,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    manifest_path = Path("reports/pilot_03_final_figures/manifest.json")
+    if not manifest_path.exists():
+        _add_step(
+            rows,
+            step_name="generate_final_figures",
+            status="FAIL",
+            detail="manifest missing after final figure generation",
+        )
+        raise FileNotFoundError(f"Missing final figure manifest: {manifest_path}")
+
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+
+    n_figures = len(manifest.get("figures", []))
+    n_output_files = len(manifest.get("output_files", []))
+
+    status = (
+        "PASS"
+        if manifest.get("real_api_calls") == 0
+        and manifest.get("raw_response_inspection") is False
+        and manifest.get("safe_wording_check") == "PASS"
+        and n_figures >= 7
+        and n_output_files >= 15
+        else "FAIL"
+    )
+
+    detail = (
+        f"real_api_calls={manifest.get('real_api_calls')}; "
+        f"raw_response_inspection={manifest.get('raw_response_inspection')}; "
+        f"safe_wording_check={manifest.get('safe_wording_check')}; "
+        f"n_figures={n_figures}; "
+        f"n_output_files={n_output_files}"
+    )
+
+    _add_step(
+        rows,
+        step_name="generate_final_figures",
+        status=status,
+        detail=detail,
+    )
+
+    if status != "PASS":
+        raise RuntimeError(
+            "Final figure generation failed no-call safety validation. "
+            f"stdout={completed.stdout} stderr={completed.stderr}"
+        )
+
+    return manifest
+
+
 def _run_validator(rows: list[dict[str, Any]]) -> dict[str, Any]:
     manifest = validate_committed_outputs(output_dir=DEFAULT_VALIDATION_OUTPUT_DIR)
 
@@ -257,6 +319,7 @@ def run_no_call_evidence_pipeline(*, output_dir: Path) -> dict[str, Any]:
     _compile_scripts(step_rows)
     uncertainty_manifest = _run_uncertainty(step_rows)
     stage_cascade_manifest = _run_stage_cascade(step_rows)
+    final_figures_manifest = _run_final_figures(step_rows)
     validation_manifest = _run_validator(step_rows)
 
     failed_steps = [row for row in step_rows if row["status"] == "FAIL"]
@@ -286,6 +349,14 @@ def run_no_call_evidence_pipeline(*, output_dir: Path) -> dict[str, Any]:
                 "raw_prompt_or_response_columns_exported": stage_cascade_manifest.get(
                     "raw_prompt_or_response_columns_exported"
                 ),
+            },
+            "final_figures": {
+                "status": "PASS",
+                "real_api_calls": final_figures_manifest.get("real_api_calls"),
+                "raw_response_inspection": final_figures_manifest.get("raw_response_inspection"),
+                "safe_wording_check": final_figures_manifest.get("safe_wording_check"),
+                "n_figures": len(final_figures_manifest.get("figures", [])),
+                "n_output_files": len(final_figures_manifest.get("output_files", [])),
             },
             "validation": {
                 "status": validation_manifest.get("status"),
@@ -323,7 +394,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(
         description=(
             "Run the Pilot 03 no-call evidence pipeline: compile scripts, rebuild derived "
-            "tables, and validate committed outputs. This command makes no real API calls."
+            "tables and final figures, and validate committed outputs. This command makes no real API calls."
         )
     )
     parser.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR))

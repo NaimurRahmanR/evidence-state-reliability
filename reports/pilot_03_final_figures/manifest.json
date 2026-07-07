@@ -86,7 +86,7 @@
       "title": "Reliability cascade metric differences: Claude minus GLM"
     }
   ],
-  "generated_at_utc": "2026-07-07T10:19:58.906145+00:00",
+  "generated_at_utc": "2026-07-07T10:27:26+00:00",
   "input_policy": "committed sanitized CSV outputs only",
   "output_files": [
     "reports/pilot_03_final_figures/fig01_condition_degradation_decision_correctness.pdf",
