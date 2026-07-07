@@ -1,0 +1,33 @@
+﻿{
+    "status":  "PASS",
+    "scope":  "Pilot 05 CFPB complaints official browser-export acquisition checkpoint",
+    "created_at_local":  "2026-07-07T19:26:19",
+    "source":  "CFPB Consumer Complaint Database official browser export",
+    "source_page":  "https://www.consumerfinance.gov/data-research/consumer-complaints/search/",
+    "acquisition_route":  "manual_browser_export",
+    "query_parameters":  {
+                             "date_received_min":  "2026-01-01",
+                             "date_received_max":  "2026-03-31",
+                             "product":  "Credit card or prepaid card",
+                             "export_format":  "csv"
+                         },
+    "raw_filename_only":  "cfpb_complaints_2026_q1_credit_card_browser_export_raw.csv",
+    "raw_folder":  "data/raw/cfpb_complaints/",
+    "raw_file_ignored_by_git":  true,
+    "raw_file_committed":  false,
+    "sanitized_outputs_folder":  "reports\\pilot_05_cfpb_complaints_dataset_audit",
+    "scripted_api_calls":  0,
+    "manual_browser_exports":  1,
+    "dataset_downloads":  1,
+    "model_calls":  0,
+    "raw_response_inspection":  false,
+    "raw_rows_written_to_reports":  false,
+    "raw_narratives_written_to_reports":  false,
+    "strict_row_quality_gate_enabled":  true,
+    "cfpb_datetime_values_accepted":  true,
+    "deterministic_csv_parsing_enabled":  true,
+    "malformed_or_misaligned_rows_rejected":  true,
+    "raw_extra_field_payloads_written_to_reports":  false,
+    "claim_boundary":  "recorded complaint-resolution outcome review simulation only",
+    "safe_note":  "This acquisition manifest records one official CFPB browser-export download, deterministic CSV parsing, and strict row-quality screening. It does not include raw rows, raw complaint narratives, raw malformed-field payloads, raw prompts, raw responses, secrets, model outputs, or company ranking."
+}

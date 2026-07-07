@@ -365,8 +365,12 @@ def records_from_opened_dataset(opened: OpenedDataset) -> tuple[list[str], Itera
     if opened.handle is None:
         raise ValueError("Opened dataset has neither records nor file handle.")
 
-    dialect = dialect_for_sample(opened.handle)
-    reader = csv.DictReader(opened.handle, dialect=dialect)
+    # Task 05R: deterministic standard CSV parsing for CFPB browser exports.
+    # csv.Sniffer can infer an unsafe dialect on narrative-heavy browser exports,
+    # causing rows to be skipped or misread. The CFPB browser export is standard
+    # comma-separated CSV with quoted fields, so use csv.excel deterministically.
+    opened.handle.seek(0)
+    reader = csv.DictReader(opened.handle, dialect=csv.excel)
 
     if not reader.fieldnames:
         raise ValueError("Input CSV file has no header row.")
@@ -375,7 +379,68 @@ def records_from_opened_dataset(opened: OpenedDataset) -> tuple[list[str], Itera
 
     def iterator() -> Iterator[dict[str, str]]:
         for row in reader:
-            yield {key.strip(): "" if value is None else str(value).strip() for key, value in row.items()}
+            # Task 05P: strict CFPB CSV row-quality gate for browser-export misalignment.
+            cleaned_row = {}
+            extra_field_count = 0
+            for key, value in row.items():
+                if key is None:
+                    extra_field_count += 1
+                    continue
+                cleaned_key = str(key).strip()
+                if not cleaned_key:
+                    extra_field_count += 1
+                    continue
+                cleaned_row[cleaned_key] = "" if value is None else str(value).strip()
+            
+            def _task_05p_date_like(value: str) -> bool:
+                # Task 05Q: accept CFPB browser-export datetime strings.
+                value = str(value).strip()
+                if not value:
+                    return False
+
+                iso_prefix_like = (
+                    len(value) >= 10
+                    and value[4] == "-"
+                    and value[7] == "-"
+                    and value[:4].isdigit()
+                    and value[5:7].isdigit()
+                    and value[8:10].isdigit()
+                )
+                if iso_prefix_like:
+                    if len(value) == 10:
+                        return True
+                    if value[10] in {"T", " "}:
+                        return True
+
+                slash_parts = value.split("/")
+                slash_like = (
+                    len(slash_parts) == 3
+                    and all(part.isdigit() for part in slash_parts)
+                    and len(slash_parts[2]) in {2, 4}
+                )
+                return slash_like
+            
+            if extra_field_count:
+                continue
+            
+            product_value = cleaned_row.get("Product", "").strip()
+            target_value = cleaned_row.get("Timely response?", "").strip()
+            date_received_value = cleaned_row.get("Date received", "").strip()
+            date_sent_value = cleaned_row.get("Date sent to company", "").strip()
+            complaint_id_value = cleaned_row.get("Complaint ID", "").strip()
+            
+            if product_value not in {"Credit card", "Prepaid card"}:
+                continue
+            if target_value not in {"Yes", "No", ""}:
+                continue
+            if not _task_05p_date_like(date_received_value):
+                continue
+            if not _task_05p_date_like(date_sent_value):
+                continue
+            if complaint_id_value and not complaint_id_value.isdigit():
+                continue
+            
+            yield cleaned_row
 
     return columns, iterator()
 

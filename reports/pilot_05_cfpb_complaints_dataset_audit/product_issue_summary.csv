@@ -1,0 +1,24 @@
+summary_type,value,count,share,note
+product,Credit card,25223,0.94035,Aggregate product distribution only.
+product,Prepaid card,1600,0.05965,Aggregate product distribution only.
+issue,Problem with a purchase shown on your statement,8199,0.305671,Aggregate issue distribution only.
+issue,Getting a credit card,2912,0.108564,Aggregate issue distribution only.
+issue,"Other features, terms, or problems",2790,0.104015,Aggregate issue distribution only.
+issue,Fees or interest,2676,0.099765,Aggregate issue distribution only.
+issue,Incorrect information on your report,2198,0.081945,Aggregate issue distribution only.
+issue,Closing your account,1603,0.059762,Aggregate issue distribution only.
+issue,Problem when making payments,1279,0.047683,Aggregate issue distribution only.
+issue,"Advertising and marketing, including promotional offers",1054,0.039295,Aggregate issue distribution only.
+issue,Problem with a company's investigation into an existing problem,952,0.035492,Aggregate issue distribution only.
+issue,Trouble using your card,892,0.033255,Aggregate issue distribution only.
+issue,Problem with a purchase or transfer,582,0.021698,Aggregate issue distribution only.
+issue,Trouble using the card,533,0.019871,Aggregate issue distribution only.
+issue,Struggling to pay your bill,363,0.013533,Aggregate issue distribution only.
+issue,Problem getting a card or closing an account,268,0.009991,Aggregate issue distribution only.
+issue,Improper use of your report,197,0.007344,Aggregate issue distribution only.
+issue,Unexpected or other fees,184,0.00686,Aggregate issue distribution only.
+issue,Credit monitoring or identity theft protection services,65,0.002423,Aggregate issue distribution only.
+issue,Problem with fraud alerts or security freezes,29,0.001081,Aggregate issue distribution only.
+issue,Advertising,21,0.000783,Aggregate issue distribution only.
+issue,Unable to get your credit report or credit score,14,0.000522,Aggregate issue distribution only.
+issue,Problem with overdraft,12,0.000447,Aggregate issue distribution only.

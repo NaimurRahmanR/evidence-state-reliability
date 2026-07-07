@@ -1,0 +1,2 @@
+narrative_column,narrative_present_count,narrative_missing_count,narrative_present_rate,narrative_length_min,narrative_length_max,narrative_length_mean,raw_narratives_written,note
+Consumer complaint narrative,9792,17031,0.36506,50,31090,1435.914,False,Aggregate narrative availability only; no raw narrative text is written.

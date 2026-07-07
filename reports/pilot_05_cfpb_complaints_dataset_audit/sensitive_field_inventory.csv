@@ -1,0 +1,11 @@
+column_name,normalized_column_name,risk_group,risk_level,reason,default_handling
+Consumer complaint narrative,consumer complaint narrative,raw_narrative,HIGH,Narratives can contain sensitive consumer-provided descriptions and must not be committed raw.,Use presence/length aggregate only unless later explicitly approved.
+Company public response,company public response,company_context,MEDIUM_HIGH,Company fields can invite ranking or misconduct claims.,Do not publish company rankings; consider masking in evidence packets.
+Company,company,company_context,MEDIUM_HIGH,Company fields can invite ranking or misconduct claims.,Do not publish company rankings; consider masking in evidence packets.
+State,state,geography,MEDIUM,State is lower-risk than ZIP but still context-sensitive.,Use carefully; avoid company/geography ranking claims.
+ZIP code,zip code,geography,HIGH,ZIP code can increase re-identification and proxy-risk concerns.,Exclude from committed evidence packets; use missingness/count audit only.
+Tags,tags,consumer_group_signal,MEDIUM_HIGH,Tags may indicate groups such as Older American or Servicemember.,Use for claim-risk inventory only unless explicitly approved.
+Submitted via,submitted via,process_context,LOW_MEDIUM,Submission channel can affect process interpretation.,Candidate structured evidence after audit.
+Date sent to company,date sent to company,company_context,MEDIUM_HIGH,Company fields can invite ranking or misconduct claims.,Do not publish company rankings; consider masking in evidence packets.
+Company response to consumer,company response to consumer,company_context,MEDIUM_HIGH,Company fields can invite ranking or misconduct claims.,Do not publish company rankings; consider masking in evidence packets.
+Complaint ID,complaint id,direct_identifier,HIGH,Complaint ID is a record identifier and should not be used as a committed evidence-packet ID.,Transform to synthetic internal case IDs only.

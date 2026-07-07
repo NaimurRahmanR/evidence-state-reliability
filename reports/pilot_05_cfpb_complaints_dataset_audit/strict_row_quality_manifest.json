@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "scope": "Task 05R strict CFPB browser-export row-quality screening",
+  "raw_filename_only": "cfpb_complaints_2026_q1_credit_card_browser_export_raw.csv",
+  "header_column_count": 16,
+  "total_csv_records_seen_after_header": 26823,
+  "accepted_rows": 26823,
+  "rejected_rows": 0,
+  "accepted_share": 1.0,
+  "rejected_share": 0.0,
+  "rejection_counts": {
+    "accepted": 26823
+  },
+  "raw_values_written": false,
+  "raw_rows_written": false,
+  "raw_narratives_written": false,
+  "raw_malformed_payloads_written": false,
+  "strict_gate": {
+    "allowed_product_values": [
+      "Credit card",
+      "Prepaid card"
+    ],
+    "allowed_target_values": [
+      "Yes",
+      "No",
+      ""
+    ],
+    "date_fields_required": [
+      "Date received",
+      "Date sent to company"
+    ],
+    "date_rule": "YYYY-MM-DD or CFPB datetime beginning with YYYY-MM-DDT/space or slash date",
+    "complaint_id_rule": "blank or digits only",
+    "extra_csv_fields_rule": "reject entire row",
+    "csv_parsing_rule": "deterministic csv.excel"
+  },
+  "safe_note": "This file records only sanitized row-quality counts. It does not include raw complaint rows, raw narratives, raw malformed payloads, company ranking, or model outputs."
+}

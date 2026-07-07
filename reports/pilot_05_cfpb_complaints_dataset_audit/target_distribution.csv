@@ -1,0 +1,3 @@
+target_column,target_value,count,share,note
+Timely response?,Yes,26383,0.983596,Recorded complaint-resolution field distribution; not a truth/fault/compliance label.
+Timely response?,No,440,0.016404,Recorded complaint-resolution field distribution; not a truth/fault/compliance label.

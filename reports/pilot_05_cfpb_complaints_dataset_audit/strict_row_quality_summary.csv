@@ -1,0 +1,12 @@
+metric,value
+status,PASS
+header_column_count,16
+total_csv_records_seen_after_header,26823
+accepted_rows,26823
+rejected_rows,0
+accepted_share,1.0
+rejected_share,0.0
+raw_values_written,False
+raw_rows_written,False
+raw_narratives_written,False
+raw_malformed_payloads_written,False

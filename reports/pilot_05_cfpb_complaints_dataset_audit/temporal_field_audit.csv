@@ -1,0 +1,3 @@
+column_name,normalized_column_name,detected,min_value_observed,max_value_observed,note
+Date received,date received,True,2026-01-01T00:00:15.000Z,2026-03-31T23:58:47.000Z,Temporal suitability requires fixed-window documentation and recent-publication caveats.
+Date sent to company,date sent to company,True,2026-01-01T00:06:49.000Z,2026-06-23T20:48:21.000Z,Temporal suitability requires fixed-window documentation and recent-publication caveats.

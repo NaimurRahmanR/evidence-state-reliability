@@ -1,0 +1,17 @@
+column_name,non_missing_count,missing_count,missing_rate
+Date received,26823,0,0.0
+Product,26823,0,0.0
+Sub-product,26823,0,0.0
+Issue,26823,0,0.0
+Sub-issue,26823,0,0.0
+Consumer complaint narrative,9792,17031,0.63494
+Company public response,26823,0,0.0
+Company,26823,0,0.0
+State,26823,0,0.0
+ZIP code,26823,0,0.0
+Tags,26823,0,0.0
+Submitted via,26823,0,0.0
+Date sent to company,26823,0,0.0
+Company response to consumer,26823,0,0.0
+Timely response?,26823,0,0.0
+Complaint ID,26823,0,0.0

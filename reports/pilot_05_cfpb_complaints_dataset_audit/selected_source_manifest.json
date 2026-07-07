@@ -1,0 +1,43 @@
+{
+  "allow_external_local_path": false,
+  "compute_sha256": false,
+  "created_at_utc": "2026-07-07T18:26:19+00:00",
+  "dataset_downloads": 0,
+  "input_filename_only": "cfpb_complaints_2026_q1_credit_card_browser_export_raw.csv",
+  "input_path_is_under_data_raw_cfpb_complaints": true,
+  "input_sha256": null,
+  "input_suffix": ".csv",
+  "max_rows": 0,
+  "model_calls": 0,
+  "narrative_column_detected": "Consumer complaint narrative",
+  "outputs": {
+    "column_inventory_csv": "reports\\pilot_05_cfpb_complaints_dataset_audit\\column_inventory.csv",
+    "dataset_audit_summary_csv": "reports\\pilot_05_cfpb_complaints_dataset_audit\\dataset_audit_summary.csv",
+    "leakage_risk_notes_csv": "reports\\pilot_05_cfpb_complaints_dataset_audit\\leakage_risk_notes.csv",
+    "missingness_summary_csv": "reports\\pilot_05_cfpb_complaints_dataset_audit\\missingness_summary.csv",
+    "narrative_availability_summary_csv": "reports\\pilot_05_cfpb_complaints_dataset_audit\\narrative_availability_summary.csv",
+    "product_issue_summary_csv": "reports\\pilot_05_cfpb_complaints_dataset_audit\\product_issue_summary.csv",
+    "report_md": "reports\\pilot_05_cfpb_complaints_dataset_audit\\pilot_05_cfpb_complaints_dataset_audit_report.md",
+    "selected_source_manifest_json": "reports\\pilot_05_cfpb_complaints_dataset_audit\\selected_source_manifest.json",
+    "sensitive_field_inventory_csv": "reports\\pilot_05_cfpb_complaints_dataset_audit\\sensitive_field_inventory.csv",
+    "target_distribution_csv": "reports\\pilot_05_cfpb_complaints_dataset_audit\\target_distribution.csv",
+    "temporal_field_audit_csv": "reports\\pilot_05_cfpb_complaints_dataset_audit\\temporal_field_audit.csv"
+  },
+  "raw_data_committed": false,
+  "raw_narratives_written_to_reports": false,
+  "raw_response_inspection": false,
+  "raw_rows_written_to_reports": false,
+  "real_api_calls": 0,
+  "row_counts": {
+    "columns_detected": 16,
+    "rows_audited": 26823
+  },
+  "safe_note": "This is a sanitized local dataset audit only. It does not claim company misconduct. It does not claim consumer harm prevalence. It does not claim financial safety. It does not claim legal safety. It does not claim real-world deployment proof. It does not claim provider ranking.",
+  "scope": "Pilot 05 CFPB complaints local-only sanitized dataset audit",
+  "script_version": "pilot_05_cfpb_complaints_dataset_audit_v1",
+  "source_inside_zip": null,
+  "source_policy": "local user-provided CFPB complaint export only; no internet download by this script",
+  "source_route": "CFPB Consumer Complaint Database official browser-export CSV; product=Credit card or prepaid card; date_received=2026-01-01..2026-03-31; Task 05P strict row-quality gate; Task 05Q CFPB datetime accepted; Task 05R deterministic csv.excel parsing",
+  "status": "PASS",
+  "target_column_detected": "Timely response?"
+}

@@ -1,0 +1,6 @@
+field_group,risk_level,notes,default_decision
+target fields,HIGH,Target fields such as Timely response? or Company response to consumer must not be included as decision evidence.,"Use as target only, not input evidence."
+consumer complaint narrative,HIGH,Raw narratives can contain sensitive consumer-submitted text and must not be committed.,Use narrative presence/length aggregates first; raw text excluded from committed outputs.
+company fields,MEDIUM_HIGH,Do not use company fields to support provider ranking or misconduct claims.,Do not rank companies; consider masking company field in evidence packets.
+geography fields,MEDIUM_HIGH,ZIP code and fine geography can raise proxy or re-identification concerns.,Exclude ZIP from committed evidence packets; use only aggregate audit notes.
+date fields,MEDIUM,Dates support temporal splits but can also enable reconstruction if combined with other fields.,Use month/year buckets for committed evidence packets.

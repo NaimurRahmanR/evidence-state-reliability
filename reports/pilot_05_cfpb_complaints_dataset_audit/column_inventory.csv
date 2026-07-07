@@ -1,0 +1,17 @@
+ordinal,column_name,normalized_column_name,inferred_group,is_sensitive_or_claim_risk,risk_groups,risk_reasons,default_handling
+1,Date received,date received,temporal,False,,,candidate_for_sanitized_structured_evidence_packet
+2,Product,product,candidate_structured_evidence,False,,,candidate_for_sanitized_structured_evidence_packet
+3,Sub-product,sub-product,candidate_structured_evidence,False,,,candidate_for_sanitized_structured_evidence_packet
+4,Issue,issue,candidate_structured_evidence,False,,,candidate_for_sanitized_structured_evidence_packet
+5,Sub-issue,sub-issue,candidate_structured_evidence,False,,,candidate_for_sanitized_structured_evidence_packet
+6,Consumer complaint narrative,consumer complaint narrative,narrative,True,raw_narrative,Narratives can contain sensitive consumer-provided descriptions and must not be committed raw.,do_not_commit_raw_text_use_presence_or_length_aggregate_first
+7,Company public response,company public response,candidate_target,True,company_context,Company fields can invite ranking or misconduct claims.,target_only_exclude_from_decision_evidence
+8,Company,company,company_context,True,company_context,Company fields can invite ranking or misconduct claims.,review_before_use_do_not_rank_companies
+9,State,state,geography,True,geography,State is lower-risk than ZIP but still context-sensitive.,candidate_for_sanitized_structured_evidence_packet
+10,ZIP code,zip code,geography,True,geography,ZIP code can increase re-identification and proxy-risk concerns.,exclude_from_committed_evidence_packets
+11,Tags,tags,candidate_structured_evidence,True,consumer_group_signal,Tags may indicate groups such as Older American or Servicemember.,candidate_for_sanitized_structured_evidence_packet
+12,Submitted via,submitted via,candidate_structured_evidence,True,process_context,Submission channel can affect process interpretation.,candidate_for_sanitized_structured_evidence_packet
+13,Date sent to company,date sent to company,company_context,True,company_context,Company fields can invite ranking or misconduct claims.,review_before_use_do_not_rank_companies
+14,Company response to consumer,company response to consumer,candidate_target,True,company_context,Company fields can invite ranking or misconduct claims.,target_only_exclude_from_decision_evidence
+15,Timely response?,timely response?,candidate_target,False,,,target_only_exclude_from_decision_evidence
+16,Complaint ID,complaint id,other,True,direct_identifier,Complaint ID is a record identifier and should not be used as a committed evidence-packet ID.,transform_to_synthetic_internal_case_id_only
