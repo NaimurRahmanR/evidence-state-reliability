@@ -1,0 +1,18 @@
+{
+  "created_at_utc": "2026-07-07T10:49:48+00:00",
+  "n_blocked_column_hits": 0,
+  "n_checks": 137,
+  "n_failed_checks": 0,
+  "n_risky_wording_hits": 0,
+  "outputs": {
+    "manifest_json": "reports\\pilot_03_comparison_validation\\manifest.json",
+    "validation_report_md": "reports\\pilot_03_comparison_validation\\comparison_output_validation_report.md",
+    "validation_results_csv": "reports\\pilot_03_comparison_validation\\comparison_validation_results.csv"
+  },
+  "raw_response_inspection": false,
+  "real_api_calls": 0,
+  "safe_note": "Validation report for committed Pilot 03 comparison outputs. This command checks internal consistency only and makes no real API calls.",
+  "status": "PASS",
+  "validated_csv_count": 15,
+  "validated_manifest_count": 5
+}

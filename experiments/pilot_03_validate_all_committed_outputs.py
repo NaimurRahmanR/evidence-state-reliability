@@ -28,6 +28,15 @@ VALIDATION_COMMANDS = [
         ],
         "description": "Validate committed Anthropic/Claude T0020 sanitized report outputs.",
     },
+    {
+        "name": "pilot_03_comparison_outputs",
+        "command": [
+            sys.executable,
+            "-m",
+            "experiments.pilot_03_validate_comparison_outputs",
+        ],
+        "description": "Validate committed Pilot 03 comparison, cascade, and final-figure outputs.",
+    },
 ]
 
 
