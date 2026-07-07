@@ -1,0 +1,3 @@
+baseline_condition,degraded_condition,n_paired_tasks,decision_shift_rate,mean_decision_match_delta,mean_audit_pass_delta,mean_escalation_delta,mean_alignment_score_delta,mean_decision_confidence_delta,real_api_calls
+complete,partial,24,0.666667,-0.666667,-0.666667,1.0,-0.29,-0.326667,0
+complete,conflicted,24,0.333333,-0.333333,-0.666667,0.666667,-0.22,-0.233333,0

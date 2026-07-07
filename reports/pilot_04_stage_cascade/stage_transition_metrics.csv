@@ -1,0 +1,10 @@
+condition,transition,n_chains,source_positive_rate,target_positive_rate,cascade_drop,real_api_calls
+complete,decision_to_audit,24,1.0,1.0,0.0,0
+complete,audit_to_escalation,24,1.0,0.0,1.0,0
+complete,decision_to_escalation,24,1.0,0.0,1.0,0
+partial,decision_to_audit,24,0.333333,0.333333,0.0,0
+partial,audit_to_escalation,24,0.333333,1.0,-0.666667,0
+partial,decision_to_escalation,24,0.333333,1.0,-0.666667,0
+conflicted,decision_to_audit,24,0.666667,0.333333,0.333334,0
+conflicted,audit_to_escalation,24,0.333333,0.666667,-0.333334,0
+conflicted,decision_to_escalation,24,0.666667,0.666667,0.0,0

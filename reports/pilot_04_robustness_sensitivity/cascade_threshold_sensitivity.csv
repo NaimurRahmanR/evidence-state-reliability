@@ -1,0 +1,16 @@
+threshold,condition,n_chains,low_alignment_rate,low_decision_confidence_rate,real_api_calls
+0.65,complete,24,0.0,0.0,0
+0.65,partial,24,0.666667,1.0,0
+0.65,conflicted,24,0.333333,0.333333,0
+0.7,complete,24,0.0,0.0,0
+0.7,partial,24,0.666667,1.0,0
+0.7,conflicted,24,0.333333,1.0,0
+0.75,complete,24,0.0,0.0,0
+0.75,partial,24,0.666667,1.0,0
+0.75,conflicted,24,0.333333,1.0,0
+0.8,complete,24,0.0,0.0,0
+0.8,partial,24,1.0,1.0,0
+0.8,conflicted,24,1.0,1.0,0
+0.85,complete,24,0.0,0.0,0
+0.85,partial,24,1.0,1.0,0
+0.85,conflicted,24,1.0,1.0,0

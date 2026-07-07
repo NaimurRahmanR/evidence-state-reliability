@@ -1,0 +1,3 @@
+baseline_condition,degraded_condition,decision_reliability_delta,audit_pass_delta,escalation_rate_delta,alignment_score_delta,reliability_cascade_index_delta,structural_validity_gap_delta,real_api_calls
+complete,partial,-0.666667,-0.666667,1.0,-0.29,-0.655834,0.655834,0
+complete,conflicted,-0.333333,-0.666667,0.666667,-0.22,-0.471667,0.471667,0

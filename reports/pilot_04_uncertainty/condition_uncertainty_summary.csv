@@ -1,0 +1,4 @@
+condition,n_chains,mean_decision_confidence,min_decision_confidence,max_decision_confidence,low_decision_confidence_rate_lt_0_70,mean_evidence_alignment_score,low_alignment_rate_lt_0_75,mean_escalation_confidence,human_review_rate,real_api_calls
+complete,24,0.88,0.88,0.88,0.0,0.93,0.0,0.94,0.0,0
+partial,24,0.553333,0.52,0.62,1.0,0.64,0.666667,0.76,1.0,0
+conflicted,24,0.646667,0.58,0.68,1.0,0.71,0.333333,0.83,0.666667,0

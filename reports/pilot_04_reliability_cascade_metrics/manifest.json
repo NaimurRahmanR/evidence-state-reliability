@@ -1,0 +1,21 @@
+{
+  "artifact": "pilot_04_reliability_cascade_metrics",
+  "status": "PASS",
+  "created_at_utc": "2026-07-07T13:39:07+00:00",
+  "generator": "experiments.pilot_04_generate_analysis_outputs",
+  "row_counts": {
+    "condition_reliability_cascade_metrics": 3,
+    "evidence_condition_delta_metrics": 2,
+    "paired_task_reliability_deltas": 2
+  },
+  "output_files": [
+    "reports\\pilot_04_reliability_cascade_metrics\\condition_reliability_cascade_metrics.csv",
+    "reports\\pilot_04_reliability_cascade_metrics\\evidence_condition_delta_metrics.csv",
+    "reports\\pilot_04_reliability_cascade_metrics\\paired_task_reliability_deltas.csv",
+    "reports\\pilot_04_reliability_cascade_metrics\\manifest.json"
+  ],
+  "raw_prompts_exported": false,
+  "raw_responses_exported": false,
+  "raw_response_inspection": false,
+  "real_api_calls": 0
+}

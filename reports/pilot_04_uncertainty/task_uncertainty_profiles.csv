@@ -1,0 +1,25 @@
+task_id,gold_decision,n_conditions,decision_confidence_range,alignment_score_range,n_human_review_conditions,human_review_conditions,any_decision_shift,real_api_calls
+P04-T0001,decline,3,0.36,0.35,2,"[""partial"", ""conflicted""]",True,0
+P04-T0002,decline,3,0.36,0.35,2,"[""partial"", ""conflicted""]",True,0
+P04-T0003,review,3,0.26,0.17,1,"[""partial""]",False,0
+P04-T0004,approve,3,0.36,0.35,2,"[""partial"", ""conflicted""]",True,0
+P04-T0005,decline,3,0.36,0.35,2,"[""partial"", ""conflicted""]",True,0
+P04-T0006,approve,3,0.36,0.35,2,"[""partial"", ""conflicted""]",True,0
+P04-T0007,review,3,0.26,0.17,1,"[""partial""]",False,0
+P04-T0008,review,3,0.26,0.17,1,"[""partial""]",False,0
+P04-T0009,review,3,0.26,0.17,1,"[""partial""]",False,0
+P04-T0010,review,3,0.26,0.17,1,"[""partial""]",False,0
+P04-T0011,approve,3,0.36,0.35,2,"[""partial"", ""conflicted""]",True,0
+P04-T0012,review,3,0.26,0.17,1,"[""partial""]",False,0
+P04-T0013,decline,3,0.36,0.35,2,"[""partial"", ""conflicted""]",True,0
+P04-T0014,decline,3,0.36,0.35,2,"[""partial"", ""conflicted""]",True,0
+P04-T0015,approve,3,0.36,0.35,2,"[""partial"", ""conflicted""]",True,0
+P04-T0016,decline,3,0.36,0.35,2,"[""partial"", ""conflicted""]",True,0
+P04-T0017,approve,3,0.36,0.35,2,"[""partial"", ""conflicted""]",True,0
+P04-T0018,review,3,0.26,0.17,1,"[""partial""]",False,0
+P04-T0019,approve,3,0.36,0.35,2,"[""partial"", ""conflicted""]",True,0
+P04-T0020,decline,3,0.36,0.35,2,"[""partial"", ""conflicted""]",True,0
+P04-T0021,decline,3,0.36,0.35,2,"[""partial"", ""conflicted""]",True,0
+P04-T0022,approve,3,0.36,0.35,2,"[""partial"", ""conflicted""]",True,0
+P04-T0023,review,3,0.26,0.17,1,"[""partial""]",False,0
+P04-T0024,approve,3,0.36,0.35,2,"[""partial"", ""conflicted""]",True,0
