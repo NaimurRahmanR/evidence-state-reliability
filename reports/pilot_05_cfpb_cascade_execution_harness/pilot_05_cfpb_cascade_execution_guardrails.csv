@@ -1,0 +1,11 @@
+guardrail,expected_value,observed_value,status,notes
+model_execution_enabled,False,False,PASS,Task 05AG cannot execute models.
+hard_stop_without_future_approval,True,True,PASS,Future execution requires explicit approval.
+api_calls,0,0,PASS,No API calls made.
+model_calls,0,0,PASS,No model calls made.
+dataset_downloads,0,0,PASS,No dataset downloads made.
+raw_prompt_instances_written,False,False,PASS,No raw prompt instances written.
+raw_responses_written,False,False,PASS,No raw responses written.
+jsonl_written,False,False,PASS,No JSONL files written.
+raw_cfpb_data_read,False,False,PASS,Reads committed sanitized/scaffold files only.
+git_stage_commit_push,False,False,PASS,"No git staging, commit, or push."

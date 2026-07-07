@@ -1,0 +1,13 @@
+batch_id,stage,evidence_condition,request_count,min_execution_order,max_execution_order,execution_mode,model_execution_enabled,api_calls_planned,model_calls_planned,raw_prompt_instances_written,raw_responses_written,jsonl_written,approval_required_before_execution
+pilot05_05ag_decision_clean,decision,clean,60,1,709,no_call_readiness_plan_only,False,0,0,False,False,False,True
+pilot05_05ag_decision_compressed,decision,compressed,60,4,712,no_call_readiness_plan_only,False,0,0,False,False,False,True
+pilot05_05ag_decision_partial_dropout,decision,partial_dropout,60,7,715,no_call_readiness_plan_only,False,0,0,False,False,False,True
+pilot05_05ag_decision_noisy_conflicting,decision,noisy_conflicting,60,10,718,no_call_readiness_plan_only,False,0,0,False,False,False,True
+pilot05_05ag_audit_clean,audit,clean,60,2,710,no_call_readiness_plan_only,False,0,0,False,False,False,True
+pilot05_05ag_audit_compressed,audit,compressed,60,5,713,no_call_readiness_plan_only,False,0,0,False,False,False,True
+pilot05_05ag_audit_partial_dropout,audit,partial_dropout,60,8,716,no_call_readiness_plan_only,False,0,0,False,False,False,True
+pilot05_05ag_audit_noisy_conflicting,audit,noisy_conflicting,60,11,719,no_call_readiness_plan_only,False,0,0,False,False,False,True
+pilot05_05ag_escalation_clean,escalation,clean,60,3,711,no_call_readiness_plan_only,False,0,0,False,False,False,True
+pilot05_05ag_escalation_compressed,escalation,compressed,60,6,714,no_call_readiness_plan_only,False,0,0,False,False,False,True
+pilot05_05ag_escalation_partial_dropout,escalation,partial_dropout,60,9,717,no_call_readiness_plan_only,False,0,0,False,False,False,True
+pilot05_05ag_escalation_noisy_conflicting,escalation,noisy_conflicting,60,12,720,no_call_readiness_plan_only,False,0,0,False,False,False,True

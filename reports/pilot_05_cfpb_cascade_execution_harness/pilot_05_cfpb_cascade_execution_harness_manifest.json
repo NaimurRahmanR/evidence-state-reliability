@@ -1,0 +1,73 @@
+{
+  "claim_boundary": "Task 05AG validates no-call execution readiness only. It is not a real LLM cascade run and creates no model-result evidence.",
+  "counts": {
+    "condition_counts": {
+      "clean": 180,
+      "compressed": 180,
+      "noisy_conflicting": 180,
+      "partial_dropout": 180
+    },
+    "dry_run_rows": 720,
+    "evidence_label_rows": 240,
+    "evidence_state_rows": 240,
+    "execution_batch_rows": 12,
+    "execution_plan_rows": 720,
+    "parser_rule_rows": 17,
+    "stage_condition_counts": {
+      "audit|clean": 60,
+      "audit|compressed": 60,
+      "audit|noisy_conflicting": 60,
+      "audit|partial_dropout": 60,
+      "decision|clean": 60,
+      "decision|compressed": 60,
+      "decision|noisy_conflicting": 60,
+      "decision|partial_dropout": 60,
+      "escalation|clean": 60,
+      "escalation|compressed": 60,
+      "escalation|noisy_conflicting": 60,
+      "escalation|partial_dropout": 60
+    },
+    "stage_counts": {
+      "audit": 240,
+      "decision": 240,
+      "escalation": 240
+    }
+  },
+  "created_utc": "2026-07-07T21:02:57.538539+00:00",
+  "execution_mode": "no_call_readiness_plan_only",
+  "input_files": {
+    "dry_run_manifest": "reports/pilot_05_cfpb_cascade_scaffold/pilot_05_cfpb_cascade_dry_run_request_manifest.csv",
+    "evidence_state_conditions": "reports/pilot_05_cfpb_evidence_state_conditions/pilot_05_cfpb_evidence_state_conditions.csv",
+    "evidence_state_labels": "reports/pilot_05_cfpb_evidence_state_conditions/pilot_05_cfpb_evidence_state_labels.csv",
+    "parser_rules": "reports/pilot_05_cfpb_cascade_scaffold/pilot_05_cfpb_cascade_parser_validation_rules.csv",
+    "parser_smoke_test": "experiments/pilot_05_cfpb_cascade_parser_smoke_test.py",
+    "prompt_templates": "reports/pilot_05_cfpb_cascade_scaffold/pilot_05_cfpb_cascade_prompt_templates.json",
+    "response_parser": "experiments/pilot_05_cfpb_cascade_response_parser.py",
+    "response_schema": "reports/pilot_05_cfpb_cascade_scaffold/pilot_05_cfpb_cascade_response_schema.json"
+  },
+  "output_files": {
+    "batches": "reports/pilot_05_cfpb_cascade_execution_harness/pilot_05_cfpb_cascade_execution_batches.csv",
+    "expected_sanitized_outputs": "reports/pilot_05_cfpb_cascade_execution_harness/pilot_05_cfpb_cascade_expected_sanitized_outputs.csv",
+    "guardrails": "reports/pilot_05_cfpb_cascade_execution_harness/pilot_05_cfpb_cascade_execution_guardrails.csv",
+    "manifest": "reports/pilot_05_cfpb_cascade_execution_harness/pilot_05_cfpb_cascade_execution_harness_manifest.json",
+    "plan": "reports/pilot_05_cfpb_cascade_execution_harness/pilot_05_cfpb_cascade_execution_plan.csv",
+    "readiness_summary": "reports/pilot_05_cfpb_cascade_execution_harness/pilot_05_cfpb_cascade_execution_readiness_summary.csv"
+  },
+  "safety_flags": {
+    "api_calls": 0,
+    "api_outputs_written": false,
+    "dataset_downloads": 0,
+    "hard_stop_without_future_approval": true,
+    "jsonl_written": false,
+    "model_calls": 0,
+    "model_execution_enabled": false,
+    "raw_cfpb_data_read": false,
+    "raw_cfpb_data_written": false,
+    "raw_prompt_instances_written": false,
+    "raw_responses_written": false,
+    "staged_or_committed_by_script": false
+  },
+  "schema_version": "pilot_05_cfpb_cascade_execution_harness_v1",
+  "status": "PASS",
+  "task_id": "05AG"
+}
