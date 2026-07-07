@@ -1,4 +1,4 @@
-# Evidence-State Reliability in Multi-Stage LLM Pipelines
+﻿# Evidence-State Reliability in Multi-Stage LLM Pipelines
 
 This repository contains code and documentation for a doctoral-level research project on **Evidence-State Reliability in Multi-Stage LLM Pipelines**.
 
@@ -820,7 +820,7 @@ The next planned stages are:
 11. Run and document a four-task controlled real GLM Pilot 03 checkpoint. Done.
 12. Ten-task checkpoint done.
 13. Twenty-task checkpoint done: 60 complete chains, 180 real GLM calls, 180/180 valid JSON/schema.
-14. Next: prepare paper figures and/or comparison-model support.
+14. Final figures, comparison-output validation, robustness/sensitivity checks, no-call pipeline integration, master status checkpoint, and README reproducibility update done.
 ```
 
 No real LLM result should be treated as complete unless the real LLM calls have actually been made, parsed, analysed, checked, and documented.

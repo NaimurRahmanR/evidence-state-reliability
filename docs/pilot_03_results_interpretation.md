@@ -13,11 +13,11 @@ Use:
 
 Do not use:
 
-- proven
-- general GLM reliability
-- general Claude reliability
-- real-world deployment proof
-- universally valid
+- established
+- GLM reliability beyond the controlled checkpoint
+- Claude reliability beyond the controlled subset
+- live deployment evidence
+- broadly valid
 - complete evidence already available
 - no one has ever done this
 

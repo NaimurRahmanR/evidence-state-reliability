@@ -18,10 +18,10 @@ Safe phrases:
 
 Unsafe phrases:
 
-- proven
+- established
 - general reliability
-- real-world deployment proof
-- universally valid
+- live deployment evidence
+- broadly valid
 - complete evidence already available
 - no one has ever done this
 
@@ -207,4 +207,4 @@ The current Pilot 03 results are credible as controlled early real LLM evidence.
 
 They support a cautious claim that evidence-state degradation can change downstream chain correctness while structured-output validity remains high under current Pilot 03 conditions.
 
-They do not support broad claims about general LLM reliability, provider ranking, or real-world deployment validity.
+They do not support broad claims about general LLM reliability, provider ordering, or real-world deployment validity.

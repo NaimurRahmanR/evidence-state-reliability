@@ -1,8 +1,8 @@
-# Pilot 03 Master Status Checkpoint
+﻿# Pilot 03 Master Status Checkpoint
 
 Generated at UTC: 2026-07-07T11:43:09+00:00
 
-Latest confirmed commit: `04eb92e`
+Evidence checkpoint source commit when this document was generated: `04eb92e`
 
 ## Scope
 

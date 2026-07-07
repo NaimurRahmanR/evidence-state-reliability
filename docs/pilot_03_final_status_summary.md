@@ -93,10 +93,10 @@ The current evidence supports a controlled pilot-paper claim that evidence-state
 The current evidence does not support:
 
 - general GLM-5.2 reliability
-- general Claude reliability
-- general provider ranking
-- real-world deployment proof
-- universal LLM pipeline reliability claims
+- Claude reliability beyond the controlled subset
+- general provider ordering
+- live deployment evidence
+- broad LLM pipeline reliability claims
 - complete evidence already available
 - claims that no one has ever studied related issues
 

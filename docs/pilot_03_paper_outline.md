@@ -34,7 +34,7 @@ The paper should frame contributions conservatively as:
 4. An observed GLM-5.2 20-task checkpoint showing condition-sensitive correctness changes under evidence degradation.
 5. A small Claude Opus 4.8 comparison subset showing that the same measurement procedure can be applied to another strong LLM provider.
 
-Do not claim that the paper proves a universal reliability law.
+Do not claim that the paper proves a broad reliability law.
 
 ## Paper structure
 
