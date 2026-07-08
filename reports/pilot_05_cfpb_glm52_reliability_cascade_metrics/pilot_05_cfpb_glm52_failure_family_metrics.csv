@@ -1,0 +1,7 @@
+condition,stage,failure_family,rows,share_of_persisted_rows
+unknown_condition,audit,invalid_parse_unspecified,6,0.181818
+unknown_condition,audit,valid_parse,5,0.151515
+unknown_condition,decision,invalid_parse_unspecified,7,0.212121
+unknown_condition,decision,valid_parse,4,0.121212
+unknown_condition,escalation,invalid_parse_unspecified,3,0.090909
+unknown_condition,escalation,valid_parse,8,0.242424

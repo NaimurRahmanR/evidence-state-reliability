@@ -1,0 +1,4 @@
+stage,rows,parse_valid_count,parse_invalid_count,parse_unknown_count,parse_valid_rate,mean_total_tokens,estimated_cost_gbp
+audit,11,5,6,0,0.454545,909.455,0.025054
+decision,11,4,7,0,0.363636,929.273,0.025881
+escalation,11,8,3,0,0.727273,902.455,0.024647

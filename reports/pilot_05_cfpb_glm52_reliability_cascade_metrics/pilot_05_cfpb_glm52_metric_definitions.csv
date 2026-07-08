@@ -1,0 +1,13 @@
+metric,definition,claim_boundary
+parse_valid_rate,parse_valid_count divided by rows for a group of persisted sanitized GLM-5.2 outputs.,"Measures parser/schema validity, not substantive correctness."
+parse_invalid_count,Number of persisted sanitized outputs whose parser/schema status is invalid or missing required content.,Does not expose raw response text.
+failure_family,"Sanitized family label for parser/schema outcome, e.g. valid_parse or schema uncertainty.",Diagnostic label only; not a provider-wide error rate.
+condition_stage_rows,Rows grouped by evidence condition and cascade stage.,Small micro-pilot sample; descriptive metrics only.
+cascade_sequence_id,"Sequence grouping inferred from the 36-call plan, three stages per cascade sequence.",First sequence includes prior attempts accounted for separately.
+all_known_stages_parse_valid,Whether every known stage in a cascade sequence has parser-valid sanitized output.,Prior attempts may be accounted but not reanalyzed from sanitized result rows.
+first_known_failure_stage,Earliest stage in sequence with known parser-invalid status; unknown when prior attempt row lacks parse detail.,Not a causal proof of stage failure.
+persisted_estimated_cost_gbp,Sum of estimated GBP cost fields available in persisted sanitized output rows.,Provider billing may differ; used for reproducibility accounting only.
+total_approved_call_attempts_accounted_for,Approved call attempts consumed and accounted by V5 finalization.,"Counts attempts, not necessarily valid parsed outputs."
+prior_attempt_rows_accounted_for,"The three calls completed before V4 recovery, tracked separately from V4 sanitized output rows.",Not merged into model-result metrics unless explicit sanitized fields are present.
+api_calls_in_05ak,Number of API/model calls made by this analysis task.,Must remain zero.
+raw_prompt_instances_written/raw_responses_written/jsonl_written,Safety flags for forbidden artifact storage.,Must remain false for this sanitized analysis.

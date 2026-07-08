@@ -1,0 +1,13 @@
+cascade_sequence_id,complete_three_stage_sequence,persisted_stage_count,prior_accounted_stage_count,decision_parse_valid,audit_parse_valid,escalation_parse_valid,all_known_stages_parse_valid,any_known_stage_parse_invalid,first_known_failure_stage,condition_values_observed
+cascade_01,True,0,3,UNKNOWN_OR_PRIOR,UNKNOWN_OR_PRIOR,UNKNOWN_OR_PRIOR,False,False,unknown_or_prior_not_reanalyzed,UNKNOWN_CONDITION
+cascade_02,True,3,0,False,True,True,False,True,decision,unknown_condition
+cascade_03,True,3,0,False,False,True,False,True,decision,unknown_condition
+cascade_04,True,3,0,False,False,True,False,True,decision,unknown_condition
+cascade_05,True,3,0,False,False,False,False,True,decision,unknown_condition
+cascade_06,True,3,0,True,True,False,False,True,escalation,unknown_condition
+cascade_07,True,3,0,True,False,True,False,True,audit,unknown_condition
+cascade_08,True,3,0,False,False,False,False,True,decision,unknown_condition
+cascade_09,True,3,0,False,True,True,False,True,decision,unknown_condition
+cascade_10,True,3,0,True,True,True,True,False,none_observed,unknown_condition
+cascade_11,True,3,0,True,True,True,True,False,none_observed,unknown_condition
+cascade_12,True,3,0,False,False,True,False,True,decision,unknown_condition

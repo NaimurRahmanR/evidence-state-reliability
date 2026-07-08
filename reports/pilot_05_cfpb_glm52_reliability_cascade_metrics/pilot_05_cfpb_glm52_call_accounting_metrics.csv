@@ -1,0 +1,10 @@
+metric,value,scope
+approved_call_cap,36,05AJ approval
+total_approved_call_attempts_accounted_for,36,V5 finalization
+persisted_sanitized_execution_rows,33,V4 committed sanitized outputs
+prior_attempt_rows_accounted_for,3,V4 prior attempt summary
+new_api_calls_in_05ak,0,05AK analysis
+api_key_read_in_05ak,False,05AK analysis
+raw_prompt_instances_written,False,05AK analysis
+raw_responses_written,False,05AK analysis
+jsonl_written,False,05AK analysis

@@ -1,0 +1,2 @@
+condition,rows,parse_valid_count,parse_invalid_count,parse_unknown_count,parse_valid_rate,mean_total_tokens,estimated_cost_gbp
+unknown_condition,33,17,16,0,0.515152,913.727,0.075582

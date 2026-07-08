@@ -1,0 +1,8 @@
+claim_type,claim
+supported,"A 36-attempt approved GLM-5.2 micro-pilot was accounted for, with 33 persisted sanitized output rows and 3 prior-attempt accounting rows."
+supported,"05AK generated descriptive parser-validity, stage, condition, cascade-sequence, and usage/cost metrics from sanitized committed outputs only."
+supported,"05AK made no API/model calls, did not read the API key, and wrote no raw prompt, raw response, or JSONL artifact."
+not_supported_yet,"This does not prove broad GLM-5.2 reliability, provider superiority, or deployment safety."
+not_supported_yet,"This does not yet establish Q1-level evidence; it is a small real-LLM micro-pilot requiring aggregation, robustness checks, and cross-model/cross-domain analysis."
+not_supported_yet,Parser validity is not equivalent to substantive decision correctness.
+next_step,"05AL should produce figures/tables and a stronger reliability-cascade interpretation, still without new API calls unless explicitly approved."

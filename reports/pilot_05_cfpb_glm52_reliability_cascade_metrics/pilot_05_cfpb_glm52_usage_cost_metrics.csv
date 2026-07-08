@@ -1,0 +1,23 @@
+metric,value,scope
+persisted_rows_with_token_counts,33,persisted V4 sanitized outputs
+persisted_total_tokens,30153,persisted V4 sanitized outputs
+persisted_mean_tokens_per_call,913.727,persisted V4 sanitized outputs
+persisted_estimated_cost_gbp,0.075582,persisted V4 sanitized outputs
+approved_cost_cap_gbp,3.49,05AJ approval
+usage_summary_rows_available,1,committed usage summary
+usage_summary_row_1_model_provider,Z.ai,committed usage summary passthrough
+usage_summary_row_1_model_display_name,GLM-5.2,committed usage summary passthrough
+usage_summary_row_1_api_model_name,glm-5.2,committed usage summary passthrough
+usage_summary_row_1_endpoint_host,api.z.ai,committed usage summary passthrough
+usage_summary_row_1_calls,33,committed usage summary passthrough
+usage_summary_row_1_prior_attempted_calls_from_failed_v3,3,committed usage summary passthrough
+usage_summary_row_1_total_calls_under_approval,36,committed usage summary passthrough
+usage_summary_row_1_successful_api_calls,33,committed usage summary passthrough
+usage_summary_row_1_prompt_tokens,14585,committed usage summary passthrough
+usage_summary_row_1_completion_tokens,15568,committed usage summary passthrough
+usage_summary_row_1_total_tokens,30153,committed usage summary passthrough
+usage_summary_row_1_estimated_cost_gbp_this_run,0.075582,committed usage summary passthrough
+usage_summary_row_1_prior_reported_estimated_cost_gbp,0.005775,committed usage summary passthrough
+usage_summary_row_1_estimated_cost_gbp_total_under_approval,0.081357,committed usage summary passthrough
+usage_summary_row_1_max_cost_permission_gbp,3.49,committed usage summary passthrough
+usage_summary_row_1_pricing_basis,Z.ai listed GLM-5.2 price per 1M tokens; converted with conservative GBP safety rate,committed usage summary passthrough
