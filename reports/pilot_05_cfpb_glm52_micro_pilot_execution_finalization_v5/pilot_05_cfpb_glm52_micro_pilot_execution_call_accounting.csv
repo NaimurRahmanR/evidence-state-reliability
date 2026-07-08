@@ -1,0 +1,5 @@
+accounting_item,count,source
+prior_attempted_calls_from_failed_v3_terminal_verified,3,V3 terminal output in user transcript; these were not rerun by V4/V5
+remaining_calls_attempted_by_v4_terminal_verified,33,V4 terminal output showed CALL 04/36 through CALL 36/36
+total_approved_call_attempts_consumed,36,3 prior + 33 recovery = approved 36-call cap
+new_calls_made_by_v5_finalizer,0,V5 performs filesystem validation only

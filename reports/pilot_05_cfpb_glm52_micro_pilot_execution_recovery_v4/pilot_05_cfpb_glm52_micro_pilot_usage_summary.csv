@@ -1,0 +1,2 @@
+model_provider,model_display_name,api_model_name,endpoint_host,calls,prior_attempted_calls_from_failed_v3,total_calls_under_approval,successful_api_calls,prompt_tokens,completion_tokens,total_tokens,estimated_cost_gbp_this_run,prior_reported_estimated_cost_gbp,estimated_cost_gbp_total_under_approval,max_cost_permission_gbp,pricing_basis
+Z.ai,GLM-5.2,glm-5.2,api.z.ai,33,3,36,33,14585,15568,30153,0.075582,0.005775,0.081357,3.49,Z.ai listed GLM-5.2 price per 1M tokens; converted with conservative GBP safety rate

@@ -1,0 +1,4 @@
+evidence_condition_label,stage,calls,parsed_json_valid_count,dominant_primary_output_code,high_uncertainty_count,low_evidence_sufficiency_count
+unknown_condition,audit,11,5,unclassifiable,8,11
+unknown_condition,decision,11,4,unclassifiable,11,11
+unknown_condition,escalation,11,8,escalate_missing_evidence,8,11

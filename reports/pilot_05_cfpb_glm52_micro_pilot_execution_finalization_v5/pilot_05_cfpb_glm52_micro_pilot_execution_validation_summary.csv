@@ -1,0 +1,10 @@
+check,status,detail
+v4_output_directory_exists,PASS,reports\pilot_05_cfpb_glm52_micro_pilot_execution_recovery_v4
+sanitized_audit_filename_allowed,PASS,"audit is a legitimate stage/validation artifact token, not a raw artifact token"
+no_jsonl_files,PASS,no .jsonl files in V4 outputs
+no_env_file,PASS,no .env file in V4 outputs
+no_forbidden_raw_filename_tokens,PASS,no raw_prompt/raw_response/request_body/response_body filename family detected
+no_api_key_or_bearer_token_content,PASS,no ZAI_API_KEY/Authorization: Bearer/Bearer content tokens detected
+v5_api_calls,PASS,0
+v5_api_key_read,PASS,False
+approved_call_cap_accounting,PASS,36 approved attempts consumed; V5 makes no new calls

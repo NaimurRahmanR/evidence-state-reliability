@@ -1,0 +1,51 @@
+{
+  "task_id": "05AJ-C-V5",
+  "status": "PASS",
+  "created_at_utc": "2026-07-08T21:57:14.901403+00:00",
+  "finalization_mode": "NO_CALL_FINALIZE_EXISTING_V4_OUTPUTS",
+  "source_execution_output_dir": "reports/pilot_05_cfpb_glm52_micro_pilot_execution_recovery_v4",
+  "api_calls_in_v5": 0,
+  "api_key_read_in_v5": false,
+  "model_calls_in_v5": 0,
+  "call_accounting": {
+    "prior_attempted_calls_from_failed_v3": 3,
+    "remaining_calls_attempted_by_v4": 33,
+    "total_approved_call_attempts_consumed": 36,
+    "approved_call_cap": 36,
+    "additional_calls_allowed_without_new_approval": 0
+  },
+  "storage_safety": {
+    "raw_prompt_instances_written": false,
+    "raw_responses_written": false,
+    "jsonl_written": false,
+    "api_key_written": false,
+    "sanitized_audit_filename_allowed": true
+  },
+  "v4_manifest_facts": {
+    "manifest_path": "reports/pilot_05_cfpb_glm52_micro_pilot_execution_recovery_v4/pilot_05_cfpb_glm52_micro_pilot_execution_manifest.json",
+    "manifest_status": "PASS_WITH_PRIOR_UNPERSISTED_CALLS",
+    "manifest_runner_or_execution_mode": "REAL_EXECUTION_RECOVERY_SANITIZED_ONLY",
+    "manifest_model_provider": "Z.ai",
+    "manifest_model_display_name": "GLM-5.2",
+    "manifest_api_model_name": "glm-5.2",
+    "manifest_model_calls": 33,
+    "manifest_api_calls": 33,
+    "manifest_raw_prompt_instances_written": false,
+    "manifest_raw_responses_written": false,
+    "manifest_jsonl_written": false
+  },
+  "csv_aggregate": {
+    "csv_files": 7,
+    "total_csv_rows": 109,
+    "largest_candidate_call_table_rows": 0,
+    "largest_candidate_call_table": "",
+    "parse_valid_true_rows": 0,
+    "parse_valid_false_rows": 0,
+    "stages_seen": "audit|decision|escalation"
+  },
+  "research_boundary": {
+    "model_result_evidence_exists": true,
+    "claim_scope": "single GLM-5.2 micro-pilot with sanitized partial/validity accounting; not a deployment or provider superiority claim",
+    "known_limitation": "V3 first three successful calls were terminal-observed but not persisted before V4 recovery; V5 records the call-accounting boundary explicitly."
+  }
+}

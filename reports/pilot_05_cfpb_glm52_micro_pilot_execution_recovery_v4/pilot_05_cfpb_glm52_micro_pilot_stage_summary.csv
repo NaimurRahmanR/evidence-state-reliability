@@ -1,0 +1,4 @@
+stage,calls,parsed_json_valid_count,high_uncertainty_count,insufficient_or_more_info_count,mean_estimated_cost_gbp
+decision,11,4,11,4,0.002353
+audit,11,5,8,0,0.002278
+escalation,11,8,8,0,0.002241

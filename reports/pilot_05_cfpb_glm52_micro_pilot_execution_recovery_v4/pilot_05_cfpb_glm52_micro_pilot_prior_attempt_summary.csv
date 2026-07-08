@@ -1,0 +1,4 @@
+call_id,call_sequence,stage,api_attempted_in_prior_failed_v3_run,terminal_reported_parse_valid,sanitized_output_persisted,raw_prompt_written,raw_response_written,jsonl_written,note
+pilot05_glm52_micro_0001,1,decision,True,True,False,False,False,False,Prior v3 call completed before abort but sanitized categorical row was not written; not rerun under 36-call cap.
+pilot05_glm52_micro_0002,2,audit,True,True,False,False,False,False,Prior v3 call completed before abort but sanitized categorical row was not written; not rerun under 36-call cap.
+pilot05_glm52_micro_0003,3,escalation,True,True,False,False,False,False,Prior v3 call completed before abort but sanitized categorical row was not written; not rerun under 36-call cap.
