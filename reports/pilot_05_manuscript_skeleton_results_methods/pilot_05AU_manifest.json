@@ -1,0 +1,126 @@
+{
+  "claim_boundary": {
+    "do_not_claim": [
+      "broad GLM reliability",
+      "general LLM reliability",
+      "model/provider superiority",
+      "real-world financial validity",
+      "regulatory validity",
+      "deployment safety",
+      "consumer harm prevalence",
+      "company misconduct",
+      "parser validity equals answer correctness",
+      "Q1 acceptance or paper completion"
+    ],
+    "safe_claim": "Pilot 05 provides scaled, CFPB-backed, sanitized, real GLM-5.2 evidence that controlled evidence-state degradation produces measurable reliability-layer changes across decision, audit, and escalation stages. In this run, parser validity improved under degraded evidence while stage/evidence success deteriorated, supporting Evidence-State Reliability as distinct from parser validity."
+  },
+  "created_utc": "2026-07-09T18:26:56.341601+00:00",
+  "expected_output_count": 12,
+  "git": {
+    "ahead": 0,
+    "behind": 0,
+    "branch": "main",
+    "latest_commit": "725c8dd Add Pilot 05 repo validation audit",
+    "latest_hash": "725c8dd",
+    "latest_subject": "Add Pilot 05 repo validation audit",
+    "modified_tracked_count": 0,
+    "staged_count": 0,
+    "unexpected_untracked_count": 0,
+    "untracked_count": 1
+  },
+  "no_api_calls": true,
+  "no_env_read": true,
+  "no_jsonl_written": true,
+  "no_model_calls": true,
+  "no_raw_cfpb_data_touched": true,
+  "no_raw_prompt_response_access": true,
+  "output_dir": "reports/pilot_05_manuscript_skeleton_results_methods",
+  "outputs": [
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_manuscript_skeleton_results_methods/pilot_05AU_manifest.json",
+      "size_bytes": 2362
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_manuscript_skeleton_results_methods/pilot_05AU_source_file_index.csv",
+      "size_bytes": 4151
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_manuscript_skeleton_results_methods/pilot_05AU_manuscript_skeleton.md",
+      "size_bytes": 5204
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_manuscript_skeleton_results_methods/pilot_05AU_methods_section_draft.md",
+      "size_bytes": 5845
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_manuscript_skeleton_results_methods/pilot_05AU_results_section_draft.md",
+      "size_bytes": 4466
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_manuscript_skeleton_results_methods/pilot_05AU_contribution_novelty_framing.md",
+      "size_bytes": 2557
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_manuscript_skeleton_results_methods/pilot_05AU_claim_boundary_and_limitations.md",
+      "size_bytes": 4915
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_manuscript_skeleton_results_methods/pilot_05AU_table_figure_callouts.md",
+      "size_bytes": 6501
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_manuscript_skeleton_results_methods/pilot_05AU_title_abstract_keywords.md",
+      "size_bytes": 3420
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_manuscript_skeleton_results_methods/pilot_05AU_reproducibility_statement.md",
+      "size_bytes": 1517
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_manuscript_skeleton_results_methods/pilot_05AU_next_revision_roadmap.md",
+      "size_bytes": 1496
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_manuscript_skeleton_results_methods/pilot_05AU_manuscript_synthesis_report.md",
+      "size_bytes": 2340
+    }
+  ],
+  "python": {
+    "executable": "C:\\Users\\naimu\\evidence-state-reliability\\.venv\\Scripts\\python.exe",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "version": "3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)]"
+  },
+  "repo_root": "C:\\Users\\naimu\\evidence-state-reliability",
+  "safety_flags": {
+    "no_api_calls": true,
+    "no_env_read": true,
+    "no_jsonl_written": true,
+    "no_model_calls": true,
+    "no_raw_cfpb_data_touched": true,
+    "no_raw_prompt_response_access": true
+  },
+  "source_boundary": {
+    "committed_outputs_only": true,
+    "does_not_create_new_empirical_evidence": true,
+    "source_file_count": 35,
+    "source_tasks": [
+      "05AR",
+      "05AS",
+      "05AT"
+    ]
+  },
+  "status": "PASS",
+  "task_id": "05AU"
+}
