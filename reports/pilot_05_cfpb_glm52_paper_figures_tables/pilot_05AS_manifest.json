@@ -1,0 +1,239 @@
+{
+  "claim_boundary": {
+    "do_not_claim": [
+      "broad GLM reliability",
+      "general LLM reliability",
+      "model/provider superiority",
+      "real-world financial validity",
+      "regulatory validity",
+      "deployment safety",
+      "consumer harm prevalence",
+      "company misconduct",
+      "parser validity equals answer correctness",
+      "full paper completion",
+      "Q1 acceptance or ground-breaking proof"
+    ],
+    "safe_claim": "Pilot 05 provides scaled, CFPB-backed, sanitized, real GLM-5.2 evidence that controlled evidence-state degradation produces measurable reliability-layer changes across decision, audit, and escalation stages. In this run, parser validity improved under degraded evidence while stage/evidence success deteriorated, supporting the claim that Evidence-State Reliability is distinct from parser validity."
+  },
+  "created_utc": "2026-07-09T17:59:37.042339+00:00",
+  "expected_output_count": 19,
+  "figure_rendering_backends": {
+    "pilot_05AS_figure_01_parser_vs_evidence_state_divergence.png": "matplotlib",
+    "pilot_05AS_figure_02_audit_escalation_interpretation.png": "matplotlib",
+    "pilot_05AS_figure_03_cascade_failure_rate.png": "matplotlib",
+    "pilot_05AS_figure_04_failure_family_interpretation.png": "matplotlib"
+  },
+  "git": {
+    "branch": "main",
+    "latest_commit": "5bc4d3d Add Pilot 05 scaled results interpretation",
+    "latest_subject": "Add Pilot 05 scaled results interpretation",
+    "origin_main_alignment": "0\t0"
+  },
+  "input_dir": "reports/pilot_05_cfpb_glm52_scaled_results_interpretation",
+  "input_files": [
+    {
+      "exists": true,
+      "input_file": "reports/pilot_05_cfpb_glm52_scaled_results_interpretation/pilot_05AR_scaled_results_interpretation_manifest.json",
+      "size_bytes": 2765,
+      "source": "committed_05AR_output"
+    },
+    {
+      "exists": true,
+      "input_file": "reports/pilot_05_cfpb_glm52_scaled_results_interpretation/pilot_05AR_headline_empirical_findings.csv",
+      "size_bytes": 943,
+      "source": "committed_05AR_output"
+    },
+    {
+      "exists": true,
+      "input_file": "reports/pilot_05_cfpb_glm52_scaled_results_interpretation/pilot_05AR_paper_ready_main_results_table.csv",
+      "size_bytes": 874,
+      "source": "committed_05AR_output"
+    },
+    {
+      "exists": true,
+      "input_file": "reports/pilot_05_cfpb_glm52_scaled_results_interpretation/pilot_05AR_parser_vs_evidence_state_divergence.csv",
+      "size_bytes": 547,
+      "source": "committed_05AR_output"
+    },
+    {
+      "exists": true,
+      "input_file": "reports/pilot_05_cfpb_glm52_scaled_results_interpretation/pilot_05AR_audit_escalation_interpretation.csv",
+      "size_bytes": 366,
+      "source": "committed_05AR_output"
+    },
+    {
+      "exists": true,
+      "input_file": "reports/pilot_05_cfpb_glm52_scaled_results_interpretation/pilot_05AR_cascade_failure_interpretation.csv",
+      "size_bytes": 251,
+      "source": "committed_05AR_output"
+    },
+    {
+      "exists": true,
+      "input_file": "reports/pilot_05_cfpb_glm52_scaled_results_interpretation/pilot_05AR_failure_family_interpretation.csv",
+      "size_bytes": 589,
+      "source": "committed_05AR_output"
+    },
+    {
+      "exists": true,
+      "input_file": "reports/pilot_05_cfpb_glm52_scaled_results_interpretation/pilot_05AR_claim_boundary_table.csv",
+      "size_bytes": 1710,
+      "source": "committed_05AR_output"
+    },
+    {
+      "exists": true,
+      "input_file": "reports/pilot_05_cfpb_glm52_scaled_results_interpretation/pilot_05AR_limitations_and_validity_threats.csv",
+      "size_bytes": 642,
+      "source": "committed_05AR_output"
+    },
+    {
+      "exists": true,
+      "input_file": "reports/pilot_05_cfpb_glm52_scaled_results_interpretation/pilot_05AR_figure_specifications.csv",
+      "size_bytes": 551,
+      "source": "committed_05AR_output"
+    },
+    {
+      "exists": true,
+      "input_file": "reports/pilot_05_cfpb_glm52_scaled_results_interpretation/pilot_05AR_metric_validation.csv",
+      "size_bytes": 3913,
+      "source": "committed_05AR_output"
+    },
+    {
+      "exists": true,
+      "input_file": "reports/pilot_05_cfpb_glm52_scaled_results_interpretation/pilot_05AR_sanitized_input_file_index.csv",
+      "size_bytes": 6366,
+      "source": "committed_05AR_output"
+    },
+    {
+      "exists": true,
+      "input_file": "reports/pilot_05_cfpb_glm52_scaled_results_interpretation/pilot_05AR_paper_results_section_outline.md",
+      "size_bytes": 1489,
+      "source": "committed_05AR_output"
+    },
+    {
+      "exists": true,
+      "input_file": "reports/pilot_05_cfpb_glm52_scaled_results_interpretation/pilot_05AR_scaled_results_interpretation_report.md",
+      "size_bytes": 3458,
+      "source": "committed_05AR_output"
+    }
+  ],
+  "no_api_calls": true,
+  "no_env_read": true,
+  "no_jsonl_written": true,
+  "no_model_calls": true,
+  "no_raw_cfpb_data_touched": true,
+  "no_raw_prompt_response_access": true,
+  "output_dir": "reports/pilot_05_cfpb_glm52_paper_figures_tables",
+  "outputs": [
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_manifest.json",
+      "size_bytes": 9193
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_input_file_index.csv",
+      "size_bytes": 1927
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_final_main_results_table.csv",
+      "size_bytes": 874
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_final_main_results_table.md",
+      "size_bytes": 1185
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_final_main_results_table.tex",
+      "size_bytes": 1240
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_parser_vs_evidence_state_divergence_figure_data.csv",
+      "size_bytes": 321
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_figure_01_parser_vs_evidence_state_divergence.png",
+      "size_bytes": 105492
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_audit_escalation_figure_data.csv",
+      "size_bytes": 280
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_figure_02_audit_escalation_interpretation.png",
+      "size_bytes": 72640
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_cascade_failure_figure_data.csv",
+      "size_bytes": 155
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_figure_03_cascade_failure_rate.png",
+      "size_bytes": 67915
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_failure_family_figure_data.csv",
+      "size_bytes": 388
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_figure_04_failure_family_interpretation.png",
+      "size_bytes": 87865
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_claim_boundary_table_final.csv",
+      "size_bytes": 1710
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_limitations_and_validity_threats_final.csv",
+      "size_bytes": 642
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_metric_validation_summary.csv",
+      "size_bytes": 3913
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_figure_caption_pack.md",
+      "size_bytes": 1284
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_paper_table_pack.md",
+      "size_bytes": 3816
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_paper_assets_report.md",
+      "size_bytes": 5093
+    }
+  ],
+  "python": {
+    "executable": "C:\\Users\\naimu\\evidence-state-reliability\\.venv\\Scripts\\python.exe",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "version": "3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)]"
+  },
+  "repo_root": "C:\\Users\\naimu\\evidence-state-reliability",
+  "safety_flags": {
+    "no_api_calls": true,
+    "no_env_read": true,
+    "no_jsonl_written": true,
+    "no_model_calls": true,
+    "no_raw_cfpb_data_touched": true,
+    "no_raw_prompt_response_access": true
+  },
+  "status": "PASS",
+  "task_id": "05AS"
+}

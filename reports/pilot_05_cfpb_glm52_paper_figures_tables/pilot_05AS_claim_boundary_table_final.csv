@@ -1,0 +1,15 @@
+claim_type,status,wording
+allowed_bounded_claim,permitted,"Pilot 05 gives a scaled empirical basis for the paper's core claim direction: final structural/parser validity is insufficient for evaluating multi-stage LLM decision systems because evidence-state degradation can produce downstream reliability cascades that are visible only when evidence-state adequacy, stage success, audit behavior, escalation recovery, and cascade sequence behavior are measured separately."
+headline_wording,required_exact,"Across 720 planned GLM-5.2 calls over CFPB-backed sanitized evidence states, degraded evidence conditions produced consistently negative paired deltas in stage success while parser validity increased. This divergence supports Evidence-State Reliability as a distinct evaluation layer from parser validity in multi-stage LLM decision pipelines."
+boundary_wording,required_exact,"This is a controlled scaled pilot, not a deployment validation, not a proof of real-world financial safety, and not a broad claim about GLM-5.2 or LLM reliability."
+broad_GLM_reliability_claim,not_permitted,Do not claim.
+general_LLM_reliability_claim,not_permitted,Do not claim.
+model_provider_superiority_claim,not_permitted,Do not claim.
+real_world_financial_validity_claim,not_permitted,Do not claim.
+regulatory_validity_claim,not_permitted,Do not claim.
+deployment_safety_claim,not_permitted,Do not claim.
+consumer_harm_prevalence_claim,not_permitted,Do not claim.
+company_misconduct_claim,not_permitted,Do not claim.
+parser_validity_equals_correctness_claim,not_permitted,Do not claim.
+full_paper_finished_claim,not_permitted,Do not claim.
+Q1_acceptance_or_groundbreaking_claim,not_permitted,Do not claim.

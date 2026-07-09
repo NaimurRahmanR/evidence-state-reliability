@@ -1,0 +1,4 @@
+failure_family,value,source_file,source_column
+Detected-but-unrecovered degradation,1.0,pilot_05AR_failure_family_interpretation.csv,row_presence_count_fallback
+Parser-valid / evidence-invalid divergence,1.0,pilot_05AR_failure_family_interpretation.csv,row_presence_count_fallback
+Missing-sanitized-row gap,1.0,pilot_05AR_failure_family_interpretation.csv,row_presence_count_fallback

@@ -1,0 +1,23 @@
+# Pilot 05AS Final Main Results Table
+
+Generated from committed 05AR paper-ready main results table.
+
+| metric | value | unit_or_type | paper_ready |
+| --- | --- | --- | --- |
+| call_plan_rows | 720 | count | yes |
+| ledger_rows | 720 | count | yes |
+| sanitized_execution_rows | 713 | count | yes |
+| parser_invalid_summary_rows | 243 | count | yes |
+| ledger_parser_valid_true | 470 | count | yes |
+| ledger_parser_valid_false | 250 | count | yes |
+| persisted_parser_valid_true | 470 | count | yes |
+| persisted_parser_valid_false | 243 | count | yes |
+| ledger_only_missing_sanitized_rows | 7 | count | yes, disclosed as limitation |
+| max_cumulative_estimated_cost_usd | 2.2731216 | USD | yes |
+| stage_success_delta_min | -0.517241 | proportion_delta | yes |
+| stage_success_delta_max | -0.40678 | proportion_delta | yes |
+| parser_valid_delta_min | 0.067797 | proportion_delta | yes |
+| parser_valid_delta_max | 0.368421 | proportion_delta | yes |
+| audit_detection_rate_degraded_mean | 1.0 | proportion | yes |
+| escalation_recovery_rate_degraded_mean | 0.0 | proportion | yes |
+| cascade_failure_rate_all_sequence_groups | 0.929167 | proportion | yes |

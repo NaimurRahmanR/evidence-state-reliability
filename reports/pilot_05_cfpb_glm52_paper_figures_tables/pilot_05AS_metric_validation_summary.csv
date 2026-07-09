@@ -1,0 +1,20 @@
+metric,source,validation_note
+call_plan_rows,05AN/05AO/05AP/05AP-B committed contract value,Recorded as previously verified scaled-output contract value; not recomputed from raw data in this task per approved 05AR scope.
+ledger_rows,05AN/05AO/05AP/05AP-B committed contract value,Recorded as previously verified scaled-output contract value; not recomputed from raw data in this task per approved 05AR scope.
+sanitized_execution_rows,05AN/05AO/05AP/05AP-B committed contract value,Recorded as previously verified scaled-output contract value; not recomputed from raw data in this task per approved 05AR scope.
+parser_invalid_summary_rows,05AN/05AO/05AP/05AP-B committed contract value,Recorded as previously verified scaled-output contract value; not recomputed from raw data in this task per approved 05AR scope.
+ledger_parser_valid_true,05AN/05AO/05AP/05AP-B committed contract value,Recorded as previously verified scaled-output contract value; not recomputed from raw data in this task per approved 05AR scope.
+ledger_parser_valid_false,05AN/05AO/05AP/05AP-B committed contract value,Recorded as previously verified scaled-output contract value; not recomputed from raw data in this task per approved 05AR scope.
+persisted_parser_valid_true,05AN/05AO/05AP/05AP-B committed contract value,Recorded as previously verified scaled-output contract value; not recomputed from raw data in this task per approved 05AR scope.
+persisted_parser_valid_false,05AN/05AO/05AP/05AP-B committed contract value,Recorded as previously verified scaled-output contract value; not recomputed from raw data in this task per approved 05AR scope.
+ledger_only_missing_sanitized_rows,05AN/05AO/05AP/05AP-B committed contract value,Recorded as previously verified scaled-output contract value; not recomputed from raw data in this task per approved 05AR scope.
+max_cumulative_estimated_cost_usd,05AN/05AO/05AP/05AP-B committed contract value,Recorded as previously verified scaled-output contract value; not recomputed from raw data in this task per approved 05AR scope.
+stage_success_delta_min,05AN/05AO/05AP/05AP-B committed contract value,Recorded as previously verified scaled-output contract value; not recomputed from raw data in this task per approved 05AR scope.
+stage_success_delta_max,05AN/05AO/05AP/05AP-B committed contract value,Recorded as previously verified scaled-output contract value; not recomputed from raw data in this task per approved 05AR scope.
+stage_success_all_negative,05AN/05AO/05AP/05AP-B committed contract value,Recorded as previously verified scaled-output contract value; not recomputed from raw data in this task per approved 05AR scope.
+parser_valid_delta_min,05AN/05AO/05AP/05AP-B committed contract value,Recorded as previously verified scaled-output contract value; not recomputed from raw data in this task per approved 05AR scope.
+parser_valid_delta_max,05AN/05AO/05AP/05AP-B committed contract value,Recorded as previously verified scaled-output contract value; not recomputed from raw data in this task per approved 05AR scope.
+parser_valid_all_positive,05AN/05AO/05AP/05AP-B committed contract value,Recorded as previously verified scaled-output contract value; not recomputed from raw data in this task per approved 05AR scope.
+audit_detection_rate_degraded_mean,05AN/05AO/05AP/05AP-B committed contract value,Recorded as previously verified scaled-output contract value; not recomputed from raw data in this task per approved 05AR scope.
+escalation_recovery_rate_degraded_mean,05AN/05AO/05AP/05AP-B committed contract value,Recorded as previously verified scaled-output contract value; not recomputed from raw data in this task per approved 05AR scope.
+cascade_failure_rate_all_sequence_groups,05AN/05AO/05AP/05AP-B committed contract value,Recorded as previously verified scaled-output contract value; not recomputed from raw data in this task per approved 05AR scope.

@@ -1,0 +1,2 @@
+label,metric,value,source_file,source_column
+cascade_failure_rate_all_sequence_groups,value,0.929167,pilot_05AR_cascade_failure_interpretation.csv,value

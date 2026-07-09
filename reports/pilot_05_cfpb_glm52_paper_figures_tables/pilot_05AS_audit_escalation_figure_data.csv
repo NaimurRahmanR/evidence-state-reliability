@@ -1,0 +1,3 @@
+label,metric,value,source_file,source_column
+audit_detection_rate_degraded_mean,observed_rate,1.0,pilot_05AR_audit_escalation_interpretation.csv,observed_rate
+escalation_recovery_rate_degraded_mean,observed_rate,0.0,pilot_05AR_audit_escalation_interpretation.csv,observed_rate
