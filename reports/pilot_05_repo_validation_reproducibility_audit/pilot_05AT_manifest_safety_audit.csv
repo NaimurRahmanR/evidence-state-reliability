@@ -1,0 +1,16 @@
+manifest,field,value,status
+05AR,status,PASS,PASS
+05AR,no_api_calls,True,PASS
+05AR,no_model_calls,True,PASS
+05AR,no_env_read,True,PASS
+05AR,no_raw_prompt_response_access,True,PASS
+05AR,no_jsonl_written,True,PASS
+05AR,no_raw_cfpb_data_touched,True,PASS
+05AS,status,PASS,PASS
+05AS,no_api_calls,True,PASS
+05AS,no_model_calls,True,PASS
+05AS,no_env_read,True,PASS
+05AS,no_raw_prompt_response_access,True,PASS
+05AS,no_jsonl_written,True,PASS
+05AS,no_raw_cfpb_data_touched,True,PASS
+05AS,expected_output_count,19,PASS

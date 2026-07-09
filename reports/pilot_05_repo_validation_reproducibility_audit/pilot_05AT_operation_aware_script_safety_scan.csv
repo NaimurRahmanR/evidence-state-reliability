@@ -1,0 +1,11 @@
+script,line_number,classification,is_actual_risk,line_excerpt,status
+experiments/pilot_05_cfpb_glm52_scaled_results_interpretation.py,3,BENIGN_NO_RISK_OPERATION,False,No API/model calls. No .env reads. No raw prompt/response inspection. No JSONL writing.,PASS
+experiments/pilot_05_cfpb_glm52_scaled_results_interpretation.py,20,BENIGN_GUARDRAIL_OR_CLAIM_BOUNDARY_TEXT,False,"FORBIDDEN_EXTENSIONS = {"".jsonl"", "".env""}",PASS
+experiments/pilot_05_cfpb_glm52_scaled_results_interpretation.py,21,BENIGN_GUARDRAIL_OR_CLAIM_BOUNDARY_TEXT,False,"FORBIDDEN_NAME_FRAGMENTS = [""raw_prompt"", ""raw_response"", ""api_key"", ""secret""]",PASS
+experiments/pilot_05_cfpb_glm52_scaled_results_interpretation.py,314,BENIGN_GUARDRAIL_OR_CLAIM_BOUNDARY_TEXT,False,"""no_env_read"": True,",PASS
+experiments/pilot_05_cfpb_glm52_scaled_results_interpretation.py,315,BENIGN_GUARDRAIL_OR_CLAIM_BOUNDARY_TEXT,False,"""no_raw_prompt_response_access"": True,",PASS
+experiments/pilot_05_cfpb_glm52_scaled_results_interpretation.py,316,BENIGN_GUARDRAIL_OR_CLAIM_BOUNDARY_TEXT,False,"""no_jsonl_written"": True,",PASS
+experiments/pilot_05_cfpb_glm52_scaled_results_interpretation.py,430,BENIGN_NO_RISK_OPERATION,False,"raw responses, .env contents, or API/model calls were read, made, or written as part",PASS
+experiments/pilot_05_cfpb_glm52_paper_figures_tables.py,64,BENIGN_GUARDRAIL_OR_CLAIM_BOUNDARY_TEXT,False,"""no_env_read"": True,",PASS
+experiments/pilot_05_cfpb_glm52_paper_figures_tables.py,65,BENIGN_GUARDRAIL_OR_CLAIM_BOUNDARY_TEXT,False,"""no_raw_prompt_response_access"": True,",PASS
+experiments/pilot_05_cfpb_glm52_paper_figures_tables.py,66,BENIGN_GUARDRAIL_OR_CLAIM_BOUNDARY_TEXT,False,"""no_jsonl_written"": True,",PASS

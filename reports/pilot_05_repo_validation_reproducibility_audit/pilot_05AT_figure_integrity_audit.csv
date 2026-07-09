@@ -1,0 +1,5 @@
+figure,exists,tracked,size_bytes,is_png,status
+reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_figure_01_parser_vs_evidence_state_divergence.png,True,True,105492,True,PASS
+reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_figure_02_audit_escalation_interpretation.png,True,True,72640,True,PASS
+reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_figure_03_cascade_failure_rate.png,True,True,67915,True,PASS
+reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_figure_04_failure_family_interpretation.png,True,True,87865,True,PASS

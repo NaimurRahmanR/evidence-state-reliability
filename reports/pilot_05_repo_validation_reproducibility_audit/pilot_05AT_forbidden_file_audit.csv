@@ -1,0 +1,11 @@
+kind,path,safe_special_exception,forbidden,status
+tracked,.env.example,True,False,PASS
+tracked,data/raw/cfpb_complaints/.gitignore,True,False,PASS
+tracked,data/raw/cfpb_complaints/README.md,True,False,PASS
+tracked,data/raw/hmda/.gitignore,True,False,PASS
+tracked,data/raw/hmda/README.md,True,False,PASS
+untracked,experiments/pilot_05_repo_validation_reproducibility_audit.py,True,False,PASS
+untracked,reports/pilot_05_repo_validation_reproducibility_audit/pilot_05AT_committed_file_contract_audit.csv,True,False,PASS
+untracked,reports/pilot_05_repo_validation_reproducibility_audit/pilot_05AT_manifest_safety_audit.csv,True,False,PASS
+untracked,reports/pilot_05_repo_validation_reproducibility_audit/pilot_05AT_operation_aware_script_safety_scan.csv,True,False,PASS
+untracked,reports/pilot_05_repo_validation_reproducibility_audit/pilot_05AT_repo_checkpoint_audit.csv,True,False,PASS

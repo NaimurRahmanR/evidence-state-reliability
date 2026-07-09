@@ -1,0 +1,10 @@
+claim_boundary_check,observed,status
+parser_validity_language_present,True,PASS
+evidence_state_language_present,True,PASS
+cascade_language_present,True,PASS
+bounded_claim_language_present,True,PASS
+do_not_claim_broad_glm_reliability_present,True,PASS
+do_not_claim_general_llm_reliability_present,True,PASS
+do_not_claim_provider_superiority_present,True,PASS
+do_not_claim_real_world_financial_validity_present,True,PASS
+do_not_claim_deployment_safety_present,True,PASS

@@ -1,0 +1,8 @@
+check,observed,status
+branch_is_main,main,PASS
+latest_hash_is_05AS,b1c95da,PASS
+latest_subject_is_05AS,Add Pilot 05 paper figures and final tables,PASS
+origin_main_alignment,0	0,PASS
+no_staged_files,NONE,PASS
+no_modified_tracked_files,NONE,PASS
+only_expected_untracked_05AT_files,untracked=1 unexpected=0,PASS

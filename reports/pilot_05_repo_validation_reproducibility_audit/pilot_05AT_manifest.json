@@ -1,0 +1,115 @@
+{
+  "claim_boundary": {
+    "do_not_claim": [
+      "broad GLM reliability",
+      "general LLM reliability",
+      "model/provider superiority",
+      "real-world financial validity",
+      "regulatory validity",
+      "deployment safety",
+      "consumer harm prevalence",
+      "company misconduct",
+      "parser validity equals answer correctness",
+      "Q1 acceptance or paper completion"
+    ],
+    "does_not_create_new_empirical_evidence": true
+  },
+  "corrected_validation_logic": {
+    "allows_expected_untracked_current_task_files": true,
+    "fails_on_git_divergence": true,
+    "fails_on_modified_tracked_files": true,
+    "fails_on_staged_files": true,
+    "fails_on_unexpected_untracked_files": true,
+    "operation_aware_script_scan": true
+  },
+  "created_utc": "2026-07-09T18:18:04.749131+00:00",
+  "expected_output_count": 10,
+  "git": {
+    "ahead": 0,
+    "behind": 0,
+    "branch": "main",
+    "latest_commit": "b1c95da Add Pilot 05 paper figures and final tables",
+    "latest_hash": "b1c95da",
+    "latest_subject": "Add Pilot 05 paper figures and final tables",
+    "modified_tracked_count": 0,
+    "staged_count": 0,
+    "unexpected_untracked_count": 0,
+    "untracked_count": 1
+  },
+  "no_api_calls": true,
+  "no_env_read": true,
+  "no_jsonl_written": true,
+  "no_model_calls": true,
+  "no_raw_cfpb_data_touched": true,
+  "no_raw_prompt_response_access": true,
+  "output_dir": "reports/pilot_05_repo_validation_reproducibility_audit",
+  "outputs": [
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_repo_validation_reproducibility_audit/pilot_05AT_manifest.json",
+      "size_bytes": 4068
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_repo_validation_reproducibility_audit/pilot_05AT_repo_checkpoint_audit.csv",
+      "size_bytes": 318
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_repo_validation_reproducibility_audit/pilot_05AT_committed_file_contract_audit.csv",
+      "size_bytes": 5049
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_repo_validation_reproducibility_audit/pilot_05AT_manifest_safety_audit.csv",
+      "size_bytes": 527
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_repo_validation_reproducibility_audit/pilot_05AT_operation_aware_script_safety_scan.csv",
+      "size_bytes": 1724
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_repo_validation_reproducibility_audit/pilot_05AT_forbidden_file_audit.csv",
+      "size_bytes": 895
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_repo_validation_reproducibility_audit/pilot_05AT_figure_integrity_audit.csv",
+      "size_bytes": 572
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_repo_validation_reproducibility_audit/pilot_05AT_input_index_validation.csv",
+      "size_bytes": 1787
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_repo_validation_reproducibility_audit/pilot_05AT_reproducibility_claim_boundary_audit.csv",
+      "size_bytes": 478
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_repo_validation_reproducibility_audit/pilot_05AT_repo_validation_reproducibility_report.md",
+      "size_bytes": 12836
+    }
+  ],
+  "previous_05AT_failure_type": "FALSE_POSITIVE_CLEAN_TREE_CHECK_DURING_APPROVED_ARTIFACT_GENERATION",
+  "python": {
+    "executable": "C:\\Users\\naimu\\evidence-state-reliability\\.venv\\Scripts\\python.exe",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "version": "3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)]"
+  },
+  "repo_root": "C:\\Users\\naimu\\evidence-state-reliability",
+  "safety_flags": {
+    "no_api_calls": true,
+    "no_env_read": true,
+    "no_jsonl_written": true,
+    "no_model_calls": true,
+    "no_raw_cfpb_data_touched": true,
+    "no_raw_prompt_response_access": true
+  },
+  "status": "PASS",
+  "task_id": "05AT"
+}
