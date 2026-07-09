@@ -1,0 +1,2 @@
+metric,value,interpretation
+cascade_failure_rate_all_sequence_groups,0.929167,The large majority of sequence groups exhibited a cascade failure pattern: degraded evidence detected at audit but not corrected before the final governable output stage.

@@ -1,0 +1,5 @@
+figure_id,title,type,data_source
+Fig1,Stage success vs parser validity delta under degradation,paired bar/delta plot,pilot_05AR_paper_ready_main_results_table.csv
+Fig2,Audit detection vs escalation recovery rate,grouped bar chart,pilot_05AR_audit_escalation_interpretation.csv
+Fig3,Cascade failure rate across sequence groups,single-value bar or distribution plot,pilot_05AR_cascade_failure_interpretation.csv
+Fig4,Parser-valid vs evidence-state-adequate quadrant diagram,2x2 quadrant schematic,pilot_05AR_parser_vs_evidence_state_divergence.csv

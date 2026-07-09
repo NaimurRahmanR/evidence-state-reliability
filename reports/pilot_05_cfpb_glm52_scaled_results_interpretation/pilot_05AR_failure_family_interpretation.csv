@@ -1,0 +1,4 @@
+failure_family,description,evidence_basis
+Detected-but-unrecovered degradation,Audit correctly flags degraded evidence but escalation does not restore stage success.,audit_detection_rate_degraded_mean=1.0; escalation_recovery_rate_degraded_mean=0.0
+Parser-valid / evidence-invalid divergence,Outputs pass parser validity checks while evidence-state adequacy has deteriorated.,parser_valid_delta all positive while stage_success_delta all negative
+Missing-sanitized-row gap,A small number of ledger rows lack corresponding sanitized execution rows.,ledger_only_missing_sanitized_rows=7

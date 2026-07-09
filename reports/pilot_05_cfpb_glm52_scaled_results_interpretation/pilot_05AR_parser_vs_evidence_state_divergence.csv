@@ -1,0 +1,4 @@
+dimension,direction_under_degradation,interpretation
+stage_success / evidence-state adequacy,decreases (all deltas negative),Degraded evidence propagates into worse downstream stage outcomes.
+parser_validity,increases (all deltas positive),"A structurally/parser-valid output can co-occur with degraded evidence state, showing parser validity does not certify evidence-state reliability."
+net divergence,opposite signs across the two layers,Confirms Evidence-State Reliability must be measured as a layer separate from parser/output validity.

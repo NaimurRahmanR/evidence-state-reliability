@@ -1,0 +1,7 @@
+limitation,detail
+Missing sanitized rows,7 ledger rows have no corresponding sanitized execution row; excluded from execution-level metrics.
+Single-model scope,Results reflect GLM-5.2 only; not generalized to other models.
+Single pilot scale,720 planned calls in one pilot run; not a multi-run replication yet.
+Sanitized-data dependency,All evidence is CFPB-backed but sanitized; not raw production data.
+No deployment context,"No claims about real-world deployment, regulatory, or financial validity."
+Escalation recovery observed as zero,"May reflect this pilot's escalation design, not a general property of escalation mechanisms."

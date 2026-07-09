@@ -1,0 +1,8 @@
+finding_id,statement
+F1,"Across 720 planned GLM-5.2 calls over CFPB-backed sanitized evidence states, degraded evidence conditions produced consistently negative paired deltas in stage success while parser validity increased. This divergence supports Evidence-State Reliability as a distinct evaluation layer from parser validity in multi-stage LLM decision pipelines."
+F2,"Stage success delta range under degradation: [-0.517241, -0.40678], all negative."
+F3,"Parser validity delta range under degradation: [0.067797, 0.368421], all positive."
+F4,Audit detection rate among degraded parser-valid cases: 1.0.
+F5,Escalation recovery rate under degraded conditions: 0.0 (no recovery observed in this run).
+F6,Cascade failure rate across all sequence groups: 0.929167.
+F7,"This is a controlled scaled pilot, not a deployment validation, not a proof of real-world financial safety, and not a broad claim about GLM-5.2 or LLM reliability."

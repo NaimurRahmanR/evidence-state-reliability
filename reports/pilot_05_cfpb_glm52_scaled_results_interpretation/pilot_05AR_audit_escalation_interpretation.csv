@@ -1,0 +1,3 @@
+stage,observed_rate,interpretation
+audit_detection_rate_degraded_mean,1.0,Audit stage detected degraded evidence among parser-valid degraded cases in this run.
+escalation_recovery_rate_degraded_mean,0.0,Escalation stage did not recover any detected degraded-evidence cases in this run; detection without recovery is the mechanism producing a reliability cascade.

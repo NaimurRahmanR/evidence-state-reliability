@@ -1,0 +1,41 @@
+﻿{
+    "task":  "05AR",
+    "generated_at_utc":  "2026-07-09T17:04:08.654557+00:00",
+    "no_api_calls":  true,
+    "no_model_calls":  true,
+    "no_env_read":  true,
+    "no_raw_prompt_response_access":  true,
+    "no_jsonl_written":  true,
+    "no_raw_cfpb_data_touched":  true,
+    "source_commit":  "be8155f",
+    "verified_contract_values":  {
+                                     "call_plan_rows":  720,
+                                     "ledger_rows":  720,
+                                     "sanitized_execution_rows":  713,
+                                     "parser_invalid_summary_rows":  243,
+                                     "ledger_parser_valid_true":  470,
+                                     "ledger_parser_valid_false":  250,
+                                     "persisted_parser_valid_true":  470,
+                                     "persisted_parser_valid_false":  243,
+                                     "ledger_only_missing_sanitized_rows":  7,
+                                     "max_cumulative_estimated_cost_usd":  2.2731216,
+                                     "stage_success_delta_min":  -0.517241,
+                                     "stage_success_delta_max":  -0.40678,
+                                     "stage_success_all_negative":  true,
+                                     "parser_valid_delta_min":  0.067797,
+                                     "parser_valid_delta_max":  0.368421,
+                                     "parser_valid_all_positive":  true,
+                                     "audit_detection_rate_degraded_mean":  1.0,
+                                     "escalation_recovery_rate_degraded_mean":  0.0,
+                                     "cascade_failure_rate_all_sequence_groups":  0.929167
+                                 },
+    "headline_wording":  "Across 720 planned GLM-5.2 calls over CFPB-backed sanitized evidence states, degraded evidence conditions produced consistently negative paired deltas in stage success while parser validity increased. This divergence supports Evidence-State Reliability as a distinct evaluation layer from parser validity in multi-stage LLM decision pipelines.",
+    "boundary_wording":  "This is a controlled scaled pilot, not a deployment validation, not a proof of real-world financial safety, and not a broad claim about GLM-5.2 or LLM reliability.",
+    "sanitized_input_files_indexed":  45,
+    "errors":  [
+
+               ],
+    "status":  "PASS",
+    "status_reason":  "Computed from existing boolean safety flags (all_true=True) and errors count (0). No API/model calls, no .env read, no raw data touched during this correction.",
+    "status_checked_at_utc":  "2026-07-09T17:08:23.9217248Z"
+}
