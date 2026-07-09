@@ -1,0 +1,6 @@
+claim,supporting_source,claim_status,do_not_expand_to,status
+Evidence-State Reliability is distinct from parser validity.,05AU manuscript skeleton; 05AU contribution framing; 05AU results section,SUPPORTED_WITHIN_PILOT_05_BOUNDARY,general LLM reliability or answer correctness,PASS
+Parser validity improves while stage/evidence success deteriorates in the committed Pilot 05 setup.,05AU results section; 05AS final tables referenced by 05AU,SUPPORTED_WITHIN_PILOT_05_BOUNDARY,all GLM-5.2 runs or all LLM pipelines,PASS
+"Reliability cascades should be evaluated across decision, audit, and escalation stages.",05AU methods and results drafts,SUPPORTED_AS_METHOD_FRAMING,deployment validation,PASS
+05AV creates no new empirical evidence.,05AV manifest; committed 05AU source boundary,AUDIT_BOUNDARY,new experiment or new result,PASS
+"No broad GLM reliability, general LLM reliability, provider superiority, deployment safety, regulatory validity, or consumer-harm prevalence is claimed.",05AU claim boundary and limitations; 05AV do-not-claim boundary,EXPLICIT_LIMITATION,policy or real-world misconduct claims,PASS

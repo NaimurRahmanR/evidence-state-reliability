@@ -1,0 +1,104 @@
+{
+  "claim_boundary": {
+    "do_not_claim": [
+      "broad GLM reliability",
+      "general LLM reliability",
+      "model/provider superiority",
+      "real-world financial validity",
+      "regulatory validity",
+      "deployment safety",
+      "consumer harm prevalence",
+      "company misconduct",
+      "parser validity equals answer correctness",
+      "Q1 acceptance or paper completion"
+    ],
+    "safe_claim": "Pilot 05 provides scaled, CFPB-backed, sanitized, real GLM-5.2 evidence that controlled evidence-state degradation produces measurable reliability-layer changes across decision, audit, and escalation stages. In this run, parser validity improved under degraded evidence while stage/evidence success deteriorated, supporting Evidence-State Reliability as distinct from parser validity."
+  },
+  "claim_traceability_rows": 5,
+  "created_utc": "2026-07-09T18:43:09.564589+00:00",
+  "expected_output_count": 8,
+  "git": {
+    "ahead": 0,
+    "behind": 0,
+    "branch": "main",
+    "latest_commit": "10465f5 Add Pilot 05 manuscript synthesis",
+    "latest_hash": "10465f5",
+    "latest_subject": "Add Pilot 05 manuscript synthesis",
+    "modified_tracked_count": 0,
+    "staged_count": 0,
+    "unexpected_untracked_count": 0,
+    "untracked_count": 1
+  },
+  "no_api_calls": true,
+  "no_env_read": true,
+  "no_jsonl_written": true,
+  "no_model_calls": true,
+  "no_raw_cfpb_data_touched": true,
+  "no_raw_prompt_response_access": true,
+  "output_dir": "reports/pilot_05_full_manuscript_draft_assembly",
+  "outputs": [
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_full_manuscript_draft_assembly/pilot_05AV_manifest.json",
+      "size_bytes": 2369
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_full_manuscript_draft_assembly/pilot_05AV_source_file_index.csv",
+      "size_bytes": 1378
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_full_manuscript_draft_assembly/pilot_05AV_full_manuscript_draft.md",
+      "size_bytes": 33949
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_full_manuscript_draft_assembly/pilot_05AV_manuscript_section_index.csv",
+      "size_bytes": 684
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_full_manuscript_draft_assembly/pilot_05AV_claim_traceability_matrix.csv",
+      "size_bytes": 1120
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_full_manuscript_draft_assembly/pilot_05AV_submission_readiness_gap_analysis.md",
+      "size_bytes": 2038
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_full_manuscript_draft_assembly/pilot_05AV_internal_review_checklist.md",
+      "size_bytes": 1618
+    },
+    {
+      "exists": true,
+      "output_file": "reports/pilot_05_full_manuscript_draft_assembly/pilot_05AV_full_manuscript_assembly_report.md",
+      "size_bytes": 1616
+    }
+  ],
+  "python": {
+    "executable": "C:\\Users\\naimu\\evidence-state-reliability\\.venv\\Scripts\\python.exe",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "version": "3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)]"
+  },
+  "repo_root": "C:\\Users\\naimu\\evidence-state-reliability",
+  "safety_flags": {
+    "no_api_calls": true,
+    "no_env_read": true,
+    "no_jsonl_written": true,
+    "no_model_calls": true,
+    "no_raw_cfpb_data_touched": true,
+    "no_raw_prompt_response_access": true
+  },
+  "section_count": 11,
+  "source_boundary": {
+    "committed_05au_outputs_only": true,
+    "does_not_create_new_empirical_evidence": true,
+    "source_file_count": 12,
+    "source_task": "05AU"
+  },
+  "status": "PASS",
+  "task_id": "05AV"
+}

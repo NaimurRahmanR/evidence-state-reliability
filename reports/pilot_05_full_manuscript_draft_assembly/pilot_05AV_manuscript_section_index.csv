@@ -1,0 +1,12 @@
+section_id,section_title,source,status
+abstract,Abstract,05AU title/abstract/keywords,PASS
+1,Introduction,05AU manuscript skeleton and contribution framing,PASS
+2,Conceptual framing,05AU manuscript skeleton,PASS
+3,Methods,05AU methods section draft,PASS
+4,Results,05AU results section draft,PASS
+5,Contribution and novelty,05AU contribution novelty framing,PASS
+6,Tables and figures,05AU table and figure callouts,PASS
+7,Claim boundary and limitations,05AU claim boundary and limitations,PASS
+8,Reproducibility statement,05AU reproducibility statement,PASS
+9,Discussion,05AV assembly from 05AU bounded claims,PASS
+10,Conclusion,05AV assembly from 05AU bounded claims,PASS
