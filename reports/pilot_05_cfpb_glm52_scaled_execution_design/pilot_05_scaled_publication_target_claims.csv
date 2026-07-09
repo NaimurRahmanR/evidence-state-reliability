@@ -1,0 +1,11 @@
+claim_type,claim,boundary
+allowed_after_05AM,"05AM prepared a no-call, sanitized, auditable scaled-execution design and approval gate.",Design only; no new model evidence.
+allowed_after_05AM,"The recommended next run is a controlled paired evidence-state GLM-5.2 execution, subject to explicit user approval.","Recommendation, not execution."
+conditional_after_successful_05AN,Scaled GLM-5.2 evidence shows measurable stage/condition/cascade behavior under controlled sanitized evidence states.,"Only if 05AN executes, validates, and metrics support it."
+conditional_after_successful_05AN,Evidence-State Reliability can be empirically separated from parser validity in this controlled Pilot 05 setting.,Only if parser-valid outputs still show evidence-state/cascade differences.
+target_claim_not_yet_proven,"Evidence degradation produces measurable reliability cascades across decision, audit, and escalation.",Target claim; requires scaled evidence and uncertainty estimates.
+forbidden,GLM-5.2 is generally reliable or unreliable.,Provider/model-wide claim not supported.
+forbidden,"The system is valid for real-world financial, legal, lending, or regulatory decisions.",Pilot is a research simulation over sanitized CFPB-backed evidence states.
+forbidden,Parser validity equals answer correctness or deployment safety.,Parser validity is only one layer.
+forbidden,CFPB complaints prove company misconduct or consumer harm prevalence.,No company/provider misconduct or prevalence claims.
+forbidden,Cross-model/provider superiority.,Requires separate approved cross-model design and evidence.

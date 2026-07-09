@@ -1,0 +1,10 @@
+rule_id,applies_to,abort_condition,required_action,severity
+A01,05AN execution,approved call cap would be exceeded,stop before next call; write sanitized abort summary only,hard stop
+A02,05AN execution,approved GBP cost cap would be exceeded or cannot be tracked,stop before next call; request user decision,hard stop
+A03,05AN execution,"runner attempts to write raw prompt, raw response, JSONL, .env, or raw CFPB data",abort and fail validation,hard stop
+A04,05AN execution,input evidence source path resolves under data/raw or contains raw browser export,abort before model call,hard stop
+A05,05AN execution,sanitization validator fails on any persisted output,quarantine uncommitted local output and do not stage; report failure,hard stop
+A06,05AN execution,provider/API errors exceed a user-approved retry limit or produce ambiguous call accounting,stop and produce sanitized call-accounting report,hard stop
+A07,05AN execution,parser-invalid rate is unexpectedly high in the first 5-10% sample,pause before spending remaining budget unless user approves continuation,pause gate
+A08,05AN execution,model or provider differs from approved model,abort before call,hard stop
+A09,05AN execution,"any output would support forbidden claims such as real-world financial safety, company misconduct, or provider superiority",flag claim-boundary failure; do not commit,hard stop

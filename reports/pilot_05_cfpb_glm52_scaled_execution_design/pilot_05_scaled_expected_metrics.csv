@@ -1,0 +1,15 @@
+metric,reliability_layer,definition,claim_boundary_note
+parser_validity,schema/output-parse layer,"share of outputs passing parser by stage, condition, and condition-stage",Not equivalent to answer correctness or evidence-state reliability
+stage_validity,stage layer,stage-specific valid decision/audit/escalation outcome rate,"Must be computed separately for decision, audit, escalation"
+condition_validity,evidence-state layer,validity by clean/compressed/dropout/noisy condition,Shows condition sensitivity but not causal proof beyond controlled setup
+condition_stage_interaction,cascade layer,difference in condition effect across stages,Key to cascade framing
+evidence_degradation_sensitivity,evidence-state layer,paired clean-vs-degraded delta for same base case,Primary Evidence-State Reliability signal
+audit_false_assurance_rate,audit layer,audit approval/assurance despite degraded or insufficient evidence,Core head-turner audit failure metric
+audit_detection_rate,audit layer,audit detection of degraded/insufficient/conflicting evidence,Recovery/resilience metric
+escalation_recovery_rate,escalation layer,cases where escalation corrects or safely routes a degraded-evidence problem,Recovery metric
+escalation_loss_rate,escalation layer,"cases where escalation reinforces, misses, or closes a degraded-evidence problem",Cascade amplification metric
+cascade_failure_rate,cascade layer,same-case chain-level failure across decision/audit/escalation,Not reducible to parser validity
+clean_vs_degraded_paired_deltas,paired inference layer,within-case deltas for each degraded condition vs clean,Controls base-case heterogeneity
+bootstrap_confidence_intervals,uncertainty layer,bootstrap or paired intervals around deltas/rates,Needed before strong paper claims
+failure_family_distribution,diagnostic layer,distribution of parse/schema/evidence/audit/escalation failure families,Explains mechanism without overclaiming
+cascade_sequence_patterns,cascade layer,decision→audit→escalation pattern frequencies,Paper-ready cascade table/figure input

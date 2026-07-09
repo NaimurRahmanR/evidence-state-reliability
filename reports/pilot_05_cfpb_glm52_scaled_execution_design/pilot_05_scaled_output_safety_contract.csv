@@ -1,0 +1,10 @@
+rule_id,contract_area,requirement,validation
+S01,API execution,05AM makes zero API/model calls. 05AN may call GLM-5.2 only after explicit user approval.,manifest flags real_api_calls=0 and model_calls=0 for 05AM
+S02,secrets,05AM must not read or write .env and must not print API keys.,script contains no dotenv/env-file read; .env path is excluded from safe metadata scan
+S03,raw data,Do not touch data/raw or raw CFPB browser export.,script uses git metadata and committed sanitized evidence candidates only; data/raw paths are excluded
+S04,raw prompts,Do not write raw prompt instances.,05AM writes design tables only; output safety scan forbids prompt-instance artifacts
+S05,raw responses,Do not write raw model responses.,05AM writes no model outputs and no response dumps
+S06,JSONL,Do not create JSONL files.,post-generation file scan fails if any 05AM .jsonl exists
+S07,sanitized outputs,Commit only sanitized CSV/JSON/MD design artifacts after validation and user approval.,created extensions limited to .py/.csv/.json/.md in 05AM paths
+S08,claims,"Do not claim broad LLM/model, financial, legal, or deployment validity.","publication target claims table separates allowed, conditional, and forbidden claims"
+S09,git,"Do not stage, commit, push, delete, reset, or overwrite committed work without approval.",05AM leaves changes unstaged and limited to 05AM script/output paths

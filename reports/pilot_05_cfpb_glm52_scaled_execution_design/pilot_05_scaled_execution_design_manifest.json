@@ -1,0 +1,388 @@
+{
+  "claim_boundary": {
+    "broad_model_reliability_claimed": false,
+    "design_only": true,
+    "provider_superiority_claimed": false,
+    "real_world_financial_or_regulatory_validity_claimed": false,
+    "target_research_claim_proven": false
+  },
+  "expected_output_files": {
+    "abort_rules": "pilot_05_scaled_abort_rules.csv",
+    "approval_prompt": "pilot_05_scaled_execution_approval_prompt.md",
+    "call_count_cost": "pilot_05_scaled_call_count_and_cost_plan.csv",
+    "design_report": "pilot_05_scaled_execution_design_report.md",
+    "evidence_conditions": "pilot_05_scaled_evidence_condition_plan.csv",
+    "expected_metrics": "pilot_05_scaled_expected_metrics.csv",
+    "manifest": "pilot_05_scaled_execution_design_manifest.json",
+    "related_work": "pilot_05_scaled_related_work_gap_summary.csv",
+    "run_options": "pilot_05_scaled_run_options.csv",
+    "safety_contract": "pilot_05_scaled_output_safety_contract.csv",
+    "stage_plan": "pilot_05_scaled_stage_plan.csv",
+    "target_claims": "pilot_05_scaled_publication_target_claims.csv"
+  },
+  "generated_at_utc": "2026-07-09T00:26:14.303439+00:00",
+  "generated_hashes_sha256": {
+    "experiments/pilot_05_cfpb_glm52_scaled_execution_design.py": "45b03231ddb571415acc07ccf0f1421d7509cb3951e2cab668bb1aff984e80bb",
+    "reports/pilot_05_cfpb_glm52_scaled_execution_design/pilot_05_scaled_abort_rules.csv": "77660ec58b16a66443a42a8fb543a99bce95641fee1dcf940ce0e84a68ce535f",
+    "reports/pilot_05_cfpb_glm52_scaled_execution_design/pilot_05_scaled_call_count_and_cost_plan.csv": "54fb1cf5a712dcb4d4263660fa7704613e387a1058854861e743fe37bbefe503",
+    "reports/pilot_05_cfpb_glm52_scaled_execution_design/pilot_05_scaled_evidence_condition_plan.csv": "6e0d236a41eb4de78f40b99215903aa4dc8ca1ef6d9f42b66dacb497e15ad3e0",
+    "reports/pilot_05_cfpb_glm52_scaled_execution_design/pilot_05_scaled_execution_approval_prompt.md": "570a2611d334ff8906c64e1b54f6423e8d3766a2aac976108562dd683a5afac2",
+    "reports/pilot_05_cfpb_glm52_scaled_execution_design/pilot_05_scaled_execution_design_report.md": "4ace39c2156696c4f8c55b80fe5c556427ce59d2d959f35e32470818c217a0b3",
+    "reports/pilot_05_cfpb_glm52_scaled_execution_design/pilot_05_scaled_expected_metrics.csv": "3b08f3e3191868c9128d001b6bc4faf7651c38ab059ddf51fdb011137bd82353",
+    "reports/pilot_05_cfpb_glm52_scaled_execution_design/pilot_05_scaled_output_safety_contract.csv": "964941ff359e9d4e8e8b7b13501e5bd25e9210d0309f2224f219e18dfc299286",
+    "reports/pilot_05_cfpb_glm52_scaled_execution_design/pilot_05_scaled_publication_target_claims.csv": "b093b791a85b2f2eab44b165086d9d5267b4ead878774e88f07f38f4a429dcf1",
+    "reports/pilot_05_cfpb_glm52_scaled_execution_design/pilot_05_scaled_related_work_gap_summary.csv": "9e2ce0b640cec724d893710bed18a2665abc42a75dcd66b59bd1fbaa90f63a1b",
+    "reports/pilot_05_cfpb_glm52_scaled_execution_design/pilot_05_scaled_run_options.csv": "5f03fb965578c781502ad9836116fec6b118957c54912ba7269bc25655f46926",
+    "reports/pilot_05_cfpb_glm52_scaled_execution_design/pilot_05_scaled_stage_plan.csv": "ec6577c89c4f43928bd64a4667c1ff1870f74875ffb10bf3932fe633e8e778fa"
+  },
+  "post_generation_git_validation": {
+    "changed_path_count_after_generation": 2,
+    "changed_paths_after_generation": [
+      "experiments/pilot_05_cfpb_glm52_scaled_execution_design.py",
+      "reports/pilot_05_cfpb_glm52_scaled_execution_design/"
+    ],
+    "git_status_after_generation": "?? experiments/pilot_05_cfpb_glm52_scaled_execution_design.py\n?? reports/pilot_05_cfpb_glm52_scaled_execution_design/",
+    "git_status_limited_to_05AM_paths": true,
+    "nothing_staged_after_generation": true
+  },
+  "prior_commits_verified": {
+    "05AK": {
+      "all_committed_files_exist": true,
+      "commit": "f9eb074",
+      "committed_file_count": 12,
+      "subject": "Add Pilot 05 GLM-5.2 reliability cascade metrics"
+    },
+    "05AL": {
+      "all_committed_files_exist": true,
+      "commit": "a1d18a8",
+      "committed_file_count": 10,
+      "subject": "Add Pilot 05 GLM-5.2 results interpretation"
+    }
+  },
+  "recommendation": {
+    "is_finish_line_minimum": true,
+    "recommendation_reason": "Big enough to move beyond the 36-call micro-pilot, still cost-controlled, supports paired clean-vs-degraded comparisons, and avoids premature cross-model spending.",
+    "recommended_base_cases": 60,
+    "recommended_call_count": 720,
+    "recommended_model_name": "GLM-5.2 / glm-5.2, subject to explicit user approval in 05AN",
+    "recommended_models": 1,
+    "recommended_option": "A"
+  },
+  "repo_state": {
+    "ahead_behind_HEAD_origin_main": "0\t0",
+    "branch": "main",
+    "full_head": "a1d18a830717ec292c93b033b3df85a31bf931de",
+    "git_root": "C:\\Users\\naimu\\evidence-state-reliability",
+    "latest_subject": "Add Pilot 05 GLM-5.2 results interpretation",
+    "nothing_staged_before_task": true,
+    "origin_main": "a1d18a830717ec292c93b033b3df85a31bf931de",
+    "short_head": "a1d18a8",
+    "working_tree_clean_before_task": true
+  },
+  "run_options_count": 4,
+  "safe_cost_metadata_check": {
+    "cost_cap_or_budget_indicators_detected": 9,
+    "exact_cost_status": "requires_user_confirmation",
+    "exact_unit_pricing_found_in_safe_metadata": false,
+    "model_mentions_detected": 40,
+    "pricing_indicators_detected": 7,
+    "reason": "05AM does not read .env, raw prompts/responses, JSONL, or provider billing APIs. It therefore reports call counts and cost formulas unless a validated unit price is explicitly approved by the user.",
+    "safe_metadata_files_matching_cost_or_model_terms": 74,
+    "safe_metadata_files_scanned": 74
+  },
+  "safety_flags": {
+    "api_key_read": false,
+    "committed": false,
+    "deleted_or_reset": false,
+    "env_file_read": false,
+    "env_file_written": false,
+    "jsonl_written": false,
+    "model_calls": 0,
+    "pushed": false,
+    "raw_cfpb_data_touched": false,
+    "raw_prompts_written": false,
+    "raw_responses_written": false,
+    "real_api_calls": 0,
+    "staged": false
+  },
+  "sanitized_evidence_inputs": {
+    "available_sanitized_base_cases": 60,
+    "candidate_file_count": 24,
+    "candidate_files": [
+      {
+        "best_id_column": "",
+        "best_unique_id_count": 0,
+        "condition_values_count": 4,
+        "condition_values_detected": "clean;compressed;noisy_conflicting;partial_dropout",
+        "field_count": 5,
+        "id_columns_checked": "",
+        "path": "reports/pilot_05_cfpb_cascade_harness_readiness_validation/pilot_05_cfpb_cascade_harness_readiness_stage_condition_matrix.csv",
+        "row_count": 12,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "",
+        "best_unique_id_count": 0,
+        "field_count": 0,
+        "path": "reports/pilot_05_cfpb_evidence_packets/pilot_05_cfpb_evidence_packet_manifest.json",
+        "row_count": 0,
+        "suffix": ".json"
+      },
+      {
+        "best_id_column": "",
+        "best_unique_id_count": 0,
+        "condition_values_count": 0,
+        "condition_values_detected": "",
+        "field_count": 4,
+        "id_columns_checked": "",
+        "path": "reports/pilot_05_cfpb_evidence_packets/pilot_05_cfpb_packet_field_policy.csv",
+        "row_count": 16,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "",
+        "best_unique_id_count": 0,
+        "condition_values_count": 0,
+        "condition_values_detected": "",
+        "field_count": 3,
+        "id_columns_checked": "",
+        "path": "reports/pilot_05_cfpb_evidence_packets/pilot_05_cfpb_packet_label_distribution.csv",
+        "row_count": 2,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "packet_id",
+        "best_unique_id_count": 26823,
+        "condition_values_count": 0,
+        "condition_values_detected": "",
+        "field_count": 2,
+        "id_columns_checked": "packet_id",
+        "path": "reports/pilot_05_cfpb_evidence_packets/pilot_05_cfpb_packet_labels.csv",
+        "row_count": 26823,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "",
+        "best_unique_id_count": 0,
+        "condition_values_count": 0,
+        "condition_values_detected": "",
+        "field_count": 3,
+        "id_columns_checked": "",
+        "path": "reports/pilot_05_cfpb_evidence_packets/pilot_05_cfpb_packet_narrative_availability_distribution.csv",
+        "row_count": 2,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "",
+        "best_unique_id_count": 0,
+        "condition_values_count": 0,
+        "condition_values_detected": "",
+        "field_count": 3,
+        "id_columns_checked": "",
+        "path": "reports/pilot_05_cfpb_evidence_packets/pilot_05_cfpb_packet_product_distribution.csv",
+        "row_count": 2,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "",
+        "best_unique_id_count": 0,
+        "condition_values_count": 0,
+        "condition_values_detected": "",
+        "field_count": 2,
+        "id_columns_checked": "",
+        "path": "reports/pilot_05_cfpb_evidence_packets/pilot_05_cfpb_packet_summary.csv",
+        "row_count": 17,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "packet_id",
+        "best_unique_id_count": 26823,
+        "condition_values_count": 0,
+        "condition_values_detected": "",
+        "field_count": 12,
+        "id_columns_checked": "packet_id",
+        "path": "reports/pilot_05_cfpb_evidence_packets/pilot_05_cfpb_sanitized_evidence_packets.csv",
+        "row_count": 26823,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "",
+        "best_unique_id_count": 0,
+        "condition_values_count": 0,
+        "condition_values_detected": "",
+        "field_count": 3,
+        "id_columns_checked": "",
+        "path": "reports/pilot_05_cfpb_evidence_state_conditions/pilot_05_cfpb_balanced_subset_label_distribution.csv",
+        "row_count": 2,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "packet_id",
+        "best_unique_id_count": 60,
+        "condition_values_count": 0,
+        "condition_values_detected": "",
+        "field_count": 2,
+        "id_columns_checked": "packet_id",
+        "path": "reports/pilot_05_cfpb_evidence_state_conditions/pilot_05_cfpb_balanced_subset_labels.csv",
+        "row_count": 60,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "packet_id",
+        "best_unique_id_count": 60,
+        "condition_values_count": 0,
+        "condition_values_detected": "",
+        "field_count": 5,
+        "id_columns_checked": "packet_id",
+        "path": "reports/pilot_05_cfpb_evidence_state_conditions/pilot_05_cfpb_balanced_subset_packets.csv",
+        "row_count": 60,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "",
+        "best_unique_id_count": 0,
+        "condition_values_count": 4,
+        "condition_values_detected": "clean;compressed;noisy_conflicting;partial_dropout",
+        "field_count": 3,
+        "id_columns_checked": "",
+        "path": "reports/pilot_05_cfpb_evidence_state_conditions/pilot_05_cfpb_condition_distribution.csv",
+        "row_count": 4,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "",
+        "best_unique_id_count": 0,
+        "condition_values_count": 4,
+        "condition_values_detected": "clean;compressed;noisy_conflicting;partial_dropout",
+        "field_count": 4,
+        "id_columns_checked": "",
+        "path": "reports/pilot_05_cfpb_evidence_state_conditions/pilot_05_cfpb_condition_policy.csv",
+        "row_count": 4,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "packet_id",
+        "best_unique_id_count": 60,
+        "condition_values_count": 4,
+        "condition_values_detected": "clean;compressed;noisy_conflicting;partial_dropout",
+        "field_count": 7,
+        "id_columns_checked": "packet_id",
+        "path": "reports/pilot_05_cfpb_evidence_state_conditions/pilot_05_cfpb_evidence_state_conditions.csv",
+        "row_count": 240,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "",
+        "best_unique_id_count": 0,
+        "condition_values_count": 0,
+        "condition_values_detected": "",
+        "field_count": 3,
+        "id_columns_checked": "",
+        "path": "reports/pilot_05_cfpb_evidence_state_conditions/pilot_05_cfpb_evidence_state_label_distribution.csv",
+        "row_count": 2,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "packet_id",
+        "best_unique_id_count": 60,
+        "condition_values_count": 0,
+        "condition_values_detected": "",
+        "field_count": 3,
+        "id_columns_checked": "packet_id",
+        "path": "reports/pilot_05_cfpb_evidence_state_conditions/pilot_05_cfpb_evidence_state_labels.csv",
+        "row_count": 240,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "",
+        "best_unique_id_count": 0,
+        "field_count": 0,
+        "path": "reports/pilot_05_cfpb_evidence_state_conditions/pilot_05_cfpb_evidence_state_manifest.json",
+        "row_count": 0,
+        "suffix": ".json"
+      },
+      {
+        "best_id_column": "",
+        "best_unique_id_count": 0,
+        "condition_values_count": 0,
+        "condition_values_detected": "",
+        "field_count": 2,
+        "id_columns_checked": "",
+        "path": "reports/pilot_05_cfpb_evidence_state_conditions/pilot_05_cfpb_evidence_state_summary.csv",
+        "row_count": 20,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "",
+        "best_unique_id_count": 0,
+        "condition_values_count": 0,
+        "condition_values_detected": "",
+        "field_count": 2,
+        "id_columns_checked": "",
+        "path": "reports/pilot_05_cfpb_glm52_micro_pilot_runner_build/pilot_05_cfpb_glm52_micro_pilot_runner_abort_conditions.csv",
+        "row_count": 9,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "",
+        "best_unique_id_count": 0,
+        "condition_values_count": 1,
+        "condition_values_detected": "unknown_condition",
+        "field_count": 8,
+        "id_columns_checked": "",
+        "path": "reports/pilot_05_cfpb_glm52_reliability_cascade_metrics/pilot_05_cfpb_glm52_parser_validity_by_condition.csv",
+        "row_count": 1,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "",
+        "best_unique_id_count": 0,
+        "condition_values_count": 1,
+        "condition_values_detected": "unknown_condition",
+        "field_count": 9,
+        "id_columns_checked": "",
+        "path": "reports/pilot_05_cfpb_glm52_reliability_cascade_metrics/pilot_05_cfpb_glm52_parser_validity_by_condition_stage.csv",
+        "row_count": 3,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "",
+        "best_unique_id_count": 0,
+        "condition_values_count": 1,
+        "condition_values_detected": "unknown_condition",
+        "field_count": 11,
+        "id_columns_checked": "",
+        "path": "reports/pilot_05_cfpb_glm52_results_interpretation/pilot_05_cfpb_glm52_condition_interpretation.csv",
+        "row_count": 1,
+        "suffix": ".csv"
+      },
+      {
+        "best_id_column": "",
+        "best_unique_id_count": 0,
+        "condition_values_count": 0,
+        "condition_values_detected": "",
+        "field_count": 3,
+        "id_columns_checked": "",
+        "path": "reports/pilot_05_cfpb_tiny_llm_approval_gate/pilot_05_cfpb_tiny_llm_abort_conditions.csv",
+        "row_count": 10,
+        "suffix": ".csv"
+      }
+    ],
+    "required_minimum_base_cases_for_option_A": 60,
+    "selected_count_source": {
+      "best_id_column": "packet_id",
+      "best_unique_id_count": 60,
+      "condition_values_count": 4,
+      "condition_values_detected": "clean;compressed;noisy_conflicting;partial_dropout",
+      "field_count": 7,
+      "id_columns_checked": "packet_id",
+      "path": "reports/pilot_05_cfpb_evidence_state_conditions/pilot_05_cfpb_evidence_state_conditions.csv",
+      "row_count": 240,
+      "suffix": ".csv"
+    },
+    "sufficient_for_100_case_options": false,
+    "sufficient_for_option_A": true
+  },
+  "status": "PASS",
+  "task_id": "05AM"
+}
