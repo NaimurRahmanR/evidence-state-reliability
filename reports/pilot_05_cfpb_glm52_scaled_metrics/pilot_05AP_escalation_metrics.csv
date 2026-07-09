@@ -1,0 +1,5 @@
+evidence_condition,is_degraded_condition,escalation_rows,parser_valid_rows,escalation_recovery_true,escalation_recovery_rate_among_parser_valid,escalation_stage_success_true,escalation_stage_success_rate_among_parser_valid,escalation_loss_proxy_true,escalation_loss_proxy_rate_among_parser_valid,claim_boundary_note
+clean,False,60,25,0,0.000000,25,1.000000,0,0.000000,"Escalation loss/recovery are model-output-coded proxies, not real-world escalation outcomes."
+compressed_lossy,True,60,43,0,0.000000,0,0.000000,43,1.000000,"Escalation loss/recovery are model-output-coded proxies, not real-world escalation outcomes."
+partial_dropout,True,60,32,0,0.000000,0,0.000000,32,1.000000,"Escalation loss/recovery are model-output-coded proxies, not real-world escalation outcomes."
+noisy_conflicting,True,59,37,0,0.000000,0,0.000000,37,1.000000,"Escalation loss/recovery are model-output-coded proxies, not real-world escalation outcomes."

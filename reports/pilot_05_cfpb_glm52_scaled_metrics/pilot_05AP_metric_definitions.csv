@@ -1,0 +1,9 @@
+metric,definition,claim_boundary
+parser_valid_rate,Share of rows whose sanitized model output satisfied the parser contract.,Not a measure of real-world answer correctness.
+stage_success_rate,Share of rows that were parser-valid and had a positive sanitized validity_judgment under the task contract.,Model-output-coded stage proxy; not external adjudication.
+audit_detection_rate,"Among parser-valid audit-stage rows, share with audit_detected_degradation=true.",Only meaningful as a model-output-coded audit behavior indicator.
+audit_false_assurance_rate,"Among parser-valid audit-stage rows, share with audit_false_assurance=true.",Proxy for false assurance inside this controlled pipeline only.
+escalation_recovery_rate,"Among parser-valid escalation-stage rows, share with escalation_recovery=true.",Proxy for escalation recovery inside this controlled pipeline only.
+paired_delta_degraded_minus_clean,Within-base-case difference between a degraded condition and clean condition for a metric/stage.,Paired experimental contrast; not a population deployment estimate.
+bootstrap_ci,Nonparametric bootstrap CI over paired base cases for mean paired delta.,Uncertainty over the 60 selected sanitized base cases only.
+cascade_sequence_pattern,Three-stage parser/stage-success pattern for each base_case_id × evidence_condition sequence.,Pattern over sanitized execution rows; missing ledger-only rows are accounted separately.

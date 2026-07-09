@@ -1,0 +1,172 @@
+{
+  "actual_planned_call_count": 720,
+  "api_key_read": false,
+  "condition_input_meta": {
+    "case_col": "packet_id",
+    "complete_base_cases_with_all_four_conditions": 60,
+    "condition_col": "condition_name",
+    "condition_counts": {
+      "clean": 60,
+      "compressed_lossy": 60,
+      "noisy_conflicting": 60,
+      "partial_dropout": 60
+    },
+    "expected_call_count_if_selected": 720,
+    "schema_fix_version": "05AN_V2_CALL_PLAN_SCHEMA_FIX",
+    "selected_base_cases": 60,
+    "selected_case_id_hashes_preview": [
+      "e63c513472e1641d",
+      "f2e2e86049063e84",
+      "52601394f858bcbe",
+      "98b415f1579b2b58",
+      "43e425354a9ba95a",
+      "117976c7df5cc05e",
+      "f18d0dcf3c0efa09",
+      "da8512b798c3c72f",
+      "9499763f17a137da",
+      "df8e056bfb20edf8"
+    ],
+    "total_rows": 240,
+    "unique_case_count_with_known_conditions": 60,
+    "unknown_condition_value_sample": {}
+  },
+  "expected_call_count": 720,
+  "input_schema": {
+    "best_candidate_evaluation": {
+      "case_col": "packet_id",
+      "complete_base_cases_with_all_four_conditions": 60,
+      "condition_col": "condition_name",
+      "condition_counts": {
+        "clean": 60,
+        "compressed_lossy": 60,
+        "noisy_conflicting": 60,
+        "partial_dropout": 60
+      },
+      "expected_call_count_if_selected": 720,
+      "known_condition_rows": 240,
+      "nonempty_rows": 240,
+      "unique_case_count_with_known_conditions": 60,
+      "unknown_condition_value_sample": {}
+    },
+    "case_col": "packet_id",
+    "condition_col": "condition_name",
+    "fieldnames": [
+      "evidence_state_id",
+      "packet_id",
+      "subset_rank",
+      "condition_name",
+      "condition_order",
+      "evidence_state_text",
+      "degradation_profile"
+    ],
+    "schema_fix_version": "05AN_V2_CALL_PLAN_SCHEMA_FIX",
+    "schema_inference_method": "candidate_pair_max_complete_four_condition_groups_v2",
+    "top_candidate_evaluations": [
+      {
+        "case_col": "packet_id",
+        "complete_base_cases_with_all_four_conditions": 60,
+        "condition_col": "condition_name",
+        "condition_counts": {
+          "clean": 60,
+          "compressed_lossy": 60,
+          "noisy_conflicting": 60,
+          "partial_dropout": 60
+        },
+        "expected_call_count_if_selected": 720,
+        "known_condition_rows": 240,
+        "nonempty_rows": 240,
+        "unique_case_count_with_known_conditions": 60,
+        "unknown_condition_value_sample": {}
+      },
+      {
+        "case_col": "evidence_state_id",
+        "complete_base_cases_with_all_four_conditions": 0,
+        "condition_col": "condition_name",
+        "condition_counts": {
+          "clean": 60,
+          "compressed_lossy": 60,
+          "noisy_conflicting": 60,
+          "partial_dropout": 60
+        },
+        "expected_call_count_if_selected": 0,
+        "known_condition_rows": 240,
+        "nonempty_rows": 240,
+        "unique_case_count_with_known_conditions": 240,
+        "unknown_condition_value_sample": {}
+      },
+      {
+        "case_col": "evidence_state_text",
+        "complete_base_cases_with_all_four_conditions": 0,
+        "condition_col": "condition_name",
+        "condition_counts": {
+          "clean": 60,
+          "compressed_lossy": 60,
+          "noisy_conflicting": 60,
+          "partial_dropout": 60
+        },
+        "expected_call_count_if_selected": 0,
+        "known_condition_rows": 240,
+        "nonempty_rows": 240,
+        "unique_case_count_with_known_conditions": 43,
+        "unknown_condition_value_sample": {}
+      },
+      {
+        "case_col": "evidence_state_id",
+        "complete_base_cases_with_all_four_conditions": 0,
+        "condition_col": "condition_order",
+        "condition_counts": {},
+        "expected_call_count_if_selected": 0,
+        "known_condition_rows": 0,
+        "nonempty_rows": 240,
+        "unique_case_count_with_known_conditions": 0,
+        "unknown_condition_value_sample": {
+          "1": 60,
+          "2": 60,
+          "3": 60,
+          "4": 60
+        }
+      },
+      {
+        "case_col": "packet_id",
+        "complete_base_cases_with_all_four_conditions": 0,
+        "condition_col": "condition_order",
+        "condition_counts": {},
+        "expected_call_count_if_selected": 0,
+        "known_condition_rows": 0,
+        "nonempty_rows": 240,
+        "unique_case_count_with_known_conditions": 0,
+        "unknown_condition_value_sample": {
+          "1": 60,
+          "2": 60,
+          "3": 60,
+          "4": 60
+        }
+      },
+      {
+        "case_col": "evidence_state_text",
+        "complete_base_cases_with_all_four_conditions": 0,
+        "condition_col": "condition_order",
+        "condition_counts": {},
+        "expected_call_count_if_selected": 0,
+        "known_condition_rows": 0,
+        "nonempty_rows": 240,
+        "unique_case_count_with_known_conditions": 0,
+        "unknown_condition_value_sample": {
+          "1": 60,
+          "2": 60,
+          "3": 60,
+          "4": 60
+        }
+      }
+    ]
+  },
+  "jsonl_written": false,
+  "model_calls": 0,
+  "raw_cfpb_data_touched": false,
+  "raw_prompts_written": false,
+  "raw_responses_written": false,
+  "schema_fix_version": "05AN_V2_CALL_PLAN_SCHEMA_FIX",
+  "status": "PASS",
+  "task": "05AN",
+  "timestamp_utc": "2026-07-09T01:00:56.593649+00:00"
+}

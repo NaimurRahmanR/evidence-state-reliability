@@ -1,0 +1,57 @@
+{
+  "api_key_read": false,
+  "api_model_calls": 0,
+  "claim_boundary": {
+    "broad_model_reliability_claimed": false,
+    "real_world_financial_or_regulatory_validity_claimed": false,
+    "scaled_real_model_evidence_exists": true,
+    "summary": "05AP computes claim-bounded metrics over sanitized real GLM-5.2 execution outputs; paper claims remain limited until interpretation and claim-boundary review.",
+    "target_research_claim_proven": false
+  },
+  "committed": false,
+  "env_file_read": false,
+  "input_sources": {
+    "call_ledger": "C:/Users/naimu/evidence-state-reliability/reports/pilot_05_cfpb_glm52_scaled_real_execution/pilot_05AN_call_ledger.csv",
+    "call_plan": "C:/Users/naimu/evidence-state-reliability/reports/pilot_05_cfpb_glm52_scaled_real_execution/pilot_05AN_call_plan.csv",
+    "integrity_manifest": "C:/Users/naimu/evidence-state-reliability/reports/pilot_05_cfpb_glm52_scaled_real_execution_integrity/pilot_05AO_integrity_manifest.json",
+    "parser_invalid_summary": "C:/Users/naimu/evidence-state-reliability/reports/pilot_05_cfpb_glm52_scaled_real_execution/pilot_05AN_parser_invalid_summary.csv",
+    "sanitized_execution_rows": "C:/Users/naimu/evidence-state-reliability/reports/pilot_05_cfpb_glm52_scaled_real_execution/pilot_05AN_sanitized_execution_rows.csv"
+  },
+  "jsonl_written": false,
+  "outputs": [
+    "pilot_05AP_audit_metrics.csv",
+    "pilot_05AP_bootstrap_confidence_intervals.csv",
+    "pilot_05AP_cascade_sequence_pattern_distribution.csv",
+    "pilot_05AP_cascade_sequence_rows.csv",
+    "pilot_05AP_clean_vs_degraded_paired_deltas.csv",
+    "pilot_05AP_condition_stage_interaction.csv",
+    "pilot_05AP_escalation_metrics.csv",
+    "pilot_05AP_failure_family_distribution.csv",
+    "pilot_05AP_metric_definitions.csv",
+    "pilot_05AP_parser_validity_by_condition_stage.csv",
+    "pilot_05AP_row_accounting_summary.csv",
+    "pilot_05AP_sanitized_category_distributions.csv",
+    "pilot_05AP_stage_validity_by_condition_stage.csv"
+  ],
+  "pushed": false,
+  "raw_cfpb_data_touched": false,
+  "raw_prompts_written": false,
+  "raw_responses_written": false,
+  "row_accounting": {
+    "cumulative_estimated_cost_usd": 2.2731216,
+    "ledger_only_missing_sanitized_rows": 7,
+    "ledger_parser_valid_false": 250,
+    "ledger_parser_valid_true": 470,
+    "ledger_rows": 720,
+    "parser_invalid_summary_rows": 243,
+    "persisted_parser_valid_false": 243,
+    "persisted_parser_valid_true": 470,
+    "planned_call_count": 720,
+    "ready_for_metrics_source": true,
+    "sanitized_execution_rows": 713
+  },
+  "staged": false,
+  "status": "PASS",
+  "task": "05AP",
+  "timestamp_utc": "2026-07-09T04:09:43.491983+00:00"
+}

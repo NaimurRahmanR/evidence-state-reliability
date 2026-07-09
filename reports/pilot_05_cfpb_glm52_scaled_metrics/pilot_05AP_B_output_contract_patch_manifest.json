@@ -1,0 +1,38 @@
+{
+  "api_key_read": false,
+  "api_model_calls": 0,
+  "claim_boundary_status": "scaled real model evidence exists; claims remain limited to Pilot 05 GLM-5.2 sanitized evidence-state pipeline until claim-boundary report and figures are generated",
+  "committed": false,
+  "cumulative_estimated_cost_usd": 2.2731216,
+  "env_file_read": false,
+  "execution_manifest_status": "COMPLETE_OR_COST_CAPPED",
+  "forbidden_outputs_detected_before_patch": false,
+  "input_counts": {
+    "audit_metric_rows": 4,
+    "bootstrap_rows": 27,
+    "escalation_metric_rows": 4,
+    "ledger_rows": 720,
+    "parser_invalid_summary_rows": 243,
+    "sanitized_execution_rows": 713
+  },
+  "integrity_manifest_status": "PASS",
+  "jsonl_written": false,
+  "metrics_manifest_status": "PASS",
+  "output_counts": {
+    "cascade_sequence_detail_rows": 240,
+    "cascade_sequence_metric_rows": 5,
+    "compact_key_result_rows": 18
+  },
+  "patch_version": "05AP_B_OUTPUT_CONTRACT_PATCH_V1",
+  "pushed": false,
+  "raw_cfpb_data_touched": false,
+  "raw_prompts_written": false,
+  "raw_responses_written": false,
+  "required_inputs_verified": true,
+  "sanitized_row_count_warning": "",
+  "staged": false,
+  "status": "PASS",
+  "target_outputs_absent_before_patch": true,
+  "task": "05AP-B",
+  "timestamp_utc": "2026-07-09T16:21:18.139477+00:00"
+}

@@ -1,0 +1,5 @@
+evidence_condition,is_degraded_condition,audit_rows,parser_valid_rows,audit_detected_degradation_true,audit_detection_rate_among_parser_valid,audit_false_assurance_true,audit_false_assurance_rate_among_parser_valid,claim_boundary_note
+clean,False,58,30,0,0.000000,0,0.000000,Audit metrics are model-output-coded from sanitized responses; they are not external regulatory audit outcomes.
+compressed_lossy,True,60,48,48,1.000000,3,0.062500,Audit metrics are model-output-coded from sanitized responses; they are not external regulatory audit outcomes.
+partial_dropout,True,60,41,41,1.000000,2,0.048780,Audit metrics are model-output-coded from sanitized responses; they are not external regulatory audit outcomes.
+noisy_conflicting,True,59,52,52,1.000000,1,0.019231,Audit metrics are model-output-coded from sanitized responses; they are not external regulatory audit outcomes.

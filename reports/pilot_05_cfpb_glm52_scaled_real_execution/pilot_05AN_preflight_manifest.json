@@ -1,0 +1,220 @@
+{
+  "base_url": "https://api.z.ai/api/paas/v4",
+  "checkpoint_required": "0e9c860 Add Pilot 05 scaled execution design",
+  "condition_input_meta": {
+    "case_col": "packet_id",
+    "complete_base_cases_with_all_four_conditions": 60,
+    "condition_col": "condition_name",
+    "condition_counts": {
+      "clean": 60,
+      "compressed_lossy": 60,
+      "noisy_conflicting": 60,
+      "partial_dropout": 60
+    },
+    "expected_call_count_if_selected": 720,
+    "schema_fix_version": "05AN_V2_CALL_PLAN_SCHEMA_FIX",
+    "selected_base_cases": 60,
+    "selected_case_id_hashes_preview": [
+      "e63c513472e1641d",
+      "f2e2e86049063e84",
+      "52601394f858bcbe",
+      "98b415f1579b2b58",
+      "43e425354a9ba95a",
+      "117976c7df5cc05e",
+      "f18d0dcf3c0efa09",
+      "da8512b798c3c72f",
+      "9499763f17a137da",
+      "df8e056bfb20edf8"
+    ],
+    "total_rows": 240,
+    "unique_case_count_with_known_conditions": 60,
+    "unknown_condition_value_sample": {}
+  },
+  "evidence_conditions": [
+    "clean",
+    "compressed_lossy",
+    "partial_dropout",
+    "noisy_conflicting"
+  ],
+  "expected_base_cases": 60,
+  "expected_call_count": 720,
+  "inherited_05am_recommendation": {
+    "recommended_call_count": 720,
+    "recommended_option": "A"
+  },
+  "inherited_05am_safety_flags": {
+    "api_key_read": false,
+    "committed": false,
+    "deleted_or_reset": false,
+    "env_file_read": false,
+    "env_file_written": false,
+    "jsonl_written": false,
+    "model_calls": 0,
+    "pushed": false,
+    "raw_cfpb_data_touched": false,
+    "raw_prompts_written": false,
+    "raw_responses_written": false,
+    "real_api_calls": 0,
+    "staged": false
+  },
+  "input_schema": {
+    "best_candidate_evaluation": {
+      "case_col": "packet_id",
+      "complete_base_cases_with_all_four_conditions": 60,
+      "condition_col": "condition_name",
+      "condition_counts": {
+        "clean": 60,
+        "compressed_lossy": 60,
+        "noisy_conflicting": 60,
+        "partial_dropout": 60
+      },
+      "expected_call_count_if_selected": 720,
+      "known_condition_rows": 240,
+      "nonempty_rows": 240,
+      "unique_case_count_with_known_conditions": 60,
+      "unknown_condition_value_sample": {}
+    },
+    "case_col": "packet_id",
+    "condition_col": "condition_name",
+    "fieldnames": [
+      "evidence_state_id",
+      "packet_id",
+      "subset_rank",
+      "condition_name",
+      "condition_order",
+      "evidence_state_text",
+      "degradation_profile"
+    ],
+    "schema_fix_version": "05AN_V2_CALL_PLAN_SCHEMA_FIX",
+    "schema_inference_method": "candidate_pair_max_complete_four_condition_groups_v2",
+    "top_candidate_evaluations": [
+      {
+        "case_col": "packet_id",
+        "complete_base_cases_with_all_four_conditions": 60,
+        "condition_col": "condition_name",
+        "condition_counts": {
+          "clean": 60,
+          "compressed_lossy": 60,
+          "noisy_conflicting": 60,
+          "partial_dropout": 60
+        },
+        "expected_call_count_if_selected": 720,
+        "known_condition_rows": 240,
+        "nonempty_rows": 240,
+        "unique_case_count_with_known_conditions": 60,
+        "unknown_condition_value_sample": {}
+      },
+      {
+        "case_col": "evidence_state_id",
+        "complete_base_cases_with_all_four_conditions": 0,
+        "condition_col": "condition_name",
+        "condition_counts": {
+          "clean": 60,
+          "compressed_lossy": 60,
+          "noisy_conflicting": 60,
+          "partial_dropout": 60
+        },
+        "expected_call_count_if_selected": 0,
+        "known_condition_rows": 240,
+        "nonempty_rows": 240,
+        "unique_case_count_with_known_conditions": 240,
+        "unknown_condition_value_sample": {}
+      },
+      {
+        "case_col": "evidence_state_text",
+        "complete_base_cases_with_all_four_conditions": 0,
+        "condition_col": "condition_name",
+        "condition_counts": {
+          "clean": 60,
+          "compressed_lossy": 60,
+          "noisy_conflicting": 60,
+          "partial_dropout": 60
+        },
+        "expected_call_count_if_selected": 0,
+        "known_condition_rows": 240,
+        "nonempty_rows": 240,
+        "unique_case_count_with_known_conditions": 43,
+        "unknown_condition_value_sample": {}
+      },
+      {
+        "case_col": "evidence_state_id",
+        "complete_base_cases_with_all_four_conditions": 0,
+        "condition_col": "condition_order",
+        "condition_counts": {},
+        "expected_call_count_if_selected": 0,
+        "known_condition_rows": 0,
+        "nonempty_rows": 240,
+        "unique_case_count_with_known_conditions": 0,
+        "unknown_condition_value_sample": {
+          "1": 60,
+          "2": 60,
+          "3": 60,
+          "4": 60
+        }
+      },
+      {
+        "case_col": "packet_id",
+        "complete_base_cases_with_all_four_conditions": 0,
+        "condition_col": "condition_order",
+        "condition_counts": {},
+        "expected_call_count_if_selected": 0,
+        "known_condition_rows": 0,
+        "nonempty_rows": 240,
+        "unique_case_count_with_known_conditions": 0,
+        "unknown_condition_value_sample": {
+          "1": 60,
+          "2": 60,
+          "3": 60,
+          "4": 60
+        }
+      },
+      {
+        "case_col": "evidence_state_text",
+        "complete_base_cases_with_all_four_conditions": 0,
+        "condition_col": "condition_order",
+        "condition_counts": {},
+        "expected_call_count_if_selected": 0,
+        "known_condition_rows": 0,
+        "nonempty_rows": 240,
+        "unique_case_count_with_known_conditions": 0,
+        "unknown_condition_value_sample": {
+          "1": 60,
+          "2": 60,
+          "3": 60,
+          "4": 60
+        }
+      }
+    ]
+  },
+  "mode": "preflight",
+  "model": "glm-5.2",
+  "option": "A",
+  "planned_call_count": 720,
+  "pricing_defaults_usd_per_million_tokens": {
+    "input": 1.4,
+    "output": 4.4,
+    "pricing_source_note": "Default values reflect current public Z.AI / provider pricing; user must approve a cost cap before execution."
+  },
+  "safety_contract": {
+    "actual_execute_requires_approve_real_api_calls_flag": true,
+    "actual_execute_requires_positive_cost_cap_usd": true,
+    "api_key_read_in_preflight": false,
+    "env_file_read": false,
+    "jsonl_written": false,
+    "model_calls_in_preflight": 0,
+    "only_sanitized_outputs_planned": true,
+    "raw_cfpb_data_touched": false,
+    "raw_prompts_written": false,
+    "raw_responses_written": false,
+    "real_api_calls_in_preflight": 0
+  },
+  "selected_base_cases": 60,
+  "stages": [
+    "decision",
+    "audit",
+    "escalation"
+  ],
+  "status": "PASS",
+  "task": "05AN",
+  "timestamp_utc": "2026-07-09T01:00:56.589130+00:00"
+}

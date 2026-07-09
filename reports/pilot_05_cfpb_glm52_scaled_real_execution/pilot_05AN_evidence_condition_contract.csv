@@ -1,0 +1,5 @@
+evidence_condition,included,purpose
+clean,True,baseline evidence state
+compressed_lossy,True,tests whether information compression/loss degrades downstream stage behavior
+partial_dropout,True,tests sensitivity to missing evidence elements
+noisy_conflicting,True,tests audit/escalation behavior under conflicting evidence

@@ -1,0 +1,21 @@
+{
+  "error_message": "Call plan count expected 720, got 0",
+  "error_type": "RuntimeError",
+  "jsonl_written": false,
+  "raw_cfpb_data_touched": false,
+  "raw_prompts_written": false,
+  "raw_responses_written": false,
+  "status": "ERROR",
+  "task": "05AN",
+  "timestamp_utc": "2026-07-09T00:57:20.112209+00:00",
+  "traceback_tail": [
+    "  File \"C:\\Users\\naimu\\evidence-state-reliability\\experiments\\pilot_05_cfpb_glm52_scaled_real_execution.py\", line 907, in <module>",
+    "    raise SystemExit(main())",
+    "                     ^^^^^^",
+    "  File \"C:\\Users\\naimu\\evidence-state-reliability\\experiments\\pilot_05_cfpb_glm52_scaled_real_execution.py\", line 899, in main",
+    "    execute(args)",
+    "  File \"C:\\Users\\naimu\\evidence-state-reliability\\experiments\\pilot_05_cfpb_glm52_scaled_real_execution.py\", line 602, in execute",
+    "    raise RuntimeError(f\"Call plan count expected {EXPECTED_CALLS}, got {len(call_plan)}\")",
+    "RuntimeError: Call plan count expected 720, got 0"
+  ]
+}

@@ -1,0 +1,7 @@
+abort_rule,threshold,action
+missing_api_key,execute mode only: API key env var must exist,abort before first call
+cost_cap,cumulative estimated cost >= approved cap,abort before next call
+api_error_rate,>= 20% after at least 50 attempted calls,abort
+consecutive_api_errors,5 consecutive API errors,abort
+parser_invalid_rate,> 70% after at least 60 successful calls,abort for parser/contract review
+forbidden_output,any .jsonl/raw prompt/raw response/.env/raw CFPB path,abort and report

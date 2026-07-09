@@ -1,0 +1,2 @@
+planned_call_count,ledger_rows,sanitized_execution_rows,parser_invalid_summary_rows,ledger_parser_valid_true,ledger_parser_valid_false,persisted_parser_valid_true,persisted_parser_valid_false,ledger_only_missing_sanitized_rows,cumulative_estimated_cost_usd,ready_for_metrics_source
+720,720,713,243,470,250,470,243,7,2.2731216,True

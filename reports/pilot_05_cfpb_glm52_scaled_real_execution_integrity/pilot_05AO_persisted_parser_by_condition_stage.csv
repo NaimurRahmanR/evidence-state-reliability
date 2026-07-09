@@ -1,0 +1,13 @@
+evidence_condition,stage,rows,parser_valid_true,parser_valid_false,parser_valid_missing_or_other,parser_valid_rate,parser_invalid_rate
+clean,audit,58,30,28,0,0.517241,0.482759
+clean,decision,59,30,29,0,0.508475,0.491525
+clean,escalation,60,25,35,0,0.416667,0.583333
+compressed_lossy,audit,60,48,12,0,0.8,0.2
+compressed_lossy,decision,60,51,9,0,0.85,0.15
+compressed_lossy,escalation,60,43,17,0,0.716667,0.283333
+noisy_conflicting,audit,59,52,7,0,0.881356,0.118644
+noisy_conflicting,decision,58,46,12,0,0.793103,0.206897
+noisy_conflicting,escalation,59,37,22,0,0.627119,0.372881
+partial_dropout,audit,60,41,19,0,0.683333,0.316667
+partial_dropout,decision,60,35,25,0,0.583333,0.416667
+partial_dropout,escalation,60,32,28,0,0.533333,0.466667

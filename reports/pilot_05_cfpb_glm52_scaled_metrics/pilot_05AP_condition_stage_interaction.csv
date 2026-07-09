@@ -1,0 +1,13 @@
+evidence_condition,stage,source,n_rows,parser_valid_true,parser_valid_false,parser_valid_rate,stage_success_true,stage_success_rate,validity_judgment_known_rows,validity_judgment_known_rate,parser_valid_delta_vs_clean_same_stage,stage_success_delta_vs_clean_same_stage
+clean,audit,sanitized_execution_rows,58,30,28,0.517241,30,0.517241,30,0.517241,0.000000,0.000000
+clean,decision,sanitized_execution_rows,59,30,29,0.508475,30,0.508475,30,0.508475,0.000000,0.000000
+clean,escalation,sanitized_execution_rows,60,25,35,0.416667,25,0.416667,25,0.416667,0.000000,0.000000
+compressed_lossy,audit,sanitized_execution_rows,60,48,12,0.800000,0,0.000000,1,0.016667,0.282759,-0.517241
+compressed_lossy,decision,sanitized_execution_rows,60,51,9,0.850000,0,0.000000,12,0.200000,0.341525,-0.508475
+compressed_lossy,escalation,sanitized_execution_rows,60,43,17,0.716667,0,0.000000,4,0.066667,0.300000,-0.416667
+noisy_conflicting,audit,sanitized_execution_rows,59,52,7,0.881356,0,0.000000,0,0.000000,0.364115,-0.517241
+noisy_conflicting,decision,sanitized_execution_rows,58,46,12,0.793103,0,0.000000,0,0.000000,0.284628,-0.508475
+noisy_conflicting,escalation,sanitized_execution_rows,59,37,22,0.627119,0,0.000000,0,0.000000,0.210452,-0.416667
+partial_dropout,audit,sanitized_execution_rows,60,41,19,0.683333,0,0.000000,1,0.016667,0.166092,-0.517241
+partial_dropout,decision,sanitized_execution_rows,60,35,25,0.583333,0,0.000000,3,0.050000,0.074858,-0.508475
+partial_dropout,escalation,sanitized_execution_rows,60,32,28,0.533333,0,0.000000,1,0.016667,0.116666,-0.416667

@@ -1,0 +1,13 @@
+evidence_condition,stage,parser_error_category,count
+clean,audit,json_parse_error,28
+clean,decision,json_parse_error,29
+clean,escalation,json_parse_error,35
+compressed_lossy,audit,json_parse_error,12
+compressed_lossy,decision,json_parse_error,9
+compressed_lossy,escalation,json_parse_error,17
+noisy_conflicting,audit,json_parse_error,7
+noisy_conflicting,decision,json_parse_error,12
+noisy_conflicting,escalation,json_parse_error,22
+partial_dropout,audit,json_parse_error,19
+partial_dropout,decision,json_parse_error,25
+partial_dropout,escalation,json_parse_error,28

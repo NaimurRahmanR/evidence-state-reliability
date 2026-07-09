@@ -1,0 +1,4 @@
+stage,included,primary_measurement
+decision,True,"stage validity, evidence adequacy, decision recommendation under evidence conditions"
+audit,True,degradation detection and false-assurance behavior
+escalation,True,recovery/loss behavior after degraded evidence state

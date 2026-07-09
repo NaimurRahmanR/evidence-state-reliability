@@ -1,0 +1,19 @@
+result_key,value,interpretation
+planned_call_count,720,05AN Option A call plan size.
+ledger_rows,720,All planned sequences are accounted for in the ledger.
+sanitized_execution_rows,713,Persisted sanitized rows available for metric analysis.
+ledger_parser_valid_true,470,Parser-valid ledger rows.
+ledger_parser_valid_false,250,"Parser-invalid ledger rows, including ledger-only failures."
+persisted_parser_valid_true,470,Parser-valid sanitized persisted rows.
+persisted_parser_valid_false,243,Parser-invalid sanitized persisted rows.
+ledger_only_missing_sanitized_rows,7,Ledger rows without sanitized persisted row; already reconciled by 05AO.
+cumulative_estimated_cost_usd,2.2731216,Estimated cumulative API cost under approved cap.
+stage_success_delta_min,-0.517241,Most negative degraded-minus-clean stage-success paired delta.
+stage_success_delta_max,-0.40678,Least negative degraded-minus-clean stage-success paired delta.
+stage_success_all_negative,True,Whether all stage-success paired deltas are negative across degraded conditions/stages.
+parser_valid_delta_min,0.067797,Smallest degraded-minus-clean parser-valid paired delta.
+parser_valid_delta_max,0.368421,Largest degraded-minus-clean parser-valid paired delta.
+parser_valid_all_positive,True,Whether parser validity increased under all degraded paired comparisons.
+audit_detection_rate_degraded_mean,1.0,"Mean audit detection rate among parser-valid degraded audit rows, as reported by 05AP."
+escalation_recovery_rate_degraded_mean,0.0,"Mean escalation recovery rate among parser-valid degraded escalation rows, as reported by 05AP."
+cascade_failure_rate_all_sequence_groups,0.929167,Cascade failure proxy across condition-level sequence groups.
