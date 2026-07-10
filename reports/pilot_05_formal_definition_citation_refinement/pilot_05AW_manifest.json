@@ -1,0 +1,40 @@
+{
+  "task_id": "05AW",
+  "task_name": "formal definitions and citation-placeholder refinement",
+  "status": "PASS",
+  "secured_source_commit": "b4ebf8a",
+  "secured_source_commit_message": "Add Pilot 05 full manuscript draft",
+  "source_boundary": "committed 05AV outputs only",
+  "source_file_count": 8,
+  "output_file_count_including_manifest": 10,
+  "citation_placeholder_count": 10,
+  "new_empirical_evidence": false,
+  "external_literature_search_performed": false,
+  "citation_placeholders_only": true,
+  "safety_flags": {
+    "no_api_calls": true,
+    "no_model_calls": true,
+    "no_external_literature_search": true,
+    "no_env_read": true,
+    "no_raw_prompt_response_access": true,
+    "no_jsonl_written": true,
+    "no_raw_cfpb_data_touched": true,
+    "no_new_empirical_evidence": true,
+    "committed_files_modified": false,
+    "staging_performed": false,
+    "commit_performed": false,
+    "push_performed": false
+  },
+  "no_new_evidence_statement": "Task 05AW performs manuscript-structure, notation, citation-placeholder, related-work-slot, academic-wording, threats-to-validity, and claim-boundary refinement only. It does not create, infer, or add new empirical evidence.",
+  "output_sha256_excluding_manifest": {
+    "reports/pilot_05_formal_definition_citation_refinement/pilot_05AW_source_file_index.csv": "ae1c2c65f15ba2a2df4305f2ee207599a6eb56658e35160cc412e5c5c6f48a59",
+    "reports/pilot_05_formal_definition_citation_refinement/pilot_05AW_formal_definitions_and_notation.md": "fa97b467d019ba0984c4fb57a800021eba9d01910c7c4a468da030b7660269ed",
+    "reports/pilot_05_formal_definition_citation_refinement/pilot_05AW_citation_placeholder_register.csv": "5cd95c4537c60ce98c17677244ec1a8943e5ed969731858fa771f69428fd42b8",
+    "reports/pilot_05_formal_definition_citation_refinement/pilot_05AW_related_work_slot_map.md": "5ecd4dece4dbe47dc7116d4a9afa971f6cfcfef947f8feb26b43862bbd2885fe",
+    "reports/pilot_05_formal_definition_citation_refinement/pilot_05AW_refined_full_manuscript_draft.md": "88561b2ed6455a324c2d9323b4d4a0603597bf7a55cf1af0183c43c3960ffcd5",
+    "reports/pilot_05_formal_definition_citation_refinement/pilot_05AW_threats_to_validity_framework.md": "1c2587350c0fbc94bfce0a39c227ffb8e9315cca897b776c213917b2cc74b7e9",
+    "reports/pilot_05_formal_definition_citation_refinement/pilot_05AW_claim_boundary_refinement.md": "1efbff8a15b1d4b2b5bef4cd705e25062ae3115474b86ac4bbe24353bdc62c6a",
+    "reports/pilot_05_formal_definition_citation_refinement/pilot_05AW_section_refinement_map.csv": "b0f062540949acccee71d8d43e17a426e9033113ef484b15765b5f2d8cf96916",
+    "reports/pilot_05_formal_definition_citation_refinement/pilot_05AW_internal_validation_report.md": "7fc9f90d4560f26223470a932945ba4cd0d4ea6d6cc6a03ae27e0fdf8857411f"
+  }
+}
