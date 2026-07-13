@@ -1,0 +1,11 @@
+section,target_words,actual_words,source_artifacts,gap_ids_resolved,status
+Abstract,220-250,222,05BB manuscript; 05BC writing specification; 05AP condition-stage and bootstrap tables,ABSTRACT-01,PASS
+1. Introduction,750-900,763,05BB manuscript; 05BC gap matrix; README research programme summary,INTRO-01; CROSS-01,PASS
+2. Related Work,900-1200,1012,05BB verified 22-source reference set,RW-01; REF-01,PASS
+3. Methodology,1400-1700,1560,05AN condition/stage contracts and execution manifest; 05AO missing rows; 05AP metric definitions and bootstrap table,METH-01; METH-02; METH-03; METH-04; METH-05; REPRO-01,PASS
+4. Results,1400-1700,1700,"05AR main table; 05AP condition-stage, bootstrap, audit, escalation, and cascade tables; 05AS figures",RES-01; RES-02; RES-03; RES-04; FIG-01; TABLE-01,PASS
+5. Discussion,900-1200,1190,"05BC reviewer-risk register; 05AP condition-stage, bootstrap, and cascade tables",DISC-01; CROSS-01; PROSE-01,PASS
+6. Limitations,400-550,406,05BC reviewer-risk register; 05AR claim boundaries; 05AO accounting,PROSE-01,PASS
+7. Conclusion,250-350,264,Validated Results; 05BC bounded writing specification,PROSE-01,PASS
+Data and Code Availability,100-150,119,Repository checkpoint c3e802c; committed sanitized artifacts and manifests,REPRO-01,PASS
+References,Preserve verified set,726,05BB verified reference list with internal workflow labels removed,REF-01; STYLE-01,PASS

@@ -1,0 +1,16 @@
+claim_id,manuscript_claim,source_artifact,source_value,claim_scope
+C01,"The design contains 60 cases, four conditions, three stages, and 720 planned calls.",05AN execution manifest; evidence-condition and stage contracts,60 x 4 x 3 = 720,Design accounting
+C02,The sanitized execution layer contains 713 rows and seven ledger-only rows.,05AR main results table; 05AO ledger-missing table,713 retained; 7 missing,Execution accounting
+C03,Ledger parser-valid/invalid counts are 470/250 and persisted counts are 470/243.,05AR main results table,470/250; 470/243,Parser accounting
+C04,All twelve condition-stage cells are reported with denominators and paired deltas.,05AP condition-stage interaction table,12 rows,Condition-stage results
+C05,All nine degraded parser-validity point estimates are positive.,05AP bootstrap confidence intervals,9/9 positive means,Directional within-run result
+C06,Three partial-dropout parser-validity intervals include zero.,05AP bootstrap confidence intervals,"decision, audit, escalation partial_dropout",Uncertainty qualification
+C07,All nine stage-success intervals remain below zero.,05AP bootstrap confidence intervals,9/9 upper bounds below 0,Within-sample uncertainty
+C08,Degraded audit detection is 1.0 in each condition.,05AP audit metrics,48/48; 41/41; 52/52,Model-output-coded computational audit
+C09,"Audit false-assurance rates are 0.062500, 0.048780, and 0.019231.",05AP audit metrics,3/48; 2/41; 1/52,Controlled proxy only
+C10,Degraded escalation recovery is 0.0 and loss proxy is 1.0.,05AP escalation metrics,0 recovered in all degraded parser-valid rows,Implemented escalation design
+C11,The cascade proxy identifies 223 failures among 240 sequence groups.,05AP cascade sequence metrics,223/240 = 0.929167,Operational sequence proxy
+C12,The maximum cumulative estimated cost is USD 2.2731216 under an approved USD 8 cap.,05AN execution manifest; 05AR main results table,USD 2.2731216; cap USD 8,Execution accounting
+C13,ESR is distinct from parser validity but operationalised through stage success in this experiment.,05BC writing specification; 05AP metric definitions,Construct/indicator separation,Bounded construct claim
+C14,"The evidence is single-model, single-run, sanitized, and artifact-reproducible rather than raw-replayable.",05AN manifest; 05BC writing specification; 05BB limitations,GLM-5.2; one run; sanitized boundary,External and reproducibility boundary
+C15,The novelty is bounded combination-and-operationalisation differentiation.,05BC writing specification; 05BB related work,No first-ever or global-priority claim,Literature-grounded novelty boundary
