@@ -1,0 +1,11 @@
+section,operation,source_artifacts,empirical_content_changed
+Document provenance,replace,05AW manuscript; 05AX manifest,NO
+Introduction,insert verified evaluation and structured-output context,05AX source register; insertion plan,NO
+2.4 Related work and bounded novelty position,insert,05AX related-work synthesis; source register,NO
+Methods: data and evidence-state boundary,insert provenance and limitation citation,SRC-CFPB-DATABASE,NO
+Methods: pipeline stages,add audit and escalation boundaries,SRC-AUDIT-2020; SRC-SELECTIVENET-2019; SRC-DEFER-2020,NO
+Contribution and novelty,replace broad novelty language with bounded differentiation,05AX novelty analysis; close-antecedent sources,NO
+Literature integration provenance,replace obsolete placeholder list,05AX manifest; resolution map,NO
+Threats to validity and reproducibility,resolve validity and reproducibility placeholders,SRC-WOHLIN-2012; SRC-REPRO-2021,NO
+Reproducibility statement,update source checkpoint and integrate reporting citation,Git checkpoint; SRC-REPRO-2021,NO
+References,insert verified reference list,05AX verified source register,NO

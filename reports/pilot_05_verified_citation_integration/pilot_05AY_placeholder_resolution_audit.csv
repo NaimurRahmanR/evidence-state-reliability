@@ -1,0 +1,11 @@
+placeholder_id,status,source_ids,literal_token_remaining,resolution_boundary
+CIT-ESR-01,RESOLVED,SRC-CHECKLIST-2020;SRC-CALIBRATION-2017;SRC-RAGAS-2024;SRC-ARES-2024;SRC-INSUFFICIENT-EVIDENCE-2022;SRC-SURE-RAG-2026;SRC-EVIDENCE-DELAY-2026,NO,Context and related-work support only; external sources do not validate Pilot 05 empirical values.
+CIT-CASCADE-01,RESOLVED,SRC-CASCADE-NETWORKS-2002;SRC-AGENTBENCH-2024;SRC-SPARK-FIRE-2026;SRC-HALLUCINATION-CASCADE-2026,NO,Context and related-work support only; external sources do not validate Pilot 05 empirical values.
+CIT-PIPELINE-01,RESOLVED,SRC-AGENTBENCH-2024;SRC-RAGAS-2024;SRC-ARES-2024,NO,Context and related-work support only; external sources do not validate Pilot 05 empirical values.
+CIT-PARSER-01,RESOLVED,SRC-GCD-2023;SRC-CONSTRAINT-TAX-2026;SRC-STRUCTURED-BENCH-2026,NO,Context and related-work support only; external sources do not validate Pilot 05 empirical values.
+CIT-AUDIT-01,RESOLVED,SRC-AUDIT-2020;SRC-FSB-AI-2017;SRC-FSB-AI-2026,NO,Context and related-work support only; external sources do not validate Pilot 05 empirical values.
+CIT-UNCERTAINTY-01,RESOLVED,SRC-DEFER-2020;SRC-SELECTIVENET-2019;SRC-SURE-RAG-2026;SRC-EVIDENCE-DELAY-2026,NO,Context and related-work support only; external sources do not validate Pilot 05 empirical values.
+CIT-FINAI-01,RESOLVED,SRC-FSB-AI-2017;SRC-FSB-AI-2026,NO,Context and related-work support only; external sources do not validate Pilot 05 empirical values.
+CIT-CFPB-01,RESOLVED,SRC-CFPB-DATABASE,NO,Context and related-work support only; external sources do not validate Pilot 05 empirical values.
+CIT-VALIDITY-01,RESOLVED,SRC-WOHLIN-2012,NO,Context and related-work support only; external sources do not validate Pilot 05 empirical values.
+CIT-REPRO-01,RESOLVED,SRC-REPRO-2021,NO,Context and related-work support only; external sources do not validate Pilot 05 empirical values.

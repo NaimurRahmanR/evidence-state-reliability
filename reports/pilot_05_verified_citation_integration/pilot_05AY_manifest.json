@@ -1,0 +1,58 @@
+{
+  "task_id": "05AY",
+  "status": "PASS",
+  "created_date": "2026-07-13",
+  "secured_input_commit": "1c2731b9f9a3bf696b2e8055ff703b1d41e42f5a",
+  "source_boundary": {
+    "committed_manuscript": "reports/pilot_05_formal_definition_citation_refinement/pilot_05AW_refined_full_manuscript_draft.md",
+    "committed_literature_package": "reports/pilot_05_external_literature_grounding",
+    "new_external_research": false
+  },
+  "counts": {
+    "verified_source_rows": 24,
+    "selected_reference_rows": 22,
+    "placeholder_resolution_rows": 10,
+    "citation_usage_rows": 22,
+    "section_integration_rows": 10,
+    "expected_uncommitted_files_including_script": 11
+  },
+  "novelty_verdict": "Bounded combination-and-operationalization differentiation preserved; global priority is not claimed.",
+  "empirical_preservation": {
+    "results_section_byte_identical": true,
+    "base_results_section_sha256": "77CC99E60C4F4479FD37D9BE71C5EB88ED6486908ACE15E2976F5155952CAFB4",
+    "integrated_results_section_sha256": "77CC99E60C4F4479FD37D9BE71C5EB88ED6486908ACE15E2976F5155952CAFB4",
+    "protected_empirical_literals_retained": true,
+    "external_sources_validate_empirical_results": false
+  },
+  "safety": {
+    "new_external_literature_research_performed": false,
+    "no_api_calls": true,
+    "no_model_calls": true,
+    "no_new_experiments": true,
+    "no_raw_data_access": true,
+    "no_env_access": true,
+    "no_jsonl_writing": true,
+    "committed_manuscript_modified": false,
+    "no_staging": true,
+    "no_commit": true,
+    "no_push": true
+  },
+  "output_sha256_excluding_manifest": {
+    "reports/pilot_05_verified_citation_integration/pilot_05AY_citation_integrated_manuscript.md": "5D79D5DC4518B413CD270FA2002ADA69F10BCDC45FEBE52013103D8BF3B22C6B",
+    "reports/pilot_05_verified_citation_integration/pilot_05AY_reference_list.md": "F31AE0344DC6CFB930FA8A0EA2DC3D3F00B28F09FF02832E4CA43FED1E468D52",
+    "reports/pilot_05_verified_citation_integration/pilot_05AY_citation_usage_register.csv": "3CDCEA0E4FF593DE80CA6432B0895E586129FF0F817530CB02CF330D24BE4885",
+    "reports/pilot_05_verified_citation_integration/pilot_05AY_placeholder_resolution_audit.csv": "F9AD5581C8898B507B2ACC652DE529E4F3E8ED9A3390F3DAA596A1E2E4726475",
+    "reports/pilot_05_verified_citation_integration/pilot_05AY_section_integration_map.csv": "0E272C57B501C018900786AAF62365ABF52727F4BF30F04755A3600AAF64103E",
+    "reports/pilot_05_verified_citation_integration/pilot_05AY_novelty_wording_audit.md": "8AAA4E7F600BECF9546DDE4BFD817291256D5C502734447DB3B09CBCCFB8622F",
+    "reports/pilot_05_verified_citation_integration/pilot_05AY_empirical_preservation_report.md": "E6BAC41553FF9A291AF55EA4C1BEEE337E1BDAB89A6A8942E3E7CF0281D28B72",
+    "reports/pilot_05_verified_citation_integration/pilot_05AY_source_file_index.csv": "FD14E2F4962338EEBAA22C8602DCE729491CE13BDC9982E0FE1536215890A917",
+    "reports/pilot_05_verified_citation_integration/pilot_05AY_internal_validation_report.md": "CB80039835B6F0851737DAA67A963979AF619241756F779CA133A57F4D40D5E1",
+    "experiments/pilot_05_verified_citation_integration.py": "2642CA560F0E349C09CD3A19FC6C44681AA63DF96D9AF9F1771A0ECC9F03E995"
+  },
+  "notes": [
+    "The integrated manuscript is a new derivative output; the committed 05AW manuscript remains unchanged.",
+    "All citations originate from the committed 05AX verified source register.",
+    "Preprints and the 2026 FSB consultation report are explicitly labelled.",
+    "No external source is used as evidence for Pilot 05 empirical numbers."
+  ]
+}

@@ -1,0 +1,23 @@
+source_id,citation_label,manuscript_role,verification_status,source_class,peer_review_status,central_or_contextual
+SRC-CHECKLIST-2020,"Ribeiro et al., 2020",Introduction and related work: multidimensional evaluation,VERIFIED_PRIMARY_METADATA,peer_reviewed,peer_reviewed,central
+SRC-CALIBRATION-2017,"Guo et al., 2017",Introduction and related work: confidence as separate dimension,VERIFIED_PRIMARY_METADATA,peer_reviewed,peer_reviewed,contextual
+SRC-GCD-2023,"Geng et al., 2023",Parser validity and structured generation boundary,VERIFIED_PRIMARY_METADATA,peer_reviewed,peer_reviewed,central
+SRC-CONSTRAINT-TAX-2026,"Ray, 2026, preprint",Close emerging antecedent: validity-correctness trade-off,VERIFIED_ARXIV_METADATA,preprint_emerging,not_peer_reviewed_as_verified,high_priority_adjacent
+SRC-STRUCTURED-BENCH-2026,"Singh et al., 2026, preprint",Close emerging antecedent: schema versus value accuracy,VERIFIED_ARXIV_METADATA,preprint_emerging,not_peer_reviewed_as_verified,high_priority_adjacent
+SRC-AGENTBENCH-2024,"Liu et al., 2024",Multi-stage and interactive-agent evaluation context,VERIFIED_VENUE_AND_ARXIV_METADATA,peer_reviewed,peer_reviewed,central
+SRC-RAGAS-2024,"Es et al., 2024",Component-aware RAG evaluation context,VERIFIED_PRIMARY_METADATA,peer_reviewed,peer_reviewed,central
+SRC-ARES-2024,"Saad-Falcon et al., 2024",Component-aware RAG evaluation context,VERIFIED_PRIMARY_METADATA,peer_reviewed,peer_reviewed,central
+SRC-INSUFFICIENT-EVIDENCE-2022,"Atanasova et al., 2022, preprint",Close antecedent: insufficient evidence intervention,VERIFIED_ARXIV_METADATA,preprint_adjacent,not_peer_reviewed_as_verified,high_priority_adjacent
+SRC-AUDIT-2020,"Raji et al., 2020",Audit boundary and lifecycle-accountability context,VERIFIED_PRIMARY_METADATA,peer_reviewed,peer_reviewed,central
+SRC-DEFER-2020,"Mozannar and Sontag, 2020",Escalation and expert-deferral context,VERIFIED_PRIMARY_METADATA,peer_reviewed,peer_reviewed,central
+SRC-SELECTIVENET-2019,"Geifman and El-Yaniv, 2019",Escalation and reject-option context,VERIFIED_PRIMARY_METADATA,peer_reviewed,peer_reviewed,central
+SRC-CFPB-DATABASE,"Consumer Financial Protection Bureau, 2025",Official data provenance and limitations,VERIFIED_OFFICIAL_SOURCE,official_institutional,not_applicable,central
+SRC-FSB-AI-2017,"Financial Stability Board, 2017",Financial-domain motivation and auditability context,VERIFIED_OFFICIAL_SOURCE,official_institutional,not_applicable,contextual
+SRC-FSB-AI-2026,"Financial Stability Board, 2026, consultation report",Current financial-domain context; consultation only,VERIFIED_OFFICIAL_SOURCE_AND_CONSULTATION_STATUS,official_institutional_consultation,not_applicable,current_context_only
+SRC-WOHLIN-2012,"Wohlin et al., 2012",Threats-to-validity framework,VERIFIED_PUBLISHER_METADATA,methods_book,scholarly_book,central
+SRC-REPRO-2021,"Pineau et al., 2021",Reproducibility and reporting framework,VERIFIED_PRIMARY_METADATA,peer_reviewed,peer_reviewed,central
+SRC-CASCADE-NETWORKS-2002,"Motter and Lai, 2002",General cascade concept anchor,VERIFIED_PUBLISHER_METADATA,peer_reviewed,peer_reviewed,conceptual_anchor
+SRC-SPARK-FIRE-2026,"Xie et al., 2026, preprint",Close emerging LLM cascade antecedent,VERIFIED_ARXIV_METADATA,preprint_emerging,not_peer_reviewed_as_verified,high_priority_adjacent
+SRC-HALLUCINATION-CASCADE-2026,"Jamshidi et al., 2026, preprint",Close emerging LLM cascade antecedent,VERIFIED_ARXIV_METADATA,preprint_emerging,not_peer_reviewed_as_verified,high_priority_adjacent
+SRC-SURE-RAG-2026,"Qiu et al., 2026, preprint",Close emerging evidence-sufficiency antecedent,VERIFIED_ARXIV_METADATA,preprint_emerging,not_peer_reviewed_as_verified,high_priority_adjacent
+SRC-EVIDENCE-DELAY-2026,"Solozobov, 2026, preprint",Close emerging evidence-sufficiency antecedent,VERIFIED_ARXIV_METADATA,preprint_emerging,not_peer_reviewed_as_verified,high_priority_adjacent
