@@ -1,0 +1,50 @@
+{
+  "task_id": "05AX",
+  "status": "PASS",
+  "created_date": "2026-07-13",
+  "secured_input_commit": "f05ae265706bff5e408ae80c35f07e019a850d4d",
+  "source_boundary": {
+    "committed_input": "reports/pilot_05_formal_definition_citation_refinement/pilot_05AW_citation_placeholder_register.csv",
+    "external_literature_research": "targeted, source-verified, not systematic"
+  },
+  "counts": {
+    "placeholders": 10,
+    "resolution_rows": 10,
+    "verified_source_rows": 24,
+    "evidence_matrix_rows": 8,
+    "claim_map_rows": 10,
+    "expected_uncommitted_files_including_script": 11
+  },
+  "novelty_verdict": "Bounded combination-and-operationalization differentiation supported; global priority or first-ever novelty not established.",
+  "safety": {
+    "internet_literature_research_performed": true,
+    "no_api_calls": true,
+    "no_model_calls": true,
+    "no_new_experiments": true,
+    "no_raw_data_access": true,
+    "no_env_access": true,
+    "no_jsonl_writing": true,
+    "no_manuscript_edits": true,
+    "no_staging": true,
+    "no_commit": true,
+    "no_push": true
+  },
+  "output_sha256_excluding_manifest": {
+    "experiments/pilot_05_external_literature_grounding.py": "BCE303F85CB9D9E6CD98E9BCCE2CD715139C1A8BAFF5C87067ACE7C95CB1EA66",
+    "reports/pilot_05_external_literature_grounding/pilot_05AX_verified_source_register.csv": "73AB2D7469975FB72AB1D3DB5D9AFC7BAAD5E9AC6EABBEDD7287D63A1719F4EA",
+    "reports/pilot_05_external_literature_grounding/pilot_05AX_citation_placeholder_resolution_map.csv": "18D31F6B344C62FA002D3A722CDC7FD4C8A47D00F230175B83348DC3BCA0D699",
+    "reports/pilot_05_external_literature_grounding/pilot_05AX_related_work_evidence_matrix.csv": "35FE21B79928CD612D7DBE598F8E98205D1CE7D243B55E2122908870BC2AD744",
+    "reports/pilot_05_external_literature_grounding/pilot_05AX_claim_to_source_map.csv": "9510D5324C38235BB4B7349BBA4A2DAB1E17627AC1DEB4890673F43F47584CCF",
+    "reports/pilot_05_external_literature_grounding/pilot_05AX_novelty_boundary_analysis.md": "4B168E2419D9BA18F755D8B5619C537BC4BB3A98940FD815E1EDCF7E8C54F461",
+    "reports/pilot_05_external_literature_grounding/pilot_05AX_related_work_synthesis.md": "BD612EBBD364030348B6DA46B7038D943865947FDB393F957F0DB1D72A0126BD",
+    "reports/pilot_05_external_literature_grounding/pilot_05AX_source_verification_report.md": "860AC64EA484B2564298B325BA26A5561C5C8678F4263EC18E19B2C7D2E05216",
+    "reports/pilot_05_external_literature_grounding/pilot_05AX_manuscript_citation_insertion_plan.md": "25E0377E3E3CA65D48BC96AE9A8524299135B3541C4CC9B2EBF637FD0E1186ED",
+    "reports/pilot_05_external_literature_grounding/pilot_05AX_internal_validation_report.md": "B767696ED177B356EB0B343D65816F255EAA2B7002156C312342D926A7C62C2A"
+  },
+  "notes": [
+    "Internet browsing was used only for literature and official-source verification.",
+    "No provider/model/data API was invoked.",
+    "Preprints are explicitly labelled and must be rechecked for published versions before submission.",
+    "External sources do not validate Pilot 05 empirical numbers; those remain bounded to committed internal artifacts."
+  ]
+}
