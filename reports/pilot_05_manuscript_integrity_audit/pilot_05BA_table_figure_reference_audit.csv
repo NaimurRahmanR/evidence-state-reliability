@@ -1,0 +1,7 @@
+check_id,item_type,number_or_name,committed_artifact,introduced_in_manuscript,internal_filename_exposed,status,required_action
+FIG-001,figure,1,reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_figure_01_parser_vs_evidence_state_divergence.png,YES,YES,PASS,
+FIG-002,figure,2,reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_figure_02_audit_escalation_interpretation.png,YES,YES,PASS,
+FIG-003,figure,3,reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_figure_03_cascade_failure_rate.png,YES,YES,PASS,
+FIG-004,figure,4,reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_figure_04_failure_family_interpretation.png,YES,YES,PASS,
+FIG-SEQUENCE,figure_sequence,"1,2,3,4",,,,PASS,
+TABLE-001,table_inventory,"markdown_tables=11; referenced_numbers=[1, 2, 3]",,YES,,PASS,
