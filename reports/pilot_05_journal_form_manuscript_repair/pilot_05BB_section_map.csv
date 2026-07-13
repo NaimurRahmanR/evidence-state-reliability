@@ -1,0 +1,11 @@
+section_order,heading,start_line,end_line,word_count,purpose,source_basis
+1,## Abstract,3,8,208,"Summarize the bounded question, design, principal metrics, and single-model limitation.",Committed 05AY scholarly content and committed 05BA repair requirements; no new empirical evidence.
+2,## 1. Introduction,9,22,320,"Motivate ESR, state the research question, contributions, and claim boundary.",Committed 05AY scholarly content and committed 05BA repair requirements; no new empirical evidence.
+3,## 2. Related Work,23,48,570,"Position ESR relative to multidimensional evaluation, structured output, evidence sufficiency, cascades, audit, and financial context.",Committed 05AY scholarly content and committed 05BA repair requirements; no new empirical evidence.
+4,## 3. Methodology,49,131,592,"Define the evidence boundary, pipeline stages, formal constructs, metrics, accounting, and reproducibility controls.",Committed 05AY scholarly content and committed 05BA repair requirements; no new empirical evidence.
+5,## 4. Results,132,189,620,"Report execution accounting, reliability-layer divergence, audit/recovery, cascade failure, and failure families.",Committed 05AY scholarly content and committed 05BA repair requirements; no new empirical evidence.
+6,## 5. Discussion,190,209,318,"Interpret evaluation implications, novelty boundary, and the single-model result.",Committed 05AY scholarly content and committed 05BA repair requirements; no new empirical evidence.
+7,## 6. Limitations,210,221,261,"State construct, internal, external, conclusion, and reproducibility limits.",Committed 05AY scholarly content and committed 05BA repair requirements; no new empirical evidence.
+8,## 7. Conclusion,222,229,181,Restate the bounded empirical result and contribution.,Committed 05AY scholarly content and committed 05BA repair requirements; no new empirical evidence.
+9,## Data and Code Availability,230,233,73,Describe the committed sanitized artifact boundary.,Committed 05AY scholarly content and committed 05BA repair requirements; no new empirical evidence.
+10,## References,234,257,754,Preserve the verified literature set and source labels.,Committed 05AY scholarly content and committed 05BA repair requirements; no new empirical evidence.

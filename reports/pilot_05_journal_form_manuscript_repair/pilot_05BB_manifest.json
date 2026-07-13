@@ -1,0 +1,170 @@
+{
+  "counts": {
+    "citation_checks_preserved": 32,
+    "core_sections": 10,
+    "expected_uncommitted_files": 6,
+    "figure_captions": 4,
+    "figure_in_text_references": 4,
+    "internal_figure_filename_hits": 0,
+    "issue_rows": 30,
+    "numerical_checks_preserved": 20,
+    "resolved_major": 19,
+    "resolved_minor": 1,
+    "resolved_moderate": 10,
+    "scaffold_hits": 0,
+    "trailing_whitespace_defects": 0
+  },
+  "output_sha256": {
+    "experiments/pilot_05_journal_form_manuscript_repair.py": "FAEBC84E51272BF1C71C099673621DECA677978C6F38F5B5F7C6DA92E84226F8",
+    "reports/pilot_05_journal_form_manuscript_repair/pilot_05BB_internal_validation_report.md": "511A0D45BD4D210C3C8A4E9D044CEDB138FC571E8CA63B001CC4EB3F98F200A6",
+    "reports/pilot_05_journal_form_manuscript_repair/pilot_05BB_issue_resolution_register.csv": "CFD1AAAE1CCFB8A5A53BAA0AB1AF57881DD770352D02B3FC8C35B6C58D3B2827",
+    "reports/pilot_05_journal_form_manuscript_repair/pilot_05BB_journal_form_manuscript.md": "AD4FEB56F39820F0B5F0669C6381C4DAD4DA5C5A696C0B8E936C49F825CFBC08",
+    "reports/pilot_05_journal_form_manuscript_repair/pilot_05BB_section_map.csv": "B9ECCAA7E50E976A0C51E59363AA13009CF56C88C4DDF61273EC73E5D178CD51"
+  },
+  "repair_version": "05BB-JOURNAL-FORM-V1",
+  "safety": {
+    "api_calls": false,
+    "earlier_committed_reports_modified": false,
+    "env_accessed": false,
+    "experiments_run": false,
+    "files_deleted_or_overwritten": false,
+    "files_staged_committed_or_pushed": false,
+    "jsonl_accessed_or_written": false,
+    "model_calls": false,
+    "new_literature_search": false,
+    "pilot_05BA_outputs_modified": false,
+    "raw_cfpb_data_accessed": false,
+    "raw_prompt_response_accessed": false,
+    "readme_modified": false,
+    "source_manuscript_modified": false,
+    "word_or_pdf_conversion": false
+  },
+  "secured_branch": "main",
+  "secured_head": "2198dd4a8017bd20bd757314092459a5c4b1cb9f",
+  "source_contract": {
+    "audit_manifest": "reports/pilot_05_manuscript_integrity_audit/pilot_05BA_manifest.json",
+    "audit_manifest_sha256": "AD249222BFD04FB97C45DCB3B1AE6FC04E84B6E29AA1805E6AE62FDE9C173E2E",
+    "authoritative_main_results": "reports/pilot_05_cfpb_glm52_scaled_results_interpretation/pilot_05AR_paper_ready_main_results_table.csv",
+    "authoritative_metric_count": 17,
+    "citation_audit": "reports/pilot_05_manuscript_integrity_audit/pilot_05BA_citation_integrity_audit.csv",
+    "citation_audit_sha256": "101AD5338852EFFE39A7556697A3AFF7CA1AAFD36EC56019E01695ED621A89C8",
+    "issue_register": "reports/pilot_05_manuscript_integrity_audit/pilot_05BA_issue_register.csv",
+    "issue_register_sha256": "1F9BE9DDF00AC999200B989D2EA73FF7E5CA5E2F2ED0F13C128A7E34483B80E6",
+    "numerical_audit": "reports/pilot_05_manuscript_integrity_audit/pilot_05BA_numerical_consistency_audit.csv",
+    "numerical_audit_sha256": "B920F795DFD99B5C9CCA55B5C4854AECDDFD235F6A31C572D65B89994523A135",
+    "source_manuscript": "reports/pilot_05_verified_citation_integration/pilot_05AY_citation_integrated_manuscript.md",
+    "source_manuscript_sha256": "5D79D5DC4518B413CD270FA2002ADA69F10BCDC45FEBE52013103D8BF3B22C6B"
+  },
+  "status": "PASS",
+  "task_id": "05BB",
+  "validation_checks": [
+    {
+      "check_id": "STRUCT-CORE",
+      "description": "Required core sections are present in the exact journal order.",
+      "evidence": "## Abstract | ## 1. Introduction | ## 2. Related Work | ## 3. Methodology | ## 4. Results | ## 5. Discussion | ## 6. Limitations | ## 7. Conclusion | ## Data and Code Availability | ## References",
+      "status": "PASS"
+    },
+    {
+      "check_id": "STRUCT-NUMBERED",
+      "description": "Exactly seven numbered main sections are present.",
+      "evidence": "count=7",
+      "status": "PASS"
+    },
+    {
+      "check_id": "SCAFFOLD-ZERO",
+      "description": "Internal scaffold and figure filenames are absent.",
+      "evidence": "hits=[]",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FIG-CAPTIONS",
+      "description": "Exactly four publication-form figure captions are present.",
+      "evidence": "count=4",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FIG-REFERENCES",
+      "description": "Each figure has at least one in-text reference plus its caption.",
+      "evidence": "{\"1\": 2, \"2\": 2, \"3\": 2, \"4\": 2}",
+      "status": "PASS"
+    },
+    {
+      "check_id": "NUM-PROTECTED",
+      "description": "All protected numerical representations are present.",
+      "evidence": "missing=[]",
+      "status": "PASS"
+    },
+    {
+      "check_id": "NUM-IDENTITIES",
+      "description": "All four committed accounting identities are present.",
+      "evidence": "missing=[]",
+      "status": "PASS"
+    },
+    {
+      "check_id": "CITE-LABELS",
+      "description": "All 22 verified in-text citation labels are preserved.",
+      "evidence": "missing=[]",
+      "status": "PASS"
+    },
+    {
+      "check_id": "CITE-REFERENCES",
+      "description": "All 22 verified reference titles are preserved.",
+      "evidence": "missing=[]",
+      "status": "PASS"
+    },
+    {
+      "check_id": "CITE-PREPRINT",
+      "description": "All verified preprints retain explicit non-peer-reviewed labels.",
+      "evidence": "label_count=7",
+      "status": "PASS"
+    },
+    {
+      "check_id": "NOT-DEFINITIONS",
+      "description": "All three missing formal constructs are integrated.",
+      "evidence": "missing=[]",
+      "status": "PASS"
+    },
+    {
+      "check_id": "NOT-STYLE",
+      "description": "Parser-validity hyphenation is limited to compound-modifier contexts.",
+      "evidence": "noun_phrase_count=21; compound_count=9",
+      "status": "PASS"
+    },
+    {
+      "check_id": "CLAIM-STRONGEST",
+      "description": "The strongest defensible claim is preserved exactly.",
+      "evidence": "Within the committed Pilot 05 GLM-5.2 scaled CFPB-backed sanitized experiment, controlled evidence degradation reduced stage success while parser validity increased across decision, audit, and escalation stages, supporting Evidence-State Reliability as an evaluation layer distinct from parser validity.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "CLAIM-NOVELTY",
+      "description": "The bounded novelty verdict is preserved exactly.",
+      "evidence": "Bounded combination-and-operationalisation differentiation supported; global priority or first-ever novelty not established.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "CLAIM-FORBIDDEN",
+      "description": "No prohibited positive generalisation appears.",
+      "evidence": "hits=[]",
+      "status": "PASS"
+    },
+    {
+      "check_id": "CLAIM-SCOPE",
+      "description": "Single-model and single-run scope is explicit in Abstract, Discussion, Limitations, and Conclusion.",
+      "evidence": "failures=[]",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FORMAT-WHITESPACE",
+      "description": "The manuscript contains no trailing-whitespace defects.",
+      "evidence": "lines=[]",
+      "status": "PASS"
+    },
+    {
+      "check_id": "ISSUES-30",
+      "description": "All 30 05BA issues are mapped and resolved without new evidence.",
+      "evidence": "{\"MAJOR\": 19, \"MINOR\": 1, \"MODERATE\": 10}",
+      "status": "PASS"
+    }
+  ]
+}
