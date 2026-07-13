@@ -1,0 +1,81 @@
+{
+  "audit_version": "05BC-FINAL-EDITORIAL-SUBMISSION-GAP-V1",
+  "counts": {
+    "blocker_gaps": 0,
+    "bootstrap_rows_validated": 27,
+    "condition_stage_rows_validated": 12,
+    "current_body_words": 3143,
+    "current_total_words": 3897,
+    "expected_uncommitted_files": 7,
+    "figure_count": 4,
+    "gap_rows": 21,
+    "major_gaps": 10,
+    "minor_gaps": 3,
+    "moderate_gaps": 8,
+    "parser_ci_crossing_zero": 3,
+    "reference_entries": 22,
+    "reviewer_risks": 12,
+    "stage_success_ci_below_zero": 9,
+    "table_count": 2,
+    "target_body_words_max": 8000,
+    "target_body_words_min": 6320
+  },
+  "output_sha256": {
+    "experiments/pilot_05_final_editorial_submission_gap_audit.py": "35FCD9CEA2DFAC45BD26100653F7C94F80B1F298216097D165B51C040DBA8CEC",
+    "reports/pilot_05_final_editorial_submission_gap_audit/pilot_05BC_editorial_submission_gap_audit.md": "12B7122523DA7E71E1B621633D6C3C4CE123D195F7545E9A0340B19736E287BA",
+    "reports/pilot_05_final_editorial_submission_gap_audit/pilot_05BC_final_writing_specification.md": "706FBA18960C48D491F1BE49726546948FAB57044C4F8B7F660FB39ACA5A82AE",
+    "reports/pilot_05_final_editorial_submission_gap_audit/pilot_05BC_internal_validation_report.md": "500BEC8309E9A0C26E1035AA89CD757A981E63234C3E023160233B4F63601D08",
+    "reports/pilot_05_final_editorial_submission_gap_audit/pilot_05BC_reviewer_risk_register.csv": "51BF44E5400382CD6841A1AC5BC3409C5D413E7A5569F5AAD488CB72BAFAC0DA",
+    "reports/pilot_05_final_editorial_submission_gap_audit/pilot_05BC_section_gap_matrix.csv": "FAAE25061B882412B61583A8BBCD928666CE69F9DB9A754874B1C71431107693"
+  },
+  "safety": {
+    "api_calls": false,
+    "earlier_committed_reports_modified": false,
+    "env_accessed": false,
+    "experiments_run": false,
+    "files_deleted_or_overwritten": false,
+    "files_staged_committed_or_pushed": false,
+    "jsonl_accessed_or_written": false,
+    "model_calls": false,
+    "new_literature_search": false,
+    "raw_cfpb_data_accessed": false,
+    "raw_prompt_response_accessed": false,
+    "source_manuscript_modified": false,
+    "word_or_pdf_conversion": false
+  },
+  "secured_branch": "main",
+  "secured_head": "37772012db8fb1d769a39b9c417ae220a4ce56e3",
+  "source_contract": {
+    "manifest_05BB_sha256": "852DC423DFC6F84607F0B5FF1B3A79969E41A7A9844844128BB1B8CD1F9496E5",
+    "manuscript": "reports/pilot_05_journal_form_manuscript_repair/pilot_05BB_journal_form_manuscript.md",
+    "manuscript_sha256": "AD4FEB56F39820F0B5F0669C6381C4DAD4DA5C5A696C0B8E936C49F825CFBC08",
+    "section_map_sha256": "B9ECCAA7E50E976A0C51E59363AA13009CF56C88C4DDF61273EC73E5D178CD51",
+    "source_files_read": [
+      "reports/pilot_05_journal_form_manuscript_repair/pilot_05BB_journal_form_manuscript.md",
+      "reports/pilot_05_journal_form_manuscript_repair/pilot_05BB_section_map.csv",
+      "reports/pilot_05_journal_form_manuscript_repair/pilot_05BB_manifest.json",
+      "reports/pilot_05_manuscript_integrity_audit/pilot_05BA_issue_register.csv",
+      "reports/pilot_05_cfpb_glm52_scaled_results_interpretation/pilot_05AR_paper_ready_main_results_table.csv",
+      "reports/pilot_05_cfpb_glm52_scaled_real_execution/pilot_05AN_evidence_condition_contract.csv",
+      "reports/pilot_05_cfpb_glm52_scaled_real_execution/pilot_05AN_stage_contract.csv",
+      "reports/pilot_05_cfpb_glm52_scaled_real_execution/pilot_05AN_execution_manifest.json",
+      "reports/pilot_05_cfpb_glm52_scaled_metrics/pilot_05AP_compact_key_results.csv",
+      "reports/pilot_05_cfpb_glm52_scaled_metrics/pilot_05AP_condition_stage_interaction.csv",
+      "reports/pilot_05_cfpb_glm52_scaled_metrics/pilot_05AP_metric_definitions.csv",
+      "reports/pilot_05_cfpb_glm52_scaled_metrics/pilot_05AP_audit_metrics.csv",
+      "reports/pilot_05_cfpb_glm52_scaled_metrics/pilot_05AP_escalation_metrics.csv",
+      "reports/pilot_05_cfpb_glm52_scaled_metrics/pilot_05AP_bootstrap_confidence_intervals.csv",
+      "reports/pilot_05_cfpb_glm52_scaled_metrics/pilot_05AP_cascade_sequence_metrics.csv",
+      "README.md"
+    ]
+  },
+  "status": "PASS",
+  "task_id": "05BC",
+  "verdict": {
+    "new_empirical_evidence_required_before_05BD": false,
+    "new_literature_search_required_before_05BD": false,
+    "new_model_run_required_before_05BD": false,
+    "submission_readiness": "NOT_READY_FOR_JOURNAL_SUBMISSION",
+    "writing_gate": "READY_FOR_05BD_WITH_REQUIRED_MAJOR_EDITORIAL_EXPANSION"
+  }
+}
