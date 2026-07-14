@@ -1,0 +1,133 @@
+{
+  "counts": {
+    "expected_uncommitted_files": 8,
+    "figure_01_authoritative_rows": 18,
+    "figure_01_register_fail": 2,
+    "figure_01_register_pass": 25,
+    "figure_01_register_rows": 27,
+    "figure_04_authoritative_rows": 5,
+    "figure_04_register_fail": 0,
+    "figure_04_register_pass": 11,
+    "figure_04_register_rows": 11,
+    "figures_preserved": 4,
+    "manuscript_replacements_verified": 4,
+    "new_layout_findings": 1,
+    "new_scientific_integrity_findings": 0,
+    "original_findings_closed": 2,
+    "references_preserved": 22,
+    "source_blob_contracts": 8,
+    "source_sha256_contracts": 12,
+    "tables_preserved": 4
+  },
+  "findings": [
+    {
+      "finding_id": "FIG-B01",
+      "origin": "05BE",
+      "status": "CLOSED",
+      "summary": "Corrected Figure 1 data now match all 18 authoritative bootstrap records."
+    },
+    {
+      "finding_id": "FIG-M01",
+      "origin": "05BE",
+      "status": "CLOSED",
+      "summary": "Corrected Figure 4 now uses the five authoritative sequence-family counts."
+    },
+    {
+      "finding_id": "FIG-L01",
+      "origin": "05BG",
+      "severity": "LAYOUT_BLOCKER_FOR_SUBMISSION",
+      "status": "OPEN",
+      "summary": "Figure 1 legend obscures part of the final parser-validity interval."
+    }
+  ],
+  "output_sha256": {
+    "experiments/pilot_05_final_figure_revalidation.py": "99B24CD1BD270C9DA044215959D9B336953554C7AE0CDB81C4126F11276F2A4A",
+    "reports/pilot_05_final_figure_revalidation/pilot_05BG_figure_01_integrity_register.csv": "CDCFAFED7A700A2BED2C3990B43B458C3CBD89A5BBF6FF60A27A720D8BFE23D9",
+    "reports/pilot_05_final_figure_revalidation/pilot_05BG_figure_04_integrity_register.csv": "4DCFA695F6E1FA9B95D3C766E8340093EC651B327E0CD6E531C2E0B3CD3331A7",
+    "reports/pilot_05_final_figure_revalidation/pilot_05BG_independent_figure_revalidation.md": "508F47A1586122785BCC1226D3C0B72F61FC3F1D792C6441AF1F25C58BF04046",
+    "reports/pilot_05_final_figure_revalidation/pilot_05BG_internal_validation_report.md": "FBCC2FD941D09BEC3467537BAF0C56E71278B2E97767DA5FC99EF526569B4553",
+    "reports/pilot_05_final_figure_revalidation/pilot_05BG_manuscript_binding_integrity_report.md": "C6AD851533F7C9BDE4C301B9C903E3A9209AADBC520D3F618419F07219B2432C",
+    "reports/pilot_05_final_figure_revalidation/pilot_05BG_submission_readiness_verdict.md": "FEB2B7F7FB24B55E266547C4F5DC1696C589AD24F8EA9DC2BBDD115A7CF55709"
+  },
+  "safety": {
+    "api_calls": false,
+    "env_accessed": false,
+    "experiments_run": false,
+    "files_staged_committed_or_pushed": false,
+    "jsonl_accessed_or_written": false,
+    "manuscript_or_figures_modified": false,
+    "model_calls": false,
+    "new_literature_search": false,
+    "raw_cfpb_data_accessed": false,
+    "raw_prompt_response_accessed": false,
+    "readme_or_earlier_reports_modified": false,
+    "word_or_pdf_conversion": false
+  },
+  "secured_branch": "main",
+  "secured_head": "120f05840f90e05c9b7101e50ff68f9fbde588e3",
+  "source_blobs": {
+    "reports/pilot_05_cfpb_glm52_scaled_metrics/pilot_05AP_bootstrap_confidence_intervals.csv": "a2139720647b9750e77ce0e72e54aafd0767e224",
+    "reports/pilot_05_cfpb_glm52_scaled_metrics/pilot_05AP_cascade_sequence_metrics.csv": "c756cd24734f4bac16ad9479c8ef0e4b8b87f95e",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_figure_01_divergence_data.csv": "37077ea0b8fafd1c010208faa50ab1a58bcb7d1c",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_figure_04_failure_family_data.csv": "ab1b3ce5a316c7cb30eb8c0a11d583396fe4c9ed",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_manifest.json": "2e6df8899b2710424ce1e874aa682cea0da3f8d9",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_repaired_final_manuscript.md": "3dbedf9ae538bfecf86ec1072bca2db08acfddb5",
+    "reports/pilot_05_final_integrity_reviewer_readiness/pilot_05BE_manifest.json": "005fdcfb621ce389b079b75cf4a1cf88a1d3660f",
+    "reports/pilot_05_final_manuscript/pilot_05BD_final_manuscript.md": "8a8e5d0eadfc79071a46d2123ec3447c0023827b"
+  },
+  "source_sha256": {
+    "experiments/pilot_05_final_figure_repair.py": "176557BE4D8F6C1D57D231A14C1FD1D4E18FF570A4AAD93C783B4D2F6D245A6E",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_figure_01_divergence_data.csv": "BE397FF00A2EBABD96A6FC55941B00F92D8EC0826FA4769E502490EA3B8AF7C2",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_figure_01_parser_vs_esr_divergence.png": "7A3EA7C709E7F6DB47BA9FC383D8A0F13CA988F77FC6FDC5CD675CAACB33F0D8",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_figure_04_failure_family_counts.png": "6588B474A94B95DDF0389C2B2EE18CB4EF7BD10388E6ABD3E6290B7D090E0417",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_figure_04_failure_family_data.csv": "D6B1C17DE316E9C5B8B520D949B29DB34AA7EAE59EAC3CD69EFB0A9ADCC62E15",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_figure_repair_traceability.md": "F382BABF25E2ABC6BD3007F86518E74C3150A221AEA7DCF37E2105C6DF580168",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_internal_validation_report.md": "6D4E0270AE90DC55586D00E33769DFDB39AA7526A266BF4E2C15014889DC5AD6",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_manifest.json": "013CA01D8EEEFA9BB3264E7FE33777945F0C8E5A3DDC1FDDB5D1589184C9EACB",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_repaired_final_manuscript.md": "A6C3CD10B2C6A17D9687221FE44CC50D5691C82FF84987B096BBC578B2E4ECA0",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_revalidation_input_contract.csv": "A854325E849548C0F042BA51A32156B3CFF9A0216C61F97047A067E2196B7AB0",
+    "reports/pilot_05_final_integrity_reviewer_readiness/pilot_05BE_manifest.json": "22D23D413D125F45E85EB60AE41F40FB64C472A1081CA75F7CDD7A901654694E",
+    "reports/pilot_05_final_manuscript/pilot_05BD_final_manuscript.md": "ACB96B8400F598B65ACC0E3A4AD2BD133BFF82DE52494848E556F3C1B392A570"
+  },
+  "status": "PASS",
+  "task_id": "05BG",
+  "verdict": {
+    "figure_01_data_integrity": "PASS",
+    "figure_01_visual_readability": "ACTION_REQUIRED",
+    "figure_04_integrity": "PASS",
+    "journal_selection": "AUTHORIZED",
+    "manuscript_binding_integrity": "PASS",
+    "new_empirical_evidence_required": false,
+    "new_literature_search_required": false,
+    "new_model_run_required": false,
+    "original_05BE_findings": "CLOSED_2_OF_2",
+    "required_next_gate": "FIGURE_1_LEGEND_LAYOUT_REPAIR_AND_FINAL_EXPORT_VALIDATION",
+    "revalidation_execution": "PASS",
+    "reviewer_readiness": "READY_FOR_JOURNAL_SELECTION_AND_VENUE_FORMATTING",
+    "submission_readiness": "NOT_READY_FOR_FINAL_SUBMISSION",
+    "venue_formatting": "AUTHORIZED"
+  },
+  "version": "05BG-INDEPENDENT-FIGURE-REVALIDATION-V1",
+  "visual_review_binding": {
+    "figure_01_dimensions": {
+      "bit_depth": 8,
+      "color_type": 6,
+      "compression": 0,
+      "filtering": 0,
+      "height": 2006,
+      "interlace": 0,
+      "width": 3210
+    },
+    "figure_01_sha256": "7A3EA7C709E7F6DB47BA9FC383D8A0F13CA988F77FC6FDC5CD675CAACB33F0D8",
+    "figure_04_dimensions": {
+      "bit_depth": 8,
+      "color_type": 6,
+      "compression": 0,
+      "filtering": 0,
+      "height": 1645,
+      "interlace": 0,
+      "width": 2849
+    },
+    "figure_04_sha256": "6588B474A94B95DDF0389C2B2EE18CB4EF7BD10388E6ABD3E6290B7D090E0417"
+  }
+}

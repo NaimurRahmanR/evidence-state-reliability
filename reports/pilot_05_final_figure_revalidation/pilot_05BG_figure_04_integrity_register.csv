@@ -1,0 +1,12 @@
+check_id,check_type,failure_family_key,display_label,count,total_sequence_groups,source_match,visual_visibility,status,finding_id
+F4-D01,COUNT_AND_LABEL,parser_failure_cascade,Parser-failure cascade,143,240,PASS,CLEAR,PASS,
+F4-D02,COUNT_AND_LABEL,detected_not_recovered,Detected but not recovered,71,240,PASS,CLEAR,PASS,
+F4-D03,COUNT_AND_LABEL,audit_false_assurance,Audit false assurance,3,240,PASS,CLEAR,PASS,
+F4-D04,COUNT_AND_LABEL,incomplete_persisted_sequence,Incomplete sequence,6,240,PASS,CLEAR,PASS,
+F4-D05,COUNT_AND_LABEL,preserved_or_clean_success,Preserved success,17,240,PASS,CLEAR,PASS,
+F4-V01,VISUAL_REVIEW,,PNG hash bound to reviewed asset,,,NOT_APPLICABLE,CLEAR,PASS,
+F4-V02,VISUAL_REVIEW,,Title is present and legible,,,NOT_APPLICABLE,CLEAR,PASS,
+F4-V03,VISUAL_REVIEW,,All five failure-family labels are present and legible,,,NOT_APPLICABLE,CLEAR,PASS,
+F4-V04,VISUAL_REVIEW,,All five count annotations are present and unobstructed,,,NOT_APPLICABLE,CLEAR,PASS,
+F4-V05,VISUAL_REVIEW,,X-axis states total sequence groups equals 240,,,NOT_APPLICABLE,CLEAR,PASS,
+F4-V06,VISUAL_REVIEW,,"No label, annotation, title, or bar is clipped",,,NOT_APPLICABLE,CLEAR,PASS,

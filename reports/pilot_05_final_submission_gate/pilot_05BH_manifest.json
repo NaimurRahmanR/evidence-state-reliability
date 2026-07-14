@@ -1,0 +1,113 @@
+{
+  "counts": {
+    "confidence_intervals_obscured": 0,
+    "expected_new_05BH_files": 9,
+    "expected_total_uncommitted_files": 17,
+    "figure_01_authoritative_rows": 18,
+    "figures_preserved": 4,
+    "integrity_register_fail": 0,
+    "integrity_register_pass": 28,
+    "integrity_register_rows": 28,
+    "manuscript_changes_relative_to_05BF": 1,
+    "new_layout_findings": 0,
+    "new_scientific_integrity_findings": 0,
+    "original_findings_closed": 3,
+    "references_preserved": 22,
+    "tables_preserved": 4
+  },
+  "findings": [
+    {
+      "finding_id": "FIG-B01",
+      "status": "CLOSED"
+    },
+    {
+      "finding_id": "FIG-M01",
+      "status": "CLOSED"
+    },
+    {
+      "finding_id": "FIG-L01",
+      "status": "CLOSED"
+    }
+  ],
+  "layout_contract": {
+    "figure_sha256": "8536E3C9C8AE2586B3C49823CE00F1661D3E13B7C3E43B77A8499F19015A9995",
+    "independent_byte_match": true,
+    "legend_axes_separation": 0.135,
+    "legend_outside_axes": true,
+    "png_bytes": 143086,
+    "png_header": {
+      "bit_depth": 8,
+      "color_type": 6,
+      "compression": 0,
+      "filtering": 0,
+      "height": 2000,
+      "interlace": 0,
+      "width": 3200
+    }
+  },
+  "manuscript_contract": {
+    "approved_changes_relative_to_05BF": 1,
+    "figure_paths": [
+      "pilot_05BH_final_figure_01.png",
+      "../pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_figure_02_audit_escalation_interpretation.png",
+      "../pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_figure_03_cascade_failure_rate.png",
+      "pilot_05BF_figure_04_failure_family_counts.png"
+    ],
+    "figures_preserved": 4,
+    "references_preserved": 22,
+    "reversible_to_05BF": true,
+    "tables_preserved": 4
+  },
+  "output_sha256": {
+    "experiments/pilot_05_final_legend_layout_repair.py": "B8C2EEB9297CEEF08F011A8679E1A2DC9E552AE6F658B8302AA6788131D1BEFC",
+    "experiments/pilot_05_final_submission_gate_validator.py": "CBE4D38309808CB0219DF23EAA00C9A4698998C806F354AA2FFBF74A3F7E43A2",
+    "reports/pilot_05_final_submission_gate/pilot_05BH_figure_layout_traceability.md": "3C5A4661A66DB9A5B2976E7D399B2F49FD7225933E510CB170BAF964344B4D9B",
+    "reports/pilot_05_final_submission_gate/pilot_05BH_final_figure_01.png": "8536E3C9C8AE2586B3C49823CE00F1661D3E13B7C3E43B77A8499F19015A9995",
+    "reports/pilot_05_final_submission_gate/pilot_05BH_final_figure_integrity_register.csv": "3995223BE62289767AA71D624D1E0AAAC5892601E5738A740A18A4A93D657AA2",
+    "reports/pilot_05_final_submission_gate/pilot_05BH_final_manuscript.md": "780FDE21A106F2DD794422A5971F3E7B648E4A13419AE86AD0D9A7F210439F25",
+    "reports/pilot_05_final_submission_gate/pilot_05BH_internal_validation_report.md": "71BC733065490BF4699A020F7D94A9FA282107B75CA3645253363B9026B36D45",
+    "reports/pilot_05_final_submission_gate/pilot_05BH_submission_readiness_verdict.md": "07B674B8D73F130C8ABE206124088AA01B3FB6FCDBA8FCB6BFFEABCCCD1FC18C"
+  },
+  "safety": {
+    "api_calls": false,
+    "env_accessed": false,
+    "existing_manuscript_or_figures_modified": false,
+    "experiments_run": false,
+    "files_staged_committed_or_pushed": false,
+    "jsonl_accessed_or_written": false,
+    "model_calls": false,
+    "new_literature_search": false,
+    "raw_cfpb_data_accessed": false,
+    "raw_prompt_response_accessed": false,
+    "readme_or_earlier_reports_modified": false,
+    "word_or_pdf_conversion": false
+  },
+  "secured_branch": "main",
+  "secured_head": "120f05840f90e05c9b7101e50ff68f9fbde588e3",
+  "source_sha256": {
+    "reports/pilot_05_final_figure_repair/pilot_05BF_figure_01_divergence_data.csv": "BE397FF00A2EBABD96A6FC55941B00F92D8EC0826FA4769E502490EA3B8AF7C2",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_repaired_final_manuscript.md": "A6C3CD10B2C6A17D9687221FE44CC50D5691C82FF84987B096BBC578B2E4ECA0",
+    "reports/pilot_05_final_figure_revalidation/pilot_05BG_manifest.json": "90018C1E65A051FAB8F569D5B09342401D465BCFC0BA5DFE69A753E822481BD5"
+  },
+  "status": "PASS",
+  "task_id": "05BH",
+  "verdict": {
+    "figure_01_data_integrity": "PASS",
+    "figure_01_visual_readability": "PASS",
+    "figure_04_integrity": "PASS",
+    "further_scientific_or_figure_repair_required": false,
+    "independent_export_validation": "PASS",
+    "journal_selection": "AUTHORIZED",
+    "legend_layout_repair": "PASS",
+    "manuscript_binding_integrity": "PASS",
+    "new_empirical_evidence_required": false,
+    "new_literature_search_required": false,
+    "new_model_run_required": false,
+    "required_next_gate": "JOURNAL_SELECTION_AND_VENUE_FORMATTING",
+    "reviewer_readiness": "PASS",
+    "scientific_and_figure_submission_gate": "PASS",
+    "submission_readiness": "READY_FOR_VENUE_SPECIFIC_FINALIZATION",
+    "venue_formatting": "AUTHORIZED"
+  },
+  "version": "05BH-FINAL-SUBMISSION-GATE-V1"
+}
