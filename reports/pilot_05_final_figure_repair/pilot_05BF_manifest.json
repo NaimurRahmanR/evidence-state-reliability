@@ -1,0 +1,89 @@
+{
+  "counts": {
+    "approved_manuscript_replacements": 4,
+    "cascade_failure_count": 223,
+    "expected_uncommitted_files": 10,
+    "figure_01_data_rows": 18,
+    "figure_01_parser_rows": 9,
+    "figure_01_stage_success_rows": 9,
+    "figure_04_count_sum": 240,
+    "figure_04_data_rows": 5,
+    "figures_preserved": 4,
+    "parser_ci_crossing_zero": 3,
+    "parser_positive_means": 9,
+    "preserved_success_count": 17,
+    "reference_entries_preserved": 22,
+    "revalidation_contract_rows": 12,
+    "source_blob_contracts": 8,
+    "source_sha256_contracts": 4,
+    "stage_success_ci_below_zero": 9,
+    "tables_preserved": 4
+  },
+  "output_sha256": {
+    "experiments/pilot_05_final_figure_repair.py": "176557BE4D8F6C1D57D231A14C1FD1D4E18FF570A4AAD93C783B4D2F6D245A6E",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_figure_01_divergence_data.csv": "BE397FF00A2EBABD96A6FC55941B00F92D8EC0826FA4769E502490EA3B8AF7C2",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_figure_01_parser_vs_esr_divergence.png": "7A3EA7C709E7F6DB47BA9FC383D8A0F13CA988F77FC6FDC5CD675CAACB33F0D8",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_figure_04_failure_family_counts.png": "6588B474A94B95DDF0389C2B2EE18CB4EF7BD10388E6ABD3E6290B7D090E0417",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_figure_04_failure_family_data.csv": "D6B1C17DE316E9C5B8B520D949B29DB34AA7EAE59EAC3CD69EFB0A9ADCC62E15",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_figure_repair_traceability.md": "F382BABF25E2ABC6BD3007F86518E74C3150A221AEA7DCF37E2105C6DF580168",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_internal_validation_report.md": "6D4E0270AE90DC55586D00E33769DFDB39AA7526A266BF4E2C15014889DC5AD6",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_repaired_final_manuscript.md": "A6C3CD10B2C6A17D9687221FE44CC50D5691C82FF84987B096BBC578B2E4ECA0",
+    "reports/pilot_05_final_figure_repair/pilot_05BF_revalidation_input_contract.csv": "A854325E849548C0F042BA51A32156B3CFF9A0216C61F97047A067E2196B7AB0"
+  },
+  "repair": {
+    "figure_01_finding": "FIG-B01",
+    "figure_01_status": "REPAIRED_CANDIDATE_PENDING_05BG",
+    "figure_04_finding": "FIG-M01",
+    "figure_04_status": "REPAIRED_CANDIDATE_PENDING_05BG",
+    "figures_2_and_3_preserved": true,
+    "repaired_manuscript_reversible": true,
+    "source_manuscript_preserved": true
+  },
+  "safety": {
+    "api_calls": false,
+    "committed_05AS_assets_overwritten": false,
+    "committed_05BD_manuscript_modified": false,
+    "committed_05BE_audit_modified": false,
+    "env_accessed": false,
+    "experiments_run": false,
+    "files_staged_committed_or_pushed": false,
+    "jsonl_accessed_or_written": false,
+    "model_calls": false,
+    "new_literature_search": false,
+    "raw_cfpb_data_accessed": false,
+    "raw_prompt_response_accessed": false,
+    "readme_or_earlier_reports_modified": false,
+    "word_or_pdf_conversion": false
+  },
+  "secured_branch": "main",
+  "secured_head": "0e8570c90fd1506aa7deb42aee66c46abdba118d",
+  "source_blobs": {
+    "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_failure_family_figure_data.csv": "40a3d297fb4d810842a62af97008e2de1bde460b",
+    "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_figure_01_parser_vs_evidence_state_divergence.png": "e17d9a8e153b7d41553f83a1603221ca952e393e",
+    "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_figure_04_failure_family_interpretation.png": "f9136632ee5a4d5079447d34a00fe3537e6e73f2",
+    "reports/pilot_05_cfpb_glm52_paper_figures_tables/pilot_05AS_parser_vs_evidence_state_divergence_figure_data.csv": "dab1047692fd3a6410097a1caeeb7b752e18ce12",
+    "reports/pilot_05_cfpb_glm52_scaled_metrics/pilot_05AP_bootstrap_confidence_intervals.csv": "a2139720647b9750e77ce0e72e54aafd0767e224",
+    "reports/pilot_05_cfpb_glm52_scaled_metrics/pilot_05AP_cascade_sequence_metrics.csv": "c756cd24734f4bac16ad9479c8ef0e4b8b87f95e",
+    "reports/pilot_05_final_integrity_reviewer_readiness/pilot_05BE_manifest.json": "005fdcfb621ce389b079b75cf4a1cf88a1d3660f",
+    "reports/pilot_05_final_manuscript/pilot_05BD_final_manuscript.md": "8a8e5d0eadfc79071a46d2123ec3447c0023827b"
+  },
+  "source_sha256": {
+    "reports/pilot_05_final_integrity_reviewer_readiness/pilot_05BE_manifest.json": "22D23D413D125F45E85EB60AE41F40FB64C472A1081CA75F7CDD7A901654694E",
+    "reports/pilot_05_final_integrity_reviewer_readiness/pilot_05BE_submission_readiness_verdict.md": "8D8590C3EC1AE4C9C3C510CBA867D6A200039C72422842B623C596F753B16B71",
+    "reports/pilot_05_final_manuscript/pilot_05BD_final_manuscript.md": "ACB96B8400F598B65ACC0E3A4AD2BD133BFF82DE52494848E556F3C1B392A570",
+    "reports/pilot_05_final_manuscript/pilot_05BD_manifest.json": "48FBE35214B9CFF59FB72367596D97E9DA5ABDC82D39F970ED432A4536612071"
+  },
+  "status": "PASS",
+  "task_id": "05BF",
+  "verdict": {
+    "figure_integrity": "PENDING_05BG_INDEPENDENT_REVALIDATION",
+    "new_empirical_evidence_created": false,
+    "new_literature_search_performed": false,
+    "new_model_run_performed": false,
+    "repair_generation": "PASS",
+    "required_next_gate": "05BG_INDEPENDENT_REVALIDATION",
+    "reviewer_readiness": "PENDING_05BG",
+    "submission_readiness": "NOT_YET_AUTHORIZED"
+  },
+  "version": "05BF-FIGURE-REPAIR-V1"
+}

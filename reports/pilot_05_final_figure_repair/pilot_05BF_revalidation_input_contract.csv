@@ -1,0 +1,13 @@
+check_id,category,required_check,expected_result
+BF-C01,source,05BD manuscript source is byte-identical to the secured SHA-256.,ACB96B8400F598B65ACC0E3A4AD2BD133BFF82DE52494848E556F3C1B392A570
+BF-C02,figure_01_data,Corrected Figure 1 data contains exactly 18 authoritative rows.,18 rows: 9 parser_valid and 9 stage_success
+BF-C03,figure_01_data,All parser-validity means are positive.,9/9
+BF-C04,figure_01_data,Exactly three parser-validity intervals cross zero.,3/9; partial_dropout only
+BF-C05,figure_01_data,All stage-success intervals remain below zero.,9/9
+BF-C06,figure_01_asset,Figure 1 PNG is bound to the corrected 18-row data contract.,7A3EA7C709E7F6DB47BA9FC383D8A0F13CA988F77FC6FDC5CD675CAACB33F0D8
+BF-C07,figure_04_data,Corrected Figure 4 family counts match the ALL cascade row.,143;71;3;6;17
+BF-C08,figure_04_data,Figure 4 counts sum to all sequence groups.,240
+BF-C09,figure_04_asset,Figure 4 PNG is bound to the corrected five-row count contract.,6588B474A94B95DDF0389C2B2EE18CB4EF7BD10388E6ABD3E6290B7D090E0417
+BF-C10,manuscript,Only the two paths and two captions differ from committed 05BD.,4 reversible replacements
+BF-C11,manuscript,"Figures 2 and 3, tables, references, and scientific prose remain unchanged.",PASS required
+BF-C12,gate,Independent 05BG must decide whether 05BE figure findings are closed.,No readiness claim in 05BF

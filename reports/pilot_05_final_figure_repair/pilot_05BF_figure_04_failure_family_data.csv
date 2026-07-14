@@ -1,0 +1,6 @@
+display_order,failure_family_key,failure_family_label,count,total_sequence_groups,proportion,authoritative_source
+1,parser_failure_cascade,Parser-failure cascade,143,240,0.595833,reports/pilot_05_cfpb_glm52_scaled_metrics/pilot_05AP_cascade_sequence_metrics.csv
+2,detected_not_recovered,Detected but not recovered,71,240,0.295833,reports/pilot_05_cfpb_glm52_scaled_metrics/pilot_05AP_cascade_sequence_metrics.csv
+3,audit_false_assurance,Audit false assurance,3,240,0.012500,reports/pilot_05_cfpb_glm52_scaled_metrics/pilot_05AP_cascade_sequence_metrics.csv
+4,incomplete_persisted_sequence,Incomplete sequence,6,240,0.025000,reports/pilot_05_cfpb_glm52_scaled_metrics/pilot_05AP_cascade_sequence_metrics.csv
+5,preserved_or_clean_success,Preserved success,17,240,0.070833,reports/pilot_05_cfpb_glm52_scaled_metrics/pilot_05AP_cascade_sequence_metrics.csv
