@@ -1,0 +1,13 @@
+risk_id,priority,status,independent_finding,required_action
+RR-01,CRITICAL,PASS,"ESR is separated from the stage-success indicator in Methods, Discussion, and Limitations.",None before figure repair; retain wording during venue formatting.
+RR-02,HIGH,PASS,Low clean parser-validity rates are reported and discussed as a design limitation.,Retain transparent baseline discussion.
+RR-03,HIGH,PASS,All nine positive point estimates and all three zero-crossing partial-dropout intervals are disclosed.,Do not add uniform significance language.
+RR-04,HIGH,PASS,Zero degraded stage success is tied to the scoring rule and model-output-coded judgments.,Retain construct-validity limitation.
+RR-05,HIGH,PASS,Single-model and single-run scope is explicit throughout.,Retain bounded generalisation.
+RR-06,MEDIUM,PASS,"Seven missing rows are counted, located by condition/stage, and excluded rather than imputed.",None.
+RR-07,MEDIUM,PASS,Artifact reproducibility is distinguished from raw-response replay.,Add final release commit or DOI after repair/formatting.
+RR-08,MEDIUM,PASS,Audit indicators are explicitly computational and non-institutional.,None.
+RR-09,HIGH,PASS,Zero recovery is limited to the implemented escalation design.,None.
+RR-10,MEDIUM,PASS,CFPB provenance is bounded and no complaint-truth or misconduct claim is made.,None.
+RR-11,HIGH,FAIL,"Figure 1's committed source-data file contains four parser-accounting totals (243, 470, 250, 470) with empty comparison groups, not the nine parser-validity and nine stage-success contrasts described by the caption. Figure 4 uses three value=1.0 row-presence fallbacks rather than sequence counts.",Regenerate Figure 1 from authoritative condition-stage/bootstrap data; redesign or remove Figure 4; then repeat independent figure binding and visual review.
+RR-12,HIGH,PASS,Novelty is framed as bounded combination-and-operationalisation differentiation.,Retain no-first-ever boundary.

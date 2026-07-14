@@ -1,0 +1,78 @@
+{
+  "counts": {
+    "blocker_findings": 1,
+    "bootstrap_rows": 27,
+    "citation_tokens_checked": 22,
+    "condition_stage_rows": 12,
+    "evidence_adequacy_ci_below_zero": 9,
+    "expected_uncommitted_files": 7,
+    "figures": 4,
+    "integrity_register_rows": 95,
+    "major_findings": 1,
+    "minor_venue_actions": 2,
+    "moderate_findings": 0,
+    "parser_ci_crossing_zero": 3,
+    "parser_positive_means": 9,
+    "protected_05BD_files": 7,
+    "reference_entries": 22,
+    "reviewer_risk_fail": 1,
+    "reviewer_risk_pass": 11,
+    "reviewer_risk_rows": 12,
+    "source_blob_contracts": 17,
+    "stage_success_ci_below_zero": 9,
+    "tables": 4
+  },
+  "findings": [
+    {
+      "finding_id": "FIG-B01",
+      "severity": "BLOCKER",
+      "summary": "Figure 1 source data does not support its central divergence caption."
+    },
+    {
+      "finding_id": "FIG-M01",
+      "severity": "MAJOR",
+      "summary": "Figure 4 uses row-presence fallback values instead of sequence-family counts."
+    }
+  ],
+  "output_sha256": {
+    "experiments/pilot_05_final_integrity_reviewer_readiness_check.py": "6D98A3D44C72D6E77EFE2F9C48D4517CB01CA59C4577D26A992C50247AE78AC9",
+    "reports/pilot_05_final_integrity_reviewer_readiness/pilot_05BE_independent_integrity_review.md": "ADAB07AE00C859C4444503ABE14682F0C860CDDA15685BBA491882AD547DE774",
+    "reports/pilot_05_final_integrity_reviewer_readiness/pilot_05BE_internal_validation_report.md": "0932F2D28C735AF134D0149F45986B2F7206C3B3905900E3E82ACF4C95EB3C8A",
+    "reports/pilot_05_final_integrity_reviewer_readiness/pilot_05BE_numerical_citation_integrity_register.csv": "25A946AAA12D29427FCDC6C5D9D1129E0E4F3BDC46C6DEBD0CEB16E8C6E3A71D",
+    "reports/pilot_05_final_integrity_reviewer_readiness/pilot_05BE_reviewer_readiness_register.csv": "FEAB9E8B4B8FFB50AEF687F823854F8B19AEAF7823B24B108178B1175FE6238F",
+    "reports/pilot_05_final_integrity_reviewer_readiness/pilot_05BE_submission_readiness_verdict.md": "8D8590C3EC1AE4C9C3C510CBA867D6A200039C72422842B623C596F753B16B71"
+  },
+  "safety": {
+    "api_calls": false,
+    "env_accessed": false,
+    "experiments_run": false,
+    "files_deleted_or_overwritten": false,
+    "files_staged_committed_or_pushed": false,
+    "jsonl_accessed_or_written": false,
+    "manuscript_modified": false,
+    "model_calls": false,
+    "new_literature_search": false,
+    "raw_cfpb_data_accessed": false,
+    "raw_prompt_response_accessed": false,
+    "readme_or_earlier_reports_modified": false,
+    "word_or_pdf_conversion": false
+  },
+  "secured_branch": "main",
+  "secured_head": "b424bdd5708c1102b5c5b053f2f3375a203f39e8",
+  "status": "PASS",
+  "task_id": "05BE",
+  "verdict": {
+    "citation_integrity": "PASS",
+    "figure_integrity": "FAIL",
+    "manuscript_text_integrity": "PASS",
+    "new_empirical_evidence_required": false,
+    "new_literature_search_required": false,
+    "new_model_run_required": false,
+    "numerical_integrity": "PASS",
+    "required_next_gate": "FIGURE_REPAIR_AND_INDEPENDENT_REVALIDATION_REQUIRED",
+    "reviewer_readiness": "FAIL",
+    "submission_readiness": "NOT_READY_FOR_JOURNAL_SELECTION_OR_VENUE_FORMATTING",
+    "table_integrity": "PASS"
+  },
+  "version": "05BE-INDEPENDENT-INTEGRITY-REVIEW-V1"
+}
